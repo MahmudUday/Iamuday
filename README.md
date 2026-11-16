@@ -1,2 +1,2 @@
 # Iamuday
-Mahnud Uday portfolio website
+Mahmud Uday portfolio website
