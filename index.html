@@ -159,6 +159,7 @@ body.ready .ln:nth-child(2)>span{transition-delay:.15s}
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
 .fbtn{padding:9px 20px;border-radius:999px;border:1px solid var(--glass-b);background:var(--glass);color:var(--muted);
   cursor:pointer;font:inherit;font-size:.9rem;transition:.5s var(--ease)}
+.fbtn{text-transform:capitalize}
 .fbtn:hover{color:var(--text);transform:translateY(-2px)}
 .fbtn.active{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent;box-shadow:0 8px 26px -8px var(--accent)}
 .grid{columns:3 260px;column-gap:16px}
@@ -312,18 +313,12 @@ const CONFIG = {
     {name:"YouTube",   icon:"▶️", handle:"Your Channel", url:"https://youtube.com/@yourname"},
     {name:"WhatsApp",  icon:"💬", handle:"+880...", url:"https://wa.me/8801XXXXXXXXX"}
   ],
-  // images folder e photo rakho, ekhane nam likho. cat: portrait / nature / street (ba nijer moto)
-  photos: [
-    {src:"images/photo1.jpg",  cat:"portrait", title:"Portrait 1"},
-    {src:"images/photo2.jpg",  cat:"nature",   title:"Nature 1"},
-    {src:"images/photo3.jpg",  cat:"street",   title:"Street 1"},
-    {src:"images/photo4.jpg",  cat:"portrait", title:"Portrait 2"},
-    {src:"images/photo5.jpg",  cat:"nature",   title:"Nature 2"},
-    {src:"images/photo6.jpg",  cat:"street",   title:"Street 2"},
-    {src:"images/photo7.jpg",  cat:"nature",   title:"Nature 3"},
-    {src:"images/photo8.jpg",  cat:"portrait", title:"Portrait 3"},
-    {src:"images/photo9.jpg",  cat:"street",   title:"Street 3"}
-  ]
+  // AUTO GALLERY: images folder e photo upload korlei hobe, kothao list likhte hobe na.
+  // File nam: portrait-1.jpg, portrait-2.jpg, nature-1.jpg, street-1.jpg, wedding-1.jpg, travel-1.jpg, event-1.jpg
+  // Category chai na hole: photo1.jpg, photo2.jpg ... (number gap rakho na)
+  categories: ["portrait","nature","street","wedding","travel","event","other"],
+  max: 150,
+  photos: []
 };
 /* ======================================== */
 
@@ -389,9 +384,32 @@ $$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
 const mq='<span>MAHMUD UDAY <b>✦</b> ORION GRAPHY <b>✦</b> PHOTOGRAPHER <b>✦</b></span>';
 $("#track").innerHTML=mq.repeat(8);
 
+/* gallery: auto-detect photos in /images */
+const probe=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(true);i.onerror=()=>r(false);i.src=src});
+async function loadPhotos(){
+  const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+  const groups=await Promise.all(CONFIG.categories.map(async cat=>{
+    const out=[];
+    for(let n=1;n<=CONFIG.max;n++){
+      const names=cat==="other"?[`photo${n}`,`photo-${n}`]:[`${cat}-${n}`];
+      let hit=null;
+      for(const nm of names){const src=`images/${nm}.jpg`;if(await probe(src)){hit=src;break}}
+      if(!hit)break;
+      out.push({src:hit,cat,title:(cat==="other"?"Photo":cap(cat))+" "+n});
+    }
+    return out;
+  }));
+  CONFIG.photos=groups.flat();
+  if(!CONFIG.photos.length){ // demo tiles until real photos are uploaded
+    CONFIG.photos=["portrait","nature","street","portrait","nature","street","nature","portrait","street"]
+      .map((c,i)=>({src:`images/demo${i}.jpg`,cat:c,title:cap(c)+" "+(i+1)}));
+  }
+}
+
 /* gallery */
 function buildFilters(){
   const cats=["all",...new Set(CONFIG.photos.map(p=>p.cat))];
+  if(cats.length<=2){$("#filters").innerHTML="";return}
   $("#filters").innerHTML=cats.map(c=>`<button class="fbtn ${c===cur?"active":""}" data-c="${c}">${T[lang][c]||c}</button>`).join("");
   $$(".fbtn").forEach(b=>b.onclick=()=>{if(cur===b.dataset.c)return;cur=b.dataset.c;buildFilters();filter(true)});
 }
@@ -490,7 +508,8 @@ if(matchMedia("(hover:hover)").matches){
 
 /* init */
 $("#yr").textContent=new Date().getFullYear();
-applyTheme();applyLang();buildGrid();
+applyTheme();applyLang();
+loadPhotos().then(()=>{buildFilters();buildGrid()});
 $$(".rv").forEach(e=>io.observe(e));
 addEventListener("load",()=>setTimeout(()=>{
   $("#loader").classList.add("hide");document.body.classList.add("ready");
