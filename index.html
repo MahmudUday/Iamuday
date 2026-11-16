@@ -100,6 +100,9 @@ h2{font-size:clamp(2rem,6vw,3.2rem);font-weight:600;margin-bottom:10px;position:
 h2::after{content:"";position:absolute;left:0;bottom:-6px;height:3px;width:0;border-radius:3px;
   background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.2s .4s var(--ease)}
 h2.in::after{width:64px}
+h2::before{content:"";position:absolute;left:-16px;right:-16px;top:50%;height:75%;transform:translateY(-50%);z-index:-1;pointer-events:none;
+  background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));filter:blur(36px);opacity:.35;border-radius:50%;animation:hglow 5s ease-in-out infinite}
+@keyframes hglow{0%,100%{opacity:.22;transform:translateY(-50%) scale(.9)}50%{opacity:.5;transform:translateY(-50%) scale(1.1)}}
 h2 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{color:var(--muted);margin:14px 0 36px;max-width:560px}
 
@@ -153,7 +156,18 @@ body.ready .ln:nth-child(2)>span{transition-delay:.15s}
 .about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:30px;align-items:center}
 @media(max-width:760px){.about-grid{grid-template-columns:1fr}}
 .tilt{transform-style:preserve-3d;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s;will-change:transform}
-.avatar{aspect-ratio:4/5;overflow:hidden;position:relative}
+@property --ang{syntax:"<angle>";inherits:true;initial-value:0deg}
+@keyframes rot{to{--ang:360deg}}
+.royal{position:relative;padding:6px;border-radius:30px;
+  background:conic-gradient(from var(--ang),#8a6212,#ffe8a3,#f5c542,#fff7d6,#b8860b,#ffd76a,#8a6212);
+  animation:rot 5s linear infinite}
+.royal::before{content:"";position:absolute;inset:-8px;border-radius:38px;z-index:-1;filter:blur(22px);opacity:.6;
+  background:conic-gradient(from var(--ang),#8a6212,#ffe8a3,#f5c542,#fff7d6,#b8860b,#ffd76a,#8a6212);animation:rot 5s linear infinite}
+.royal::after{content:"✦";position:absolute;top:-17px;left:50%;margin-left:-10px;font-size:20px;line-height:1;color:#ffe8a3;
+  text-shadow:0 0 12px #f5c542,0 0 24px #f5c542;animation:twk 2.4s ease-in-out infinite}
+@keyframes twk{0%,100%{opacity:.4;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(45deg)}}
+.avatar{aspect-ratio:4/5;overflow:hidden;position:relative;isolation:isolate;background:#000;border-radius:24px;border:2px solid #000}
+.avatar::after{content:"";position:absolute;inset:9px;border-radius:16px;border:1px solid rgba(255,225,150,.55);pointer-events:none;z-index:2}
 .avatar img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
 .avatar:hover img{transform:scale(1.08)}
 .avatar .ph{position:absolute;inset:0;display:grid;place-items:center;font-size:4rem;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:.45;z-index:-1}
@@ -178,7 +192,12 @@ body.ready .ln:nth-child(2)>span{transition-delay:.15s}
 .grid{columns:3 260px;column-gap:16px}
 .item{break-inside:avoid;margin-bottom:16px;border-radius:18px;overflow:hidden;position:relative;cursor:pointer;
   background:var(--glass);border:1px solid var(--glass-b);transition:opacity .6s var(--ease),transform .6s var(--ease),filter .6s var(--ease),box-shadow .5s}
-.item:hover{box-shadow:0 20px 50px -18px var(--accent)}
+.item{animation:igl 6s ease-in-out infinite}
+.item:nth-child(3n+2){animation-delay:-2s}
+.item:nth-child(3n){animation-delay:-4s}
+@keyframes igl{0%,100%{box-shadow:0 0 18px -2px rgba(47,107,255,.5),0 0 40px -10px rgba(106,92,255,.35)}
+  50%{box-shadow:0 0 34px 0 rgba(0,194,255,.6),0 0 60px -8px rgba(47,107,255,.5)}}
+#lbimg img{box-shadow:0 0 70px -12px rgba(0,150,255,.7)}
 .item.hide{display:none}
 .item.out{opacity:0!important;transform:scale(.9) translateY(14px)!important;filter:blur(6px)!important}
 .item img{width:100%;transition:transform 1.2s var(--ease),filter .6s;min-height:160px;object-fit:cover}
@@ -202,8 +221,8 @@ body.ready .ln:nth-child(2)>span{transition-delay:.15s}
 #lbc{position:absolute;bottom:22px;color:#cfd8ee;font-size:.95rem}
 
 /* social */
-.soc{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-.s-card{padding:28px;display:flex;flex-direction:column;gap:8px;height:100%}
+.soc{display:flex;flex-wrap:wrap;gap:18px}
+.s-card{width:92px;height:92px;padding:0;display:grid;place-items:center;border-radius:26px;animation:igl 6s ease-in-out infinite}
 .s-card:hover{box-shadow:0 24px 60px -20px var(--accent);border-color:var(--accent2)}
 .s-card .ic{width:44px;height:44px;display:block;transition:transform .6s var(--ease)}
 .s-card .ic svg{width:100%;height:100%;display:block}
@@ -268,7 +287,7 @@ footer{text-align:center;color:var(--muted);padding:40px 20px;font-size:.9rem}
   <h2 class="rv"><span data-i="about_t">About</span> <em data-i="about_e">Me</em></h2>
   <p class="sub rv d1" data-i="about_s">Chemist by profession, creator by passion.</p>
   <div class="about-grid">
-    <div class="rv"><div class="avatar glass tilt"><div class="ph">📷</div><img src="images/profile.jpg" alt="Mahmud Uday" onerror="this.style.display='none'"></div></div>
+    <div class="rv"><div class="royal tilt"><div class="avatar"><div class="ph">📷</div><img src="images/profile.jpg" alt="Mahmud Uday" onerror="this.style.display='none'"></div></div></div>
     <div class="about-txt glass rv d2">
       <p data-i="about_p1">Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.</p>
       <p data-i="about_p2">Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.</p>
@@ -492,8 +511,8 @@ const ICONS={
  email:`<svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="3" fill="#fff"/><path d="M1 7.2l11 7.6 11-7.6" fill="none" stroke="#EA4335" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M1 7v10a3 3 0 003 3h1.5V9.4z" fill="#4285F4"/><path d="M23 7v10a3 3 0 01-3 3h-1.5V9.4z" fill="#34A853"/><path d="M5.5 9.4L12 14l6.5-4.6V6.2L12 10.8 5.5 6.2z" fill="#EA4335"/></svg>`
 };
 $("#soc").innerHTML=CONFIG.socials.map((s,i)=>`
-  <div class="rv" style="transition-delay:${i*100}ms"><a class="s-card glass tilt" href="${s.url}" target="_blank" rel="noopener">
-    <span class="ic">${ICONS[s.icon]}</span><b>${s.name}</b><small>${s.handle}</small></a></div>`).join("");
+  <div class="rv" style="transition-delay:${i*100}ms"><a class="s-card glass tilt" href="${s.url}" target="_blank" rel="noopener" title="${s.name}" aria-label="${s.name}">
+    <span class="ic">${ICONS[s.icon]}</span></a></div>`).join("");
 
 /* contact (opens email app) */
 $("#form").onsubmit=e=>{e.preventDefault();
