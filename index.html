@@ -159,6 +159,11 @@ body.ready .ln:nth-child(2)>span{transition-delay:.15s}
 .avatar .ph{position:absolute;inset:0;display:grid;place-items:center;font-size:4rem;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:.45;z-index:-1}
 .about-txt{padding:34px}
 .about-txt p{color:var(--muted);margin-bottom:16px}
+.roles{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.role{padding:8px 16px;border-radius:999px;font-size:.88rem;border:1px solid var(--glass-b);background:var(--glass);
+  transition:.5s var(--ease);display:inline-flex;align-items:center;gap:8px}
+.role::before{content:"";width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 10px var(--accent2)}
+.role:hover{transform:translateY(-3px);border-color:var(--accent2);box-shadow:0 10px 28px -10px var(--accent)}
 .stats{display:flex;gap:26px;margin-top:22px;flex-wrap:wrap}
 .stats b{display:block;font-size:2.1rem;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .stats small{color:var(--muted)}
@@ -261,16 +266,18 @@ footer{text-align:center;color:var(--muted);padding:40px 20px;font-size:.9rem}
 
 <section id="about">
   <h2 class="rv"><span data-i="about_t">About</span> <em data-i="about_e">Me</em></h2>
-  <p class="sub rv d1" data-i="about_s">The person behind the lens.</p>
+  <p class="sub rv d1" data-i="about_s">Chemist by profession, creator by passion.</p>
   <div class="about-grid">
     <div class="rv"><div class="avatar glass tilt"><div class="ph">📷</div><img src="images/profile.jpg" alt="Mahmud Uday" onerror="this.style.display='none'"></div></div>
     <div class="about-txt glass rv d2">
-      <p data-i="about_p1">Hi, I'm Mahmud Uday, a passionate photographer from Bangladesh. Photography is not just a hobby for me, it's the way I see and feel the world.</p>
-      <p data-i="about_p2">I love shooting portraits, nature and street life, always chasing natural light and honest moments.</p>
-      <div class="stats">
-        <div><b data-count="500">0</b><small data-i="st1">Photos</small></div>
-        <div><b data-count="50">0</b><small data-i="st2">Projects</small></div>
-        <div><b data-count="3">0</b><small data-i="st3">Years</small></div>
+      <p data-i="about_p1">Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.</p>
+      <p data-i="about_p2">Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.</p>
+      <p data-i="about_p3">And through the lens, I'm a passionate photographer. Photography is the way I see and feel the world, always chasing natural light and honest moments.</p>
+      <div class="roles">
+        <span class="role" data-i="r1">Photographer</span>
+        <span class="role" data-i="r2">Chemist</span>
+        <span class="role" data-i="r3">WordPress Developer</span>
+        <span class="role" data-i="r4">Content Writer</span>
       </div>
     </div>
   </div>
@@ -336,9 +343,11 @@ const T = {
  en:{nav_home:"Home",nav_about:"About",nav_gallery:"Orion Graphy",nav_social:"Social",nav_contact:"Contact",
   tag:"📷 Photographer",h1a:"Capturing",h1b:"Moments",
   hero_p:"I'm Mahmud Uday. I freeze light, emotion and stories into frames that last forever.",
-  view:"View Orion Graphy",hire:"Get in touch",about_t:"About",about_e:"Me",about_s:"The person behind the lens.",
-  about_p1:"Hi, I'm Mahmud Uday, a passionate photographer from Bangladesh. Photography is not just a hobby for me, it's the way I see and feel the world.",
-  about_p2:"I love shooting portraits, nature and street life, always chasing natural light and honest moments.",
+  view:"View Orion Graphy",hire:"Get in touch",about_t:"About",about_e:"Me",about_s:"Chemist by profession, creator by passion.",
+  about_p1:"Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.",
+  about_p2:"Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.",
+  about_p3:"And through the lens, I'm a passionate photographer. Photography is the way I see and feel the world, always chasing natural light and honest moments.",
+  r1:"Photographer",r2:"Chemist",r3:"WordPress Developer",r4:"Content Writer",
   st1:"Photos",st2:"Projects",st3:"Years",gal_t:"Orion",gal_e:"Graphy",
   gal_s:"A selection of my favourite frames. Tap any photo to view it large.",
   soc_t:"Find me on",soc_e:"Social",soc_s:"Follow my journey and daily shots.",
@@ -348,9 +357,11 @@ const T = {
  bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
   tag:"📷 ফটোগ্রাফার",h1a:"বন্দী করি",h1b:"মুহূর্ত",
   hero_p:"আমি মাহমুদ উদয়। আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়।",
-  view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমার",about_e:"পরিচয়",about_s:"ক্যামেরার পেছনের মানুষটি।",
-  about_p1:"হ্যালো, আমি মাহমুদ উদয়, বাংলাদেশের একজন শখের ফটোগ্রাফার। ফটোগ্রাফি আমার কাছে শুধু শখ নয়, পৃথিবীকে দেখা ও অনুভব করার একটি উপায়।",
-  about_p2:"পোর্ট্রেট, প্রকৃতি আর রাস্তার জীবন তোলা আমার প্রিয়, সবসময় প্রাকৃতিক আলো আর সত্যিকারের মুহূর্ত খুঁজি।",
+  view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমার",about_e:"পরিচয়",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
+  about_p1:"হ্যালো, আমি মাহমুদ উদয়। একটি বহুজাতিক কোম্পানিতে কেমিস্ট হিসেবে কাজ করি, যেখানে নিখুঁত হিসাব আর অনুসন্ধিৎসাই আমার চালিকাশক্তি।",
+  about_p2:"ল্যাবের বাইরে আমি একজন ওয়ার্ডপ্রেস ওয়েব ডেভেলপার ও কনটেন্ট রাইটার, যে ভাবনাকে সুন্দর ওয়েবসাইট আর হৃদয়ছোঁয়া লেখায় রূপ দিতে ভালোবাসে।",
+  about_p3:"আর ক্যামেরার লেন্সে আমি একজন শখের ফটোগ্রাফার। ফটোগ্রাফি আমার কাছে পৃথিবীকে দেখা ও অনুভব করার উপায়, আমি সবসময় প্রাকৃতিক আলো আর সত্যিকারের মুহূর্ত খুঁজি।",
+  r1:"ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",
   st1:"ছবি",st2:"প্রজেক্ট",st3:"বছর",gal_t:"Orion",gal_e:"Graphy",
   gal_s:"আমার প্রিয় কিছু ফ্রেম। যেকোনো ছবিতে ট্যাপ করে বড় করে দেখুন।",
   soc_t:"আমাকে পাবেন",soc_e:"সোশ্যালে",soc_s:"আমার যাত্রা ও প্রতিদিনের ছবি ফলো করুন।",
