@@ -6,6 +6,11 @@
 <title>Mahmud Uday | Orion Graphy</title>
 <meta name="description" content="Photography portfolio of Mahmud Uday - Orion Graphy">
 <meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mahmud Uday | Orion Graphy">
+<meta property="og:description" content="Photographer, chemist, WordPress developer and content writer from Bangladesh.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mahmud Uday","jobTitle":"Photographer, WordPress Developer, Content Writer","email":"mahmududay.info@gmail.com","sameAs":["https://instagram.com/mahmududay.info","https://facebook.com/mahmududay.info"]}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -28,7 +33,10 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;color-scheme:dark light}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent),var(--accent2));border-radius:8px}
+:focus-visible{outline:2px solid var(--accent2);outline-offset:3px;border-radius:8px}
 body{background:var(--bg);color:var(--text);font-family:'Outfit','Hind Siliguri',sans-serif;overflow-x:hidden;line-height:1.6;
   transition:background-color .5s,color .5s}
 body.bn{font-family:'Hind Siliguri','Outfit',sans-serif;letter-spacing:0;line-height:1.75}
@@ -63,7 +71,18 @@ img{display:block;max-width:100%}
 @keyframes float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(6vw,5vh,0) scale(1.12)}}
 
 /* glass: translucent only, no backdrop blur (big perf win) */
-.glass{background:var(--glass);border:1px solid var(--glass-b);box-shadow:inset 0 1px 0 rgba(255,255,255,.06);border-radius:22px}
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035) 45%,rgba(70,120,255,.07));
+  border:1px solid rgba(255,255,255,.13);border-radius:22px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.04),0 10px 30px -14px rgba(0,0,0,.7)}
+[data-theme="light"] .glass{background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border-color:rgba(255,255,255,.95);
+  box-shadow:inset 0 1px 0 #fff,0 10px 30px -14px rgba(20,60,160,.3)}
+/* real iOS-style blur only on SMALL elements (cheap); big cards use the sheen above */
+.hud-bar,.s-card,#top,.slider,.tag,.btn-i,.lbb,.visits,.card{-webkit-backdrop-filter:blur(10px) saturate(160%);backdrop-filter:blur(10px) saturate(160%)}
+.links.open{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+/* low-end devices: keep the glass look, skip the blur */
+html.lite :is(.hud-bar,.s-card,#top,.slider,.tag,.btn-i,.lbb,.visits,.card,.links.open){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html.lite nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(8,14,30,.88)}
+html.lite[data-theme="light"] nav{background:rgba(255,255,255,.92)}
 
 /* cheap animated glow: only opacity animates (GPU) */
 .gl{position:relative;isolation:isolate}
@@ -186,6 +205,10 @@ h2 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--acc
 [data-theme="light"] .ln>span{background-image:linear-gradient(90deg,var(--accent),var(--accent2) 55%,var(--accent3))}
 body.ready .ln>span{transform:none}
 body.ready .ln:nth-child(2)>span{transition-delay:.15s}
+.roleline{font-size:clamp(1.1rem,4vw,1.5rem);margin-top:14px;color:var(--muted)}
+#roleword{display:inline-block;font-weight:600;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;
+  transition:opacity .35s,transform .35s}
+#roleword.sw{opacity:0;transform:translateY(8px)}
 .hero-p{margin:20px 0 30px;color:var(--muted);font-size:1.1rem;max-width:520px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
 .btn{padding:14px 28px;border-radius:999px;cursor:pointer;border:1px solid var(--glass-b);display:inline-block;
@@ -239,6 +262,15 @@ body.ready .ln:nth-child(2)>span{transition-delay:.15s}
 .about-txt.in .role{animation:rolein .8s var(--ease) backwards;animation-delay:calc(var(--k,0)*.13s + .5s)}
 .role:nth-child(1){--k:0}.role:nth-child(2){--k:1}.role:nth-child(3){--k:2}.role:nth-child(4){--k:3}
 @keyframes rolein{from{opacity:0;transform:translate3d(0,22px,0) scale(.8)}}
+
+/* services */
+.srv{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{padding:26px;transition:transform .45s var(--ease),border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--accent2)}
+.card .si{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:16px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 8px 24px -8px var(--accent2)}
+.card h3{font-size:1.2rem;margin-bottom:6px}
+.card p{color:var(--muted);font-size:.95rem}
 
 /* gallery */
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
@@ -323,11 +355,15 @@ input:focus,textarea:focus{border-color:var(--accent2);box-shadow:0 0 0 4px rgba
 textarea{min-height:130px;resize:vertical}
 
 /* footer: separate area */
-footer{position:relative;margin-top:44px;padding:36px 20px 44px;text-align:center;color:var(--muted);font-size:.9rem;
+footer{position:relative;margin-top:44px;padding:36px 20px 64px;text-align:center;color:var(--muted);font-size:.9rem;
   border-top:1px solid var(--glass-b);background:linear-gradient(180deg,rgba(47,107,255,.09),transparent 80%)}
 footer::before{content:"";position:absolute;top:-1px;left:50%;width:min(60%,360px);height:2px;transform:translateX(-50%);
   background:linear-gradient(90deg,transparent,var(--accent2),transparent);box-shadow:0 0 14px var(--accent2)}
 footer .ft{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:2px}
+.visits{position:absolute;right:14px;bottom:12px;display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;font-size:.78rem;color:var(--muted)}
+.visits svg{width:14px;height:14px;flex:none}
+.visits b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+.visits i{width:6px;height:6px;border-radius:50%;background:#27e08a;box-shadow:0 0 8px #27e08a;flex:none}
 
 /* back to top: only near bottom */
 #top{position:fixed;right:20px;bottom:24px;width:56px;height:56px;border-radius:50%;z-index:90;cursor:pointer;padding:0;color:var(--text);
@@ -398,6 +434,7 @@ footer .ft{display:inline-flex;align-items:center;justify-content:center;flex-wr
     <span class="ln"><span data-i="h1a">Capturing</span></span>
     <span class="ln"><span data-i="h1b">Moments</span></span>
   </h1>
+  <p class="roleline rv"><span data-i="iam">I am a</span> <b id="roleword">Photographer</b></p>
   <p class="hero-p rv d1" data-i="hero_p">I'm Mahmud Uday. I freeze light, emotion and stories into frames that last forever.</p>
   <div class="cta rv d2">
     <a href="#gallery" class="btn pri mag" data-i="view">View Orion Graphy</a>
@@ -424,6 +461,25 @@ footer .ft{display:inline-flex;align-items:center;justify-content:center;flex-wr
         <span class="role" data-i="r3">WordPress Developer</span>
         <span class="role" data-i="r4">Content Writer</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <h2 class="rv"><span data-i="sv_t">What I</span> <em data-i="sv_e">Do</em></h2>
+  <p class="sub rv d1" data-i="sv_s">Skills I bring to every project.</p>
+  <div class="srv">
+    <div class="card glass rv fx-z">
+      <div class="si"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="13.5" r="3.6"/></svg></div>
+      <h3 data-i="sv1_t">Photography</h3><p data-i="sv1_p">Light, emotion and honest moments, framed with care.</p>
+    </div>
+    <div class="card glass rv fx-z d1">
+      <div class="si"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
+      <h3 data-i="sv2_t">WordPress Development</h3><p data-i="sv2_p">Clean, fast and responsive websites that work everywhere.</p>
+    </div>
+    <div class="card glass rv fx-z d2">
+      <div class="si"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19z"/><path d="M14 7l3 3"/></svg></div>
+      <h3 data-i="sv3_t">Content Writing</h3><p data-i="sv3_p">Words that connect with people and explain things clearly.</p>
     </div>
   </div>
 </section>
@@ -472,7 +528,11 @@ footer .ft{display:inline-flex;align-items:center;justify-content:center;flex-wr
 </section>
 </main>
 
-<footer><div class="ft">© <span id="yr"></span>&nbsp;Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg>&nbsp;· Orion Graphy.&nbsp;<span data-i="rights">All rights reserved.</span></div></footer>
+<footer><div class="ft">© <span id="yr"></span>&nbsp;Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg>&nbsp;· Orion Graphy.&nbsp;<span data-i="rights">All rights reserved.</span></div>
+  <div class="visits glass" id="visits" title="Total visitors" hidden>
+    <i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="vcount">0</b>
+  </div>
+</footer>
 
 <button id="top" class="glass gl" aria-label="Back to top" title="Top">
   <svg class="pr" viewBox="0 0 52 52"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#00c2ff"/></linearGradient></defs><circle class="tr" cx="26" cy="26" r="23"/><circle class="pg" id="pg" cx="26" cy="26" r="23"/></svg>
@@ -518,7 +578,11 @@ const T = {
   about_p1:"Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.",
   about_p2:"Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.",
   about_p3:"And through the lens, I'm a passionate photographer. Photography is the way I see and feel the world, always chasing natural light and honest moments.",
-  r1:"Photographer",r2:"Chemist",r3:"WordPress Developer",r4:"Content Writer",
+  r1:"Photographer",r2:"Chemist",r3:"WordPress Developer",r4:"Content Writer",iam:"I am a",
+  sv_t:"What I",sv_e:"Do",sv_s:"Skills I bring to every project.",
+  sv1_t:"Photography",sv1_p:"Light, emotion and honest moments, framed with care.",
+  sv2_t:"WordPress Development",sv2_p:"Clean, fast and responsive websites that work everywhere.",
+  sv3_t:"Content Writing",sv3_p:"Words that connect with people and explain things clearly.",
   gal_t:"Orion",gal_e:"Graphy",gal_s:"A selection of my favourite frames. Tap any photo to view it large.",
   soc_t:"Find me on",soc_e:"Social",soc_s:"Follow my journey and daily shots.",
   con_t:"Let's",con_e:"Talk",con_s:"Want a shoot or collaboration? Send me a message.",
@@ -533,7 +597,11 @@ const T = {
   about_p1:"হ্যালো, আমি মাহমুদ উদয়। একটি বহুজাতিক কোম্পানিতে কেমিস্ট হিসেবে কাজ করি, যেখানে নিখুঁত হিসাব আর অনুসন্ধিৎসাই আমার চালিকাশক্তি।",
   about_p2:"ল্যাবের বাইরে আমি একজন ওয়ার্ডপ্রেস ওয়েব ডেভেলপার ও কনটেন্ট রাইটার, যে ভাবনাকে সুন্দর ওয়েবসাইট আর হৃদয়ছোঁয়া লেখায় রূপ দিতে ভালোবাসে।",
   about_p3:"আর ক্যামেরার লেন্সে আমি একজন শখের ফটোগ্রাফার। ফটোগ্রাফি আমার কাছে পৃথিবীকে দেখা ও অনুভব করার উপায়, আমি সবসময় প্রাকৃতিক আলো আর সত্যিকারের মুহূর্ত খুঁজি।",
-  r1:"ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",
+  r1:"ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",iam:"আমি একজন",
+  sv_t:"আমি যা",sv_e:"করি",sv_s:"প্রতিটি প্রজেক্টে আমার দক্ষতার ছোঁয়া।",
+  sv1_t:"ফটোগ্রাফি",sv1_p:"আলো, অনুভূতি আর সত্যিকারের মুহূর্ত, যত্ন করে ফ্রেমে বন্দী।",
+  sv2_t:"ওয়ার্ডপ্রেস ডেভেলপমেন্ট",sv2_p:"পরিচ্ছন্ন, দ্রুত ও রেসপন্সিভ ওয়েবসাইট, সব ডিভাইসে নিখুঁত।",
+  sv3_t:"কনটেন্ট রাইটিং",sv3_p:"এমন লেখা যা মানুষের সাথে সংযোগ গড়ে এবং সহজে বোঝায়।",
   gal_t:"Orion",gal_e:"Graphy",gal_s:"আমার প্রিয় কিছু ফ্রেম। যেকোনো ছবিতে ট্যাপ করে বড় করে দেখুন।",
   soc_t:"আমাকে পাবেন",soc_e:"সোশ্যালে",soc_s:"আমার যাত্রা ও প্রতিদিনের ছবি ফলো করুন।",
   con_t:"চলুন",con_e:"কথা বলি",con_s:"শুট বা কাজের জন্য মেসেজ দিন।",
@@ -546,6 +614,7 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}}};
 let lang=store.get("lang")||"en", theme=store.get("theme")||"dark", cur="all", visible=[], idx=0, expanded=false;
 const LIMIT=6;
+let ri=0;const rw=$("#roleword");
 
 /* ---------- sci-fi loader ---------- */
 (function(){
@@ -583,6 +652,7 @@ function applyLang(){
   $$("[data-i]").forEach(e=>{if(d[e.dataset.i])e.textContent=d[e.dataset.i]});
   $$("[data-ph]").forEach(e=>e.placeholder=d[e.dataset.ph]);
   $("#lang").textContent=lang==="en"?"বাং":"EN";
+  rw.textContent=d["r"+(ri+1)];
   buildFilters();
 }
 $("#lang").onclick=()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang()};
@@ -774,6 +844,31 @@ let deferred=null;
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;$("#install").hidden=false});
 $("#install").onclick=async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;$("#install").hidden=true};
 addEventListener("appinstalled",()=>{$("#install").hidden=true});
+
+/* ---------- low-end detection: keep glass look, skip blur ---------- */
+(()=>{const m=navigator.deviceMemory,c=navigator.hardwareConcurrency;
+  if((m&&m<=4)||(c&&c<=4)||matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("lite")})();
+
+/* ---------- rotating role word ---------- */
+setInterval(()=>{rw.classList.add("sw");setTimeout(()=>{ri=(ri+1)%4;rw.textContent=T[lang]["r"+(ri+1)];rw.classList.remove("sw")},350)},2600);
+
+/* ---------- real visitor counter (counts each browser once) ---------- */
+(async()=>{
+  const el=$("#visits"),num=$("#vcount"),NS="mahmududay-orion-graphy",KEY="visitors",SEEN="orion_visited_v1";
+  const api=(a)=>{const c=new AbortController();setTimeout(()=>c.abort(),7000);
+    return fetch(`https://abacus.jasoncameron.dev/${a}/${NS}/${KEY}`,{signal:c.signal})};
+  try{
+    const local=["localhost","127.0.0.1",""].includes(location.hostname);
+    let r;
+    if(store.get(SEEN)||local)r=await api("get");else{r=await api("hit");if(r.ok)store.set(SEEN,"1")}
+    if(r.status===404){r=await api("hit");if(r.ok)store.set(SEEN,"1")}
+    if(!r.ok)throw 0;
+    const v=(await r.json()).value;if(typeof v!=="number")throw 0;
+    el.hidden=false;
+    const t0=performance.now();
+    (function f(n){const p=Math.min(1,(n-t0)/1200);num.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(f)})(t0);
+  }catch(e){/* counter service unreachable: stay hidden */}
+})();
 
 /* ---------- init ---------- */
 $("#yr").textContent=new Date().getFullYear();
