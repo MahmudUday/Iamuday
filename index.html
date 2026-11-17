@@ -37,7 +37,9 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-width:thin;s
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent),var(--accent2));border-radius:8px}
 :focus-visible{outline:2px solid var(--accent2);outline-offset:3px;border-radius:8px}
-body{background:var(--bg);color:var(--text);font-family:'Outfit','Hind Siliguri',sans-serif;overflow-x:hidden;line-height:1.6;
+html{overflow-x:hidden;overflow-x:clip;max-width:100%}
+main,footer,section{overflow-x:clip;max-width:100%}
+body{background:var(--bg);color:var(--text);font-family:'Outfit','Hind Siliguri',sans-serif;overflow-x:hidden;overflow-x:clip;max-width:100%;position:relative;line-height:1.6;
   transition:background-color .5s,color .5s}
 body.bn{font-family:'Hind Siliguri','Outfit',sans-serif;letter-spacing:0;line-height:1.75}
 body.bn *{letter-spacing:0}
@@ -173,8 +175,8 @@ h2 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--acc
 .rv{opacity:0;transform:translate3d(0,36px,0);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-.rv.fx-l{transform:translate3d(-70px,0,0)}
-.rv.fx-r{transform:translate3d(70px,0,0)}
+.rv.fx-l{transform:translate3d(-40px,0,0)}
+.rv.fx-r{transform:translate3d(40px,0,0)}
 .rv.fx-z{transform:scale(.8) translate3d(0,26px,0)}
 .rv.fx-d{transform:translate3d(0,-36px,0)}
 .rv.fx-l.in,.rv.fx-r.in,.rv.fx-z.in,.rv.fx-d.in{transform:none}
@@ -199,7 +201,7 @@ h2 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--acc
   .cell{flex-direction:column;gap:5px;padding:11px 4px;font-size:.74rem;white-space:normal;text-align:center}
 }
 .tag{padding:7px 16px;font-size:.85rem;color:var(--muted);margin-bottom:20px;display:inline-block;border-radius:999px}
-.hero-title{font-size:clamp(2.8rem,11vw,6.5rem);line-height:1.08;font-weight:700;letter-spacing:-.02em}
+.hero-title{font-size:clamp(2.3rem,9.5vw,5.8rem);line-height:1.08;font-weight:700;letter-spacing:-.02em}
 .ln{display:block;overflow:hidden;padding-bottom:.12em}
 .ln>span{display:block;transform:translate3d(0,115%,0);transition:transform 1.3s var(--ease);
   background:linear-gradient(90deg,var(--accent),var(--accent2) 55%,#cfe9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -432,11 +434,10 @@ footer .ft{display:inline-flex;align-items:center;justify-content:center;flex-wr
   </div>
   <span class="tag glass rv" data-i="tag">📷 Photographer</span>
   <h1 class="hero-title">
-    <span class="ln"><span data-i="h1a">Capturing</span></span>
-    <span class="ln"><span data-i="h1b">Moments</span></span>
+    <span class="ln"><span data-i="h1a">Hello There!!!</span></span>
   </h1>
   <p class="roleline rv"><span data-i="iam">I am a</span> <b id="roleword">Photographer</b></p>
-  <p class="hero-p rv d1" data-i="hero_p">I'm Mahmud Uday. I freeze light, emotion and stories into frames that last forever.</p>
+  <p class="hero-p rv d1" data-i="hero_p">Welcome to my world. I freeze light, emotion and stories into frames that last forever...</p>
   <div class="cta rv d2">
     <a href="#gallery" class="btn pri mag" data-i="view">View Orion Graphy</a>
     <a href="#contact" class="btn mag" data-i="hire">Get in touch</a>
@@ -573,8 +574,8 @@ const CONFIG = {
 const T = {
  en:{nav_home:"Home",nav_about:"About",nav_gallery:"Orion Graphy",nav_social:"Social",nav_contact:"Contact",
   avail:"Open for shoots",loc:"Bangladesh",install:"Install App",
-  tag:"📷 Photographer",h1a:"Capturing",h1b:"Moments",
-  hero_p:"I'm Mahmud Uday. I freeze light, emotion and stories into frames that last forever.",
+  tag:"📷 Photographer",h1a:"Hello There!!!",
+  hero_p:"Welcome to my world. I freeze light, emotion and stories into frames that last forever...",
   view:"View Orion Graphy",hire:"Get in touch",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
   about_p1:"Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.",
   about_p2:"Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.",
@@ -592,8 +593,8 @@ const T = {
   ph_name:"Your name",ph_email:"Your email",ph_msg:"Your message"},
  bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
   avail:"শুটের জন্য উপলব্ধ",loc:"বাংলাদেশ",install:"অ্যাপ ইনস্টল করুন",
-  tag:"📷 ফটোগ্রাফার",h1a:"বন্দী করি",h1b:"মুহূর্ত",
-  hero_p:"আমি মাহমুদ উদয়। আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়।",
+  tag:"📷 ফটোগ্রাফার",h1a:"হ্যালো!!!",
+  hero_p:"আমার জগতে স্বাগতম। আমি আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়...",
   view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
   about_p1:"হ্যালো, আমি মাহমুদ উদয়। একটি বহুজাতিক কোম্পানিতে কেমিস্ট হিসেবে কাজ করি, যেখানে নিখুঁত হিসাব আর অনুসন্ধিৎসাই আমার চালিকাশক্তি।",
   about_p2:"ল্যাবের বাইরে আমি একজন ওয়ার্ডপ্রেস ওয়েব ডেভেলপার ও কনটেন্ট রাইটার, যে ভাবনাকে সুন্দর ওয়েবসাইট আর হৃদয়ছোঁয়া লেখায় রূপ দিতে ভালোবাসে।",
