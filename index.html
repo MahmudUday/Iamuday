@@ -76,11 +76,12 @@ img{display:block;max-width:100%}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(255,255,255,.04),0 10px 30px -14px rgba(0,0,0,.7)}
 [data-theme="light"] .glass{background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(255,255,255,.55));border-color:rgba(255,255,255,.95);
   box-shadow:inset 0 1px 0 #fff,0 10px 30px -14px rgba(20,60,160,.3)}
-/* real iOS-style blur only on SMALL elements (cheap); big cards use the sheen above */
-.hud-bar,.s-card,#top,.slider,.tag,.btn-i,.lbb,.visits,.card{-webkit-backdrop-filter:blur(10px) saturate(160%);backdrop-filter:blur(10px) saturate(160%)}
-.links.open{-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
-/* low-end devices: keep the glass look, skip the blur */
-html.lite :is(.hud-bar,.s-card,#top,.slider,.tag,.btn-i,.lbb,.visits,.card,.links.open){-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+/* PERF: backdrop-filter re-blurs every frame while content moves behind it, so it is used ONLY on the nav.
+   All other glass = gradient sheen + inner highlight (looks the same, costs nothing). */
+.links.open{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html.lite .links.open{-webkit-backdrop-filter:none;backdrop-filter:none}
+/* pause the big moving background while the page is scrolling */
+body.scrolling .orb,body.scrolling .ring{animation-play-state:paused}
 html.lite nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(8,14,30,.88)}
 html.lite[data-theme="light"] nav{background:rgba(255,255,255,.92)}
 
@@ -529,8 +530,8 @@ footer .ft{display:inline-flex;align-items:center;justify-content:center;flex-wr
 </main>
 
 <footer><div class="ft">© <span id="yr"></span>&nbsp;Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg>&nbsp;· Orion Graphy.&nbsp;<span data-i="rights">All rights reserved.</span></div>
-  <div class="visits glass" id="visits" title="Total visitors" hidden>
-    <i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="vcount">0</b>
+  <div class="visits glass" id="visits" title="Total visitors">
+    <i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="vcount">···</b>
   </div>
 </footer>
 
@@ -806,8 +807,11 @@ $$("section").forEach(s=>spy.observe(s));
 /* ---------- scroll: one rAF-throttled handler ---------- */
 const prog=$("#prog"),navEl=$("#nav"),topBtn=$("#top"),pg=$("#pg");
 let ticking=false,lastShow=false,lastSm=false;
+let scrT=0;
 function onScroll(){
   ticking=false;
+  if(!document.body.classList.contains("scrolling"))document.body.classList.add("scrolling");
+  clearTimeout(scrT);scrT=setTimeout(()=>document.body.classList.remove("scrolling"),180);
   const de=document.documentElement,st=de.scrollTop||document.body.scrollTop,mx=de.scrollHeight-de.clientHeight;
   const p=mx>0?st/mx:0;
   prog.style.transform=`scaleX(${p})`;
@@ -852,22 +856,43 @@ addEventListener("appinstalled",()=>{$("#install").hidden=true});
 /* ---------- rotating role word ---------- */
 setInterval(()=>{rw.classList.add("sw");setTimeout(()=>{ri=(ri+1)%4;rw.textContent=T[lang]["r"+(ri+1)];rw.classList.remove("sw")},350)},2600);
 
-/* ---------- real visitor counter (counts each browser once) ---------- */
-(async()=>{
-  const el=$("#visits"),num=$("#vcount"),NS="mahmududay-orion-graphy",KEY="visitors",SEEN="orion_visited_v1";
-  const api=(a)=>{const c=new AbortController();setTimeout(()=>c.abort(),7000);
-    return fetch(`https://abacus.jasoncameron.dev/${a}/${NS}/${KEY}`,{signal:c.signal})};
-  try{
-    const local=["localhost","127.0.0.1",""].includes(location.hostname);
-    let r;
-    if(store.get(SEEN)||local)r=await api("get");else{r=await api("hit");if(r.ok)store.set(SEEN,"1")}
-    if(r.status===404){r=await api("hit");if(r.ok)store.set(SEEN,"1")}
-    if(!r.ok)throw 0;
-    const v=(await r.json()).value;if(typeof v!=="number")throw 0;
-    el.hidden=false;
+/* ---------- real visitor counter ----------
+   Counts each browser once. Two free services are used (primary + backup) so it keeps working if one is down/blocked.
+   The last known number is cached, so the pill never looks empty. */
+(()=>{
+  const num=$("#vcount"),SEEN="orion_visited_v2",CACHE="orion_vcount";
+  const withTimeout=(url)=>{const c=new AbortController();const t=setTimeout(()=>c.abort(),8000);
+    return fetch(url,{signal:c.signal,cache:"no-store"}).finally(()=>clearTimeout(t))};
+  const NS="mahmududay-orion-graphy",KEY="visitors",K2="mahmududay_orion_graphy_visitors";
+  const providers=[
+    {url:a=>`https://abacus.jasoncameron.dev/${a}/${NS}/${KEY}`},
+    {url:a=>`https://countapi.mileshilliard.com/api/v1/${a}/${K2}`}
+  ];
+  const call=async(pr,action)=>{
+    let r=await withTimeout(pr.url(action));
+    if(r.status===404&&action==="get")r=await withTimeout(pr.url("hit"));   // key not created yet
+    if(!r.ok)throw new Error(r.status);
+    const v=Number((await r.json()).value);
+    if(!isFinite(v))throw new Error("bad");
+    return v;
+  };
+  const show=v=>{
     const t0=performance.now();
-    (function f(n){const p=Math.min(1,(n-t0)/1200);num.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(f)})(t0);
-  }catch(e){/* counter service unreachable: stay hidden */}
+    (function f(n){const p=Math.min(1,(n-t0)/1100);num.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(f)})(t0);
+    store.set(CACHE,String(v));
+  };
+  const cached=Number(store.get(CACHE));
+  if(cached>0)num.textContent=cached.toLocaleString("en-US");
+  (async()=>{
+    const first=!store.get(SEEN)&&!["localhost","127.0.0.1",""].includes(location.hostname);
+    const action=first?"hit":"get";
+    // run both providers in parallel; first-time visitors are counted on both
+    const results=await Promise.allSettled(providers.map(p=>call(p,action)));
+    const ok=results.filter(r=>r.status==="fulfilled");
+    if(first&&ok.length)store.set(SEEN,"1");
+    if(ok.length){show(ok[0].value);return}          // primary if it worked, else backup
+    if(!(cached>0))num.textContent="—";                // both unreachable and nothing cached
+  })();
 })();
 
 /* ---------- init ---------- */
