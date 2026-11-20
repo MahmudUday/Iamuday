@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mahmud Uday | Orion Graphy</title>
-<meta name="description" content="Mahmud Uday — Chemist, Photographer, WordPress Developer and Content Writer. Explore Orion Graphy and creative projects.">
+<meta name="description" content="Mahmud Uday — Chemist, WordPress Developer, Content Writer and hobby photographer. Explore Orion Graphy and personal creative projects.">
 <meta name="author" content="Mahmud Uday">
 <meta property="og:url" content="https://itsuday.vercel.app/">
 <meta property="og:image" content="https://itsuday.vercel.app/images/profile.jpg">
@@ -14,9 +14,9 @@
 <meta name="theme-color" content="#000000">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mahmud Uday | Orion Graphy">
-<meta property="og:description" content="Photographer, chemist, WordPress developer and content writer from Bangladesh.">
+<meta property="og:description" content="Chemist, WordPress developer, content writer and hobby photographer from Bangladesh.">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mahmud Uday","jobTitle":"Photographer, WordPress Developer, Content Writer","email":"mahmududay.info@gmail.com","sameAs":["https://instagram.com/mahmududay.info","https://facebook.com/mahmududay.info"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mahmud Uday","jobTitle":"Chemist, WordPress Developer, Content Writer","email":"mahmududay.info@gmail.com","sameAs":["https://instagram.com/mahmududay.info","https://facebook.com/mahmududay.info"]}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -523,6 +523,272 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
 }
 @media(prefers-reduced-motion:reduce){.hero-atmosphere::before,.hero-atmosphere::after,.ha-orbit-a,.ha-orbit-b{animation:none!important}}
 
+
+
+/* ================= ORION GRAPHY V3.2 — VIOLET LIQUID GLASS =================
+   All non-loader accents use a restrained violet palette. The original boot screen
+   keeps its original blue/cyan variables and original markup/animation. */
+:root{--violet:#a78bfa;--violet-bright:#c4b5fd;--violet-deep:#6d28d9;--violet-line:rgba(167,139,250,.30)}
+body{
+  --bg:#05030a;--text:#f7f3ff;--muted:#a99bbb;
+  --accent:#8b5cf6;--accent2:#c4b5fd;--accent3:#a78bfa;
+  --glass:rgba(139,92,246,.085);--glass-b:rgba(167,139,250,.25);--orb:.32;
+  --lg-spec:radial-gradient(130% 100% at 14% -12%,rgba(255,255,255,.30),rgba(255,255,255,0) 52%);
+  --lg-fill:linear-gradient(142deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.045) 42%,rgba(139,92,246,.075) 100%);
+  --lg-edge:inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.58),inset -1px -1px 1px -.5px rgba(196,181,253,.28),inset 0 0 22px rgba(196,181,253,.055);
+  --lg-drop:0 12px 34px -14px rgba(0,0,0,.72);
+  --lg-line:rgba(196,181,253,.22);
+  --lg-btn:inset 0 1.5px 1px rgba(255,255,255,.55),inset 0 -2px 7px rgba(76,29,149,.32),inset 1px 0 1px -.5px rgba(255,255,255,.3);
+}
+[data-theme="light"] body{
+  --bg:#f8f6ff;--text:#1d1730;--muted:#706783;
+  --glass:rgba(255,255,255,.72);--glass-b:rgba(139,92,246,.20);--orb:.22;
+  --lg-fill:linear-gradient(142deg,rgba(255,255,255,.86),rgba(255,255,255,.58) 48%,rgba(221,214,254,.48));
+  --lg-edge:inset 1.5px 1.5px 1px -.5px #fff,inset -1px -1px 1px -.5px rgba(139,92,246,.22),inset 0 0 20px rgba(255,255,255,.6);
+  --lg-drop:0 12px 34px -14px rgba(76,29,149,.18);--lg-line:rgba(139,92,246,.22);
+}
+/* Keep the boot sequence's original palette exactly as authored in V2.0. */
+#loader{--accent:#2f6bff;--accent2:#00c2ff;--accent3:#6a5cff}
+html{scrollbar-color:#8b5cf6 transparent}
+::-webkit-scrollbar-thumb{background:linear-gradient(#7c3aed,#c4b5fd)}
+:focus-visible{outline-color:#c4b5fd}
+::selection{background:#7c3aed;color:#fff}
+#prog{background:linear-gradient(90deg,#7c3aed,#c4b5fd);box-shadow:0 0 12px rgba(167,139,250,.65)}
+#glow{background:radial-gradient(circle,rgba(139,92,246,.20),transparent 66%)}
+.bg::after{background:radial-gradient(ellipse 78% 44% at 76% 18%,rgba(139,92,246,.18),transparent 72%),radial-gradient(ellipse 76% 42% at 50% 112%,rgba(76,29,149,.20),transparent 72%),radial-gradient(ellipse 62% 34% at 50% -10%,rgba(196,181,253,.10),transparent 72%)}
+.orb.o1{--c:#7c3aed}.orb.o2{--c:#a78bfa}.orb.o3{--c:#c4b5fd}
+.gl::before{box-shadow:0 0 30px 2px rgba(139,92,246,.48)}
+.glass,
+:is(.btn:not(.pri),.fbtn:not(.active),.btn-i,.role,.tag,.lbb,input,textarea){
+  background:var(--lg-spec),var(--lg-fill);border:1px solid var(--lg-line);box-shadow:var(--lg-edge),var(--lg-drop);
+  -webkit-backdrop-filter:blur(13px) saturate(150%);backdrop-filter:blur(13px) saturate(150%);
+}
+nav.glass{background:var(--lg-spec),var(--lg-fill),rgba(13,8,27,.58)}
+.links{background-color:rgba(13,8,27,.82)}
+html.lite nav{background:rgba(13,8,27,.92)}
+html.lite[data-theme="light"] nav{background:rgba(255,255,255,.94)}
+.vb{filter:drop-shadow(0 0 5px rgba(167,139,250,.65))}
+[data-theme="light"] nav.glass{background:var(--lg-spec),var(--lg-fill),rgba(255,255,255,.62)}
+.links.open{background:var(--lg-spec),var(--lg-fill),rgba(13,8,27,.84)}
+[data-theme="light"] .links.open{background:var(--lg-spec),var(--lg-fill),rgba(255,255,255,.88)}
+.glass:hover{border-color:rgba(196,181,253,.38)}
+.btn.pri,.fbtn.active,.knob,.lock-ic,.card .si,.extra-card .mini-icon{background:linear-gradient(135deg,#6d28d9,#8b5cf6 58%,#c4b5fd);box-shadow:var(--lg-btn),0 10px 28px -10px rgba(139,92,246,.55)}
+.btn.pri:hover{box-shadow:var(--lg-btn),0 16px 42px -10px rgba(139,92,246,.58)}
+.btn:not(.pri):hover,.more-btn{box-shadow:var(--lg-edge),0 14px 34px -12px rgba(139,92,246,.45)}
+.btn-i:hover,.links a:hover,.links a.active,.card:hover,.s-card:hover,.role:hover{border-color:rgba(196,181,253,.65)}
+.tag,.skill-chip,.project-tags span{border-color:rgba(167,139,250,.25)}
+h2::before{background:radial-gradient(closest-side,rgba(139,92,246,.28),transparent)}
+h2::after{background:linear-gradient(90deg,#7c3aed,#c4b5fd,#fff)}
+h2 em,.h2 em{background-image:linear-gradient(100deg,#fff 0%,#c4b5fd 42%,#8b5cf6 100%)}
+.ln>span{background-image:linear-gradient(100deg,#fff 0%,#e9e4ff 34%,#b69cff 66%,#8b5cf6 100%)}
+[data-theme="light"] .ln>span{background-image:linear-gradient(100deg,#29213e 0%,#7654d8 55%,#9b7aea 100%)}
+#roleword{background-image:linear-gradient(90deg,#8b5cf6,#c4b5fd)}
+.hud-bar::after{background:linear-gradient(90deg,transparent,#c4b5fd,transparent)}
+.dot,.visits i{background:#a78bfa;box-shadow:0 0 9px rgba(167,139,250,.8)}
+.royal::before{background:conic-gradient(#4c1d95,#c4b5fd,#8b5cf6,#ede9fe,#6d28d9,#a78bfa,#4c1d95);filter:blur(18px);opacity:.42}
+.royal::after{color:#ddd6fe;text-shadow:0 0 10px #a78bfa,0 0 22px #8b5cf6,0 0 40px #6d28d9}
+.rframe{background:#6d28d9}.rframe::before{background:conic-gradient(#4c1d95,#c4b5fd,#8b5cf6,#ede9fe,#6d28d9,#a78bfa,#4c1d95)}
+.avatar{border-color:#171022}.avatar::after{border-color:rgba(196,181,253,.58)}
+.role::before{background:linear-gradient(135deg,#8b5cf6,#ddd6fe);box-shadow:0 0 9px rgba(167,139,250,.72)}
+.ring{border-color:rgba(196,181,253,.23)}.ring::before{border-color:rgba(196,181,253,.19)}.ring::after{border-color:rgba(167,139,250,.34)}.ring i{background:#c4b5fd;box-shadow:0 0 20px 4px rgba(167,139,250,.85)}
+.item::before{box-shadow:0 0 30px 2px rgba(139,92,246,.42)}
+.im{border-color:rgba(196,181,253,.28);box-shadow:0 12px 28px -18px rgba(76,29,149,.55)}
+.im::after{box-shadow:inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.52),inset -1px -1px 1px -.5px rgba(196,181,253,.30);background:radial-gradient(120% 70% at 14% -12%,rgba(255,255,255,.18),rgba(255,255,255,0) 50%)}
+.cap{background:linear-gradient(transparent,rgba(18,8,32,.88));}
+.item:hover .im{border-color:rgba(196,181,253,.7);box-shadow:0 18px 42px -20px rgba(139,92,246,.72)}
+.fbtn.active{color:#fff}
+.more-btn{box-shadow:var(--lg-btn),0 0 28px -4px rgba(139,92,246,.45)}
+#lb{background:rgba(10,5,20,.94);-webkit-backdrop-filter:blur(18px) saturate(135%);backdrop-filter:blur(18px) saturate(135%)}
+#lbimg img{box-shadow:0 0 70px -12px rgba(139,92,246,.58)}
+.lbb{background:rgba(139,92,246,.18);border-color:rgba(196,181,253,.28);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.lbb:hover{background:#7c3aed}
+#lbc{color:#e9ddff}
+input:focus,textarea:focus{border-color:#a78bfa;box-shadow:var(--lg-edge),0 0 0 4px rgba(139,92,246,.18)}
+footer{background:linear-gradient(180deg,rgba(109,40,217,.16),rgba(76,29,149,.035) 82%,transparent);border-top-color:rgba(167,139,250,.24)}
+footer::before{background:linear-gradient(90deg,transparent,#a78bfa,#ddd6fe,transparent);box-shadow:0 0 14px rgba(167,139,250,.72)}
+#top .pg{stroke:url(#tg)}
+.project-art{background:radial-gradient(circle at 30% 25%,rgba(139,92,246,.34),transparent 55%),linear-gradient(145deg,#211333,#090611)}
+.project-art .project-mark{background:linear-gradient(90deg,#8b5cf6,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
+.journey-card{border-left-color:#a78bfa}
+.form-note{color:var(--muted)}
+.s-card .ic svg{filter:grayscale(1) brightness(0) saturate(100%) invert(65%) sepia(29%) saturate(1300%) hue-rotate(218deg) brightness(101%) contrast(96%)}
+/* Premium photographic hero: aperture blades, focus frame and soft bokeh. */
+.hero-atmosphere .ha-halo,.hero-atmosphere .ha-orbit{opacity:.13}
+.photo-lens-scene{position:absolute;right:3.5%;top:8%;width:min(48vw,520px);aspect-ratio:1;display:grid;place-items:center;opacity:.9;pointer-events:none}
+.lens-frame{position:absolute;inset:8%;border-radius:50%;padding:2px;background:conic-gradient(from 20deg,transparent,#c4b5fd,rgba(139,92,246,.12),#8b5cf6,transparent,#ddd6fe,transparent);animation:lens-frame-turn 44s linear infinite}
+.lens-glass{position:absolute;inset:2px;border-radius:50%;overflow:hidden;border:1px solid rgba(221,214,254,.42);background:radial-gradient(circle at 38% 32%,rgba(255,255,255,.16),transparent 22%),radial-gradient(circle,rgba(139,92,246,.19) 0 18%,rgba(31,15,55,.58) 19% 42%,rgba(139,92,246,.12) 43% 58%,rgba(10,5,20,.2) 59%);box-shadow:inset 0 0 32px rgba(196,181,253,.16),0 0 55px rgba(139,92,246,.12)}
+.lens-glass::before{content:"";position:absolute;inset:8%;border-radius:50%;border:1px solid rgba(221,214,254,.34);box-shadow:0 0 0 10px rgba(196,181,253,.025),0 0 0 22px rgba(196,181,253,.025),inset 0 0 28px rgba(139,92,246,.16)}
+.lens-aperture{position:absolute;inset:23%;border-radius:50%;background:repeating-conic-gradient(from 8deg,rgba(221,214,254,.64) 0deg 1.2deg,transparent 1.2deg 45deg);mask:radial-gradient(circle,transparent 0 29%,#000 31% 100%);-webkit-mask:radial-gradient(circle,transparent 0 29%,#000 31% 100%);animation:aperture-turn 26s ease-in-out infinite alternate;opacity:.72}
+.lens-core{position:absolute;inset:38%;border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.48),rgba(196,181,253,.18) 18%,rgba(76,29,149,.55) 58%,rgba(10,5,20,.9) 100%);border:1px solid rgba(221,214,254,.42);box-shadow:0 0 28px rgba(139,92,246,.38),inset 0 0 18px rgba(255,255,255,.12)}
+.lens-bokeh{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(221,214,254,.72),rgba(167,139,250,.17) 38%,transparent 72%);filter:blur(1px);animation:bokeh-drift 12s ease-in-out infinite alternate}
+.bokeh-one{width:14%;aspect-ratio:1;left:7%;top:20%}.bokeh-two{width:9%;aspect-ratio:1;right:8%;bottom:20%;animation-delay:-4s}.bokeh-three{width:6%;aspect-ratio:1;left:18%;bottom:13%;animation-delay:-7s}
+.focus-corners{position:absolute;inset:18%;opacity:.68}
+.focus-corners i{position:absolute;width:24px;height:24px;border-color:rgba(221,214,254,.78);border-style:solid}
+.focus-corners i:nth-child(1){top:0;left:0;border-width:1px 0 0 1px}.focus-corners i:nth-child(2){top:0;right:0;border-width:1px 1px 0 0}.focus-corners i:nth-child(3){bottom:0;left:0;border-width:0 0 1px 1px}.focus-corners i:nth-child(4){bottom:0;right:0;border-width:0 1px 1px 0}
+.lens-caption{position:absolute;bottom:7%;right:4%;font:500 9px/1 ui-monospace,monospace;letter-spacing:.22em;color:rgba(221,214,254,.64)}
+@keyframes lens-frame-turn{to{transform:rotate(360deg)}}
+@keyframes aperture-turn{0%{transform:rotate(-18deg) scale(.94);opacity:.5}100%{transform:rotate(18deg) scale(1.04);opacity:.9}}
+@keyframes bokeh-drift{0%{transform:translate3d(0,8px,0) scale(.82);opacity:.35}100%{transform:translate3d(8px,-12px,0) scale(1.12);opacity:.8}}
+body.scrolling .lens-frame,body.scrolling .lens-aperture,body.scrolling .lens-bokeh{animation-play-state:paused}
+@media(max-width:760px){.photo-lens-scene{width:76vw;right:-28%;top:17%;opacity:.46}.lens-caption{display:none}.focus-corners{inset:22%}.lens-bokeh{display:none}}
+@media(max-width:420px){.photo-lens-scene{width:82vw;right:-39%;top:19%;opacity:.34}}
+/* Gallery editorial header + polished photo cards. The slide-to-unlock interface is intentionally unchanged. */
+.gallery-meta{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 0 22px;padding:14px 18px;border-radius:20px}
+.gallery-meta-mark{display:flex;align-items:center;gap:12px;min-width:0}
+.gallery-aperture{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,rgba(139,92,246,.28),rgba(196,181,253,.12));border:1px solid rgba(196,181,253,.25);color:#ddd6fe;font-size:1.5rem;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 8px 22px -14px #8b5cf6}
+.gallery-meta-mark b,.gallery-meta-mark small{display:block}.gallery-meta-mark b{font-size:.72rem;letter-spacing:.16em;color:var(--text)}.gallery-meta-mark small{font-size:.82rem;color:var(--muted);margin-top:2px}
+.gallery-total{display:flex;align-items:baseline;gap:8px;white-space:nowrap}.gallery-total strong{font-size:1.55rem;line-height:1;color:#c4b5fd;font-variant-numeric:tabular-nums}.gallery-total span{font-size:.65rem;letter-spacing:.16em;color:var(--muted)}
+.grid{column-gap:18px}.item{margin-bottom:18px;border-radius:22px;outline:none}.item:focus-visible{outline:2px solid #c4b5fd;outline-offset:4px}
+.item::before{inset:-1px;border-radius:23px;opacity:.28;box-shadow:0 0 26px 1px rgba(139,92,246,.5)}
+.im{border-radius:21px;border:1px solid rgba(196,181,253,.22);overflow:hidden;background:linear-gradient(145deg,rgba(139,92,246,.13),rgba(255,255,255,.025));position:relative}
+.im img{width:100%;height:auto;min-height:170px;object-fit:cover;transition:transform .85s cubic-bezier(.2,.75,.25,1),filter .6s ease;will-change:transform}
+.item:hover .im img{transform:scale(1.055);filter:saturate(1.06)}
+.photo-index{position:absolute;top:12px;left:12px;z-index:2;padding:5px 9px;border-radius:999px;background:rgba(17,9,31,.52);border:1px solid rgba(221,214,254,.28);color:#f5f0ff;font:600 .65rem/1 ui-monospace,monospace;letter-spacing:.12em;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.cap{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:50px 15px 14px;background:linear-gradient(transparent,rgba(18,8,32,.9));font-size:.88rem}
+.photo-open{font-size:.62rem;letter-spacing:.12em;color:#ddd6fe;white-space:nowrap}
+.item:focus-visible .cap{opacity:1;transform:none}
+.filters{gap:9px;margin-bottom:20px}.fbtn{padding:9px 17px;border-color:rgba(167,139,250,.24)}
+#lbimg img{border:1px solid rgba(221,214,254,.24);border-radius:18px;box-shadow:0 24px 70px -20px rgba(76,29,149,.7),0 0 0 1px rgba(196,181,253,.12)}
+.lb-tools .lbb{background:rgba(139,92,246,.22)}
+/* Purple-only social marks; all platform logos remain legible but monochrome. */
+.s-card .ic svg{filter:grayscale(1) brightness(0) saturate(100%) invert(70%) sepia(24%) saturate(1320%) hue-rotate(218deg) brightness(100%) contrast(96%)}
+@media(max-width:560px){.gallery-meta{padding:12px 13px}.gallery-meta-mark b{font-size:.62rem;letter-spacing:.10em}.gallery-meta-mark small{font-size:.75rem}.gallery-total strong{font-size:1.3rem}.gallery-total span{font-size:.58rem}.grid{columns:2 145px;column-gap:11px}.item{margin-bottom:12px}.im{border-radius:16px}.photo-index{top:8px;left:8px}.cap{padding:38px 10px 10px;font-size:.78rem}.photo-open{display:none}}
+@media(hover:none){.item:hover .im img{transform:none;filter:none}.cap{opacity:1;transform:none;padding-top:38px}}
+@media(prefers-reduced-motion:reduce){.lens-frame,.lens-aperture,.lens-bokeh{animation:none!important}}
+html.lite .glass,html.lite :is(.btn:not(.pri),.fbtn:not(.active),.btn-i,.role,.tag,.lbb,input,textarea){-webkit-backdrop-filter:none;backdrop-filter:none}
+html.lite .photo-lens-scene .lens-frame,html.lite .photo-lens-scene .lens-aperture,html.lite .photo-lens-scene .lens-bokeh{animation:none}
+@media(max-width:760px){.glass, :is(.btn:not(.pri),.fbtn:not(.active),.btn-i,.role,.tag,.lbb,input,textarea){-webkit-backdrop-filter:blur(9px) saturate(135%);backdrop-filter:blur(9px) saturate(135%)}}
+
+
+
+/* ================= ORION GRAPHY V3.3 — PURPLE LIQUID GLASS =================
+   Visual-only finishing layer. Original boot screen and gallery unlock control
+   are intentionally excluded from these refinements. */
+:root{--violet:#a78bfa;--violet-bright:#ddd6fe;--violet-deep:#6d28d9;--violet-line:rgba(167,139,250,.30)}
+body{
+  --bg:#05030a;--text:#f7f3ff;--muted:#b5a9c7;
+  --accent:#8b5cf6;--accent2:#c4b5fd;--accent3:#a78bfa;
+  --glass:rgba(139,92,246,.09);--glass-b:rgba(167,139,250,.28);
+  --lg-spec:radial-gradient(135% 110% at 12% -14%,rgba(255,255,255,.30),rgba(255,255,255,0) 52%);
+  --lg-fill:linear-gradient(145deg,rgba(255,255,255,.145),rgba(255,255,255,.045) 38%,rgba(139,92,246,.09) 100%);
+  --lg-edge:inset 1.5px 1.5px 1px -.5px rgba(255,255,255,.58),inset -1px -1px 1px -.5px rgba(196,181,253,.30),inset 0 0 24px rgba(196,181,253,.065);
+  --lg-drop:0 14px 36px -16px rgba(0,0,0,.78);
+  --lg-line:rgba(221,214,254,.23);
+  --lg-btn:inset 0 1.5px 1px rgba(255,255,255,.58),inset 0 -2px 8px rgba(76,29,149,.34),inset 1px 0 1px -.5px rgba(255,255,255,.32);
+}
+[data-theme="light"] body{
+  --bg:#f8f6ff;--text:#211936;--muted:#746887;
+  --glass:rgba(255,255,255,.76);--glass-b:rgba(139,92,246,.22);
+  --lg-spec:radial-gradient(135% 110% at 12% -14%,rgba(255,255,255,.98),rgba(255,255,255,0) 56%);
+  --lg-fill:linear-gradient(145deg,rgba(255,255,255,.90),rgba(255,255,255,.66) 42%,rgba(221,214,254,.42) 100%);
+  --lg-edge:inset 1.5px 1.5px 1px -.5px #fff,inset -1px -1px 1px -.5px rgba(139,92,246,.24),inset 0 0 22px rgba(255,255,255,.65);
+  --lg-drop:0 14px 36px -16px rgba(76,29,149,.20);
+  --lg-line:rgba(139,92,246,.23);
+}
+
+/* Purple-only accent system across the site. The #loader keeps its own original blue/cyan palette. */
+html{scrollbar-color:#8b5cf6 transparent}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#6d28d9,#a78bfa 58%,#ddd6fe)}
+:focus-visible{outline-color:#c4b5fd}
+::selection{background:#6d28d9;color:#fff}
+#prog{background:linear-gradient(90deg,#6d28d9,#c4b5fd);box-shadow:0 0 13px rgba(167,139,250,.7)}
+#glow{background:radial-gradient(circle,rgba(139,92,246,.22),transparent 66%)}
+.bg::after{background:radial-gradient(ellipse 78% 44% at 76% 18%,rgba(139,92,246,.19),transparent 72%),radial-gradient(ellipse 76% 42% at 50% 112%,rgba(76,29,149,.22),transparent 72%),radial-gradient(ellipse 62% 34% at 50% -10%,rgba(196,181,253,.11),transparent 72%)}
+.orb.o1{--c:#7c3aed}.orb.o2{--c:#a78bfa}.orb.o3{--c:#ddd6fe}
+.gl::before{box-shadow:0 0 30px 2px rgba(139,92,246,.48)}
+
+/* Richer iPhone-inspired liquid glass: specular top edge, violet depth and soft rim. */
+.glass:not(#slider){
+  background:var(--lg-spec),var(--lg-fill),rgba(15,9,29,.34);
+  border:1px solid var(--lg-line);
+  box-shadow:var(--lg-edge),var(--lg-drop),0 0 0 1px rgba(196,181,253,.035);
+  -webkit-backdrop-filter:blur(11px) saturate(145%);
+  backdrop-filter:blur(11px) saturate(145%);
+}
+[data-theme="light"] .glass:not(#slider){background:var(--lg-spec),var(--lg-fill),rgba(255,255,255,.48)}
+:is(.btn:not(.pri),.fbtn:not(.active),.btn-i,.role,.tag,.lbb,input,textarea,.skill-chip,.project-tags span,.visits){
+  border-color:var(--lg-line);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -1px 0 rgba(196,181,253,.08),0 9px 25px -16px rgba(76,29,149,.55);
+}
+.btn-i,.role,.tag,.skill-chip,.project-tags span,.visits{background:var(--lg-spec),var(--lg-fill),rgba(15,9,29,.28)}
+[data-theme="light"] :is(.btn-i,.role,.tag,.skill-chip,.project-tags span,.visits){background:var(--lg-spec),var(--lg-fill),rgba(255,255,255,.48)}
+.glass:not(#slider):hover{border-color:rgba(221,214,254,.42);box-shadow:var(--lg-edge),0 18px 42px -18px rgba(109,40,217,.28)}
+.btn.pri,.fbtn.active,.knob,.lock-ic,.card .si,.extra-card .mini-icon{background:linear-gradient(135deg,#5b21b6,#8b5cf6 54%,#c4b5fd);box-shadow:var(--lg-btn),0 10px 28px -10px rgba(139,92,246,.58)}
+.btn.pri:hover{box-shadow:var(--lg-btn),0 16px 42px -10px rgba(139,92,246,.62)}
+input:focus,textarea:focus{border-color:#a78bfa;box-shadow:var(--lg-edge),0 0 0 4px rgba(139,92,246,.20)}
+
+/* Remove leftover non-purple accents from footer, project art and UI details. */
+footer{background:linear-gradient(180deg,rgba(109,40,217,.19),rgba(76,29,149,.075) 58%,transparent 100%);border-top-color:rgba(167,139,250,.28)}
+footer::before{background:linear-gradient(90deg,transparent,#7c3aed,#c4b5fd,#ddd6fe,#7c3aed,transparent);box-shadow:0 0 16px rgba(167,139,250,.78)}
+.visits i,.dot{background:#a78bfa;box-shadow:0 0 9px rgba(167,139,250,.85)}
+.project-art{background:radial-gradient(circle at 28% 24%,rgba(167,139,250,.38),transparent 56%),radial-gradient(circle at 78% 76%,rgba(76,29,149,.42),transparent 58%),linear-gradient(145deg,#211333,#080510)}
+.project-art .project-mark{background:linear-gradient(100deg,#ddd6fe,#a78bfa 52%,#6d28d9);-webkit-background-clip:text;background-clip:text;color:transparent}
+#lb{background:rgba(10,5,20,.95)}
+#lbimg img{box-shadow:0 24px 74px -18px rgba(109,40,217,.68),0 0 0 1px rgba(196,181,253,.20)}
+.lbb:hover{background:#6d28d9}
+#lbc{color:#e9ddff}
+.s-card .ic svg{filter:grayscale(1) brightness(0) saturate(100%) invert(72%) sepia(19%) saturate(1750%) hue-rotate(218deg) brightness(102%) contrast(96%)}
+
+/* Cinematic camera-aperture hero animation: purple lens rings, focus sweep and bokeh. */
+.photo-lens-scene{width:min(51vw,570px);right:2.5%;top:4%;opacity:.94;perspective:900px}
+.photo-lens-scene::before{content:"";position:absolute;inset:2%;border:1px solid rgba(196,181,253,.18);border-radius:50%;box-shadow:0 0 0 14px rgba(139,92,246,.025),0 0 0 34px rgba(139,92,246,.018),inset 0 0 70px rgba(109,40,217,.12);animation:camera-breathe 8s ease-in-out infinite}
+.photo-lens-scene::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;background:linear-gradient(180deg,transparent 0 47%,rgba(196,181,253,.0) 48%,rgba(196,181,253,.38) 50%,rgba(139,92,246,.08) 51%,transparent 53%);opacity:.62;animation:focus-scan 7.5s cubic-bezier(.45,0,.55,1) infinite}
+.lens-frame{inset:7%;background:conic-gradient(from 12deg,transparent 0deg,#6d28d9 42deg,#ddd6fe 82deg,rgba(139,92,246,.10) 128deg,#8b5cf6 205deg,transparent 258deg,#c4b5fd 310deg,transparent 360deg);animation:lens-frame-turn 68s linear infinite;box-shadow:0 0 38px rgba(139,92,246,.13)}
+.lens-glass{background:radial-gradient(circle at 34% 27%,rgba(255,255,255,.24),transparent 19%),radial-gradient(circle at 50% 50%,rgba(196,181,253,.20) 0 12%,rgba(76,29,149,.42) 13% 32%,rgba(139,92,246,.12) 33% 55%,rgba(10,5,20,.30) 56%);border-color:rgba(221,214,254,.52);box-shadow:inset 0 0 42px rgba(196,181,253,.20),0 0 74px rgba(109,40,217,.20)}
+.lens-glass::after{content:"";position:absolute;inset:-35%;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 66%,rgba(221,214,254,.03) 72%,rgba(221,214,254,.30) 76%,rgba(139,92,246,.08) 80%,transparent 86% 100%);animation:lens-flare 16s linear infinite;mix-blend-mode:screen;pointer-events:none}
+.lens-aperture{inset:20%;background:repeating-conic-gradient(from 0deg,rgba(221,214,254,.78) 0deg 1.1deg,rgba(139,92,246,.06) 1.1deg 44deg,transparent 44deg 45deg);opacity:.82;animation:aperture-turn 34s linear infinite}
+.lens-core{inset:37%;background:radial-gradient(circle at 32% 25%,rgba(255,255,255,.62),rgba(196,181,253,.26) 18%,rgba(109,40,217,.58) 52%,rgba(10,5,20,.96) 100%);border-color:rgba(221,214,254,.58);box-shadow:0 0 38px rgba(139,92,246,.48),inset 0 0 24px rgba(255,255,255,.16);animation:core-pulse 5.5s ease-in-out infinite}
+.lens-bokeh{background:radial-gradient(circle,rgba(237,233,254,.82),rgba(167,139,250,.30) 36%,rgba(109,40,217,.08) 58%,transparent 74%);filter:blur(.7px)}
+.focus-corners{inset:15%;opacity:.82;animation:focus-breathe 5s ease-in-out infinite}
+.focus-corners i{width:30px;height:30px;border-color:rgba(221,214,254,.88);box-shadow:0 0 12px rgba(167,139,250,.20)}
+.lens-caption{color:rgba(221,214,254,.78);text-shadow:0 0 12px rgba(139,92,246,.45)}
+@keyframes lens-frame-turn{to{transform:rotate(360deg)}}
+@keyframes aperture-turn{to{transform:rotate(360deg)}}
+@keyframes lens-flare{to{transform:rotate(360deg)}}
+@keyframes focus-scan{0%,100%{transform:translateY(-14%);opacity:0}15%,82%{opacity:.62}50%{transform:translateY(14%);opacity:.72}}
+@keyframes camera-breathe{0%,100%{transform:scale(.985);opacity:.48}50%{transform:scale(1.015);opacity:.9}}
+@keyframes core-pulse{0%,100%{opacity:.78}50%{opacity:1}}
+@keyframes focus-breathe{0%,100%{opacity:.42;transform:scale(.985)}50%{opacity:.9;transform:scale(1.015)}}
+body.scrolling .photo-lens-scene::before,body.scrolling .photo-lens-scene::after,body.scrolling .lens-frame,body.scrolling .lens-aperture,body.scrolling .lens-glass::after,body.scrolling .lens-core,body.scrolling .focus-corners{animation-play-state:paused}
+@media(max-width:760px){
+  .photo-lens-scene{width:76vw;right:-28%;top:17%;opacity:.42}
+  .photo-lens-scene::before{inset:6%}
+  .photo-lens-scene::after{opacity:.36}
+  .lens-caption{display:none}.focus-corners{inset:22%}.lens-bokeh{display:none}
+  .glass:not(#slider){-webkit-backdrop-filter:blur(8px) saturate(132%);backdrop-filter:blur(8px) saturate(132%)}
+}
+@media(max-width:420px){.photo-lens-scene{width:82vw;right:-39%;top:19%;opacity:.31}}
+@media(prefers-reduced-motion:reduce){.photo-lens-scene::before,.photo-lens-scene::after,.lens-frame,.lens-aperture,.lens-glass::after,.lens-core,.focus-corners{animation:none!important}}
+html.lite .glass:not(#slider){-webkit-backdrop-filter:none;backdrop-filter:none}
+html.lite .photo-lens-scene::before,html.lite .photo-lens-scene::after,html.lite .lens-frame,html.lite .lens-aperture,html.lite .lens-glass::after,html.lite .lens-core,html.lite .focus-corners{animation:none}
+
+/* Gallery refinement: premium editorial cards and responsive photo reveal.
+   The locked vault overlay, lock icon, slider, fill, knob and unlock script are untouched. */
+.gallery-meta{background:var(--lg-spec),var(--lg-fill),rgba(15,9,29,.32);border:1px solid rgba(196,181,253,.24);box-shadow:var(--lg-edge),0 16px 34px -22px rgba(76,29,149,.7)}
+[data-theme="light"] .gallery-meta{background:var(--lg-spec),var(--lg-fill),rgba(255,255,255,.55)}
+.gallery-aperture{background:linear-gradient(145deg,rgba(139,92,246,.34),rgba(196,181,253,.16));border-color:rgba(221,214,254,.36);box-shadow:inset 0 1px 0 rgba(255,255,255,.42),0 9px 24px -14px rgba(109,40,217,.75)}
+.grid{column-gap:20px}
+.item{margin-bottom:20px;border-radius:24px;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.item::before{inset:-2px;border-radius:26px;opacity:.22;box-shadow:0 0 28px 2px rgba(139,92,246,.48);animation:none}
+.im{border-radius:22px;border:1px solid rgba(221,214,254,.25);background:linear-gradient(145deg,rgba(139,92,246,.17),rgba(255,255,255,.035));box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 15px 32px -22px rgba(76,29,149,.8)}
+.im::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(118deg,transparent 24%,rgba(221,214,254,.18) 48%,transparent 70%);transform:translateX(-120%);transition:transform .95s var(--ease)}
+.im img{opacity:0;transform:scale(1.015);transition:opacity .55s ease,transform .9s var(--ease);will-change:opacity,transform}
+.im img.loaded{opacity:1;transform:scale(1)}
+.item:hover .im::before{transform:translateX(120%)}
+.item:hover .im img.loaded{transform:scale(1.065)}
+.item:hover{transform:translateY(-3px)}
+.photo-index{background:rgba(29,16,48,.68);border-color:rgba(221,214,254,.38);color:#f7f3ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.20),0 6px 18px -12px rgba(76,29,149,.9)}
+.cap{background:linear-gradient(180deg,transparent,rgba(20,9,39,.94));text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.photo-open{color:#ddd6fe}
+.filters{gap:10px}
+.fbtn{border-color:rgba(196,181,253,.26)}
+.fbtn.active{background:linear-gradient(135deg,#5b21b6,#8b5cf6 58%,#c4b5fd);box-shadow:var(--lg-btn),0 8px 24px -12px rgba(139,92,246,.62)}
+#lb{background:rgba(8,4,17,.96)}
+.lb-tools .lbb,.lbb{border-color:rgba(221,214,254,.30);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 10px 24px -14px rgba(109,40,217,.8)}
+#lbimg img{border:1px solid rgba(221,214,254,.32);box-shadow:0 28px 80px -22px rgba(76,29,149,.82),0 0 0 1px rgba(196,181,253,.15)}
+@media(max-width:560px){.grid{column-gap:12px}.item{margin-bottom:14px}.im{border-radius:17px}.photo-index{top:8px;left:8px}}
+@media(hover:none){.item:hover{transform:none}.item:hover .im::before{transform:translateX(-120%)}.item:hover .im img.loaded{transform:scale(1)}}
+
 </style>
 </head>
 <body>
@@ -545,7 +811,7 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
 
 <div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vbadge" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="#1D9BF0"/><rect x="3" y="3" width="18" height="18" rx="5" fill="#1D9BF0" transform="rotate(45 12 12)"/><path d="M8 12.4l2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vbadge" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="#8b5cf6"/><rect x="3" y="3" width="18" height="18" rx="5" fill="#8b5cf6" transform="rotate(45 12 12)"/><path d="M8 12.4l2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 
 <nav class="glass" id="nav">
   <a href="#home" class="logo">Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg></a>
@@ -573,6 +839,12 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
     <div class="ha-orbit ha-orbit-a"></div>
     <div class="ha-orbit ha-orbit-b"></div>
     <div class="ha-stars"></div>
+    <div class="photo-lens-scene">
+      <div class="lens-bokeh bokeh-one"></div><div class="lens-bokeh bokeh-two"></div><div class="lens-bokeh bokeh-three"></div>
+      <div class="lens-frame"><div class="lens-glass"><div class="lens-aperture"></div><div class="lens-core"></div></div></div>
+      <div class="focus-corners"><i></i><i></i><i></i><i></i></div>
+      <span class="lens-caption">ORION · THROUGH MY LENS</span>
+    </div>
   </div>
   <div class="ring"><i></i></div>
   <div class="hud-bar glass rv" aria-label="Bangladesh local date and time">
@@ -580,12 +852,12 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
     <div class="cell"><span>📍</span><span data-i="loc">Bangladesh</span></div>
     <div class="cell"><span>🕒</span><span><span id="clock">--:--</span> <small>BDT</small></span></div>
   </div>
-  <span class="tag glass rv" data-i="tag">📷 Photographer</span>
+  <span class="tag glass rv" data-i="tag">📷 Hobby Photographer</span>
   <h1 class="hero-title">
     <span class="ln"><span data-i="h1a">Hello There!!!</span></span>
   </h1>
-  <p class="roleline rv"><span data-i="iam">I am a</span> <b id="roleword">Photographer</b></p>
-  <p class="hero-p rv d1" data-i="hero_p">Welcome to my world. I freeze light, emotion and stories into frames that last forever...</p>
+  <p class="roleline rv"><span data-i="iam">I am a</span> <b id="roleword">Hobby Photographer</b></p>
+  <p class="hero-p rv d1" data-i="hero_p">Welcome to my world. I enjoy capturing light, details and everyday stories through my camera...</p>
   <div class="cta rv d2">
     <a href="#gallery" class="btn pri mag" data-i="view">View Orion Graphy</a>
     <a href="#contact" class="btn mag" data-i="hire">Get in touch</a>
@@ -603,9 +875,9 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
     <div class="about-txt glass rv d2">
       <p data-i="about_p1">Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.</p>
       <p data-i="about_p2">Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.</p>
-      <p data-i="about_p3">And through the lens, I'm a passionate photographer. Photography is the way I see and feel the world, always chasing natural light and honest moments.</p>
+      <p data-i="about_p3">And through the lens, I enjoy photography as a hobby. It is my way of noticing light, details and little moments that make everyday life special.</p>
       <div class="roles">
-        <span class="role" data-i="r1">Photographer</span>
+        <span class="role" data-i="r1">Hobby Photographer</span>
         <span class="role" data-i="r2">Chemist</span>
         <span class="role" data-i="r3">WordPress Developer</span>
         <span class="role" data-i="r4">Content Writer</span>
@@ -620,7 +892,7 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
   <div class="srv">
     <div class="card glass rv fx-z">
       <div class="si"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 011 1v9a1 1 0 01-1 1H4a1 1 0 01-1-1V9a1 1 0 011-1z"/><circle cx="12" cy="13.5" r="3.6"/></svg></div>
-      <h3 data-i="sv1_t">Photography</h3><p data-i="sv1_p">Light, emotion and honest moments, framed with care.</p>
+      <h3 data-i="sv1_t">Photography</h3><p data-i="sv1_p">A personal hobby of exploring light, details and everyday moments through my camera.</p>
     </div>
     <div class="card glass rv fx-z d1">
       <div class="si"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div>
@@ -638,7 +910,7 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
   <p class="sub rv d1" data-i="skills_s">A balanced mix of professional knowledge and creative work.</p>
   <div class="extra-grid">
     <article class="extra-card glass rv fx-z"><div class="mini-icon">⚗</div><h3 data-i="skill_chem">Chemistry</h3><p data-i="skill_chem_p">Professional work and analytical thinking.</p></article>
-    <article class="extra-card glass rv fx-z d1"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Capturing light, details and meaningful moments.</p></article>
+    <article class="extra-card glass rv fx-z d1"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Enjoying light, details and meaningful moments through photography as a hobby.</p></article>
     <article class="extra-card glass rv fx-z d2"><div class="mini-icon">⌘</div><h3 data-i="skill_web">WordPress & Web</h3><p data-i="skill_web_p">Building and exploring responsive web experiences.</p></article>
     <article class="extra-card glass rv fx-z d3"><div class="mini-icon">✍</div><h3 data-i="skill_write">Content Writing</h3><p data-i="skill_write_p">Clear writing and creative communication.</p></article>
   </div>
@@ -667,6 +939,10 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
 <section id="gallery">
   <h2 class="rv"><span data-i="gal_t">Orion</span> <em data-i="gal_e">Graphy</em></h2>
   <p class="sub rv d1" data-i="gal_s">A selection of my favourite frames. Tap any photo to view it large.</p>
+  <div class="gallery-meta glass rv" aria-live="polite">
+    <div class="gallery-meta-mark"><span class="gallery-aperture">✳</span><span><b data-i="gallery_kicker">PERSONAL PHOTO JOURNAL</b><small data-i="gallery_note">Little moments, seen my way.</small></span></div>
+    <div class="gallery-total"><strong id="photoCount">—</strong><span data-i="gallery_count">FRAMES</span></div>
+  </div>
   <div id="vault" class="locked">
     <div class="inner">
       <div class="filters" id="filters"></div>
@@ -696,7 +972,7 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
 
 <section id="contact">
   <h2 class="rv"><span data-i="con_t">Let's</span> <em data-i="con_e">Talk</em></h2>
-  <p class="sub rv d1" data-i="con_s">Want a shoot or collaboration? Send me a message.</p>
+  <p class="sub rv d1" data-i="con_s">Have a question or want to connect? Feel free to send me a message.</p>
   <div class="contact glass rv d2">
     <form id="form">
       <input id="fn" required data-ph="ph_name" placeholder="Your name">
@@ -721,7 +997,7 @@ body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,b
 </footer>
 
 <button id="top" class="glass gl" aria-label="Back to top" title="Top">
-  <svg class="pr" viewBox="0 0 52 52"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#00c2ff"/></linearGradient></defs><circle class="tr" cx="26" cy="26" r="23"/><circle class="pg" id="pg" cx="26" cy="26" r="23"/></svg>
+  <svg class="pr" viewBox="0 0 52 52"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient></defs><circle class="tr" cx="26" cy="26" r="23"/><circle class="pg" id="pg" cx="26" cy="26" r="23"/></svg>
   <span class="ar">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 11l7-7 7 7"/></svg>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 11l7-7 7 7"/></svg>
@@ -764,48 +1040,48 @@ const CONFIG = {
 const T = {
  en:{nav_home:"Home",nav_about:"About",nav_skills:"Skills",nav_journey:"Journey",nav_projects:"Projects",nav_gallery:"Orion Graphy",nav_social:"Social",nav_contact:"Contact",
   loc:"Bangladesh",
-  tag:"📷 Photographer",h1a:"Hello There!!!",
-  hero_p:"Welcome to my world. I freeze light, emotion and stories into frames that last forever...",
+  tag:"📷 Hobby Photographer",h1a:"Hello There!!!",
+  hero_p:"Welcome to my world. I enjoy capturing light, details and everyday stories through my camera...",
   view:"View Orion Graphy",hire:"Get in touch",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
   about_p1:"Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.",
   about_p2:"Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.",
-  about_p3:"And through the lens, I'm a passionate photographer. Photography is the way I see and feel the world, always chasing natural light and honest moments.",
-  r1:"Photographer",r2:"Chemist",r3:"WordPress Developer",r4:"Content Writer",iam:"I am a",
+  about_p3:"And through the lens, I enjoy photography as a hobby. It is my way of noticing light, details and little moments that make everyday life special.",
+  r1:"Hobby Photographer",r2:"Chemist",r3:"WordPress Developer",r4:"Content Writer",iam:"I am a",
   sv_t:"What I",sv_e:"Do",sv_s:"Skills I bring to every project.",
-  sv1_t:"Photography",sv1_p:"Light, emotion and honest moments, framed with care.",
+  sv1_t:"Photography",sv1_p:"A personal hobby of exploring light, details and everyday moments through my camera.",
   sv2_t:"WordPress Development",sv2_p:"Clean, fast and responsive websites that work everywhere.",
   sv3_t:"Content Writing",sv3_p:"Words that connect with people and explain things clearly.",
-  gal_t:"Orion",gal_e:"Graphy",gal_s:"A selection of my favourite frames. Tap any photo to view it large.",
+  gal_t:"Orion",gal_e:"Graphy",gal_s:"A selection of my favourite frames. Tap any photo to view it large.",gallery_kicker:"PERSONAL PHOTO JOURNAL",gallery_note:"Little moments, seen my way.",gallery_count:"FRAMES",
   soc_t:"Find me on",soc_e:"Social",soc_s:"Follow my journey and daily shots.",
-  con_t:"Let's",con_e:"Talk",con_s:"Want a shoot or collaboration? Send me a message.",
+  con_t:"Let's",con_e:"Talk",con_s:"Have a question or want to connect? Feel free to send me a message.",
   showall:"Show all photos",lk_t:"Orion Graphy Collection",lk_s:"Slide or tap to unlock",sl:"Slide to open",
   send:"Send Message",rights:"All rights reserved.",all:"All",portrait:"Portrait",nature:"Nature",street:"Street",
   ph_name:"Your name",ph_email:"Your email",ph_msg:"Your message",
   skills_t:"Skills &",skills_e:"Interests",skills_s:"A balanced mix of professional knowledge and creative work.",
-  skill_chem:"Chemistry",skill_chem_p:"Professional work and analytical thinking.",skill_photo:"Photography",skill_photo_p:"Capturing light, details and meaningful moments.",skill_web:"WordPress & Web",skill_web_p:"Building and exploring responsive web experiences.",skill_write:"Content Writing",skill_write_p:"Clear writing and creative communication.",
+  skill_chem:"Chemistry",skill_chem_p:"Professional work and analytical thinking.",skill_photo:"Photography",skill_photo_p:"Enjoying light, details and meaningful moments through photography as a hobby.",skill_web:"WordPress & Web",skill_web_p:"Building and exploring responsive web experiences.",skill_write:"Content Writing",skill_write_p:"Clear writing and creative communication.",
   journey_t:"My",journey_e:"Journey",journey_s:"Professional and creative interests that shape my work.",journey_chem:"Professional Life",journey_chem_p:"Working as a chemist in an industrial environment, with a focus on precision and problem-solving.",journey_creative:"Creative Life",journey_creative_p:"Photography, WordPress development and content writing are part of my creative journey.",journey_note:"Detailed education and career dates can be added when the information is ready to publish.",
   projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV"},
  bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_skills:"দক্ষতা",nav_journey:"যাত্রা",nav_projects:"প্রজেক্ট",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
   loc:"বাংলাদেশ",
-  tag:"📷 ফটোগ্রাফার",h1a:"হ্যালো!!!",
-  hero_p:"আমার জগতে স্বাগতম। আমি আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়...",
+  tag:"📷 শখের ফটোগ্রাফার",h1a:"হ্যালো!!!",
+  hero_p:"আমার জগতে স্বাগতম। শখের ক্যামেরায় আলো, অনুভূতি আর প্রতিদিনের ছোট ছোট গল্প ধরে রাখতে ভালোবাসি...",
   view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
   about_p1:"হ্যালো, আমি মাহমুদ উদয়। একটি বহুজাতিক কোম্পানিতে কেমিস্ট হিসেবে কাজ করি, যেখানে নিখুঁত হিসাব আর অনুসন্ধিৎসাই আমার চালিকাশক্তি।",
   about_p2:"ল্যাবের বাইরে আমি একজন ওয়ার্ডপ্রেস ওয়েব ডেভেলপার ও কনটেন্ট রাইটার, যে ভাবনাকে সুন্দর ওয়েবসাইট আর হৃদয়ছোঁয়া লেখায় রূপ দিতে ভালোবাসে।",
-  about_p3:"আর ক্যামেরার লেন্সে আমি একজন শখের ফটোগ্রাফার। ফটোগ্রাফি আমার কাছে পৃথিবীকে দেখা ও অনুভব করার উপায়, আমি সবসময় প্রাকৃতিক আলো আর সত্যিকারের মুহূর্ত খুঁজি।",
-  r1:"ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",iam:"আমি একজন",
+  about_p3:"আর ক্যামেরার লেন্সে আমি একজন শখের ফটোগ্রাফার। আলো, বিস্তারিত আর প্রতিদিনের ছোট ছোট সুন্দর মুহূর্ত খুঁজে পাওয়াই আমার ভালো লাগা।",
+  r1:"শখের ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",iam:"আমি একজন",
   sv_t:"আমি যা",sv_e:"করি",sv_s:"প্রতিটি প্রজেক্টে আমার দক্ষতার ছোঁয়া।",
-  sv1_t:"ফটোগ্রাফি",sv1_p:"আলো, অনুভূতি আর সত্যিকারের মুহূর্ত, যত্ন করে ফ্রেমে বন্দী।",
+  sv1_t:"ফটোগ্রাফি",sv1_p:"শখের ফটোগ্রাফিতে আলো, বিস্তারিত ও প্রতিদিনের সুন্দর মুহূর্ত খুঁজে নেওয়া।",
   sv2_t:"ওয়ার্ডপ্রেস ডেভেলপমেন্ট",sv2_p:"পরিচ্ছন্ন, দ্রুত ও রেসপন্সিভ ওয়েবসাইট, সব ডিভাইসে নিখুঁত।",
   sv3_t:"কনটেন্ট রাইটিং",sv3_p:"এমন লেখা যা মানুষের সাথে সংযোগ গড়ে এবং সহজে বোঝায়।",
-  gal_t:"Orion",gal_e:"Graphy",gal_s:"আমার প্রিয় কিছু ফ্রেম। যেকোনো ছবিতে ট্যাপ করে বড় করে দেখুন।",
+  gal_t:"Orion",gal_e:"Graphy",gal_s:"আমার প্রিয় কিছু মুহূর্তের ছবি। বড় করে দেখতে যেকোনো ছবিতে ট্যাপ করো।",gallery_kicker:"আমার ফটোগ্রাফি ডায়েরি",gallery_note:"আমার চোখে দেখা ছোট ছোট মুহূর্ত।",gallery_count:"টি ছবি",
   soc_t:"আমাকে পাবেন",soc_e:"সোশ্যালে",soc_s:"আমার যাত্রা ও প্রতিদিনের ছবি ফলো করুন।",
-  con_t:"চলুন",con_e:"কথা বলি",con_s:"শুট বা কাজের জন্য মেসেজ দিন।",
+  con_t:"চলুন",con_e:"কথা বলি",con_s:"কোনো প্রশ্ন বা যোগাযোগের জন্য আমাকে মেসেজ দিতে পারো।",
   showall:"সব ছবি দেখুন",lk_t:"Orion Graphy কালেকশন",lk_s:"খুলতে স্লাইড করুন বা ট্যাপ করুন",sl:"স্লাইড করুন",
   send:"মেসেজ পাঠান",rights:"সর্বস্বত্ব সংরক্ষিত।",all:"সব",portrait:"পোর্ট্রেট",nature:"প্রকৃতি",street:"স্ট্রিট",
   ph_name:"আপনার নাম",ph_email:"আপনার ইমেইল",ph_msg:"আপনার মেসেজ",
   skills_t:"দক্ষতা ও",skills_e:"আগ্রহ",skills_s:"পেশাগত জ্ঞান ও সৃজনশীল কাজের সমন্বয়।",
-  skill_chem:"কেমিস্ট্রি",skill_chem_p:"পেশাগত কাজ ও বিশ্লেষণধর্মী চিন্তাভাবনা।",skill_photo:"ফটোগ্রাফি",skill_photo_p:"আলো, বিস্তারিত ও অর্থবহ মুহূর্ত ধারণ।",skill_web:"ওয়ার্ডপ্রেস ও ওয়েব",skill_web_p:"রেসপন্সিভ ওয়েব অভিজ্ঞতা তৈরি ও শেখা।",skill_write:"কনটেন্ট রাইটিং",skill_write_p:"সহজ, পরিষ্কার লেখা ও সৃজনশীল যোগাযোগ।",
+  skill_chem:"কেমিস্ট্রি",skill_chem_p:"পেশাগত কাজ ও বিশ্লেষণধর্মী চিন্তাভাবনা।",skill_photo:"ফটোগ্রাফি",skill_photo_p:"শখের ফটোগ্রাফির মাধ্যমে আলো, বিস্তারিত ও অর্থবহ মুহূর্ত উপভোগ করা।",skill_web:"ওয়ার্ডপ্রেস ও ওয়েব",skill_web_p:"রেসপন্সিভ ওয়েব অভিজ্ঞতা তৈরি ও শেখা।",skill_write:"কনটেন্ট রাইটিং",skill_write_p:"সহজ, পরিষ্কার লেখা ও সৃজনশীল যোগাযোগ।",
   journey_t:"আমার",journey_e:"যাত্রা",journey_s:"আমার কাজকে গড়ে তোলা পেশাগত ও সৃজনশীল আগ্রহ।",journey_chem:"পেশাগত জীবন",journey_chem_p:"শিল্প-পরিবেশে কেমিস্ট হিসেবে কাজ, যেখানে নির্ভুলতা ও সমস্যা সমাধানে গুরুত্ব দিই।",journey_creative:"সৃজনশীল জীবন",journey_creative_p:"ফটোগ্রাফি, ওয়ার্ডপ্রেস ডেভেলপমেন্ট ও কনটেন্ট রাইটিং আমার সৃজনশীল যাত্রার অংশ।",journey_note:"শিক্ষাগত তথ্য ও কর্মজীবনের তারিখ প্রকাশের জন্য প্রস্তুত হলে যোগ করা যাবে।",
   projects_t:"নির্বাচিত",projects_e:"প্রজেক্ট",projects_s:"আমার একটি ব্যক্তিগত ডিজিটাল প্রজেক্ট।",project_desc:"ফটোগ্রাফি, পেশাগত পরিচয় ও সৃজনশীল কাজকে একত্র করা ব্যক্তিগত পোর্টফোলিও।",project_live:"লাইভ ওয়েবসাইট দেখুন ↗",mail_note:"মেসেজ পাঠানোর জন্য আপনার ইমেইল অ্যাপ খুলবে।",whatsapp_btn:"WhatsApp-এ যোগাযোগ",copy_email:"ইমেইল কপি করুন",cv_request:"CV চাইতে ইমেইল করুন"}
 };
@@ -864,7 +1140,7 @@ $$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#links").classList.remove("open")});
 
 /* marquee + clock */
-$("#track").innerHTML='<span>MAHMUD UDAY <b>✦</b> ORION GRAPHY <b>✦</b> PHOTOGRAPHER <b>✦</b></span>'.repeat(8);
+$("#track").innerHTML='<span>MAHMUD UDAY <b>✦</b> ORION GRAPHY <b>✦</b> HOBBY PHOTOGRAPHER <b>✦</b></span>'.repeat(8);
 const bdTimeFmt=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
 const bdDateFmt=()=>new Intl.DateTimeFormat(lang==="bn"?"bn-BD":"en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"Asia/Dhaka"});
 const tickClock=()=>{
@@ -876,7 +1152,7 @@ tickClock();setInterval(tickClock,20000);
 
 /* ---------- gallery: auto-detect photos (fast HEAD checks) ---------- */
 const exists=src=>fetch(src,{method:"HEAD"}).then(r=>r.ok).catch(()=>false);
-const grads=["#2f6bff,#00c2ff","#0a3cff,#6a5cff","#00c2ff,#2ee6a6","#1a2a6c,#2f6bff"];
+const grads=["#6d28d9,#c4b5fd","#7c3aed,#a78bfa","#5b21b6,#ddd6fe","#4c1d95,#8b5cf6"];
 const ratios=["4/5","1/1","3/4","4/3","2/3"];
 const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
 async function scan(cat){
@@ -900,6 +1176,7 @@ async function loadPhotos(){
     CONFIG.photos=["portrait","nature","street","portrait","nature","street","nature","portrait","street"]
       .map((c,i)=>({src:`images/demo${i}.jpg`,cat:c,title:cap(c)+" "+(i+1)}));
   }
+  const countEl=$("#photoCount");if(countEl)countEl.textContent=String(CONFIG.photos.length).padStart(2,"0");
 }
 function buildFilters(){
   const cats=["all",...new Set(CONFIG.photos.map(p=>p.cat))];
@@ -909,10 +1186,10 @@ function buildFilters(){
 }
 function buildGrid(){
   $("#grid").innerHTML=CONFIG.photos.map((p,i)=>`
-   <div class="item rv fx-z" style="transition-delay:${(i%3)*80}ms" data-cat="${p.cat}" data-i="${i}">
-     <div class="im"><img src="${p.src}" alt="${p.title}" loading="lazy" decoding="async" onerror="fb(this,${i})"><div class="cap">${p.title}</div></div>
+   <div class="item rv fx-z" style="transition-delay:${(i%3)*55}ms" data-cat="${p.cat}" data-i="${i}" role="button" tabindex="0" aria-label="View ${p.title}">
+     <div class="im"><img src="${p.src}" alt="${p.title}" loading="lazy" decoding="async" onload="this.classList.add('loaded')" onerror="fb(this,${i})"><span class="photo-index">${String(i+1).padStart(2,"0")}</span><div class="cap"><span>${p.title}</span><span class="photo-open">VIEW PHOTO ↗</span></div></div>
    </div>`).join("");
-  $$(".item").forEach(el=>{el.onclick=()=>openLb(+el.dataset.i);io.observe(el)});
+  $$(".item").forEach(el=>{el.onclick=()=>openLb(+el.dataset.i);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openLb(+el.dataset.i)}};io.observe(el)});
   filter(false);
 }
 window.fb=(img,i)=>{
