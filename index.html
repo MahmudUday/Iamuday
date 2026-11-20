@@ -469,6 +469,60 @@ input:focus,textarea:focus{box-shadow:var(--lg-edge),0 0 0 4px rgba(0,150,255,.1
 @media(hover:none){.extra-card:hover,.card:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.track{animation:none}.orb,.ring{animation:none}}
 
+
+/* ---------- Orion Graphy V3 visual refinement: violet glass + hero atmosphere ---------- */
+:root{--violet:#a78bfa;--violet-bright:#c4b5fd;--violet-glass:rgba(139,92,246,.16);--violet-line:rgba(167,139,250,.28)}
+.bg::after{
+  background:radial-gradient(ellipse 72% 42% at 78% 18%,rgba(139,92,246,.16),transparent 72%),
+             radial-gradient(ellipse 80% 45% at 50% 115%,rgba(0,110,255,.22),transparent 70%),
+             radial-gradient(ellipse 60% 35% at 50% -10%,rgba(0,170,255,.10),transparent 70%);
+}
+.glass{background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.025) 48%,rgba(139,92,246,.105));border-color:rgba(255,255,255,.16)}
+[data-theme="light"] .glass{background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,255,255,.62) 55%,rgba(196,181,253,.16));border-color:rgba(167,139,250,.22)}
+.h2 em,h2 em{background-image:linear-gradient(100deg,#fff 0%,#c4b5fd 42%,#8b5cf6 100%)}
+h2::after{background:linear-gradient(90deg,#8b5cf6,#c4b5fd,#fff)}
+.ln>span{background-image:linear-gradient(100deg,#fff 0%,#e9e4ff 34%,#b69cff 66%,#8b5cf6 100%)}
+[data-theme="light"] .ln>span{background-image:linear-gradient(100deg,#242039 0%,#7654d8 55%,#9b7aea 100%)}
+.btn.pri{background:linear-gradient(135deg,#7046d8,#9b78f5 58%,#c4b5fd);box-shadow:0 9px 28px -12px rgba(139,92,246,.8)}
+.fbtn.active{background:linear-gradient(135deg,#7046d8,#a78bfa);box-shadow:0 7px 22px -12px rgba(139,92,246,.85)}
+.role::before{background:linear-gradient(135deg,#8b5cf6,#d8ccff);box-shadow:0 0 10px rgba(167,139,250,.75)}
+.si{background:linear-gradient(135deg,#7046d8,#a78bfa)}
+.hero-atmosphere{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;contain:layout paint}
+#home>:not(.hero-atmosphere){z-index:1}
+.hero-atmosphere::before{content:"";position:absolute;inset:-18%;background:
+  radial-gradient(ellipse 38% 34% at 76% 34%,rgba(139,92,246,.23),transparent 72%),
+  radial-gradient(ellipse 28% 30% at 22% 62%,rgba(255,255,255,.075),transparent 72%),
+  radial-gradient(ellipse 54% 42% at 72% 78%,rgba(92,55,180,.13),transparent 72%);
+  animation:hero-halo 18s ease-in-out infinite alternate;will-change:transform,opacity}
+.hero-atmosphere::after{content:"";position:absolute;inset:0;opacity:.25;background-image:
+  radial-gradient(circle,rgba(255,255,255,.8) 0 1px,transparent 1.5px),
+  radial-gradient(circle,rgba(196,181,253,.9) 0 1px,transparent 1.6px);
+  background-size:91px 91px,137px 137px;background-position:0 0,42px 58px;
+  mask-image:radial-gradient(ellipse at 72% 45%,#000 0%,transparent 72%);animation:star-drift 42s linear infinite}
+.ha-halo{position:absolute;width:min(70vw,680px);aspect-ratio:1;right:-12%;top:4%;border-radius:50%;border:1px solid rgba(196,181,253,.12);
+  background:radial-gradient(circle,rgba(139,92,246,.07),transparent 67%);box-shadow:inset 0 0 80px rgba(139,92,246,.045),0 0 90px rgba(139,92,246,.045)}
+.ha-orbit{position:absolute;width:min(58vw,560px);aspect-ratio:1;right:-2%;top:12%;border:1px solid rgba(196,181,253,.16);border-radius:50%;transform:rotate(-24deg) scaleY(.42);}
+.ha-orbit::before,.ha-orbit::after{content:"";position:absolute;border:1px solid rgba(255,255,255,.11);border-radius:50%;inset:13% -7%;}
+.ha-orbit::after{inset:28% -15%;border-color:rgba(167,139,250,.17)}
+.ha-orbit-a{animation:orbit-turn 48s linear infinite}
+.ha-orbit-b{width:min(48vw,460px);right:4%;top:19%;transform:rotate(52deg) scaleY(.36);border-style:dashed;border-color:rgba(167,139,250,.17);animation:orbit-turn-rev 64s linear infinite}
+.ring{border-color:rgba(196,181,253,.23);opacity:.72}
+.ring::before{border-color:rgba(196,181,253,.19)}
+.ring::after{border-color:rgba(167,139,250,.34)}
+.ring i{background:#c4b5fd;box-shadow:0 0 20px 4px rgba(167,139,250,.85)}
+@keyframes hero-halo{0%{transform:translate3d(-1.5%,1%,0) scale(.96);opacity:.72}100%{transform:translate3d(1.5%,-1%,0) scale(1.04);opacity:1}}
+@keyframes star-drift{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-24px,18px,0)}}
+@keyframes orbit-turn{to{transform:rotate(336deg) scaleY(.42)}}
+@keyframes orbit-turn-rev{to{transform:rotate(-308deg) scaleY(.36)}}
+body.scrolling .hero-atmosphere::before,body.scrolling .hero-atmosphere::after,body.scrolling .ha-orbit{animation-play-state:paused}
+@media(max-width:760px){
+  .ha-halo{width:92vw;right:-38%;top:14%;opacity:.8}
+  .ha-orbit{width:78vw;right:-26%;top:21%;opacity:.7}
+  .ha-orbit-b{width:68vw;right:-15%;top:27%}
+  .hero-atmosphere::after{opacity:.16}
+}
+@media(prefers-reduced-motion:reduce){.hero-atmosphere::before,.hero-atmosphere::after,.ha-orbit-a,.ha-orbit-b{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -514,9 +568,15 @@ input:focus,textarea:focus{box-shadow:var(--lg-edge),0 0 0 4px rgba(0,150,255,.1
 
 <main>
 <section id="home">
+  <div class="hero-atmosphere" aria-hidden="true">
+    <div class="ha-halo"></div>
+    <div class="ha-orbit ha-orbit-a"></div>
+    <div class="ha-orbit ha-orbit-b"></div>
+    <div class="ha-stars"></div>
+  </div>
   <div class="ring"><i></i></div>
-  <div class="hud-bar glass rv">
-    <div class="cell"><span class="dot"></span><span data-i="avail">Open for shoots</span></div>
+  <div class="hud-bar glass rv" aria-label="Bangladesh local date and time">
+    <div class="cell"><span>📅</span><span id="bd-date">-- --- ----</span></div>
     <div class="cell"><span>📍</span><span data-i="loc">Bangladesh</span></div>
     <div class="cell"><span>🕒</span><span><span id="clock">--:--</span> <small>BDT</small></span></div>
   </div>
@@ -703,7 +763,7 @@ const CONFIG = {
 
 const T = {
  en:{nav_home:"Home",nav_about:"About",nav_skills:"Skills",nav_journey:"Journey",nav_projects:"Projects",nav_gallery:"Orion Graphy",nav_social:"Social",nav_contact:"Contact",
-  avail:"Assalamualaikum",loc:"Bangladesh",
+  loc:"Bangladesh",
   tag:"📷 Photographer",h1a:"Hello There!!!",
   hero_p:"Welcome to my world. I freeze light, emotion and stories into frames that last forever...",
   view:"View Orion Graphy",hire:"Get in touch",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
@@ -726,7 +786,7 @@ const T = {
   journey_t:"My",journey_e:"Journey",journey_s:"Professional and creative interests that shape my work.",journey_chem:"Professional Life",journey_chem_p:"Working as a chemist in an industrial environment, with a focus on precision and problem-solving.",journey_creative:"Creative Life",journey_creative_p:"Photography, WordPress development and content writing are part of my creative journey.",journey_note:"Detailed education and career dates can be added when the information is ready to publish.",
   projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV"},
  bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_skills:"দক্ষতা",nav_journey:"যাত্রা",nav_projects:"প্রজেক্ট",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
-  avail:"আসসালামু আলাইকুম",loc:"বাংলাদেশ",
+  loc:"বাংলাদেশ",
   tag:"📷 ফটোগ্রাফার",h1a:"হ্যালো!!!",
   hero_p:"আমার জগতে স্বাগতম। আমি আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়...",
   view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
@@ -793,6 +853,7 @@ function applyLang(){
   $$("[data-ph]").forEach(e=>e.placeholder=d[e.dataset.ph]);
   $("#lang").textContent=lang==="en"?"বাং":"EN";
   rw.textContent=d["r"+(ri+1)];
+  if(typeof tickClock==="function")tickClock();
   buildFilters();
 }
 $("#lang").onclick=()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang()};
@@ -804,8 +865,13 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#links").classLis
 
 /* marquee + clock */
 $("#track").innerHTML='<span>MAHMUD UDAY <b>✦</b> ORION GRAPHY <b>✦</b> PHOTOGRAPHER <b>✦</b></span>'.repeat(8);
-const fmt=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
-const tickClock=()=>{$("#clock").textContent=fmt.format(new Date())};
+const bdTimeFmt=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
+const bdDateFmt=()=>new Intl.DateTimeFormat(lang==="bn"?"bn-BD":"en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"Asia/Dhaka"});
+const tickClock=()=>{
+  const now=new Date();
+  $("#clock").textContent=bdTimeFmt.format(now);
+  $("#bd-date").textContent=bdDateFmt().format(now);
+};
 tickClock();setInterval(tickClock,20000);
 
 /* ---------- gallery: auto-detect photos (fast HEAD checks) ---------- */
