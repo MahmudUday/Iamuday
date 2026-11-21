@@ -193,9 +193,9 @@ h2 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--acc
 .sub{color:var(--muted);margin:16px 0 26px;max-width:560px}
 
 /* reveal: opacity + transform only (GPU friendly) */
-.rv{opacity:0;transform:translate3d(0,36px,0);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv{opacity:0;transform:translate3d(0,24px,0);transition:opacity .56s var(--ease),transform .56s var(--ease)}
 .rv.in{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
 .rv.fx-l{transform:translate3d(-40px,0,0)}
 .rv.fx-r{transform:translate3d(40px,0,0)}
 .rv.fx-z{transform:scale(.8) translate3d(0,26px,0)}
@@ -716,12 +716,28 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
 
 <section id="journey">
   <h2 class="rv"><span data-i="journey_t">My</span> <em data-i="journey_e">Journey</em></h2>
-  <p class="sub rv d1" data-i="journey_s">Professional and creative interests that shape my work.</p>
-  <div class="journey-line">
-    <article class="journey-card glass rv"><h3 data-i="journey_chem">Professional Life</h3><p data-i="journey_chem_p">Working as a chemist in an industrial environment, with a focus on precision and problem-solving.</p></article>
-    <article class="journey-card glass rv d1"><h3 data-i="journey_creative">Creative Life</h3><p data-i="journey_creative_p">Photography, WordPress development and content writing are part of my creative journey.</p></article>
+  <p class="sub rv d1" data-i="journey_s">My education and professional experience.</p>
+  <div class="timeline-columns">
+    <div class="timeline-group rv">
+      <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="edu_heading">Education</span></h3>
+      <div class="timeline-list">
+        <article class="timeline-item"><span class="timeline-year">2022</span><div class="timeline-content"><h4 data-i="edu_msc">Master of Science (M.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2022">Passed · 2022</small></div></article>
+        <article class="timeline-item"><span class="timeline-year">2020</span><div class="timeline-content"><h4 data-i="edu_bsc">Bachelor of Science (B.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2020">Passed · 2020</small></div></article>
+        <article class="timeline-item"><span class="timeline-year">2014</span><div class="timeline-content"><h4 data-i="edu_hsc">Higher Secondary Certificate (HSC)</h4><p>Sonar Bangla University College</p><small data-i="passed_2014">Passed · 2014</small></div></article>
+        <article class="timeline-item"><span class="timeline-year">2012</span><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p>Sonaimuri Govt. Model High School</p><small data-i="passed_2012">Passed · 2012</small></div></article>
+      </div>
+    </div>
+    <div class="timeline-group rv d1">
+      <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="career_heading">Career Experience</span></h3>
+      <div class="timeline-list">
+        <article class="timeline-item current"><span class="timeline-year" data-i="present">Present</span><div class="timeline-content"><h4 data-i="job_chemist">Technical Chemist</h4><p>Weixing Industrial (BD) Co., Ltd. — SAB</p><small data-i="job_current_note">Current position</small></div></article>
+        <article class="timeline-item"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_bkash">Customer Service Officer</h4><p>bKash Limited</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_writer">Content Writer</h4><p>Nexton Digital</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_qc">Quality Control Officer</h4><p>Herbs &amp; Health Laboratories (AYU)</p><small data-i="former_role">Previous experience</small></div></article>
+      </div>
+    </div>
   </div>
-  <p class="form-note rv" data-i="journey_note">Detailed education and career dates can be added when the information is ready to publish.</p>
+  <p class="form-note rv" data-i="journey_note">A journey shaped by learning, professional experience and continuous growth.</p>
 </section>
 
 <section id="projects">
@@ -852,8 +868,8 @@ const T = {
   ph_name:"Your name",ph_email:"Your email",ph_msg:"Your message",
   skills_t:"Skills &",skills_e:"Interests",skills_s:"A balanced mix of professional knowledge and creative work.",
   skill_chem:"Chemistry",skill_chem_p:"Professional work and analytical thinking.",skill_photo:"Photography",skill_photo_p:"Capturing light, details and meaningful moments.",skill_web:"WordPress & Web",skill_web_p:"Building and exploring responsive web experiences.",skill_write:"Content Writing",skill_write_p:"Clear writing and creative communication.",
-  journey_t:"My",journey_e:"Journey",journey_s:"Professional and creative interests that shape my work.",journey_chem:"Professional Life",journey_chem_p:"Working as a chemist in an industrial environment, with a focus on precision and problem-solving.",journey_creative:"Creative Life",journey_creative_p:"Photography, WordPress development and content writing are part of my creative journey.",journey_note:"I continue to grow through hands-on experience, curiosity and consistent learning.",
-  projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV"},
+  journey_t:"My",journey_e:"Journey",journey_s:"Professional and creative interests that shape my work.",journey_chem:"Professional Life",journey_chem_p:"Working as a chemist in an industrial environment, with a focus on precision and problem-solving.",journey_creative:"Creative Life",journey_creative_p:"Photography, WordPress development and content writing are part of my creative journey.",journey_note:"A journey shaped by learning, professional experience and continuous growth.",
+  edu_heading:"Education",career_heading:"Career Experience",edu_msc:"Master of Science (M.Sc.)",edu_bsc:"Bachelor of Science (B.Sc.)",edu_hsc:"Higher Secondary Certificate (HSC)",edu_ssc:"Secondary School Certificate (SSC)",edu_nu:"National University of Bangladesh",passed_2022:"Passed · 2022",passed_2020:"Passed · 2020",passed_2014:"Passed · 2014",passed_2012:"Passed · 2012",present:"Present",former:"Former",job_chemist:"Technical Chemist",job_current_note:"Current position",job_bkash:"Customer Service Officer",job_writer:"Content Writer",job_qc:"Quality Control Officer",former_role:"Previous experience",projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV"},
  bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_skills:"দক্ষতা",nav_journey:"যাত্রা",nav_projects:"প্রজেক্ট",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
   loc:"বাংলাদেশ",
   tag:"📷 শখের ফটোগ্রাফার",h1a:"হ্যালো!!!",
@@ -875,8 +891,8 @@ const T = {
   ph_name:"আপনার নাম",ph_email:"আপনার ইমেইল",ph_msg:"আপনার মেসেজ",
   skills_t:"দক্ষতা ও",skills_e:"আগ্রহ",skills_s:"পেশাগত জ্ঞান ও সৃজনশীল কাজের সমন্বয়।",
   skill_chem:"কেমিস্ট্রি",skill_chem_p:"পেশাগত কাজ ও বিশ্লেষণধর্মী চিন্তাভাবনা।",skill_photo:"ফটোগ্রাফি",skill_photo_p:"আলো, বিস্তারিত ও অর্থবহ মুহূর্ত ধারণ।",skill_web:"ওয়ার্ডপ্রেস ও ওয়েব",skill_web_p:"রেসপন্সিভ ওয়েব অভিজ্ঞতা তৈরি ও শেখা।",skill_write:"কনটেন্ট রাইটিং",skill_write_p:"সহজ, পরিষ্কার লেখা ও সৃজনশীল যোগাযোগ।",
-  journey_t:"আমার",journey_e:"যাত্রা",journey_s:"আমার কাজকে গড়ে তোলা পেশাগত ও সৃজনশীল আগ্রহ।",journey_chem:"পেশাগত জীবন",journey_chem_p:"শিল্প-পরিবেশে কেমিস্ট হিসেবে কাজ, যেখানে নির্ভুলতা ও সমস্যা সমাধানে গুরুত্ব দিই।",journey_creative:"সৃজনশীল জীবন",journey_creative_p:"ফটোগ্রাফি, ওয়ার্ডপ্রেস ডেভেলপমেন্ট ও কনটেন্ট রাইটিং আমার সৃজনশীল যাত্রার অংশ।",journey_note:"শিক্ষাগত তথ্য ও কর্মজীবনের তারিখ প্রকাশের জন্য প্রস্তুত হলে যোগ করা যাবে।",
-  projects_t:"নির্বাচিত",projects_e:"প্রজেক্ট",projects_s:"আমার একটি ব্যক্তিগত ডিজিটাল প্রজেক্ট।",project_desc:"ফটোগ্রাফি, পেশাগত পরিচয় ও সৃজনশীল কাজকে একত্র করা ব্যক্তিগত পোর্টফোলিও।",project_live:"লাইভ ওয়েবসাইট দেখুন ↗",mail_note:"মেসেজ পাঠানোর জন্য আপনার ইমেইল অ্যাপ খুলবে।",whatsapp_btn:"WhatsApp-এ যোগাযোগ",copy_email:"ইমেইল কপি করুন",cv_request:"CV চাইতে ইমেইল করুন"}
+  journey_t:"আমার",journey_e:"যাত্রা",journey_s:"আমার কাজকে গড়ে তোলা পেশাগত ও সৃজনশীল আগ্রহ।",journey_chem:"পেশাগত জীবন",journey_chem_p:"শিল্প-পরিবেশে কেমিস্ট হিসেবে কাজ, যেখানে নির্ভুলতা ও সমস্যা সমাধানে গুরুত্ব দিই।",journey_creative:"সৃজনশীল জীবন",journey_creative_p:"ফটোগ্রাফি, ওয়ার্ডপ্রেস ডেভেলপমেন্ট ও কনটেন্ট রাইটিং আমার সৃজনশীল যাত্রার অংশ।",journey_note:"শেখা, পেশাগত অভিজ্ঞতা ও ধারাবাহিক উন্নতির মধ্য দিয়ে গড়ে ওঠা এক যাত্রা।",
+  edu_heading:"শিক্ষাগত যোগ্যতা",career_heading:"কর্মজীবনের অভিজ্ঞতা",edu_msc:"মাস্টার অব সায়েন্স (এম.এসসি.)",edu_bsc:"ব্যাচেলর অব সায়েন্স (বি.এসসি.)",edu_hsc:"উচ্চ মাধ্যমিক সার্টিফিকেট (এইচএসসি)",edu_ssc:"মাধ্যমিক স্কুল সার্টিফিকেট (এসএসসি)",edu_nu:"জাতীয় বিশ্ববিদ্যালয়, বাংলাদেশ",passed_2022:"পাসের বছর · ২০২২",passed_2020:"পাসের বছর · ২০২০",passed_2014:"পাসের বছর · ২০১৪",passed_2012:"পাসের বছর · ২০১২",present:"বর্তমান",former:"সাবেক",job_chemist:"টেকনিক্যাল কেমিস্ট",job_current_note:"বর্তমানে কর্মরত",job_bkash:"কাস্টমার সার্ভিস অফিসার",job_writer:"কনটেন্ট রাইটার",job_qc:"কোয়ালিটি কন্ট্রোল অফিসার",former_role:"পূর্ববর্তী কর্ম-অভিজ্ঞতা",projects_t:"নির্বাচিত",projects_e:"প্রজেক্ট",projects_s:"আমার একটি ব্যক্তিগত ডিজিটাল প্রজেক্ট।",project_desc:"ফটোগ্রাফি, পেশাগত পরিচয় ও সৃজনশীল কাজকে একত্র করা ব্যক্তিগত পোর্টফোলিও।",project_live:"লাইভ ওয়েবসাইট দেখুন ↗",mail_note:"মেসেজ পাঠানোর জন্য আপনার ইমেইল অ্যাপ খুলবে।",whatsapp_btn:"WhatsApp-এ যোগাযোগ",copy_email:"ইমেইল কপি করুন",cv_request:"CV চাইতে ইমেইল করুন"}
 };
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -1204,3 +1220,23 @@ $$(".rv").filter(e=>!e.closest("#home")).forEach(e=>io.observe(e));
 </script>
 </body>
 </html>
+
+<style id="timeline-and-motion-refinement">
+/* Refined scroll reveals: quicker, lighter movement without adding scroll listeners. */
+@media (max-width:700px){.rv{transition-duration:.52s}.d1{transition-delay:.045s}.d2{transition-delay:.09s}.d3{transition-delay:.135s}}
+.timeline-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.timeline-group{min-width:0;padding:22px;border:1px solid var(--glass-border,rgba(167,139,250,.2));border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(139,92,246,.045))}
+.timeline-heading{display:flex;align-items:center;gap:10px;margin:0 0 20px;font-size:1.08rem}
+.timeline-heading-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;color:var(--violet-bright,#c4b5fd);background:rgba(139,92,246,.16);border:1px solid rgba(167,139,250,.25)}
+.timeline-list{position:relative;display:grid;gap:14px}
+.timeline-list:before{content:"";position:absolute;left:48px;top:12px;bottom:12px;width:1px;background:linear-gradient(var(--violet,#a78bfa),rgba(167,139,250,.08))}
+.timeline-item{position:relative;display:grid;grid-template-columns:82px minmax(0,1fr);gap:12px;align-items:start}
+.timeline-year{position:relative;z-index:1;display:inline-flex;justify-content:center;align-items:center;min-height:29px;padding:5px 7px;border:1px solid rgba(167,139,250,.28);border-radius:9px;background:rgba(139,92,246,.13);color:var(--violet-bright,#c4b5fd);font-size:.72rem;font-weight:700;text-align:center}
+.timeline-content{padding:2px 0 10px;min-width:0}
+.timeline-content h4{margin:0 0 5px;font-size:.94rem;line-height:1.4}
+.timeline-content p{margin:0;color:var(--text-secondary,var(--muted));font-size:.83rem;line-height:1.5;overflow-wrap:anywhere}
+.timeline-content small{display:block;margin-top:5px;color:var(--muted);font-size:.72rem}
+.timeline-item.current .timeline-year{background:rgba(167,139,250,.24);border-color:rgba(196,181,253,.55)}
+@media(max-width:760px){.timeline-columns{grid-template-columns:1fr;gap:14px}.timeline-group{padding:18px}.timeline-list:before{left:45px}.timeline-item{grid-template-columns:76px minmax(0,1fr);gap:10px}}
+@media(prefers-reduced-motion:reduce){.rv,.rv.in{transition:none!important;transform:none!important;opacity:1!important}}
+</style>
