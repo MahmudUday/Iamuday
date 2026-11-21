@@ -4,19 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Mahmud Uday | Orion Graphy</title>
-<meta name="description" content="Mahmud Uday — Chemist, Photographer, WordPress Developer and Content Writer. Explore Orion Graphy and creative projects.">
+<meta name="description" content="Explore Mahmud Uday’s personal portfolio — a chemist by profession, hobby photographer and creative enthusiast interested in WordPress development and content writing.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://itsuday.vercel.app/">
+<meta property="og:locale" content="en_BD">
 <meta name="author" content="Mahmud Uday">
 <meta property="og:url" content="https://itsuday.vercel.app/">
 <meta property="og:image" content="https://itsuday.vercel.app/images/profile.jpg">
 <meta name="twitter:title" content="Mahmud Uday | Orion Graphy">
-<meta name="twitter:description" content="Chemist by profession, creator by passion.">
+<meta name="twitter:description" content="Chemist by profession, hobby photographer and creative enthusiast.">
 <meta name="twitter:image" content="https://itsuday.vercel.app/images/profile.jpg">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#080410">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mahmud Uday | Orion Graphy">
-<meta property="og:description" content="Photographer, chemist, WordPress developer and content writer from Bangladesh.">
+<meta property="og:description" content="Chemist, hobby photographer and creative enthusiast from Bangladesh.">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mahmud Uday","jobTitle":"Photographer, WordPress Developer, Content Writer","email":"mahmududay.info@gmail.com","sameAs":["https://instagram.com/mahmududay.info","https://facebook.com/mahmududay.info"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mahmud Uday","url":"https://itsuday.vercel.app/","description":"Chemist by profession, hobby photographer and creative enthusiast interested in WordPress development and content writing.","email":"mahmududay.info@gmail.com","knowsAbout":["Chemistry","Photography","WordPress Development","Content Writing"],"sameAs":["https://instagram.com/mahmududay.info","https://facebook.com/mahmududay.info"]}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -99,42 +102,54 @@ html.lite[data-theme="light"] nav{background:rgba(255,255,255,.92)}
   box-shadow:0 0 30px 2px rgba(0,170,255,.55);opacity:.35;animation:glp 6s ease-in-out infinite}
 @keyframes glp{0%,100%{opacity:.3}50%{opacity:.95}}
 
-/* ---------- sci-fi loader ---------- */
-#loader{position:fixed;inset:0;z-index:999;background:#000;display:grid;place-items:center;overflow:hidden;
-  transition:opacity .9s var(--ease),visibility .9s,transform 1.1s var(--ease)}
-#loader.hide{opacity:0;visibility:hidden;transform:scale(1.25)}
-#loader::before{content:"";position:absolute;inset:-44px;
-  background:linear-gradient(rgba(0,170,255,.09) 1px,transparent 1px) 0 0/44px 44px,
-             linear-gradient(90deg,rgba(0,170,255,.09) 1px,transparent 1px) 0 0/44px 44px;animation:gridmove 2.4s linear infinite}
-#loader::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,transparent 15%,#000 72%)}
-@keyframes gridmove{to{transform:translateY(44px)}}
-.scan{position:absolute;left:0;right:0;top:0;height:2px;z-index:3;background:linear-gradient(90deg,transparent,var(--accent2),transparent);
-  box-shadow:0 0 20px var(--accent2);animation:scan 2.6s ease-in-out infinite}
-@keyframes scan{0%{transform:translateY(0);opacity:0}10%,90%{opacity:1}100%{transform:translateY(100vh);opacity:0}}
-.crn{position:absolute;width:28px;height:28px;border:2px solid rgba(0,194,255,.75);z-index:3}
-.crn.tl{top:18px;left:18px;border-right:0;border-bottom:0}.crn.tr{top:18px;right:18px;border-left:0;border-bottom:0}
-.crn.bl{bottom:18px;left:18px;border-right:0;border-top:0}.crn.br{bottom:18px;right:18px;border-left:0;border-top:0}
-.hudtxt{position:absolute;z-index:3;font:500 .66rem/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;color:rgba(120,190,255,.7)}
-.hudtxt.a{top:52px;left:22px}.hudtxt.b{bottom:52px;right:22px}
-.hud{position:relative;z-index:4;display:grid;justify-items:center;gap:26px;width:min(84vw,340px)}
-.core{position:relative;width:150px;height:150px;display:grid;place-items:center}
-.core i{position:absolute;border-radius:50%;border:1.5px solid transparent;will-change:transform}
-.core i:nth-child(1){inset:0;border-top-color:var(--accent2);border-bottom-color:var(--accent2);animation:spin 2.2s linear infinite}
-.core i:nth-child(2){inset:14px;border-left-color:var(--accent);border-right-color:var(--accent);animation:spin 1.5s linear infinite reverse}
-.core i:nth-child(3){inset:30px;border:1px dashed rgba(120,190,255,.55);animation:spin 9s linear infinite}
-.core i:nth-child(4){inset:0;border:1px solid rgba(0,194,255,.4);animation:ringout 2s ease-out infinite}
-.core b{font-size:2.1rem;font-weight:600;letter-spacing:.06em;color:#fff;text-shadow:0 0 18px var(--accent2)}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes ringout{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
-.glitch{position:relative;display:inline-block;font-size:clamp(1.05rem,5vw,1.45rem);letter-spacing:.4em;font-weight:300;color:#fff;text-align:center;padding-left:.4em}
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;padding-left:.4em;opacity:0}
-.glitch::before{color:var(--accent2);clip-path:inset(0 0 55% 0);animation:gl1 2.4s infinite steps(1)}
-.glitch::after{color:#ff3d7f;clip-path:inset(55% 0 0 0);animation:gl2 2.4s infinite steps(1)}
-@keyframes gl1{0%,86%,100%{opacity:0;transform:none}88%{opacity:.9;transform:translate(-3px,1px)}93%{opacity:.9;transform:translate(3px,-1px)}}
-@keyframes gl2{0%,70%,100%{opacity:0;transform:none}72%{opacity:.9;transform:translate(3px,1px)}77%{opacity:.9;transform:translate(-3px,-1px)}}
-.ld-bar{width:100%;height:3px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
-#ldbar{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 0 12px var(--accent2)}
-.ld-row{width:100%;display:flex;justify-content:space-between;font:500 .72rem/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;color:#7fb6ff;margin-top:-10px}
+/* ---------- ORION GRAPHY welcome experience ---------- */
+#welcome{position:fixed;inset:0;z-index:1200;display:grid;place-items:center;overflow:hidden;
+  padding:clamp(22px,5vw,56px);background:#030107;color:#fff;isolation:isolate;
+  opacity:1;visibility:visible;transition:opacity .7s ease,visibility .7s ease}
+#welcome::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 50% 12%,rgba(132,67,255,.24),transparent 72%),
+             radial-gradient(ellipse 65% 50% at 90% 100%,rgba(93,35,190,.22),transparent 70%),
+             radial-gradient(ellipse 50% 45% at 0% 90%,rgba(85,40,155,.16),transparent 72%)}
+#welcome::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+.welcome-glow{position:absolute;width:min(72vw,620px);aspect-ratio:1;border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(circle,rgba(133,76,255,.20),rgba(93,45,180,.08) 38%,transparent 70%);filter:blur(22px)}
+.welcome-shell{width:min(100%,760px);position:relative;text-align:center;padding:clamp(30px,6vw,64px) clamp(20px,5vw,56px);
+  border:1px solid rgba(205,180,255,.19);border-radius:34px;
+  background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035) 48%,rgba(130,78,220,.075));
+  box-shadow:0 28px 90px rgba(0,0,0,.48),inset 0 1px 0 rgba(255,255,255,.17),0 0 55px rgba(116,61,210,.10);
+  -webkit-backdrop-filter:blur(22px) saturate(145%);backdrop-filter:blur(22px) saturate(145%)}
+.welcome-shell::before{content:"";position:absolute;inset:1px;border-radius:33px;pointer-events:none;
+  background:linear-gradient(125deg,rgba(255,255,255,.17),transparent 28%,transparent 72%,rgba(185,144,255,.11))}
+.welcome-kicker{display:inline-flex;align-items:center;gap:10px;padding:9px 15px;border-radius:999px;
+  border:1px solid rgba(196,163,255,.2);background:rgba(135,87,220,.10);color:#d9c7ff;
+  font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+.welcome-dot{width:7px;height:7px;border-radius:50%;background:#bd91ff;box-shadow:0 0 13px #a46aff}
+.welcome-name{margin:26px 0 10px;font-size:clamp(2.45rem,9vw,5.7rem);line-height:1.04;font-weight:750;letter-spacing:-.055em;
+  background:linear-gradient(110deg,#fff 15%,#e6d7ff 52%,#b88aff 88%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 10px 42px rgba(151,102,255,.12)}
+.welcome-greeting{margin:0 0 12px;color:#d8c6f8;font-size:clamp(1.05rem,3.2vw,1.42rem);font-weight:550}
+.welcome-copy{max-width:550px;margin:0 auto;color:rgba(245,239,255,.72);font-size:clamp(.94rem,2.3vw,1.06rem);line-height:1.85}
+.welcome-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:25px 0 30px}
+.welcome-meta span{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.055);
+  color:rgba(245,239,255,.78);font-size:.78rem}
+.welcome-actions{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+#welcome-enter{min-height:54px;padding:0 25px;border:1px solid rgba(218,194,255,.45);border-radius:999px;cursor:pointer;
+  color:#fff;font:600 .96rem/1.2 system-ui,sans-serif;letter-spacing:.01em;background:linear-gradient(120deg,rgba(132,76,225,.92),rgba(92,51,170,.92));
+  box-shadow:0 10px 32px rgba(111,62,205,.30),inset 0 1px 0 rgba(255,255,255,.26);transition:transform .25s ease,box-shadow .25s ease}
+#welcome-enter:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(131,77,226,.42),inset 0 1px 0 rgba(255,255,255,.3)}
+#welcome-enter:focus-visible,#welcome-lang:focus-visible{outline:2px solid #d6baff;outline-offset:4px}
+#welcome-enter span{margin-left:10px;font-size:1.15em}
+#welcome-lang{position:absolute;top:clamp(18px,3vw,30px);right:clamp(18px,3vw,30px);z-index:2;padding:9px 14px;
+  border:1px solid rgba(213,188,255,.2);border-radius:999px;background:rgba(255,255,255,.07);color:#eee5ff;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font:600 .8rem/1.2 system-ui,sans-serif;cursor:pointer}
+.welcome-foot{margin:22px 0 0;color:rgba(235,224,255,.43);font-size:.72rem;letter-spacing:.12em}
+#welcome.dismissed{opacity:0;visibility:hidden;pointer-events:none}
+body:not(.entered){overflow:hidden}
+body:not(.entered) main,body:not(.entered) nav,body:not(.entered) footer,body:not(.entered) #top{visibility:hidden}
+@media(max-width:520px){.welcome-shell{border-radius:27px;padding:34px 20px}.welcome-shell::before{border-radius:26px}.welcome-name{letter-spacing:-.045em}.welcome-meta{gap:7px;margin:20px 0 25px}.welcome-meta span{font-size:.72rem;padding:7px 10px}}
+@media(prefers-reduced-motion:reduce){#welcome,#welcome-enter{transition:none}.welcome-glow{display:none}}
 
 /* ---------- nav ---------- */
 nav{position:fixed;top:14px;left:50%;transform:translate3d(-50%,-120px,0);z-index:100;width:min(94%,900px);
@@ -572,23 +587,28 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
   .ha-orbit,.ha-orbit-a,.ha-orbit-b{animation:none!important;transition:none!important}
 }
 
+
+.skip-link{position:fixed;top:10px;left:10px;z-index:1300;padding:10px 14px;border-radius:10px;background:#21123b;color:#fff;transform:translateY(-160%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#home">Skip to content</a>
 
 <div id="prog"></div>
 <div id="glow"></div>
 
-<div id="loader">
-  <div class="scan"></div>
-  <i class="crn tl"></i><i class="crn tr"></i><i class="crn bl"></i><i class="crn br"></i>
-  <span class="hudtxt a">SYS // ORION GRAPHY</span>
-  <span class="hudtxt b">V 2.0 // SECURE</span>
-  <div class="hud">
-    <div class="core"><i></i><i></i><i></i><i></i><b>MU</b></div>
-    <div class="glitch" data-text="MAHMUD UDAY">MAHMUD UDAY</div>
-    <div class="ld-bar"><span id="ldbar"></span></div>
-    <div class="ld-row"><span id="ldlog">BOOTING SYSTEM</span><span id="ldpct">0%</span></div>
+<div id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-name" aria-describedby="welcome-copy">
+  <button id="welcome-lang" type="button" aria-label="Change welcome language">বাংলা</button>
+  <div class="welcome-glow" aria-hidden="true"></div>
+  <div class="welcome-shell">
+    <div class="welcome-kicker"><span class="welcome-dot"></span><span id="welcome-kicker-text">A PERSONAL SPACE</span></div>
+    <h1 class="welcome-name" id="welcome-name">MAHMUD UDAY</h1>
+    <p class="welcome-greeting" id="welcome-greeting">Welcome — glad you're here.</p>
+    <p class="welcome-copy" id="welcome-copy">A little space where professional life meets creativity — explore my journey, interests, projects and the moments I capture through my lens.</p>
+    <div class="welcome-meta" id="welcome-meta"><span>Chemist</span><span>Hobby Photographer</span><span>WordPress & Writing</span></div>
+    <div class="welcome-actions"><button id="welcome-enter" type="button">Enter Website <span aria-hidden="true">↗</span></button></div>
+    <p class="welcome-foot" id="welcome-foot">BANGLADESH · ORION GRAPHY</p>
   </div>
 </div>
 
@@ -615,7 +635,7 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
   </div>
 </nav>
 
-<main>
+<main id="main-content">
 <section id="home">
   <div class="hero-atmosphere" aria-hidden="true">
     <div class="ha-halo"></div>
@@ -813,13 +833,13 @@ const CONFIG = {
 const T = {
  en:{nav_home:"Home",nav_about:"About",nav_skills:"Skills",nav_journey:"Journey",nav_projects:"Projects",nav_gallery:"Orion Graphy",nav_social:"Social",nav_contact:"Contact",
   loc:"Bangladesh",
-  tag:"📷 Photographer",h1a:"Hello There!!!",
+  tag:"📷 Hobby Photographer",h1a:"Hello There!!!",
   hero_p:"Welcome to my world. I freeze light, emotion and stories into frames that last forever...",
   view:"View Orion Graphy",hire:"Get in touch",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
-  about_p1:"I’m Mahmud Uday, a chemist working in an industrial environment where accuracy, analytical thinking and continuous learning are essential. My professional experience has strengthened my problem-solving mindset and attention to detail.",
-  about_p2:"Outside my professional role, I explore the digital world through WordPress development and content writing. I enjoy shaping ideas into clear, user-friendly web experiences and thoughtful content that communicates with purpose.",
-  about_p3:"Photography is my creative passion. As a hobby photographer, I enjoy observing everyday details, experimenting with natural light and capturing genuine moments from my own perspective.",
-  r1:"Photographer",r2:"Chemist",r3:"WordPress Developer",r4:"Content Writer",iam:"I am a",
+  about_p1:"I’m Mahmud Uday, a chemist working in an industrial environment where precision, analytical thinking and consistency matter every day. My role continues to strengthen my approach to problem-solving, quality-focused work and continuous learning.",
+  about_p2:"Beyond my professional responsibilities, I explore digital creativity through WordPress development and content writing. I enjoy turning ideas into clear, accessible web experiences and purposeful content, with a focus on usability, detail and thoughtful presentation.",
+  about_p3:"Photography is one of the ways I express my creativity. As a hobby photographer, I’m drawn to natural light, everyday details and genuine moments — always learning, experimenting and developing my own visual perspective.",
+  r1:"Hobby Photographer",r2:"Chemist",r3:"WordPress Developer",r4:"Content Writer",iam:"I am a",
   sv_t:"What I",sv_e:"Do",sv_s:"Skills I bring to every project.",
   sv1_t:"Photography",sv1_p:"Light, emotion and honest moments, framed with care.",
   sv2_t:"WordPress Development",sv2_p:"Clean, fast and responsive websites that work everywhere.",
@@ -832,17 +852,17 @@ const T = {
   ph_name:"Your name",ph_email:"Your email",ph_msg:"Your message",
   skills_t:"Skills &",skills_e:"Interests",skills_s:"A balanced mix of professional knowledge and creative work.",
   skill_chem:"Chemistry",skill_chem_p:"Professional work and analytical thinking.",skill_photo:"Photography",skill_photo_p:"Capturing light, details and meaningful moments.",skill_web:"WordPress & Web",skill_web_p:"Building and exploring responsive web experiences.",skill_write:"Content Writing",skill_write_p:"Clear writing and creative communication.",
-  journey_t:"My",journey_e:"Journey",journey_s:"Professional and creative interests that shape my work.",journey_chem:"Professional Life",journey_chem_p:"Working as a chemist in an industrial environment, with a focus on precision and problem-solving.",journey_creative:"Creative Life",journey_creative_p:"Photography, WordPress development and content writing are part of my creative journey.",journey_note:"Detailed education and career dates can be added when the information is ready to publish.",
+  journey_t:"My",journey_e:"Journey",journey_s:"Professional and creative interests that shape my work.",journey_chem:"Professional Life",journey_chem_p:"Working as a chemist in an industrial environment, with a focus on precision and problem-solving.",journey_creative:"Creative Life",journey_creative_p:"Photography, WordPress development and content writing are part of my creative journey.",journey_note:"I continue to grow through hands-on experience, curiosity and consistent learning.",
   projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV"},
  bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_skills:"দক্ষতা",nav_journey:"যাত্রা",nav_projects:"প্রজেক্ট",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
   loc:"বাংলাদেশ",
-  tag:"📷 ফটোগ্রাফার",h1a:"হ্যালো!!!",
+  tag:"📷 শখের ফটোগ্রাফার",h1a:"হ্যালো!!!",
   hero_p:"আমার জগতে স্বাগতম। আমি আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়...",
   view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
-  about_p1:"আমি মাহমুদ উদয়। শিল্পপ্রতিষ্ঠানের পরিবেশে কেমিস্ট হিসেবে কাজ করি, যেখানে নির্ভুলতা, বিশ্লেষণধর্মী চিন্তা ও ধারাবাহিকভাবে শেখার মানসিকতা গুরুত্বপূর্ণ। এই কাজের অভিজ্ঞতা আমার সমস্যা সমাধানের দক্ষতা এবং খুঁটিনাটি বিষয়ে মনোযোগ আরও দৃঢ় করেছে।",
-  about_p2:"পেশাগত কাজের বাইরে আমি ওয়ার্ডপ্রেস ওয়েব ডেভেলপমেন্ট এবং কনটেন্ট রাইটিং নিয়ে চর্চা করি। নতুন ভাবনাকে সহজ, ব্যবহারবান্ধব ওয়েব অভিজ্ঞতা এবং অর্থবহ লেখায় রূপ দিতে ভালো লাগে।",
-  about_p3:"ফটোগ্রাফি আমার সৃজনশীল আগ্রহের একটি গুরুত্বপূর্ণ অংশ। শখের ফটোগ্রাফার হিসেবে দৈনন্দিন জীবনের ছোট ছোট দৃশ্য, প্রাকৃতিক আলো এবং স্বতঃস্ফূর্ত মুহূর্ত নিজের দৃষ্টিভঙ্গিতে ক্যামেরাবন্দি করতে ভালোবাসি।",
-  r1:"ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",iam:"আমি একজন",
+  about_p1:"আমি মাহমুদ উদয়। শিল্পপ্রতিষ্ঠানের পরিবেশে কেমিস্ট হিসেবে কাজ করি, যেখানে নির্ভুলতা, বিশ্লেষণধর্মী চিন্তা ও ধারাবাহিকভাবে শেখার মানসিকতা অত্যন্ত গুরুত্বপূর্ণ। এই অভিজ্ঞতা আমার সমস্যা সমাধানের দক্ষতা, কাজের মান বজায় রাখা এবং প্রতিটি বিষয়ে মনোযোগী হওয়ার অভ্যাসকে আরও সমৃদ্ধ করছে।",
+  about_p2:"পেশাগত দায়িত্বের পাশাপাশি ওয়ার্ডপ্রেস ওয়েব ডেভেলপমেন্ট ও কনটেন্ট রাইটিং নিয়ে কাজ করতে এবং নতুন কিছু শিখতে ভালোবাসি। একটি ভাবনাকে সহজ, ব্যবহারবান্ধব ওয়েব অভিজ্ঞতা কিংবা উদ্দেশ্যপূর্ণ লেখায় রূপ দেওয়াই আমার আগ্রহের জায়গা।",
+  about_p3:"ফটোগ্রাফি আমার সৃজনশীলতার একটি প্রিয় মাধ্যম। শখের ফটোগ্রাফার হিসেবে প্রাকৃতিক আলো, দৈনন্দিন জীবনের ছোট ছোট দৃশ্য এবং স্বতঃস্ফূর্ত মুহূর্ত নিজের দৃষ্টিভঙ্গিতে ক্যামেরাবন্দি করতে ভালোবাসি। প্রতিটি ছবির মাধ্যমে নতুনভাবে দেখা ও শেখার চেষ্টা করি।",
+  r1:"শখের ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",iam:"আমি একজন",
   sv_t:"আমি যা",sv_e:"করি",sv_s:"প্রতিটি প্রজেক্টে আমার দক্ষতার ছোঁয়া।",
   sv1_t:"ফটোগ্রাফি",sv1_p:"আলো, অনুভূতি আর সত্যিকারের মুহূর্ত, যত্ন করে ফ্রেমে বন্দী।",
   sv2_t:"ওয়ার্ডপ্রেস ডেভেলপমেন্ট",sv2_p:"পরিচ্ছন্ন, দ্রুত ও রেসপন্সিভ ওয়েবসাইট, সব ডিভাইসে নিখুঁত।",
@@ -865,29 +885,38 @@ let lang=store.get("lang")||"en", theme=store.get("theme")||"dark", cur="all", v
 const LIMIT=6;
 let ri=0;const rw=$("#roleword");
 
-/* ---------- sci-fi loader ---------- */
-(function(){
-  const L=$("#loader"),bar=$("#ldbar"),pct=$("#ldpct"),log=$("#ldlog");
-  const logs=["BOOTING SYSTEM","CALIBRATING LENS","LOADING ORION GRAPHY","SYNCING FRAMES","READY"];
-  const D=2600,t0=performance.now();let loaded=document.readyState==="complete",finished=false;
-  addEventListener("load",()=>{loaded=true});
-  function done(){
-    if(finished)return;finished=true;
-    setTimeout(()=>{
-      L.classList.add("hide");document.body.classList.add("ready");
-      $$("#home .rv").forEach((e,i)=>setTimeout(()=>e.classList.add("in"),150+i*130));
-    },250);
-  }
-  function tick(now){
-    const p=Math.min(1,(now-t0)/D),e=1-Math.pow(1-p,2);
-    bar.style.transform=`scaleX(${e})`;pct.textContent=Math.round(e*100)+"%";
-    log.textContent=logs[Math.min(logs.length-1,Math.floor(e*logs.length))];
-    if(p<1)requestAnimationFrame(tick);
-    else if(loaded)done();else{addEventListener("load",done,{once:true})}
-  }
-  requestAnimationFrame(tick);
-  setTimeout(done,7000);
-})();
+/* ---------- welcome screen language + enter ---------- */
+const welcomeCopy={
+ en:{kicker:"A PERSONAL SPACE",greeting:"Welcome — glad you're here.",copy:"A little space where professional life meets creativity. Explore my journey, interests, projects and the moments I capture through my lens.",meta:["Chemist","Hobby Photographer","WordPress & Writing"],enter:"Enter Website",foot:"BANGLADESH · ORION GRAPHY",toggle:"বাংলা"},
+ bn:{kicker:"আমার ব্যক্তিগত পরিসরে স্বাগতম",greeting:"স্বাগতম — তোমাকে পেয়ে ভালো লাগছে।",copy:"এটি এমন একটি ছোট্ট পরিসর, যেখানে পেশাগত অভিজ্ঞতার সঙ্গে সৃজনশীলতার মেলবন্ধন ঘটেছে। এখানে আমার পথচলা, আগ্রহ, প্রজেক্ট এবং ক্যামেরায় ধরে রাখা মুহূর্তগুলো ঘুরে দেখতে পারো।",meta:["কেমিস্ট","শখের ফটোগ্রাফার","ওয়ার্ডপ্রেস ও লেখালেখি"],enter:"ওয়েবসাইটে প্রবেশ করুন",foot:"বাংলাদেশ · ORION GRAPHY",toggle:"EN"}
+};
+function updateWelcome(){
+  const d=welcomeCopy[lang]||welcomeCopy.en;
+  $("#welcome-kicker-text").textContent=d.kicker;
+  $("#welcome-greeting").textContent=d.greeting;
+  $("#welcome-copy").textContent=d.copy;
+  $("#welcome-meta").innerHTML=d.meta.map(x=>`<span>${x}</span>`).join("");
+  $("#welcome-enter").innerHTML=`${d.enter} <span aria-hidden="true">↗</span>`;
+  $("#welcome-foot").textContent=d.foot;
+  $("#welcome-lang").textContent=d.toggle;
+}
+function enterWebsite(){
+  const screen=$("#welcome");
+  if(document.body.classList.contains("entered"))return;
+  document.body.classList.add("entered","ready");
+  screen.classList.add("dismissed");
+  screen.setAttribute("aria-hidden","true");
+  $("#home").setAttribute("tabindex","-1");
+  $("#home").focus({preventScroll:true});
+  $$("#home .rv").forEach((e,i)=>setTimeout(()=>e.classList.add("in"),90+i*90));
+  setTimeout(()=>screen.remove(),750);
+}
+updateWelcome();
+$("#welcome-lang").addEventListener("click",()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang();updateWelcome()});
+$("#welcome-enter").addEventListener("click",enterWebsite);
+$(".skip-link").addEventListener("click",enterWebsite);
+$("#welcome").addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault()});
+
 
 /* ---------- reveal observer ---------- */
 const io=new IntersectionObserver(es=>es.forEach(e=>{
@@ -913,7 +942,7 @@ $$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#links").classList.remove("open")});
 
 /* marquee + clock */
-$("#track").innerHTML='<span>MAHMUD UDAY <b>✦</b> ORION GRAPHY <b>✦</b> PHOTOGRAPHER <b>✦</b></span>'.repeat(8);
+$("#track").innerHTML='<span>MAHMUD UDAY <b>✦</b> ORION GRAPHY <b>✦</b> HOBBY PHOTOGRAPHER <b>✦</b></span>'.repeat(8);
 const bdTimeFmt=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
 const bdDateFmt=()=>new Intl.DateTimeFormat(lang==="bn"?"bn-BD":"en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"Asia/Dhaka"});
 const tickClock=()=>{
@@ -958,10 +987,10 @@ function buildFilters(){
 }
 function buildGrid(){
   $("#grid").innerHTML=CONFIG.photos.map((p,i)=>`
-   <div class="item rv fx-z" style="transition-delay:${(i%3)*80}ms" data-cat="${p.cat}" data-i="${i}">
+   <div class="item rv fx-z" style="transition-delay:${(i%3)*80}ms" data-cat="${p.cat}" data-index="${i}">
      <div class="im"><img src="${p.src}" alt="${p.title}" loading="lazy" decoding="async" onerror="fb(this,${i})"><div class="cap">${p.title}</div></div>
    </div>`).join("");
-  $$(".item").forEach(el=>{el.onclick=()=>openLb(+el.dataset.i);io.observe(el)});
+  $$(".item").forEach(el=>{el.onclick=()=>openLb(+el.dataset.index);io.observe(el)});
   filter(false);
 }
 window.fb=(img,i)=>{
@@ -977,7 +1006,7 @@ function filter(anim){
       const match=cur==="all"||el.dataset.cat===cur;
       let show=match;
       if(match){total++;if(!expanded&&total>LIMIT)show=false}
-      el.classList.toggle("hide",!show);if(show)visible.push(+el.dataset.i);
+      el.classList.toggle("hide",!show);if(show)visible.push(+el.dataset.index);
     });
     const rest=total-LIMIT;
     $("#moreWrap").classList.toggle("hide",expanded||rest<=0);
