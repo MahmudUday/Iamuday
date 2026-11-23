@@ -1,42 +1,35 @@
-const V = "orion-v1";
-const SHELL = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png"];
+const CACHE_VERSION = "orion-v37";
+const APP_SHELL = ["./", "./index.html", "./manifest.webmanifest", "./offline.html", "./icon-192.png", "./icon-512.png"];
+const OFFLINE_URL = "./offline.html";
 
-self.addEventListener("install", e => {
-  e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+self.addEventListener("install", event => {
+  event.waitUntil(caches.open(CACHE_VERSION).then(cache => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
 });
 
-self.addEventListener("activate", e => {
-  e.waitUntil(
-    caches.keys()
-      .then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
+self.addEventListener("activate", event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_VERSION).map(key => caches.delete(key)))).then(() => self.clients.claim()));
 });
 
-self.addEventListener("fetch", e => {
-  const r = e.request;
-  if (r.method !== "GET") return;
-  const u = new URL(r.url);
-  if (u.origin !== location.origin) return;
+self.addEventListener("message", event => { if (event.data === "SKIP_WAITING") self.skipWaiting(); });
 
-  // Pages: network first, so site updates show immediately; cache is the offline fallback
-  if (r.mode === "navigate") {
-    e.respondWith(
-      fetch(r).then(res => {
-        const copy = res.clone();
-        caches.open(V).then(c => c.put("index.html", copy));
-        return res;
-      }).catch(() => caches.match("index.html"))
-    );
+self.addEventListener("fetch", event => {
+  const request = event.request;
+  if (request.method !== "GET") return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  if (request.mode === "navigate") {
+    event.respondWith(fetch(request).then(response => {
+      if (response && response.ok) { const copy = response.clone(); caches.open(CACHE_VERSION).then(cache => cache.put("./index.html", copy)); }
+      return response;
+    }).catch(async () => (await caches.match(request)) || (await caches.match("./index.html")) || (await caches.match(OFFLINE_URL))));
     return;
   }
 
-  // Images/others: instant from cache, refreshed in background
-  e.respondWith(
-    caches.open(V).then(async c => {
-      const hit = await c.match(r);
-      const net = fetch(r).then(res => { if (res.ok) c.put(r, res.clone()); return res; }).catch(() => hit);
-      return hit || net;
-    })
-  );
+  // Cache-first for same-origin static files; update the cache when the network succeeds.
+  event.respondWith(caches.open(CACHE_VERSION).then(async cache => {
+    const cached = await cache.match(request);
+    const network = fetch(request).then(response => { if (response && response.ok) cache.put(request, response.clone()); return response; }).catch(() => cached);
+    return cached || network;
+  }));
 });

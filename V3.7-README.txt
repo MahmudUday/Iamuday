@@ -1,0 +1,7 @@
+ORION GRAPHY V3.7 deployment
+
+Replace the current index.html and sw.js with the included versions. Add offline.html, robots.txt and sitemap.xml to the repository root beside manifest.webmanifest and the app icons. Keep the existing images/ folder, manifest.webmanifest, icon-192.png and icon-512.png unchanged.
+
+Do not rename or move image files. The original welcome screen and Gallery Unlock Slider are preserved.
+
+After deployment, open the site once while online so the new service worker can install and cache the app shell. On first deployment, an existing cached V3.6 service worker may take one reload to activate the V3.7 cache.

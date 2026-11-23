@@ -18,7 +18,9 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mahmud Uday | Orion Graphy">
 <meta property="og:description" content="Chemist, hobby photographer and creative enthusiast from Bangladesh.">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="dark light">
+<link rel="sitemap" type="application/xml" href="https://itsuday.vercel.app/sitemap.xml">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Mahmud Uday","url":"https://itsuday.vercel.app/","description":"Chemist by profession, hobby photographer and creative enthusiast interested in WordPress development and content writing.","email":"mahmududay.info@gmail.com","knowsAbout":["Chemistry","Photography","WordPress Development","Content Writing"],"sameAs":["https://instagram.com/mahmududay.info","https://facebook.com/mahmududay.info"]}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
@@ -591,6 +593,52 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
 .skip-link{position:fixed;top:10px;left:10px;z-index:1300;padding:10px 14px;border-radius:10px;background:#21123b;color:#fff;transform:translateY(-160%);transition:transform .2s}
 .skip-link:focus{transform:translateY(0)}
 </style>
+<style id="orion-v37-styles">
+
+/* ================= ORION GRAPHY V3.7 refinements ================= */
+/* Hero: restrained cinematic depth; no expensive filter animation. */
+#home .hero-title{ text-wrap:balance; text-shadow:0 8px 38px rgba(0,120,255,.16) }
+#home .cta .btn{transition:transform .28s var(--ease),box-shadow .28s var(--ease),background-color .28s}
+#home .cta .btn:active{transform:translateY(1px) scale(.98)}
+#home .tag{border-color:rgba(0,194,255,.24);box-shadow:0 8px 30px rgba(0,110,255,.08)}
+/* Smart nav: hide while scrolling down, return on upward movement. */
+nav.nav-hidden{transform:translate3d(-50%,-140px,0)!important}
+nav.nav-hidden .links.open{opacity:0;visibility:hidden}
+/* Gallery: improve rhythm and reduce image layout shifts. */
+#grid{column-fill:balance;contain:layout style}
+#grid .item{content-visibility:auto;contain-intrinsic-size:320px 420px}
+#grid .im img{height:auto;aspect-ratio:var(--photo-ratio,auto);background:rgba(100,130,180,.08)}
+#grid .item:focus-visible{outline:2px solid var(--accent2);outline-offset:4px}
+@media(hover:hover){#grid .item:hover{transform:translateY(-3px)}}
+/* Lightbox: accessible controls and smooth, bounded touch gestures. */
+#lb{overscroll-behavior:contain;touch-action:pan-y}
+#lbimg{max-width:100%;max-height:100%;display:grid;place-items:center;padding:58px 64px 70px}
+#lbimg img{object-fit:contain;touch-action:pan-y pinch-zoom;user-select:none;-webkit-user-select:none}
+#lbimg img.zoomed{cursor:grab;transition:transform .18s ease-out}
+.lb-tools{z-index:2}
+#lb .lbb:focus-visible{outline:2px solid var(--accent2);outline-offset:4px}
+/* Journey: keyboard/tap expandable emphasis without hiding core information. */
+.timeline-item{border-radius:13px;padding:5px;cursor:pointer;transition:background-color .22s,border-color .22s,transform .22s}
+.timeline-item.is-active{background:rgba(139,92,246,.10);box-shadow:inset 0 0 0 1px rgba(167,139,250,.26);transform:translateX(3px)}
+.timeline-item:focus-visible,.extra-card:focus-visible{outline:2px solid var(--accent2);outline-offset:3px}
+/* Skills: clear touch feedback, no invented levels or percentages. */
+.extra-card{border:1px solid transparent;transition:transform .25s var(--ease),border-color .25s,background-color .25s;cursor:pointer}
+.extra-card.is-active{transform:translateY(-4px);border-color:rgba(0,194,255,.42);background:linear-gradient(145deg,rgba(0,140,255,.12),rgba(139,92,246,.08))}
+.extra-card .mini-icon{transition:transform .25s var(--ease)}
+.extra-card.is-active .mini-icon{transform:rotate(-6deg) scale(1.06)}
+/* Footer: compact responsive navigation and social actions. */
+.footer-inner{max-width:980px;margin:0 auto;display:grid;justify-items:center;gap:18px}
+.footer-brand{font-weight:800;letter-spacing:.12em;color:var(--text);font-size:1.12rem}
+.footer-brand span{color:var(--accent2)}
+.footer-brand small{display:block;font-size:.72rem;font-weight:400;letter-spacing:.04em;color:var(--muted)}
+.footer-links,.footer-social{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px}
+.footer-links a,.footer-social a,.footer-share{font:inherit;font-size:.82rem;color:var(--muted);background:none;border:0;cursor:pointer;padding:5px 7px;border-radius:9px;transition:color .2s,background .2s}
+.footer-links a:hover,.footer-social a:hover,.footer-share:hover{color:var(--text);background:var(--glass-b)}
+footer .ft{margin-top:2px}
+@media(max-width:560px){footer{padding:28px 14px 34px}.footer-links,.footer-social{gap:5px 10px}.footer-brand{font-size:1rem}#lbimg{padding:58px 14px 78px}#lbimg img{max-width:94vw;max-height:76vh}#lbp{left:7px}#lbn{right:7px}}
+@media(prefers-reduced-motion:reduce){nav,.extra-card,.timeline-item,#home .cta .btn{transition:none!important}#grid .item:hover{transform:none}}
+
+</style>
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -706,10 +754,10 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
   <h2 class="rv"><span data-i="skills_t">Skills &</span> <em data-i="skills_e">Interests</em></h2>
   <p class="sub rv d1" data-i="skills_s">A balanced mix of professional knowledge and creative work.</p>
   <div class="extra-grid">
-    <article class="extra-card glass rv fx-z"><div class="mini-icon">⚗</div><h3 data-i="skill_chem">Chemistry</h3><p data-i="skill_chem_p">Professional work and analytical thinking.</p></article>
-    <article class="extra-card glass rv fx-z d1"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Capturing light, details and meaningful moments.</p></article>
-    <article class="extra-card glass rv fx-z d2"><div class="mini-icon">⌘</div><h3 data-i="skill_web">WordPress & Web</h3><p data-i="skill_web_p">Building and exploring responsive web experiences.</p></article>
-    <article class="extra-card glass rv fx-z d3"><div class="mini-icon">✍</div><h3 data-i="skill_write">Content Writing</h3><p data-i="skill_write_p">Clear writing and creative communication.</p></article>
+    <article class="extra-card glass rv fx-z" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">⚗</div><h3 data-i="skill_chem">Chemistry</h3><p data-i="skill_chem_p">Professional work and analytical thinking.</p></article>
+    <article class="extra-card glass rv fx-z d1" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Capturing light, details and meaningful moments.</p></article>
+    <article class="extra-card glass rv fx-z d2" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">⌘</div><h3 data-i="skill_web">WordPress & Web</h3><p data-i="skill_web_p">Building and exploring responsive web experiences.</p></article>
+    <article class="extra-card glass rv fx-z d3" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">✍</div><h3 data-i="skill_write">Content Writing</h3><p data-i="skill_write_p">Clear writing and creative communication.</p></article>
   </div>
   <div class="skill-cloud rv" aria-label="Areas of interest"><span class="skill-chip">Creative Projects</span><span class="skill-chip">Digital Experiences</span><span class="skill-chip">Visual Storytelling</span><span class="skill-chip">Technology</span></div>
 </section>
@@ -721,19 +769,19 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
     <div class="timeline-group rv">
       <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="edu_heading">Education</span></h3>
       <div class="timeline-list">
-        <article class="timeline-item"><span class="timeline-year">2022</span><div class="timeline-content"><h4 data-i="edu_msc">Master of Science (M.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2022">Passed · 2022</small></div></article>
-        <article class="timeline-item"><span class="timeline-year">2020</span><div class="timeline-content"><h4 data-i="edu_bsc">Bachelor of Science (B.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2020">Passed · 2020</small></div></article>
-        <article class="timeline-item"><span class="timeline-year">2014</span><div class="timeline-content"><h4 data-i="edu_hsc">Higher Secondary Certificate (HSC)</h4><p>Sonar Bangla University College</p><small data-i="passed_2014">Passed · 2014</small></div></article>
-        <article class="timeline-item"><span class="timeline-year">2012</span><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p>Sonaimuri Govt. Model High School</p><small data-i="passed_2012">Passed · 2012</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2022</span><div class="timeline-content"><h4 data-i="edu_msc">Master of Science (M.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2022">Passed · 2022</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2020</span><div class="timeline-content"><h4 data-i="edu_bsc">Bachelor of Science (B.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2020">Passed · 2020</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2014</span><div class="timeline-content"><h4 data-i="edu_hsc">Higher Secondary Certificate (HSC)</h4><p>Sonar Bangla University College</p><small data-i="passed_2014">Passed · 2014</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2012</span><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p>Sonaimuri Govt. Model High School</p><small data-i="passed_2012">Passed · 2012</small></div></article>
       </div>
     </div>
     <div class="timeline-group rv d1">
       <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="career_heading">Career Experience</span></h3>
       <div class="timeline-list">
-        <article class="timeline-item current"><span class="timeline-year" data-i="present">Present</span><div class="timeline-content"><h4 data-i="job_chemist">Technical Chemist</h4><p>Weixing Industrial (BD) Co., Ltd. — SAB</p><small data-i="job_current_note">Current position</small></div></article>
-        <article class="timeline-item"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_bkash">Customer Service Officer</h4><p>bKash Limited</p><small data-i="former_role">Previous experience</small></div></article>
-        <article class="timeline-item"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_writer">Content Writer</h4><p>Nexton Digital</p><small data-i="former_role">Previous experience</small></div></article>
-        <article class="timeline-item"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_qc">Quality Control Officer</h4><p>Herbs &amp; Health Laboratories (AYU)</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item current" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="present">Present</span><div class="timeline-content"><h4 data-i="job_chemist">Technical Chemist</h4><p>Weixing Industrial (BD) Co., Ltd. — SAB</p><small data-i="job_current_note">Current position</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_bkash">Customer Service Officer</h4><p>bKash Limited</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_writer">Content Writer</h4><p>Nexton Digital</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_qc">Quality Control Officer</h4><p>Herbs &amp; Health Laboratories (AYU)</p><small data-i="former_role">Previous experience</small></div></article>
       </div>
     </div>
   </div>
@@ -799,7 +847,20 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
 </section>
 </main>
 
-<footer><div class="ft glass">© <span id="yr"></span>&nbsp;Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg>&nbsp;· Orion Graphy.&nbsp;<span data-i="rights">All rights reserved.</span></div>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">ORION <span>GRAPHY</span><small>Mahmud Uday · Bangladesh</small></div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="footer-social" aria-label="Social links">
+      <a href="https://instagram.com/mahmududay.info" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+      <a href="https://facebook.com/mahmududay.info" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+      <a href="https://wa.me/8801680856340" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+      <button type="button" id="installApp" class="footer-share" hidden>Install app</button>
+    </div>
+    <div class="ft glass">© <span id="yr"></span>&nbsp;Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg>&nbsp;· Orion Graphy.&nbsp;<span data-i="rights">All rights reserved.</span></div>
+  </div>
   <div class="visits glass" id="visits" title="Total visitors">
     <i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="vcount">···</b>
   </div>
@@ -813,10 +874,10 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
   </span>
 </button>
 
-<div id="lb">
-  <button class="lbb" id="lbx">✕</button>
-  <button class="lbb" id="lbp">‹</button>
-  <button class="lbb" id="lbn">›</button>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <button class="lbb" id="lbx" aria-label="Close photo viewer">✕</button>
+  <button class="lbb" id="lbp" aria-label="Previous photo">‹</button>
+  <button class="lbb" id="lbn" aria-label="Next photo">›</button>
   <div class="lb-tools" aria-label="Photo controls">
     <button class="lbb" id="lbZoomOut" aria-label="Zoom out">−</button>
     <button class="lbb" id="lbZoomReset" aria-label="Reset zoom">↺</button>
@@ -953,7 +1014,9 @@ function applyLang(){
 $("#lang").onclick=()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang()};
 function applyTheme(){document.documentElement.dataset.theme=theme;$("#theme").textContent=theme==="dark"?"☀":"🌙"}
 $("#theme").onclick=()=>{theme=theme==="dark"?"light":"dark";store.set("theme",theme);applyTheme()};
-$("#burger").onclick=()=>$("#links").classList.toggle("open");
+$("#burger").setAttribute("aria-expanded","false");
+$("#burger").onclick=()=>{const open=$("#links").classList.toggle("open");$("#burger").setAttribute("aria-expanded",String(open))};
+$$("#links a").forEach(a=>a.addEventListener("click",()=>{$("#links").classList.remove("open");$("#burger").setAttribute("aria-expanded","false")}));
 $$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#links").classList.remove("open")});
 
@@ -1003,10 +1066,10 @@ function buildFilters(){
 }
 function buildGrid(){
   $("#grid").innerHTML=CONFIG.photos.map((p,i)=>`
-   <div class="item rv fx-z" style="transition-delay:${(i%3)*80}ms" data-cat="${p.cat}" data-index="${i}">
+   <div class="item rv fx-z" role="button" tabindex="0" aria-label="${p.title}" style="transition-delay:${(i%3)*80}ms" data-cat="${p.cat}" data-index="${i}">
      <div class="im"><img src="${p.src}" alt="${p.title}" loading="lazy" decoding="async" onerror="fb(this,${i})"><div class="cap">${p.title}</div></div>
    </div>`).join("");
-  $$(".item").forEach(el=>{el.onclick=()=>openLb(+el.dataset.index);io.observe(el)});
+  $$(".item").forEach(el=>{el.onclick=()=>openLb(+el.dataset.index);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openLb(+el.dataset.index)}};io.observe(el)});
   filter(false);
 }
 window.fb=(img,i)=>{
@@ -1053,8 +1116,9 @@ function showLb(){
     im.addEventListener("touchmove",e=>{if(e.touches.length===2&&lbStartDist>0){e.preventDefault();const dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);lbScale=Math.max(1,Math.min(4,lbStartScale*dist/lbStartDist));applyLbZoom()}},{passive:false});
     im.addEventListener("touchend",e=>{if(e.touches.length<2)lbStartDist=0;if(e.changedTouches.length!==1)return;const now=Date.now();if(now-lastTap<300){lbScale=lbScale>1.05?1:2;applyLbZoom();e.preventDefault()}lastTap=now},{passive:false});}
 }
-function openLb(i){idx=Math.max(0,visible.indexOf(i));showLb();$("#lb").classList.add("open");document.body.style.overflow="hidden"}
-function closeLb(){$("#lb").classList.remove("open");document.body.style.overflow="";resetLbZoom()}
+let lbReturnFocus=null;
+function openLb(i){lbReturnFocus=document.activeElement;idx=Math.max(0,visible.indexOf(i));showLb();$("#lb").classList.add("open");$("#lb").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";$("#lbx").focus({preventScroll:true})}
+function closeLb(){$("#lb").classList.remove("open");$("#lb").setAttribute("aria-hidden","true");document.body.style.overflow="";resetLbZoom();if(lbReturnFocus&&lbReturnFocus.focus)lbReturnFocus.focus({preventScroll:true})}
 const lbNav=d=>{idx=(idx+d+visible.length)%visible.length;showLb()};
 $("#lbZoomIn").onclick=()=>{lbScale=Math.min(4,lbScale+.35);applyLbZoom()};
 $("#lbZoomOut").onclick=()=>{lbScale=Math.max(1,lbScale-.35);applyLbZoom()};
@@ -1118,7 +1182,7 @@ $$("section").forEach(s=>spy.observe(s));
 
 /* ---------- scroll: one rAF-throttled handler ---------- */
 const prog=$("#prog"),navEl=$("#nav"),topBtn=$("#top"),pg=$("#pg");
-let ticking=false,lastShow=false,lastSm=false;
+let ticking=false,lastShow=false,lastSm=false,lastScrollY=0,scrollDirection=0;
 let scrT=0;
 function onScroll(){
   ticking=false;
@@ -1127,9 +1191,11 @@ function onScroll(){
   const de=document.documentElement,st=de.scrollTop||document.body.scrollTop,mx=de.scrollHeight-de.clientHeight;
   const p=mx>0?st/mx:0;
   prog.style.transform=`scaleX(${p})`;
+  const delta=st-lastScrollY;if(Math.abs(delta)>5)scrollDirection=delta>0?1:-1;lastScrollY=st;
   const sm=st>60;if(sm!==lastSm){lastSm=sm;navEl.classList.toggle("sm",sm)}
-  const show=mx-st<240&&st>400;                  // only near the very bottom
-  if(show!==lastShow){lastShow=show;topBtn.classList.toggle("show",show)}
+  const menuOpen=$("#links").classList.contains("open");
+  navEl.classList.toggle("nav-hidden",st>150&&scrollDirection>0&&!menuOpen&&Math.abs(delta)>2);
+  const show=st>400;if(show!==lastShow){lastShow=show;topBtn.classList.toggle("show",show)}
   if(show)pg.style.strokeDashoffset=144.5*(1-p);
 }
 addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
@@ -1154,8 +1220,19 @@ if(matchMedia("(hover:hover) and (pointer:fine)").matches){
   });
 }
 
-/* ---------- PWA: service worker + install button ---------- */
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+/* ---------- PWA: update-aware registration + install affordance ---------- */
+let deferredInstallPrompt=null;
+const installBtn=$("#installApp");
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
+if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
+addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+
+/* ---------- Interactive journey and skills ---------- */
+function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
+const journeyCards=$$(".timeline-item"),skillCards=$$(".extra-card");
+journeyCards.forEach(el=>{el.addEventListener("click",()=>activateCard(el,journeyCards));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activateCard(el,journeyCards)}})});
+skillCards.forEach(el=>{el.addEventListener("click",()=>activateCard(el,skillCards));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activateCard(el,skillCards)}})});
 
 /* ---------- low-end detection: keep glass look, skip blur ---------- */
 (()=>{const m=navigator.deviceMemory,c=navigator.hardwareConcurrency;
@@ -1164,42 +1241,23 @@ if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWor
 /* ---------- rotating role word ---------- */
 setInterval(()=>{rw.classList.add("sw");setTimeout(()=>{ri=(ri+1)%4;rw.textContent=T[lang]["r"+(ri+1)];rw.classList.remove("sw")},350)},2600);
 
-/* ---------- real visitor counter ----------
-   Counts each browser once. Two free services are used (primary + backup) so it keeps working if one is down/blocked.
-   The last known number is cached, so the pill never looks empty. */
+/* ---------- reliable visitor counter: primary first, backup only on failure ---------- */
 (()=>{
   const num=$("#vcount"),SEEN="orion_visited_v2",CACHE="orion_vcount";
-  const withTimeout=(url)=>{const c=new AbortController();const t=setTimeout(()=>c.abort(),8000);
-    return fetch(url,{signal:c.signal,cache:"no-store"}).finally(()=>clearTimeout(t))};
   const NS="mahmududay-orion-graphy",KEY="visitors",K2="mahmududay_orion_graphy_visitors";
   const providers=[
-    {url:a=>`https://abacus.jasoncameron.dev/${a}/${NS}/${KEY}`},
-    {url:a=>`https://countapi.mileshilliard.com/api/v1/${a}/${K2}`}
+    action=>`https://abacus.jasoncameron.dev/${action}/${NS}/${KEY}`,
+    action=>`https://countapi.mileshilliard.com/api/v1/${action}/${K2}`
   ];
-  const call=async(pr,action)=>{
-    let r=await withTimeout(pr.url(action));
-    if(r.status===404&&action==="get")r=await withTimeout(pr.url("hit"));   // key not created yet
-    if(!r.ok)throw new Error(r.status);
-    const v=Number((await r.json()).value);
-    if(!isFinite(v))throw new Error("bad");
-    return v;
-  };
-  const show=v=>{
-    const t0=performance.now();
-    (function f(n){const p=Math.min(1,(n-t0)/1100);num.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(f)})(t0);
-    store.set(CACHE,String(v));
-  };
-  const cached=Number(store.get(CACHE));
-  if(cached>0)num.textContent=cached.toLocaleString("en-US");
+  const request=async url=>{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),4500);try{const r=await fetch(url,{signal:controller.signal,cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const v=Number((await r.json()).value);if(!Number.isFinite(v)||v<0)throw new Error("Invalid counter response");return v}finally{clearTimeout(timer)}};
+  const show=v=>{const start=performance.now();(function frame(now){const p=Math.min(1,(now-start)/800);num.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(frame)})(start);store.set(CACHE,String(v))};
+  const cached=Number(store.get(CACHE));if(cached>0)num.textContent=cached.toLocaleString("en-US");
   (async()=>{
-    const first=!store.get(SEEN)&&!["localhost","127.0.0.1",""].includes(location.hostname);
-    const action=first?"hit":"get";
-    // run both providers in parallel; first-time visitors are counted on both
-    const results=await Promise.allSettled(providers.map(p=>call(p,action)));
-    const ok=results.filter(r=>r.status==="fulfilled");
-    if(first&&ok.length)store.set(SEEN,"1");
-    if(ok.length){show(ok[0].value);return}          // primary if it worked, else backup
-    if(!(cached>0))num.textContent="—";                // both unreachable and nothing cached
+    const first=!store.get(SEEN)&&!["localhost","127.0.0.1",""].includes(location.hostname),action=first?"hit":"get";
+    for(let i=0;i<providers.length;i++){
+      try{const value=await request(providers[i](action));show(value);if(first)store.set(SEEN,"1");return}catch(e){/* try backup only if primary failed */}
+    }
+    if(!(cached>0))num.textContent="—";
   })();
 })();
 
