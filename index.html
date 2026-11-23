@@ -639,6 +639,57 @@ footer .ft{margin-top:2px}
 @media(prefers-reduced-motion:reduce){nav,.extra-card,.timeline-item,#home .cta .btn{transition:none!important}#grid .item:hover{transform:none}}
 
 </style>
+
+<style id="orion-v38-styles">
+/* ================= ORION GRAPHY V3.8 ================= */
+/* Premium hero: richer depth and clearer hierarchy, using lightweight gradients. */
+#home{isolation:isolate;min-height:min(900px,100svh);padding-top:clamp(124px,17vh,158px);padding-bottom:clamp(88px,12vh,126px)}
+#home .hud-bar{max-width:650px;margin-bottom:clamp(28px,5vh,46px);border-color:rgba(151,174,255,.2);box-shadow:0 18px 55px rgba(14,35,90,.16)}
+#home .tag{margin-bottom:18px;padding:8px 17px;border:1px solid rgba(167,139,250,.32);background:linear-gradient(110deg,rgba(47,107,255,.13),rgba(139,92,246,.12));color:var(--text);letter-spacing:.035em}
+#home .hero-title{position:relative;max-width:900px;font-size:clamp(3.15rem,10.2vw,7.4rem);line-height:1.02;letter-spacing:-.055em;font-weight:700;text-wrap:balance;text-shadow:0 12px 46px rgba(47,107,255,.2)}
+#home .ln{padding:.04em 0 .16em}
+#home .ln>span{background-image:linear-gradient(105deg,#f8fbff 0%,#b9caff 24%,#8b5cf6 53%,#39c8ff 78%,#f8fbff 100%);background-size:220% 100%;background-position:0 50%;transition:transform 1.15s var(--ease),background-position 1.2s ease}
+body.ready #home .ln>span{background-position:100% 50%}
+[data-theme="light"] #home .ln>span{background-image:linear-gradient(105deg,#18213b 0%,#3856a8 34%,#7548c9 64%,#087fae 100%)}
+#home .hero-title::after{content:"";display:block;width:clamp(72px,12vw,132px);height:4px;margin-top:17px;border-radius:9px;background:linear-gradient(90deg,var(--accent),#9b7bff,var(--accent2));box-shadow:0 0 24px rgba(0,194,255,.3);transform-origin:left;animation:hero-line-in .9s .35s var(--ease) both}
+@keyframes hero-line-in{from{transform:scaleX(.15);opacity:.25}to{transform:scaleX(1);opacity:1}}
+#home .roleline{margin-top:24px;font-size:clamp(1.15rem,3.2vw,1.65rem);color:var(--text)}
+#home .hero-p{max-width:570px;margin-top:17px;font-size:clamp(1rem,2vw,1.16rem);line-height:1.85}
+#home .cta{gap:14px;margin-top:4px}
+#home .cta .btn{min-height:52px;padding:14px 27px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(10,30,80,.14)}
+#home .cta .btn.pri{box-shadow:0 12px 34px rgba(47,107,255,.3),inset 0 1px rgba(255,255,255,.18)}
+#home .ring{right:3%;top:25%;width:min(42vw,450px);opacity:.72}
+#home .ha-halo{opacity:1}
+@media(min-width:1100px){#home{padding-left:max(7%,calc((100% - 1180px)/2));padding-right:max(7%,calc((100% - 1180px)/2))}#home .hero-title{max-width:780px}}
+@media(max-width:760px){#home{min-height:100svh;padding-top:122px;padding-bottom:82px}#home .hud-bar{margin-bottom:28px}#home .hero-title{font-size:clamp(3rem,13vw,5.1rem);max-width:100%}#home .ring{width:62vw;right:-22%;top:28%;opacity:.42}#home .hero-p{max-width:95%;font-size:1rem}#home .cta .btn{min-height:48px;padding:12px 20px}}
+@media(max-width:390px){#home .hero-title{font-size:2.75rem}#home .hud-bar{margin-bottom:23px}}
+
+/* Static identity signature replaces the continuously moving name strip. */
+.identity-ribbon{position:relative;z-index:1;overflow:hidden;padding:clamp(24px,4vw,38px) 6%;border-block:1px solid var(--glass-b);background:linear-gradient(105deg,rgba(47,107,255,.09),rgba(139,92,246,.075) 48%,rgba(0,194,255,.07))}
+.identity-inner{width:min(1120px,100%);margin:auto;display:flex;align-items:center;justify-content:center;gap:clamp(12px,2.4vw,28px);flex-wrap:wrap;text-align:center}
+.identity-kicker,.identity-location{font-size:.68rem;font-weight:600;letter-spacing:.2em;color:var(--muted)}
+.identity-name,.identity-brand{font-size:clamp(1.08rem,3.2vw,1.7rem);font-weight:700;letter-spacing:.055em;color:var(--text);white-space:nowrap}
+.identity-name b,.identity-brand b{font-weight:700;background:linear-gradient(100deg,#8b5cf6,#38c9ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.identity-divider{color:var(--accent2);font-size:1.1rem;text-shadow:0 0 16px var(--accent2)}
+@media(max-width:560px){.identity-inner{gap:9px 14px}.identity-kicker{width:100%;font-size:.62rem}.identity-location{width:100%;font-size:.6rem}.identity-name,.identity-brand{font-size:1.08rem}}
+
+/* Platform-coloured social tiles with restrained matching glow. */
+#soc>div{border-radius:28px}
+#soc .s-card{position:relative;overflow:hidden;width:100px;height:100px;border-radius:28px;background:rgba(255,255,255,.035);border-color:var(--glass-b);box-shadow:inset 0 1px rgba(255,255,255,.07);}
+#soc .s-card::before{content:"";position:absolute;inset:0;opacity:.16;transition:opacity .35s ease;background:var(--social-color,linear-gradient(135deg,#64748b,#94a3b8))}
+#soc .s-card::after{content:"";position:absolute;inset:7px;border:1px solid color-mix(in srgb,var(--social-color-solid,#8b5cf6) 36%,transparent);border-radius:22px;pointer-events:none}
+#soc .s-card .ic{position:relative;z-index:1;width:48px;height:48px;filter:drop-shadow(0 5px 12px rgba(0,0,0,.2))}
+#soc>div:nth-child(1){--social-color:linear-gradient(135deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);--social-color-solid:#d62976}
+#soc>div:nth-child(2){--social-color:linear-gradient(135deg,#1877f2,#60a5fa);--social-color-solid:#1877f2}
+#soc>div:nth-child(3){--social-color:linear-gradient(135deg,#25d366,#128c7e);--social-color-solid:#25d366}
+#soc>div:nth-child(4){--social-color:linear-gradient(135deg,#ea4335,#4285f4,#34a853);--social-color-solid:#4285f4}
+#soc .s-card:hover{transform:translateY(-6px);border-color:var(--social-color-solid,#8b5cf6);box-shadow:0 14px 34px color-mix(in srgb,var(--social-color-solid,#8b5cf6) 24%,transparent)}
+#soc .s-card:hover::before{opacity:.28}
+#soc .s-card:focus-visible{outline:3px solid var(--social-color-solid,#8b5cf6);outline-offset:4px}
+@media(max-width:560px){#soc{gap:12px}#soc .s-card{width:78px;height:78px;border-radius:23px}#soc .s-card::after{inset:5px;border-radius:18px}#soc .s-card .ic{width:40px;height:40px}}
+
+@media(prefers-reduced-motion:reduce){#home .hero-title::after{animation:none}#home .ln>span{transition:none}#soc .s-card,#soc .s-card::before{transition:none}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -699,7 +750,7 @@ footer .ft{margin-top:2px}
   </div>
   <span class="tag glass rv" data-i="tag">📷 Photographer</span>
   <h1 class="hero-title">
-    <span class="ln"><span data-i="h1a">Hello There!!!</span></span>
+    <span class="ln"><span id="hero-greeting" aria-live="polite">Good morning</span></span>
   </h1>
   <p class="roleline rv"><span data-i="iam">I am a</span> <b id="roleword">Photographer</b></p>
   <p class="hero-p rv d1" data-i="hero_p">Welcome to my world. I freeze light, emotion and stories into frames that last forever...</p>
@@ -710,7 +761,15 @@ footer .ft{margin-top:2px}
   <div class="scroll"></div>
 </section>
 
-<div class="marquee"><div class="track" id="track"></div></div>
+<div class="identity-ribbon" aria-label="Mahmud Uday — Orion Graphy">
+  <div class="identity-inner">
+    <span class="identity-kicker">A PERSONAL CREATIVE SPACE</span>
+    <span class="identity-name">MAHMUD <b>UDAY</b></span>
+    <span class="identity-divider" aria-hidden="true">✦</span>
+    <span class="identity-brand">ORION <b>GRAPHY</b></span>
+    <span class="identity-location">BANGLADESH</span>
+  </div>
+</div>
 
 <section id="about">
   <h2 class="rv"><span data-i="about_t">Who am</span> <em data-i="about_e">I</em></h2>
@@ -910,7 +969,7 @@ const CONFIG = {
 const T = {
  en:{nav_home:"Home",nav_about:"About",nav_skills:"Skills",nav_journey:"Journey",nav_projects:"Projects",nav_gallery:"Orion Graphy",nav_social:"Social",nav_contact:"Contact",
   loc:"Bangladesh",
-  tag:"📷 Hobby Photographer",h1a:"Hello There!!!",
+  tag:"📷 Hobby Photographer",
   hero_p:"Welcome to my world. I freeze light, emotion and stories into frames that last forever...",
   view:"View Orion Graphy",hire:"Get in touch",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
   about_p1:"I’m Mahmud Uday, a chemist working in an industrial environment where precision, analytical thinking and consistency matter every day. My role continues to strengthen my approach to problem-solving, quality-focused work and continuous learning.",
@@ -933,7 +992,7 @@ const T = {
   edu_heading:"Education",career_heading:"Career Experience",edu_msc:"Master of Science (M.Sc.)",edu_bsc:"Bachelor of Science (B.Sc.)",edu_hsc:"Higher Secondary Certificate (HSC)",edu_ssc:"Secondary School Certificate (SSC)",edu_nu:"National University of Bangladesh",passed_2022:"Passed · 2022",passed_2020:"Passed · 2020",passed_2014:"Passed · 2014",passed_2012:"Passed · 2012",present:"Present",former:"Former",job_chemist:"Technical Chemist",job_current_note:"Current position",job_bkash:"Customer Service Officer",job_writer:"Content Writer",job_qc:"Quality Control Officer",former_role:"Previous experience",projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV"},
  bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_skills:"দক্ষতা",nav_journey:"যাত্রা",nav_projects:"প্রজেক্ট",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
   loc:"বাংলাদেশ",
-  tag:"📷 শখের ফটোগ্রাফার",h1a:"হ্যালো!!!",
+  tag:"📷 শখের ফটোগ্রাফার",
   hero_p:"আমার জগতে স্বাগতম। আমি আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়...",
   view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
   about_p1:"আমি মাহমুদ উদয়। শিল্পপ্রতিষ্ঠানের পরিবেশে কেমিস্ট হিসেবে কাজ করি, যেখানে নির্ভুলতা, বিশ্লেষণধর্মী চিন্তা ও ধারাবাহিকভাবে শেখার মানসিকতা অত্যন্ত গুরুত্বপূর্ণ। এই অভিজ্ঞতা আমার সমস্যা সমাধানের দক্ষতা, কাজের মান বজায় রাখা এবং প্রতিটি বিষয়ে মনোযোগী হওয়ার অভ্যাসকে আরও সমৃদ্ধ করছে।",
@@ -1009,6 +1068,7 @@ function applyLang(){
   $("#lang").textContent=lang==="en"?"বাং":"EN";
   rw.textContent=d["r"+(ri+1)];
   if(typeof tickClock==="function")tickClock();
+  else if(typeof updateHeroGreeting==="function")updateHeroGreeting();
   buildFilters();
 }
 $("#lang").onclick=()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang()};
@@ -1020,14 +1080,28 @@ $$("#links a").forEach(a=>a.addEventListener("click",()=>{$("#links").classList.
 $$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#links").classList.remove("open")});
 
-/* marquee + clock */
-$("#track").innerHTML='<span>MAHMUD UDAY <b>✦</b> ORION GRAPHY <b>✦</b> HOBBY PHOTOGRAPHER <b>✦</b></span>'.repeat(8);
+/* Bangladesh clock + time-aware hero greeting */
 const bdTimeFmt=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
+const bdHourFmt=new Intl.DateTimeFormat("en-GB",{hour:"2-digit",hourCycle:"h23",timeZone:"Asia/Dhaka"});
+function updateHeroGreeting(now=new Date()){
+  const hour=Number(bdHourFmt.format(now));
+  let key;
+  if(hour>=5&&hour<12)key="morning";
+  else if(hour>=12&&hour<14)key="noon";
+  else if(hour>=14&&hour<18)key="afternoon";
+  else key="night";
+  const words=lang==="bn"
+    ?{morning:"শুভ সকাল",noon:"শুভ দুপুর",afternoon:"শুভ বিকেল",night:"শুভ রাত্রি"}
+    :{morning:"Good morning",noon:"Good noon",afternoon:"Good afternoon",night:"Good night"};
+  const greeting=$("#hero-greeting");
+  if(greeting&&greeting.textContent!==words[key])greeting.textContent=words[key];
+}
 const bdDateFmt=()=>new Intl.DateTimeFormat(lang==="bn"?"bn-BD":"en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"Asia/Dhaka"});
 const tickClock=()=>{
   const now=new Date();
   $("#clock").textContent=bdTimeFmt.format(now);
   $("#bd-date").textContent=bdDateFmt().format(now);
+  updateHeroGreeting(now);
 };
 tickClock();setInterval(tickClock,20000);
 
@@ -1273,7 +1347,7 @@ $$(".sub").forEach(e=>e.classList.add("fx-l"));
 $(".about-grid>.rv").classList.add("fx-l");
 $(".about-txt").classList.add("fx-r");
 $(".contact").classList.add("fx-z");
-$(".marquee").classList.add("rv","fx-z");
+$(".identity-ribbon").classList.add("rv","fx-z");
 $$(".rv").filter(e=>!e.closest("#home")).forEach(e=>io.observe(e));
 </script>
 </body>
