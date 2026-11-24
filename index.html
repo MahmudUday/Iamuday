@@ -170,17 +170,11 @@ nav.sm{padding:6px 12px 6px 20px}
 .btn-i{width:38px;height:38px;border-radius:50%;border:1px solid var(--glass-b);background:var(--glass);
   color:var(--text);cursor:pointer;font:inherit;font-size:.85rem;display:grid;place-items:center;transition:transform .4s var(--ease),border-color .3s}
 .btn-i:hover{transform:scale(1.1) rotate(8deg);border-color:var(--accent2)}
-#burger{display:none}
-@media(max-width:760px){
-  .logo{font-size:.95rem}
-  #burger{display:grid}
-  .links{position:absolute;top:64px;left:0;right:0;flex-direction:column;padding:14px;border-radius:22px;
-    background:rgba(5,10,24,.97);border:1px solid var(--glass-b);
-    opacity:0;visibility:hidden;transform:translate3d(0,-14px,0) scale(.97);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility .4s}
-  [data-theme="light"] .links{background:rgba(255,255,255,.97)}
-  .links.open{opacity:1;visibility:visible;transform:none}
-  .links a{width:100%;text-align:center}
-}
+@media(max-width:760px){.logo{font-size:.95rem}}
+/* Compact header: only brand, language and theme controls remain. */
+nav{width:min(94%,520px);padding:9px 12px 9px 20px;gap:14px}
+nav .tools{margin-left:auto;flex:none}
+
 
 /* ---------- sections (tight spacing) ---------- */
 section{padding:76px 6% 40px;max-width:1200px;margin:0 auto;position:relative;scroll-margin-top:50px}
@@ -828,20 +822,9 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
 
 <nav class="glass" id="nav">
   <a href="#home" class="logo">Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg></a>
-  <div class="links" id="links">
-    <a href="#home" data-i="nav_home">Home</a>
-    <a href="#about" data-i="nav_about">About</a>
-    <a href="#skills" data-i="nav_skills">Skills</a>
-    <a href="#journey" data-i="nav_journey">Journey</a>
-    <a href="#projects" data-i="nav_projects">Projects</a>
-    <a href="#gallery" data-i="nav_gallery">Orion Graphy</a>
-    <a href="#social" data-i="nav_social">Social</a>
-    <a href="#contact" data-i="nav_contact">Contact</a>
-  </div>
   <div class="tools">
-    <button class="btn-i" id="lang" title="Language">বাং</button>
-    <button class="btn-i" id="theme" title="Theme">☀</button>
-    <button class="btn-i" id="burger" aria-label="Menu">☰</button>
+    <button class="btn-i" id="lang" title="Language" aria-label="Change language">বাং</button>
+    <button class="btn-i" id="theme" title="Theme" aria-label="Toggle dark and light mode">☀</button>
   </div>
 </nav>
 
@@ -941,10 +924,10 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
     <div class="timeline-group rv">
       <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="edu_heading">Education</span></h3>
       <div class="timeline-list">
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2022</span><div class="timeline-content"><h4 data-i="edu_msc">Master of Science (M.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2022">Passed · 2022</small></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2020</span><div class="timeline-content"><h4 data-i="edu_bsc">Bachelor of Science (B.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p><small data-i="passed_2020">Passed · 2020</small></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2014</span><div class="timeline-content"><h4 data-i="edu_hsc">Higher Secondary Certificate (HSC)</h4><p>Sonar Bangla University College</p><small data-i="passed_2014">Passed · 2014</small></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year">2012</span><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p>Sonaimuri Govt. Model High School</p><small data-i="passed_2012">Passed · 2012</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_msc">Master of Science (M.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_bsc">Bachelor of Science (B.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_hsc">Higher Secondary Certificate (HSC)</h4><p>Sonar Bangla University College</p></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p>Sonaimuri Govt. Model High School</p></div></article>
       </div>
     </div>
     <div class="timeline-group rv d1">
@@ -1040,7 +1023,7 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">ORION <span>GRAPHY</span><small>Mahmud Uday · Bangladesh</small></div>
+    <div class="footer-brand">MAHMUD <span>UDAY</span><small>Founder of ORION GRAPHY</small></div>
     <nav class="footer-links" aria-label="Footer navigation">
       <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
     </nav>
@@ -1221,9 +1204,6 @@ function applyLang(){
 $("#lang").onclick=()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang()};
 function applyTheme(){document.documentElement.dataset.theme=theme;$("#theme").textContent=theme==="dark"?"☀":"🌙"}
 $("#theme").onclick=()=>{theme=theme==="dark"?"light":"dark";store.set("theme",theme);applyTheme()};
-$("#burger").setAttribute("aria-expanded","false");
-$("#burger").onclick=()=>{const open=$("#links").classList.toggle("open");$("#burger").setAttribute("aria-expanded",String(open))};
-$$("#links a").forEach(a=>a.addEventListener("click",()=>{$("#links").classList.remove("open");$("#burger").setAttribute("aria-expanded","false")}));
 $$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
 document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#links").classList.remove("open")});
 
@@ -1537,4 +1517,25 @@ $$(".rv").filter(e=>!e.closest("#home")).forEach(e=>io.observe(e));
 #home .hero-atmosphere::before{opacity:.38}
 section h2{position:relative}
 @media(prefers-reduced-motion:reduce){section h2 span,section h2 em{animation:none!important}}
+</style>
+
+<style id="v3-9-2-header-scroll-refinement">
+/* Header has a single compact control row; no competing section-link menu. */
+#nav{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:54px}
+#nav .tools{display:flex;align-items:center;gap:9px;margin-left:auto}
+#nav .btn-i{flex:0 0 38px;width:38px;height:38px}
+/* Lighter reveal motion: still slides into view, with less travel and less repaint work. */
+.rv{transition:opacity .44s cubic-bezier(.22,1,.36,1),transform .44s cubic-bezier(.22,1,.36,1);transform:translate3d(0,16px,0)}
+.rv.fx-l{transform:translate3d(-16px,0,0)}
+.rv.fx-r{transform:translate3d(16px,0,0)}
+.rv.fx-z{transform:translate3d(0,12px,0) scale(.985)}
+.rv.fx-d{transform:translate3d(0,-16px,0)}
+.rv.in,.rv.fx-l.in,.rv.fx-r.in,.rv.fx-z.in,.rv.fx-d.in{opacity:1;transform:none}
+.d1{transition-delay:.04s}.d2{transition-delay:.08s}.d3{transition-delay:.12s}
+/* Avoid expensive smooth-scroll interpolation on touch devices; native scrolling stays fluid. */
+@media (hover:none) and (pointer:coarse){html{scroll-behavior:auto}.rv{transition-duration:.38s}.ring{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.rv{transition:none!important;transform:none!important}}
+.footer-brand{font-weight:800;letter-spacing:.045em}
+.footer-brand span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.footer-brand small{display:block;font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.68rem;margin-top:5px}
 </style>
