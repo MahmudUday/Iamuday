@@ -59,7 +59,7 @@ body.bn .hero-title{line-height:1.4;font-weight:600}
 body.bn .ln{padding:.08em 0 .22em}
 body.bn h2{line-height:1.5;font-weight:600}
 body.bn .hero-p,body.bn .sub,body.bn .about-txt p{line-height:1.9}
-body.bn .btn,body.bn .fbtn,body.bn .links a{line-height:1.6;padding-top:.7em;padding-bottom:.7em}
+body.bn .btn,body.bn .fbtn{line-height:1.6;padding-top:.7em;padding-bottom:.7em}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 ::selection{background:var(--accent);color:#fff}
@@ -596,8 +596,6 @@ body.scrolling .ha-orbit-a,body.scrolling .ha-orbit-b{
 #home .cta .btn:active{transform:translateY(1px) scale(.98)}
 #home .tag{border-color:rgba(0,194,255,.24);box-shadow:0 8px 30px rgba(0,110,255,.08)}
 /* Smart nav: hide while scrolling down, return on upward movement. */
-nav.nav-hidden{transform:translate3d(-50%,-140px,0)!important}
-nav.nav-hidden .links.open{opacity:0;visibility:hidden}
 /* Gallery: improve rhythm and reduce image layout shifts. */
 #grid{column-fill:balance;contain:layout style}
 #grid .item{content-visibility:auto;contain-intrinsic-size:320px 420px}
@@ -921,7 +919,7 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
   <h2 class="rv"><span data-i="journey_t">My</span> <em data-i="journey_e">Journey</em></h2>
   <p class="sub rv d1" data-i="journey_s">My education and professional experience.</p>
   <div class="timeline-columns">
-    <div class="timeline-group rv">
+    <div class="timeline-group rv fx-l">
       <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="edu_heading">Education</span></h3>
       <div class="timeline-list">
         <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_msc">Master of Science (M.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p></div></article>
@@ -930,7 +928,7 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
         <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p>Sonaimuri Govt. Model High School</p></div></article>
       </div>
     </div>
-    <div class="timeline-group rv d1">
+    <div class="timeline-group rv fx-r d1">
       <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="career_heading">Career Experience</span></h3>
       <div class="timeline-list">
         <article class="timeline-item current" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="present">Present</span><div class="timeline-content"><h4 data-i="job_chemist">Technical Chemist</h4><p>Weixing Industrial (BD) Co., Ltd. — SAB</p><small data-i="job_current_note">Current position</small></div></article>
@@ -1204,8 +1202,6 @@ function applyLang(){
 $("#lang").onclick=()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang()};
 function applyTheme(){document.documentElement.dataset.theme=theme;$("#theme").textContent=theme==="dark"?"☀":"🌙"}
 $("#theme").onclick=()=>{theme=theme==="dark"?"light":"dark";store.set("theme",theme);applyTheme()};
-$$("#links a").forEach(a=>a.onclick=()=>$("#links").classList.remove("open"));
-document.addEventListener("keydown",e=>{if(e.key==="Escape")$("#links").classList.remove("open")});
 
 /* Bangladesh clock + time-aware hero greeting */
 const bdTimeFmt=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
@@ -1394,8 +1390,7 @@ function onScroll(){
   prog.style.transform=`scaleX(${p})`;
   const delta=st-lastScrollY;if(Math.abs(delta)>5)scrollDirection=delta>0?1:-1;lastScrollY=st;
   const sm=st>60;if(sm!==lastSm){lastSm=sm;navEl.classList.toggle("sm",sm)}
-  const menuOpen=$("#links").classList.contains("open");
-  navEl.classList.toggle("nav-hidden",st>150&&scrollDirection>0&&!menuOpen&&Math.abs(delta)>2);
+  /* Keep the compact language/theme controls available while scrolling. */
   const show=st>400;if(show!==lastShow){lastShow=show;topBtn.classList.toggle("show",show)}
   if(show)pg.style.strokeDashoffset=144.5*(1-p);
 }
@@ -1427,7 +1422,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=393",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
@@ -1538,4 +1533,75 @@ section h2{position:relative}
 .footer-brand{font-weight:800;letter-spacing:.045em}
 .footer-brand span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .footer-brand small{display:block;font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:.68rem;margin-top:5px}
+</style>
+
+
+<style id="v3-9-3-mobile-desktop-revision">
+/* --- Welcome: monochrome transparent glass, no violet/purple tint --- */
+#welcome{background:linear-gradient(145deg,#050505 0%,#111 48%,#030303 100%);color:#f7f7f7}
+#welcome::before{background:radial-gradient(ellipse 72% 55% at 50% 8%,rgba(255,255,255,.12),transparent 72%),radial-gradient(ellipse 55% 50% at 100% 100%,rgba(210,210,210,.075),transparent 70%),radial-gradient(ellipse 55% 45% at 0% 100%,rgba(130,130,130,.07),transparent 72%)}
+#welcome::after{opacity:.13;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px)}
+.welcome-glow{background:radial-gradient(circle,rgba(255,255,255,.13),rgba(180,180,180,.045) 40%,transparent 72%);filter:blur(24px)}
+.welcome-shell{border:1px solid rgba(255,255,255,.28);background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.055) 48%,rgba(255,255,255,.025));box-shadow:0 28px 90px rgba(0,0,0,.62),inset 0 1px 0 rgba(255,255,255,.3),inset 0 0 36px rgba(255,255,255,.035);backdrop-filter:blur(26px) saturate(70%);-webkit-backdrop-filter:blur(26px) saturate(70%)}
+.welcome-shell::before{background:linear-gradient(125deg,rgba(255,255,255,.2),transparent 30%,transparent 70%,rgba(255,255,255,.08))}
+.welcome-kicker{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.075);color:#eee;letter-spacing:.18em}
+.welcome-dot{background:#fff;box-shadow:0 0 12px rgba(255,255,255,.8)}
+.welcome-name{background:linear-gradient(110deg,#fff 12%,#d8d8d8 52%,#fff 88%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 10px 42px rgba(255,255,255,.08)}
+.welcome-greeting{color:#eee}
+.welcome-copy{color:rgba(255,255,255,.72)}
+.welcome-meta span{border-color:rgba(255,255,255,.19);background:rgba(255,255,255,.07);color:rgba(255,255,255,.82)}
+#welcome-enter{border-color:rgba(255,255,255,.42);background:linear-gradient(135deg,rgba(255,255,255,.24),rgba(255,255,255,.09));color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.42);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+#welcome-enter:hover{box-shadow:0 14px 38px rgba(255,255,255,.1),inset 0 1px 0 rgba(255,255,255,.5)}
+#welcome-lang{border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.09);color:#fff}
+.welcome-foot{color:rgba(255,255,255,.48)}
+#welcome-enter:focus-visible,#welcome-lang:focus-visible{outline-color:#fff}
+
+/* --- Education & career: clean, balanced cards without empty year columns --- */
+.timeline-columns{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:stretch}
+.timeline-group{padding:clamp(18px,2.4vw,26px);border:1px solid rgba(255,255,255,.14);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.1)}
+.timeline-heading{padding-bottom:13px;margin-bottom:17px;border-bottom:1px solid rgba(255,255,255,.12);font-size:1.08rem}
+.timeline-heading-icon{color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.timeline-list{gap:10px;padding-left:17px}
+.timeline-list:before{left:3px;top:10px;bottom:10px;width:2px;background:linear-gradient(rgba(255,255,255,.62),rgba(255,255,255,.08))}
+.timeline-item{display:block;position:relative;min-width:0;padding:12px 13px 12px 15px!important;border:1px solid rgba(255,255,255,.095);border-radius:15px;background:rgba(255,255,255,.035);transition:transform .28s var(--ease),background .28s,border-color .28s}
+.timeline-item::before{content:"";position:absolute;left:-19px;top:19px;width:8px;height:8px;border-radius:50%;background:#fff;border:2px solid #222;box-shadow:0 0 0 2px rgba(255,255,255,.35)}
+.timeline-item:hover,.timeline-item.is-active{transform:translateX(3px);background:rgba(255,255,255,.085);border-color:rgba(255,255,255,.24);box-shadow:none}
+.timeline-content{padding:0;min-width:0}
+.timeline-content h4{font-size:clamp(.92rem,1.4vw,1.02rem);line-height:1.42;margin:0 0 5px;color:var(--text)}
+.timeline-content p{font-size:.84rem;line-height:1.55;color:var(--muted)}
+.timeline-year,.timeline-content small{display:none!important}
+
+/* --- Reveal motion: alternate panels enter from the sides, then settle --- */
+.rv.fx-l{transform:translate3d(-54px,8px,0);opacity:0}
+.rv.fx-r{transform:translate3d(54px,8px,0);opacity:0}
+.rv.fx-l.in,.rv.fx-r.in{transform:translate3d(0,0,0);opacity:1}
+.rv{transition:opacity .62s var(--ease),transform .62s var(--ease);will-change:opacity,transform}
+.rv.in{will-change:auto}
+
+/* --- Scrolling performance: avoid expensive paints and stale menu handlers --- */
+html{scroll-behavior:auto}
+body.scrolling *,body.scrolling *::before,body.scrolling *::after{scroll-behavior:auto!important}
+body.scrolling .orb,body.scrolling .ring,body.scrolling .track,body.scrolling .gl::before,body.scrolling .royal::before,body.scrolling .royal::after,body.scrolling .rframe::before,body.scrolling .hud-bar::after,body.scrolling .scroll::after{animation-play-state:paused!important}
+body.scrolling nav,body.scrolling .glass,body.scrolling .timeline-group,body.scrolling .timeline-item{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+body.scrolling .glass{box-shadow:inset 0 1px 0 rgba(255,255,255,.09)!important}
+#glow{display:none!important}
+@media(max-width:760px){
+  .timeline-columns{grid-template-columns:minmax(0,1fr);gap:14px}
+  .timeline-group{padding:17px;border-radius:20px}
+  .timeline-heading{margin-bottom:13px}
+  .timeline-list{gap:9px}
+  .timeline-item{padding:11px 12px 11px 14px!important}
+  .rv.fx-l{transform:translate3d(-28px,8px,0);opacity:0}
+  .rv.fx-r{transform:translate3d(28px,8px,0);opacity:0}
+  #welcome{padding:max(18px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom))}
+  .welcome-shell{width:min(100%,560px);max-height:calc(100svh - 36px);overflow:auto;padding:clamp(26px,7vh,42px) 20px;border-radius:26px}
+  .welcome-shell::before{border-radius:25px}
+  .welcome-name{font-size:clamp(2.35rem,12vw,4.2rem);overflow-wrap:anywhere}
+  .welcome-copy{font-size:.94rem;line-height:1.72}
+  .welcome-meta{margin:19px 0 23px;gap:7px}
+  .welcome-meta span{font-size:.72rem;padding:7px 10px}
+  #welcome-enter{min-height:50px;width:min(100%,260px)}
+}
+@media(min-width:761px){.timeline-group{height:100%}}
+@media(prefers-reduced-motion:reduce){.rv,.rv.in,.rv.fx-l,.rv.fx-r{transition:none!important;transform:none!important;opacity:1!important}}
 </style>

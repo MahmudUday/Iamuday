@@ -1,4 +1,4 @@
-const CACHE_VERSION = "orion-v37";
+const CACHE_VERSION = "orion-v393";
 const APP_SHELL = ["./", "./index.html", "./manifest.webmanifest", "./offline.html", "./icon-192.png", "./icon-512.png"];
 const OFFLINE_URL = "./offline.html";
 
@@ -18,15 +18,14 @@ self.addEventListener("fetch", event => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  if (request.mode === "navigate") {
-    event.respondWith(fetch(request).then(response => {
+  if (request.mode === "navigate" || url.pathname.endsWith("/index.html")) {
+    event.respondWith(fetch(request, { cache: "no-store" }).then(response => {
       if (response && response.ok) { const copy = response.clone(); caches.open(CACHE_VERSION).then(cache => cache.put("./index.html", copy)); }
       return response;
     }).catch(async () => (await caches.match(request)) || (await caches.match("./index.html")) || (await caches.match(OFFLINE_URL))));
     return;
   }
 
-  // Cache-first for same-origin static files; update the cache when the network succeeds.
   event.respondWith(caches.open(CACHE_VERSION).then(async cache => {
     const cached = await cache.match(request);
     const network = fetch(request).then(response => { if (response && response.ok) cache.put(request, response.clone()); return response; }).catch(() => cached);
