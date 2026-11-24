@@ -764,6 +764,43 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
 @media(prefers-reduced-motion:reduce){#home .night-image,#home .night-glass-panel{transition:none}}
 
 </style>
+
+<style id="orion-header-skills-modal-fix">
+/* V3.9.1: navigation layout — keep language/theme controls clear of links */
+@media (min-width:761px) and (max-width:1100px){
+  nav#nav{width:min(96%,1000px);min-height:88px;display:flex;flex-wrap:wrap;row-gap:5px;padding:9px 14px 10px 18px;border-radius:25px}
+  nav#nav .logo{order:1}
+  nav#nav .tools{order:2;margin-left:auto;flex:0 0 auto}
+  nav#nav .links{order:3;flex:0 0 100%;width:100%;justify-content:center;gap:2px}
+  nav#nav .links a{padding:7px 11px;font-size:.84rem;white-space:nowrap}
+  #home{padding-top:clamp(154px,20vh,184px)}
+  section{scroll-margin-top:118px}
+}
+@media(min-width:1101px){nav#nav{width:min(98%,1200px);gap:8px}nav#nav .links{gap:1px}nav#nav .links a{padding:8px 10px;font-size:.88rem}}
+@media(max-width:760px){nav#nav{width:94%;padding:8px 10px 8px 16px}#home{padding-top:132px}}
+#home .cta{margin-top:clamp(22px,4vh,34px);gap:18px;row-gap:14px}
+#home .cta .btn{padding-inline:clamp(20px,3vw,30px)}
+@media(max-width:480px){#home .cta{margin-top:26px;gap:13px}#home .cta .btn{width:100%;max-width:270px}}
+.skill-modal{position:fixed;inset:0;z-index:10050;display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s ease}
+.skill-modal.open{opacity:1;visibility:visible;pointer-events:auto}
+.skill-modal-backdrop{position:absolute;inset:0;background:rgba(2,7,20,.72);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.skill-modal-panel{position:relative;z-index:1;width:min(100%,620px);max-height:min(82svh,720px);overflow:auto;padding:clamp(26px,5vw,42px);border:1px solid rgba(112,190,255,.3);border-radius:30px;background:linear-gradient(145deg,rgba(11,25,52,.94),rgba(13,20,44,.88) 55%,rgba(34,30,74,.9));box-shadow:0 28px 100px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.16);transform:translateY(22px) scale(.98);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.skill-modal.open .skill-modal-panel{transform:none}
+[data-theme="light"] .skill-modal-panel{background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(239,247,255,.96) 58%,rgba(244,239,255,.97));color:#172746;border-color:rgba(47,107,255,.22)}
+.skill-modal-close{position:absolute;right:17px;top:15px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(130,190,255,.25);background:rgba(255,255,255,.09);color:inherit;font-size:1.7rem;line-height:1;cursor:pointer}
+.skill-modal-icon{width:58px;height:58px;display:grid;place-items:center;border-radius:18px;background:linear-gradient(135deg,#167cff,#8a65e8);color:white;font-size:1.65rem;box-shadow:0 10px 32px rgba(30,120,255,.3);margin-bottom:20px}
+.skill-modal-kicker{color:#62caff;font-size:.72rem;font-weight:750;letter-spacing:.18em;margin-bottom:8px}
+.skill-modal-panel h2{font-size:clamp(1.8rem,5vw,2.55rem);margin:0 42px 18px 0}
+.skill-modal-copy{color:var(--muted);font-size:1rem;line-height:1.85}
+.skill-modal-copy p{margin:0 0 13px}
+.skill-modal-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.skill-modal-tags span{padding:8px 12px;border-radius:999px;border:1px solid rgba(74,170,255,.24);background:rgba(42,132,230,.1);font-size:.78rem;color:var(--text)}
+.extra-card{cursor:pointer}
+.extra-card:focus-visible{outline:2px solid var(--accent2);outline-offset:4px}
+@media(max-width:520px){.skill-modal{padding:12px}.skill-modal-panel{border-radius:24px;padding:26px 22px;max-height:88svh}}
+@media(prefers-reduced-motion:reduce){.skill-modal,.skill-modal-panel{transition:none}}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -831,8 +868,8 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
   <p class="roleline rv"><span data-i="iam">I am a</span> <b id="roleword">Photographer</b></p>
   <p class="hero-p rv d1" data-i="hero_p">Welcome to my world. I freeze light, emotion and stories into frames that last forever...</p>
   <div class="cta rv d2">
-    <a href="#gallery" class="btn pri mag" data-i="view">View Orion Graphy</a>
-    <a href="#contact" class="btn mag" data-i="hire">Get in touch</a>
+    <a href="#gallery" class="btn pri mag" data-i="view">See ORION GRAPHY</a>
+    <a href="#contact" class="btn mag" data-i="hire">Contact Me</a>
   </div>
   <div class="scroll"></div>
 </section>
@@ -889,10 +926,10 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
   <h2 class="rv"><span data-i="skills_t">Skills &</span> <em data-i="skills_e">Interests</em></h2>
   <p class="sub rv d1" data-i="skills_s">A balanced mix of professional knowledge and creative work.</p>
   <div class="extra-grid">
-    <article class="extra-card glass rv fx-z" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">⚗</div><h3 data-i="skill_chem">Chemistry</h3><p data-i="skill_chem_p">Professional work and analytical thinking.</p></article>
-    <article class="extra-card glass rv fx-z d1" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Capturing light, details and meaningful moments.</p></article>
-    <article class="extra-card glass rv fx-z d2" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">⌘</div><h3 data-i="skill_web">WordPress & Web</h3><p data-i="skill_web_p">Building and exploring responsive web experiences.</p></article>
-    <article class="extra-card glass rv fx-z d3" tabindex="0" role="button" aria-pressed="false"><div class="mini-icon">✍</div><h3 data-i="skill_write">Content Writing</h3><p data-i="skill_write_p">Clear writing and creative communication.</p></article>
+    <article class="extra-card glass rv fx-z" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Chemistry details"><div class="mini-icon">⚗</div><h3 data-i="skill_chem">Chemistry</h3><p data-i="skill_chem_p">Professional work and analytical thinking.</p></article>
+    <article class="extra-card glass rv fx-z d1" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Photography details"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Capturing light, details and meaningful moments.</p></article>
+    <article class="extra-card glass rv fx-z d2" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open WordPress and Web details"><div class="mini-icon">⌘</div><h3 data-i="skill_web">WordPress & Web</h3><p data-i="skill_web_p">Building and exploring responsive web experiences.</p></article>
+    <article class="extra-card glass rv fx-z d3" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Content Writing details"><div class="mini-icon">✍</div><h3 data-i="skill_write">Content Writing</h3><p data-i="skill_write_p">Clear writing and creative communication.</p></article>
   </div>
   <div class="skill-cloud rv" aria-label="Areas of interest"><span class="skill-chip">Creative Projects</span><span class="skill-chip">Digital Experiences</span><span class="skill-chip">Visual Storytelling</span><span class="skill-chip">Technology</span></div>
 </section>
@@ -1042,6 +1079,19 @@ section h2::after{box-shadow:0 0 9px rgba(0,194,255,.65),0 0 22px rgba(47,107,25
   <div id="lbc"></div>
 </div>
 
+
+<div class="skill-modal" id="skill-modal" aria-hidden="true">
+  <div class="skill-modal-backdrop" data-skill-close></div>
+  <section class="skill-modal-panel glass" role="dialog" aria-modal="true" aria-labelledby="skill-modal-title" tabindex="-1">
+    <button class="skill-modal-close" type="button" aria-label="Close details" data-skill-close>×</button>
+    <div class="skill-modal-icon" id="skill-modal-icon">✦</div>
+    <p class="skill-modal-kicker">SKILLS & INTERESTS</p>
+    <h2 id="skill-modal-title">Details</h2>
+    <div class="skill-modal-copy" id="skill-modal-copy"></div>
+    <div class="skill-modal-tags" id="skill-modal-tags"></div>
+  </section>
+</div>
+
 <script>
 /* ============ EDIT THIS PART ============ */
 const CONFIG = {
@@ -1066,7 +1116,7 @@ const T = {
   loc:"Bangladesh",
   tag:"📷 Hobby Photographer",
   hero_p:"Welcome to my world. I freeze light, emotion and stories into frames that last forever...",
-  view:"View Orion Graphy",hire:"Get in touch",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
+  view:"See ORION GRAPHY",hire:"Contact Me",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
   about_p1:"I’m Mahmud Uday, a chemist working in an industrial environment where precision, analytical thinking and consistency matter every day. My role continues to strengthen my approach to problem-solving, quality-focused work and continuous learning.",
   about_p2:"Beyond my professional responsibilities, I explore digital creativity through WordPress development and content writing. I enjoy turning ideas into clear, accessible web experiences and purposeful content, with a focus on usability, detail and thoughtful presentation.",
   about_p3:"Photography is one of the ways I express my creativity. As a hobby photographer, I’m drawn to natural light, everyday details and genuine moments — always learning, experimenting and developing my own visual perspective.",
@@ -1089,7 +1139,7 @@ const T = {
   loc:"বাংলাদেশ",
   tag:"📷 শখের ফটোগ্রাফার",
   hero_p:"আমার জগতে স্বাগতম। আমি আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়...",
-  view:"Orion Graphy দেখুন",hire:"যোগাযোগ করুন",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
+  view:"See ORION GRAPHY",hire:"Contact Me",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
   about_p1:"আমি মাহমুদ উদয়। শিল্পপ্রতিষ্ঠানের পরিবেশে কেমিস্ট হিসেবে কাজ করি, যেখানে নির্ভুলতা, বিশ্লেষণধর্মী চিন্তা ও ধারাবাহিকভাবে শেখার মানসিকতা অত্যন্ত গুরুত্বপূর্ণ। এই অভিজ্ঞতা আমার সমস্যা সমাধানের দক্ষতা, কাজের মান বজায় রাখা এবং প্রতিটি বিষয়ে মনোযোগী হওয়ার অভ্যাসকে আরও সমৃদ্ধ করছে।",
   about_p2:"পেশাগত দায়িত্বের পাশাপাশি ওয়ার্ডপ্রেস ওয়েব ডেভেলপমেন্ট ও কনটেন্ট রাইটিং নিয়ে কাজ করতে এবং নতুন কিছু শিখতে ভালোবাসি। একটি ভাবনাকে সহজ, ব্যবহারবান্ধব ওয়েব অভিজ্ঞতা কিংবা উদ্দেশ্যপূর্ণ লেখায় রূপ দেওয়াই আমার আগ্রহের জায়গা।",
   about_p3:"ফটোগ্রাফি আমার সৃজনশীলতার একটি প্রিয় মাধ্যম। শখের ফটোগ্রাফার হিসেবে প্রাকৃতিক আলো, দৈনন্দিন জীবনের ছোট ছোট দৃশ্য এবং স্বতঃস্ফূর্ত মুহূর্ত নিজের দৃষ্টিভঙ্গিতে ক্যামেরাবন্দি করতে ভালোবাসি। প্রতিটি ছবির মাধ্যমে নতুনভাবে দেখা ও শেখার চেষ্টা করি।",
@@ -1403,7 +1453,20 @@ if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWor
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
 const journeyCards=$$(".timeline-item"),skillCards=$$(".extra-card");
 journeyCards.forEach(el=>{el.addEventListener("click",()=>activateCard(el,journeyCards));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activateCard(el,journeyCards)}})});
-skillCards.forEach(el=>{el.addEventListener("click",()=>activateCard(el,skillCards));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();activateCard(el,skillCards)}})});
+
+const skillModal=$("#skill-modal"),skillModalTitle=$("#skill-modal-title"),skillModalIcon=$("#skill-modal-icon"),skillModalCopy=$("#skill-modal-copy"),skillModalTags=$("#skill-modal-tags");
+const skillDetails={
+ chemistry:{icon:"⚗",title:{en:"Chemistry",bn:"কেমিস্ট্রি"},body:{en:["I work as a Technical Chemist at Weixing Industrial (BD) Co., Ltd. (SAB), Cumilla EPZ.","My professional work is connected with industrial electroplating processes, routine bath analysis, monitoring chemical parameters and supporting consistent production quality.","I value careful measurement, documentation, safe laboratory practice and practical problem-solving."],bn:["আমি কুমিল্লা ইপিজেডে Weixing Industrial (BD) Co., Ltd. (SAB)-এ Technical Chemist হিসেবে কাজ করি।","আমার পেশাগত কাজের সঙ্গে ইন্ডাস্ট্রিয়াল ইলেক্ট্রোপ্লেটিং প্রক্রিয়া, নিয়মিত বাথ অ্যানালাইসিস, কেমিক্যাল প্যারামিটার পর্যবেক্ষণ এবং উৎপাদনের মান বজায় রাখতে সহায়তা করা জড়িত।","সঠিক পরিমাপ, ডকুমেন্টেশন, নিরাপদ ল্যাবরেটরি অনুশীলন ও বাস্তবভিত্তিক সমস্যা সমাধানকে গুরুত্ব দিই।"]},tags:{en:["Technical Chemist","Electroplating","Bath Analysis","Quality Focus"],bn:["টেকনিক্যাল কেমিস্ট","ইলেক্ট্রোপ্লেটিং","বাথ অ্যানালাইসিস","কোয়ালিটি"]}},
+ photography:{icon:"📷",title:{en:"Photography",bn:"ফটোগ্রাফি"},body:{en:["Photography is a personal hobby and a creative outlet for me — not a professional photography service.","I enjoy noticing natural light, colours, textures and everyday moments, then experimenting with framing and composition to tell a simple visual story.","I keep learning through practice and exploring different scenes with my camera."],bn:["ফটোগ্রাফি আমার ব্যক্তিগত শখ এবং সৃজনশীলতার একটি মাধ্যম—এটি আমার পেশাদার ফটোগ্রাফি সার্ভিস নয়।","প্রাকৃতিক আলো, রং, টেক্সচার ও দৈনন্দিন জীবনের ছোট ছোট মুহূর্ত খেয়াল করতে ভালোবাসি। ফ্রেমিং ও কম্পোজিশনের মাধ্যমে সহজ একটি দৃশ্যকে গল্পের মতো তুলে ধরার চেষ্টা করি।","নিয়মিত অনুশীলন ও বিভিন্ন দৃশ্য ক্যামেরাবন্দি করার মাধ্যমে শিখে যাচ্ছি।"]},tags:{en:["Hobby Photography","Natural Light","Composition","Visual Storytelling"],bn:["শখের ফটোগ্রাফি","প্রাকৃতিক আলো","কম্পোজিশন","ভিজ্যুয়াল স্টোরিটেলিং"]}},
+ web:{icon:"⌘",title:{en:"WordPress & the Web",bn:"ওয়ার্ডপ্রেস ও ওয়েব"},body:{en:["I am interested in WordPress and modern web experiences, especially clean layouts, responsive behaviour and practical features.","I enjoy learning by building and improving personal web projects, exploring how design, usability and performance work together.","ORION GRAPHY is my personal space to experiment with these ideas."],bn:["ওয়ার্ডপ্রেস ও আধুনিক ওয়েব অভিজ্ঞতা নিয়ে আমার আগ্রহ রয়েছে—বিশেষ করে পরিচ্ছন্ন লেআউট, রেসপন্সিভ ডিজাইন ও ব্যবহারিক ফিচার।","নিজের ওয়েব প্রজেক্ট তৈরি ও উন্নত করার মাধ্যমে শেখতে ভালোবাসি; ডিজাইন, ব্যবহারযোগ্যতা ও পারফরম্যান্স কীভাবে একসঙ্গে কাজ করে তা অন্বেষণ করি।","ORION GRAPHY এই বিষয়গুলো নিয়ে পরীক্ষা-নিরীক্ষা করার আমার ব্যক্তিগত জায়গা।"]},tags:{en:["WordPress","Responsive Design","Web UI","Personal Projects"],bn:["ওয়ার্ডপ্রেস","রেসপন্সিভ ডিজাইন","ওয়েব UI","ব্যক্তিগত প্রজেক্ট"]}},
+ writing:{icon:"✍",title:{en:"Content Writing",bn:"কনটেন্ট রাইটিং"},body:{en:["I have previous experience as a Content Writer at Nexton Digital.","I enjoy presenting information in a clear, structured and reader-friendly way, adapting the tone to the purpose and audience.","I am interested in useful digital content, thoughtful communication and continuously improving my writing."],bn:["আমি আগে Nexton Digital-এ Content Writer হিসেবে কাজ করেছি।","তথ্যকে সহজ, গোছানো ও পাঠকবান্ধবভাবে উপস্থাপন করতে ভালোবাসি। বিষয় ও পাঠকের প্রয়োজন অনুযায়ী লেখার ধরন মানিয়ে নেওয়ার চেষ্টা করি।","উপকারী ডিজিটাল কনটেন্ট, অর্থবহ যোগাযোগ এবং লেখার মান ধারাবাহিকভাবে উন্নত করার বিষয়ে আগ্রহী।"]},tags:{en:["Content Writing","Clear Communication","Digital Content","Editing"],bn:["কনটেন্ট রাইটিং","স্পষ্ট যোগাযোগ","ডিজিটাল কনটেন্ট","সম্পাদনা"]}}
+};
+let lastSkillTrigger=null;
+function closeSkillModal(){skillModal.classList.remove("open");skillModal.setAttribute("aria-hidden","true");document.body.style.overflow="";skillCards.forEach(x=>x.setAttribute("aria-pressed","false"));if(lastSkillTrigger)lastSkillTrigger.focus()}
+function openSkillModal(el){const key=el.querySelector("h3")?.getAttribute("data-i")==="skill_chem"?"chemistry":el.querySelector("h3")?.getAttribute("data-i")==="skill_photo"?"photography":el.querySelector("h3")?.getAttribute("data-i")==="skill_web"?"web":"writing";const d=skillDetails[key],L=lang==="bn"?"bn":"en";lastSkillTrigger=el;skillCards.forEach(x=>x.setAttribute("aria-pressed",String(x===el)));skillModalIcon.textContent=d.icon;skillModalTitle.textContent=d.title[L];skillModalCopy.innerHTML=d.body[L].map(t=>`<p>${t}</p>`).join("");skillModalTags.innerHTML=d.tags[L].map(t=>`<span>${t}</span>`).join("");skillModal.classList.add("open");skillModal.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";skillModal.querySelector(".skill-modal-panel").focus()}
+skillCards.forEach(el=>{el.addEventListener("click",()=>openSkillModal(el));el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openSkillModal(el)}})});
+skillModal.querySelectorAll("[data-skill-close]").forEach(el=>el.addEventListener("click",closeSkillModal));
+addEventListener("keydown",e=>{if(e.key==="Escape"&&skillModal.classList.contains("open"))closeSkillModal()});
 
 /* ---------- low-end detection: keep glass look, skip blur ---------- */
 (()=>{const m=navigator.deviceMemory,c=navigator.hardwareConcurrency;
