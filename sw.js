@@ -1,4 +1,4 @@
-const CACHE_VERSION = "orion-v399";
+const CACHE_VERSION = "orion-v3100";
 const APP_SHELL = ["./", "./index.html", "./manifest.webmanifest", "./offline.html", "./icon-192.png", "./icon-512.png"];
 const OFFLINE_URL = "./offline.html";
 self.addEventListener("install", event => {
