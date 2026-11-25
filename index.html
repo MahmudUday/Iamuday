@@ -1095,6 +1095,45 @@ footer nav.footer-links{
 }
 </style>
 
+
+<style id="orion-v3-10-3-cinematic-pull-lamp">
+/* V3.10.3 — cinematic pull-cord welcome interaction; transform/opacity only. */
+#welcome{--lamp-x:calc(100% - clamp(62px,8vw,118px));}
+.welcome-actions{min-height:0;margin:0;padding:0}
+.welcome-lamp{position:absolute;z-index:3;top:clamp(20px,5vh,48px);right:clamp(24px,5.8vw,88px);width:clamp(76px,10vw,122px);height:clamp(62px,9vh,92px);pointer-events:none}
+.lamp-cable{position:absolute;left:50%;top:-6vh;width:2px;height:calc(6vh + 8px);background:linear-gradient(#554a3a,#a18a67);transform:translateX(-50%)}
+.lamp-shade{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 7px 10px rgba(0,0,0,.38))}
+.lamp-bulb{position:absolute;left:50%;bottom:1px;width:16px;height:9px;border-radius:50%;background:#ffe0a0;transform:translateX(-50%);box-shadow:0 0 18px 8px rgba(255,190,91,.38)}
+.pull-cord{--pull-y:0px;--pull-progress:0;position:absolute;z-index:5;top:calc(clamp(20px,5vh,48px) + clamp(62px,9vh,92px) - 2px);right:calc(clamp(24px,5.8vw,88px) + clamp(38px,5vw,61px) - 30px);width:60px;height:min(43vh,390px);min-height:190px;padding:0;border:0;background:transparent;color:inherit;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;outline:none}
+.cord-line{position:absolute;left:50%;top:0;width:2px;height:calc(100% - 34px);background:linear-gradient(90deg,#4c4031,#d2b78d 48%,#4b3d2e);transform:translateX(-50%) scaleY(calc(1 + var(--pull-progress)*.32));transform-origin:top center;transition:transform .28s cubic-bezier(.2,.75,.25,1);box-shadow:0 0 3px rgba(245,205,139,.25)}
+.cord-knob{position:absolute;left:50%;bottom:0;width:19px;height:28px;border-radius:8px 8px 11px 11px;background:linear-gradient(90deg,#58442e,#e4c18a 48%,#6a5032);box-shadow:0 4px 12px rgba(0,0,0,.4),inset 0 1px 2px rgba(255,255,255,.45);transform:translate(-50%,var(--pull-y));transition:transform .28s cubic-bezier(.2,.75,.25,1)}
+.cord-knob span{position:absolute;left:50%;top:4px;width:5px;height:5px;border-radius:50%;background:#ffe4b5;transform:translateX(-50%)}
+.pull-cord::after{content:"";position:absolute;left:50%;bottom:-12px;width:54px;height:54px;border-radius:50%;transform:translateX(-50%);background:radial-gradient(circle,rgba(255,202,125,.12),transparent 68%);pointer-events:none}
+.pull-cord:focus-visible .cord-knob{outline:2px solid #ffe0a0;outline-offset:5px}
+.pull-cord.dragging{cursor:grabbing}
+.pull-cord.dragging .cord-line,.pull-cord.dragging .cord-knob,.pull-cord.pulled .cord-line,.pull-cord.pulled .cord-knob{transition:none}
+.pull-cord.dragging .cord-line,.pull-cord.pulled .cord-line{animation:none!important}
+.welcome-lamp::after{content:"";position:absolute;z-index:-1;left:50%;top:55%;width:210px;height:210px;border-radius:50%;transform:translate(-50%,-8%);background:radial-gradient(circle,rgba(255,190,91,.19),rgba(255,174,73,.07) 36%,transparent 72%);opacity:.72;pointer-events:none;animation:lampBreath 5s ease-in-out infinite}
+@keyframes lampBreath{0%,100%{opacity:.56}50%{opacity:.88}}
+@keyframes cordSway{0%,100%{transform:translateX(-50%) rotate(-.65deg)}50%{transform:translateX(-50%) rotate(.65deg)}}
+.cord-line{animation:cordSway 4.8s ease-in-out infinite}
+.welcome-light-burst{position:absolute;z-index:4;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse 48% 68% at var(--lamp-x) 19%,rgba(255,218,157,.98) 0%,rgba(255,196,116,.52) 23%,rgba(255,221,173,.16) 48%,transparent 76%);transition:opacity .62s ease}
+#welcome.illuminating .welcome-light-burst{opacity:1}
+#welcome.illuminating .welcome-lamp::after{opacity:1}
+#welcome.illuminating .lamp-bulb{box-shadow:0 0 28px 15px rgba(255,213,143,.85)}
+#welcome.illuminating .welcome-shell{border-color:rgba(255,232,194,.5);transition:border-color .35s ease}
+@media(max-width:760px){
+  .welcome-lamp{top:clamp(13px,2.5vh,24px);right:17px;width:72px;height:58px}
+  .lamp-cable{height:calc(2.5vh + 7px)}
+  .pull-cord{top:calc(clamp(13px,2.5vh,24px) + 56px);right:calc(17px + 36px - 27px);width:54px;height:min(17vh,135px);min-height:110px}
+  .cord-knob{width:17px;height:25px}
+  .welcome-light-burst{background:radial-gradient(ellipse 66% 55% at var(--lamp-x) 12%,rgba(255,218,157,.94),rgba(255,196,116,.42) 30%,rgba(255,221,173,.12) 56%,transparent 78%)}
+  .welcome-shell{margin-top:clamp(35px,8vh,72px)}
+}
+@media(prefers-reduced-motion:reduce){.lamp-bulb,.welcome-lamp::after,.cord-line,.welcome-light-burst{animation:none!important;transition:none!important}}
+@media(hover:none),(pointer:coarse){.welcome-lamp::after{animation:none;opacity:.72}}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -1111,9 +1150,24 @@ footer nav.footer-links{
     <p class="welcome-greeting" id="welcome-greeting">Welcome — glad you're here.</p>
     <p class="welcome-copy" id="welcome-copy">A little space where professional life meets creativity — explore my journey, interests, projects and the moments I capture through my lens.</p>
     <div class="welcome-meta" id="welcome-meta"><span>Chemist</span><span>Hobby Photographer</span><span>WordPress & Writing</span></div>
-    <div class="welcome-actions"><button id="welcome-enter" type="button">Enter Website <span aria-hidden="true">↗</span></button></div>
     <p class="welcome-foot" id="welcome-foot">BANGLADESH · ORION GRAPHY</p>
   </div>
+  <div class="welcome-lamp" aria-hidden="true">
+    <span class="lamp-cable"></span>
+    <svg class="lamp-shade" viewBox="0 0 150 112" role="presentation" focusable="false">
+      <path d="M70 3h10v15H70z" fill="#b9a58a"/>
+      <path d="M42 17h66l27 70H15z" fill="url(#lampMetal)" stroke="#c5a77b" stroke-width="2"/>
+      <path d="M22 82h106l7 9H15z" fill="#6e5942"/>
+      <path d="M48 22h54l18 52H30z" fill="#f4c77d" opacity=".18"/>
+      <defs><linearGradient id="lampMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7d4b4"/><stop offset=".42" stop-color="#806b51"/><stop offset="1" stop-color="#2b251e"/></linearGradient></defs>
+    </svg>
+    <span class="lamp-bulb"></span>
+  </div>
+  <button id="welcome-pull" class="pull-cord" type="button" aria-label="Pull the cord to enter the website">
+    <span class="cord-line" aria-hidden="true"></span>
+    <span class="cord-knob" aria-hidden="true"><span></span></span>
+  </button>
+  <div class="welcome-light-burst" aria-hidden="true"></div>
 </div>
 
 <div class="bg"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
@@ -1462,7 +1516,7 @@ function updateWelcome(){
   $("#welcome-greeting").textContent=d.greeting;
   $("#welcome-copy").textContent=d.copy;
   $("#welcome-meta").innerHTML=d.meta.map(x=>`<span>${x}</span>`).join("");
-  $("#welcome-enter").innerHTML=`${d.enter} <span aria-hidden="true">↗</span>`;
+  $("#welcome-pull").setAttribute("aria-label",lang==="bn"?"ওয়েবসাইটে প্রবেশ করতে দড়িটি টানো":"Pull the cord to enter the website");
   $("#welcome-foot").textContent=d.foot;
   $("#welcome-lang").textContent=d.toggle;
 }
@@ -1484,7 +1538,56 @@ function enterWebsite(){
 }
 updateWelcome();
 $("#welcome-lang").addEventListener("click",()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang();updateWelcome()});
-$("#welcome-enter").addEventListener("click",enterWebsite);
+const pullControl=$("#welcome-pull");
+let pullStartY=0,pullDistance=0,pullDragging=false,pullPointerHandled=false,pullFinished=false;
+const pullLimit=118,pullThreshold=72;
+function resetPull(){
+  pullDragging=false;pullDistance=0;
+  pullControl.classList.remove("dragging");
+  pullControl.style.setProperty("--pull-y","0px");
+  pullControl.style.setProperty("--pull-progress","0");
+}
+function finishPull(){
+  if(pullFinished||document.body.classList.contains("entered"))return;
+  pullFinished=true;pullControl.disabled=true;
+  pullControl.classList.remove("dragging");
+  pullControl.classList.add("pulled");
+  pullControl.style.setProperty("--pull-y","78px");
+  pullControl.style.setProperty("--pull-progress","1");
+  $("#welcome").classList.add("illuminating");
+  window.setTimeout(enterWebsite,620);
+}
+function keyboardPull(){
+  if(pullFinished||document.body.classList.contains("entered"))return;
+  pullControl.classList.add("pulled");
+  pullControl.style.setProperty("--pull-y","78px");
+  pullControl.style.setProperty("--pull-progress","1");
+  finishPull();
+}
+pullControl.addEventListener("pointerdown",e=>{
+  if(pullFinished||e.button!==0)return;
+  e.preventDefault();pullDragging=true;pullStartY=e.clientY;pullDistance=0;
+  pullControl.classList.add("dragging");
+  pullControl.setPointerCapture(e.pointerId);
+});
+pullControl.addEventListener("pointermove",e=>{
+  if(!pullDragging)return;
+  pullDistance=Math.max(0,Math.min(pullLimit,e.clientY-pullStartY));
+  pullControl.style.setProperty("--pull-y",`${pullDistance}px`);
+  pullControl.style.setProperty("--pull-progress",String(pullDistance/pullLimit));
+});
+pullControl.addEventListener("pointerup",e=>{
+  if(!pullDragging)return;
+  e.preventDefault();pullDragging=false;pullPointerHandled=true;
+  pullControl.classList.remove("dragging");
+  if(pullDistance>=pullThreshold)finishPull();else resetPull();
+  window.setTimeout(()=>{pullPointerHandled=false},0);
+});
+pullControl.addEventListener("pointercancel",()=>{if(pullDragging)resetPull()});
+pullControl.addEventListener("click",e=>{
+  if(pullPointerHandled){e.preventDefault();return;}
+  keyboardPull();
+});
 $(".skip-link").addEventListener("click",enterWebsite);
 $("#welcome").addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefault()});
 
