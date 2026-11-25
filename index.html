@@ -1311,6 +1311,46 @@ html.lite .welcome-name::after{animation:none!important}
 @media(prefers-reduced-motion:reduce){.welcome-name::after{display:none}}
 </style>
 
+
+<style id="orion-v3107-hero-mobile-fixes">
+/* V3.10.7: remove the narrow hero frame and replace the mismatched photo with a calm, matching graphite atmosphere. */
+#home .night-glass-panel{display:none!important}
+#home .night-image{
+  background-color:#101316!important;
+  background-image:
+    radial-gradient(ellipse 58% 72% at 78% 30%,rgba(139,105,65,.22),transparent 72%),
+    radial-gradient(ellipse 52% 62% at 14% 82%,rgba(83,98,108,.18),transparent 74%),
+    radial-gradient(ellipse 40% 45% at 52% 108%,rgba(102,78,52,.12),transparent 76%),
+    linear-gradient(122deg,#111519 0%,#191b1c 48%,#0c1013 100%)!important;
+  background-size:cover!important;background-position:center!important;
+}
+#home .night-image::after{
+  background:linear-gradient(90deg,rgba(7,10,12,.12),rgba(7,10,12,.02) 58%,rgba(7,10,12,.08)),
+    linear-gradient(180deg,rgba(7,10,12,.08),transparent 48%,rgba(7,10,12,.24))!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+#home .hero-atmosphere{pointer-events:none}
+/* Keep the hero content visually open instead of appearing boxed into a narrow panel. */
+#home .hud-bar{max-width:min(760px,100%)}
+@media(max-width:760px){
+  #home .night-image{background-position:center!important}
+  #home .hud-bar{max-width:100%}
+}
+
+/* Mobile: reserve the top-right corner for the language switch; move the lamp below it. */
+@media(max-width:760px){
+  .welcome-lamp{top:clamp(82px,12vh,104px)!important;right:17px!important}
+  .lamp-cable{height:calc(6vh + 8px)!important}
+  .pull-cord{top:calc(clamp(82px,12vh,104px) + 56px)!important;right:calc(17px + 36px - 27px)!important}
+  .pull-hint{top:calc(clamp(82px,12vh,104px) + 56px + 30px)!important;right:calc(17px + 36px + 30px)!important}
+}
+@media(max-height:680px) and (max-width:760px){
+  .welcome-lamp{top:76px!important}
+  .pull-cord{top:132px!important}
+  .pull-hint{top:160px!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -2043,7 +2083,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3105",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3107",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
@@ -2071,23 +2111,44 @@ addEventListener("keydown",e=>{if(e.key==="Escape"&&skillModal.classList.contain
 /* ---------- rotating role word ---------- */
 /* Role ticker rotation disabled in performance build to reduce perpetual motion. */
 
-/* ---------- reliable visitor counter: primary first, backup only on failure ---------- */
+/* ---------- visitor counter: one canonical source + 30-minute visitor sessions ---------- */
 (()=>{
-  const num=$("#vcount"),SEEN="orion_visited_v2",CACHE="orion_vcount";
-  const NS="mahmududay-orion-graphy",KEY="visitors",K2="mahmududay_orion_graphy_visitors";
-  const providers=[
-    action=>`https://abacus.jasoncameron.dev/${action}/${NS}/${KEY}`,
-    action=>`https://countapi.mileshilliard.com/api/v1/${action}/${K2}`
-  ];
-  const request=async url=>{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),4500);try{const r=await fetch(url,{signal:controller.signal,cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);const v=Number((await r.json()).value);if(!Number.isFinite(v)||v<0)throw new Error("Invalid counter response");return v}finally{clearTimeout(timer)}};
-  const show=v=>{const start=performance.now();(function frame(now){const p=Math.min(1,(now-start)/800);num.textContent=Math.round(v*(1-Math.pow(1-p,3))).toLocaleString("en-US");if(p<1)requestAnimationFrame(frame)})(start);store.set(CACHE,String(v))};
-  const cached=Number(store.get(CACHE));if(cached>0)num.textContent=cached.toLocaleString("en-US");
+  const num=$("#vcount");
+  const LAST="orion_last_counted_at_v3",CACHE="orion_vcount";
+  const ENDPOINT="https://abacus.jasoncameron.dev";
+  const NS="mahmududay-orion-graphy",KEY="visitors";
+  const request=async action=>{
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),6000);
+    try{
+      const response=await fetch(`${ENDPOINT}/${action}/${NS}/${KEY}`,{signal:controller.signal,cache:"no-store",credentials:"omit"});
+      if(!response.ok)throw new Error(`Counter HTTP ${response.status}`);
+      const data=await response.json(),value=Number(data.value);
+      if(!Number.isSafeInteger(value)||value<0)throw new Error("Invalid counter response");
+      return value;
+    }finally{clearTimeout(timer)}
+  };
+  const show=value=>{
+    num.textContent=value.toLocaleString("en-US");
+    num.removeAttribute("aria-busy");
+    store.set(CACHE,String(value));
+  };
+  const cached=Number(store.get(CACHE));
+  if(Number.isSafeInteger(cached)&&cached>0){num.textContent=cached.toLocaleString("en-US");num.title="Last recorded total; refreshing…"}
+  num.setAttribute("aria-busy","true");
   (async()=>{
-    const first=!store.get(SEEN)&&!["localhost","127.0.0.1",""].includes(location.hostname),action=first?"hit":"get";
-    for(let i=0;i<providers.length;i++){
-      try{const value=await request(providers[i](action));show(value);if(first)store.set(SEEN,"1");return}catch(e){/* try backup only if primary failed */}
+    const now=Date.now(),last=Number(store.get(LAST));
+    const isNewSession=!Number.isFinite(last)||last<=0||(now-last)>30*60*1000;
+    const action=isNewSession?"hit":"get";
+    try{
+      const value=await request(action);
+      if(isNewSession)store.set(LAST,String(now));
+      show(value);
+      num.title="Total recorded visitor sessions (one count per browser every 30 minutes)";
+    }catch(error){
+      num.removeAttribute("aria-busy");
+      if(!(Number.isSafeInteger(cached)&&cached>0))num.textContent="—";
+      num.title="Live visitor count is temporarily unavailable";
     }
-    if(!(cached>0))num.textContent="—";
   })();
 })();
 
