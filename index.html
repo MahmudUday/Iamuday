@@ -1134,6 +1134,30 @@ footer nav.footer-links{
 @media(hover:none),(pointer:coarse){.welcome-lamp::after{animation:none;opacity:.72}}
 </style>
 
+
+<style id="orion-v3-10-4-pull-hint-motion">
+/* V3.10.4 — clearer pull instruction and more expressive cord motion. */
+.pull-hint{position:absolute;z-index:4;top:clamp(220px,43vh,360px);right:calc(clamp(24px,5.8vw,88px) + clamp(38px,5vw,61px) + 42px);width:174px;display:flex;align-items:center;justify-content:flex-end;gap:8px;color:rgba(255,226,185,.9);font:600 10px/1.45 Inter,system-ui,sans-serif;letter-spacing:.17em;text-align:right;text-shadow:0 2px 12px rgba(0,0,0,.55);pointer-events:none;animation:hintFloat 2.2s ease-in-out infinite}
+.pull-hint-label{display:block;max-width:132px}
+.pull-hint-arrow{flex:0 0 30px;width:30px;height:20px;overflow:visible;filter:drop-shadow(0 0 5px rgba(255,196,116,.4));animation:hintArrow 1.05s ease-in-out infinite}
+.pull-hint-arrow path{fill:none;stroke:#f3c98f;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@keyframes hintFloat{0%,100%{opacity:.78}50%{opacity:1}}
+@keyframes hintArrow{0%,100%{transform:translateX(-2px)}50%{transform:translateX(5px)}}
+@keyframes cordSway{0%,100%{transform:translateX(-50%) rotate(-2.2deg) scaleY(calc(1 + var(--pull-progress)*.48))}50%{transform:translateX(-50%) rotate(2.2deg) scaleY(calc(1 + var(--pull-progress)*.48))}}
+@keyframes cordKnobIdle{0%,100%{transform:translate(-50%,calc(var(--pull-y) - 1px))}50%{transform:translate(-50%,calc(var(--pull-y) + 4px))}}
+.cord-line{animation:cordSway 3.1s ease-in-out infinite}
+.cord-knob{animation:cordKnobIdle 1.9s ease-in-out infinite}
+.pull-cord.dragging .cord-knob,.pull-cord.pulled .cord-knob{animation:none}
+.pull-cord.dragging .cord-line,.pull-cord.pulled .cord-line{animation:none!important}
+@media(max-width:760px){
+  .pull-hint{top:calc(clamp(13px,2.5vh,24px) + 56px + 30px);right:calc(17px + 36px + 30px);width:150px;gap:5px;font-size:9px;letter-spacing:.13em}
+  .pull-hint-label{max-width:112px}
+  .pull-hint-arrow{width:25px;flex-basis:25px}
+  .pull-cord{height:min(25vh,190px)!important;min-height:150px!important}
+}
+@media(prefers-reduced-motion:reduce){.pull-hint,.pull-hint-arrow,.cord-knob{animation:none!important}}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -1162,6 +1186,10 @@ footer nav.footer-links{
       <defs><linearGradient id="lampMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7d4b4"/><stop offset=".42" stop-color="#806b51"/><stop offset="1" stop-color="#2b251e"/></linearGradient></defs>
     </svg>
     <span class="lamp-bulb"></span>
+  </div>
+  <div class="pull-hint" id="pull-hint" aria-hidden="true">
+    <span class="pull-hint-label" id="pull-hint-label">PULL TO ENTER</span>
+    <svg class="pull-hint-arrow" viewBox="0 0 32 20" focusable="false" aria-hidden="true"><path d="M2 10h25M20 3l7 7-7 7"/></svg>
   </div>
   <button id="welcome-pull" class="pull-cord" type="button" aria-label="Pull the cord to enter the website">
     <span class="cord-line" aria-hidden="true"></span>
@@ -1517,6 +1545,7 @@ function updateWelcome(){
   $("#welcome-copy").textContent=d.copy;
   $("#welcome-meta").innerHTML=d.meta.map(x=>`<span>${x}</span>`).join("");
   $("#welcome-pull").setAttribute("aria-label",lang==="bn"?"ওয়েবসাইটে প্রবেশ করতে দড়িটি টানো":"Pull the cord to enter the website");
+  $("#pull-hint-label").textContent=lang==="bn"?"প্রবেশ করতে টান দাও":"PULL TO ENTER";
   $("#welcome-foot").textContent=d.foot;
   $("#welcome-lang").textContent=d.toggle;
 }
@@ -1540,7 +1569,7 @@ updateWelcome();
 $("#welcome-lang").addEventListener("click",()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang();updateWelcome()});
 const pullControl=$("#welcome-pull");
 let pullStartY=0,pullDistance=0,pullDragging=false,pullPointerHandled=false,pullFinished=false;
-const pullLimit=118,pullThreshold=72;
+const pullLimit=190,pullThreshold=100;
 function resetPull(){
   pullDragging=false;pullDistance=0;
   pullControl.classList.remove("dragging");
@@ -1552,7 +1581,7 @@ function finishPull(){
   pullFinished=true;pullControl.disabled=true;
   pullControl.classList.remove("dragging");
   pullControl.classList.add("pulled");
-  pullControl.style.setProperty("--pull-y","78px");
+  pullControl.style.setProperty("--pull-y","138px");
   pullControl.style.setProperty("--pull-progress","1");
   $("#welcome").classList.add("illuminating");
   window.setTimeout(enterWebsite,620);
@@ -1560,7 +1589,7 @@ function finishPull(){
 function keyboardPull(){
   if(pullFinished||document.body.classList.contains("entered"))return;
   pullControl.classList.add("pulled");
-  pullControl.style.setProperty("--pull-y","78px");
+  pullControl.style.setProperty("--pull-y","138px");
   pullControl.style.setProperty("--pull-progress","1");
   finishPull();
 }
