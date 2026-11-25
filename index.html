@@ -1211,6 +1211,106 @@ html.lite .welcome-dust i:nth-child(n+5){display:none}
 html.lite .welcome-name::after{animation:none!important}
 </style>
 
+
+<style id="orion-v3-10-6-minimal-luxury-welcome">
+/* V3.10.6 — Modern Minimal Luxury welcome finish. Warm neutrals, restrained texture, no heavy blur. */
+#welcome{
+  color:#e9e5dc;
+  background:
+    radial-gradient(ellipse 58% 46% at 82% 12%,rgba(160,126,83,.105),transparent 72%),
+    radial-gradient(ellipse 52% 54% at 8% 92%,rgba(111,91,68,.075),transparent 74%),
+    linear-gradient(132deg,#111315 0%,#171716 48%,#101112 100%);
+}
+#welcome::before{
+  background:
+    radial-gradient(ellipse 44% 48% at 83% 14%,rgba(196,164,119,.105),transparent 74%),
+    radial-gradient(ellipse 54% 56% at 50% 100%,rgba(255,255,255,.025),transparent 78%),
+    linear-gradient(115deg,rgba(255,255,255,.018),transparent 38%,rgba(0,0,0,.12));
+}
+/* Fine-grain texture instead of a visible grid; no image or filter required. */
+#welcome::after{
+  opacity:.19;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(226,216,199,.018) 0,rgba(226,216,199,.018) 1px,transparent 1px,transparent 4px),
+    repeating-linear-gradient(90deg,rgba(226,216,199,.012) 0,rgba(226,216,199,.012) 1px,transparent 1px,transparent 5px),
+    radial-gradient(ellipse at 50% 45%,transparent 35%,rgba(0,0,0,.22) 100%);
+  background-size:auto,auto,100% 100%;
+  mask-image:none;
+}
+.welcome-glow{background:radial-gradient(circle,rgba(188,151,102,.105),rgba(188,151,102,.035) 42%,transparent 72%);filter:none;}
+.welcome-ambient{
+  opacity:.76;
+  background:
+    radial-gradient(ellipse 27% 34% at var(--lamp-x) 14%,rgba(218,184,132,.17),transparent 76%),
+    radial-gradient(ellipse 72% 72% at 50% 100%,rgba(218,210,196,.035),transparent 76%);
+}
+.welcome-shell{
+  border:1px solid rgba(198,177,145,.22);
+  border-radius:30px;
+  background:linear-gradient(145deg,rgba(40,39,36,.78),rgba(27,28,27,.78) 54%,rgba(23,24,23,.84));
+  box-shadow:0 26px 76px rgba(0,0,0,.42),inset 0 1px 0 rgba(244,235,220,.11),inset 0 0 0 1px rgba(255,255,255,.018);
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+}
+.welcome-shell::before{
+  border-radius:29px;
+  background:linear-gradient(125deg,rgba(244,231,208,.075),transparent 30%,transparent 72%,rgba(182,151,111,.045));
+}
+.welcome-kicker{
+  border-color:rgba(190,169,137,.24);background:rgba(190,169,137,.075);color:#c8b99f;
+  letter-spacing:.19em;
+}
+.welcome-dot{background:#bca27c;box-shadow:0 0 8px rgba(188,162,124,.42)}
+.welcome-name{
+  background:linear-gradient(108deg,#f0ece3 10%,#cfc7b8 52%,#eee8dc 90%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 8px 34px rgba(214,199,174,.055);
+}
+.welcome-name::after{background:linear-gradient(105deg,transparent,rgba(245,235,217,.2),transparent)}
+.welcome-greeting{color:#d4c9b8}
+.welcome-copy{color:rgba(226,222,213,.72)}
+.welcome-meta span{border-color:rgba(194,177,148,.17);background:rgba(194,177,148,.055);color:rgba(225,218,205,.8)}
+.welcome-foot{color:rgba(199,188,168,.48)}
+#welcome-lang{border-color:rgba(194,177,148,.22);background:rgba(194,177,148,.075);color:#d8cdbb;backdrop-filter:none;-webkit-backdrop-filter:none}
+.welcome-lamp::after{
+  background:radial-gradient(circle,rgba(202,164,111,.17),rgba(202,164,111,.055) 38%,transparent 72%);
+}
+/* Dark bronze metalwork with a restrained satin highlight. */
+.lamp-cable{background:linear-gradient(#554a3b,#8b7556)}
+.lamp-shade{filter:drop-shadow(0 7px 10px rgba(0,0,0,.42))}
+.lamp-shade defs stop:first-child{stop-color:#8b7658}
+.lamp-shade defs stop:nth-child(2){stop-color:#514330}
+.lamp-shade defs stop:last-child{stop-color:#211e19}
+.lamp-shade path:nth-of-type(1){fill:#62513a}
+.lamp-shade path:nth-of-type(2){stroke:#9d8662}
+.lamp-shade path:nth-of-type(3){fill:#3b3022}
+.lamp-shade path:nth-of-type(4){fill:#d4b98b;opacity:.10}
+.lamp-bulb{background:#f1dfbd;box-shadow:0 0 15px 6px rgba(218,188,143,.27)}
+.cord-line{background:linear-gradient(90deg,#51432f,#b49a70 48%,#51432f);box-shadow:0 0 2px rgba(208,183,142,.2)}
+.cord-knob{background:linear-gradient(90deg,#493b29,#ad9165 48%,#55432d);box-shadow:0 4px 12px rgba(0,0,0,.42),inset 0 1px 2px rgba(245,226,192,.28)}
+.cord-knob span{background:#e8d6b5}
+.pull-cord::after{background:radial-gradient(circle,rgba(199,166,119,.10),transparent 68%)}
+.pull-hint{color:rgba(207,190,161,.88);text-shadow:0 2px 10px rgba(0,0,0,.48)}
+.pull-hint-arrow{filter:none}
+.pull-hint-arrow path{stroke:#c7ad83}
+.welcome-light-burst{
+  background:radial-gradient(ellipse 48% 68% at var(--lamp-x) 19%,rgba(245,230,205,.94) 0%,rgba(218,193,155,.43) 23%,rgba(222,208,185,.13) 48%,transparent 76%);
+}
+#welcome.illuminating .welcome-shell{
+  border-color:rgba(225,210,184,.45);
+  box-shadow:0 26px 76px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,248,232,.22),0 0 52px rgba(218,193,155,.10);
+}
+#welcome.illuminating .lamp-bulb{box-shadow:0 0 26px 13px rgba(237,220,190,.72)}
+.welcome-loader{color:rgba(216,201,174,.72)}
+.welcome-loader-dots i{background:#cbb58e}
+/* Keep only three fine flecks for a quieter, more editorial atmosphere. */
+.welcome-dust i:nth-child(n+4){display:none}
+@media(max-width:760px){
+  .welcome-shell{background:linear-gradient(145deg,rgba(40,39,36,.88),rgba(27,28,27,.9) 54%,rgba(23,24,23,.92));}
+  .welcome-ambient{opacity:.62}
+}
+@media(prefers-reduced-motion:reduce){.welcome-name::after{display:none}}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
