@@ -989,6 +989,65 @@ html{scroll-behavior:auto!important}
 }
 </style>
 
+
+<style id="orion-v399-balanced-performance">
+/* V3.9.9 — restrained visual effects + lower paint/compositing cost.
+   Welcome experience and Gallery Unlock Slider are intentionally excluded. */
+:root{--orb:.14}
+[data-theme="light"]{--orb:.10}
+/* Reduce ambient color spill without removing the site's identity. */
+.bg::after{opacity:.48}
+.orb{opacity:calc(var(--orb)*.55)!important;animation:none!important;will-change:auto!important}
+#glow{display:none!important}
+/* Keep glass surfaces crisp: no continuously re-rasterized backdrop blur. */
+.links.open,nav,#home .night-glass-panel,#home .tag,#home .hud-bar,
+.glass:not(#slider),.timeline-group,.timeline-item,.skill-modal-backdrop{
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#home .night-image::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+#home .night-glass-panel{background:linear-gradient(125deg,rgba(255,255,255,.075),rgba(255,255,255,.018) 48%,rgba(24,90,160,.035));box-shadow:inset 1px 1px 1px rgba(255,255,255,.15),0 10px 28px rgba(0,0,0,.10)}
+#home .tag,#home .hud-bar{background:rgba(9,22,52,.48);box-shadow:inset 0 1px rgba(255,255,255,.12),0 5px 16px rgba(0,0,0,.10)}
+nav{background:rgba(8,14,30,.94)!important;box-shadow:0 5px 18px rgba(0,0,0,.12)!important}
+[data-theme="light"] nav{background:rgba(255,255,255,.96)!important}
+/* Tone down decorative neon/glow and deep shadows; retain readable text contrast. */
+.gl::before{animation:none!important;opacity:.16!important;box-shadow:0 0 16px 1px rgba(0,170,255,.20)!important}
+#prog{box-shadow:none!important}
+#home .hero-title,#home .roleline,#home .hero-p{text-shadow:0 2px 10px rgba(0,0,0,.36)!important}
+#home .hero-atmosphere::before,#home .hero-atmosphere::after{opacity:.16!important;animation:none!important}
+.ha-orbit,.ha-orbit-a,.ha-orbit-b{animation:none!important;opacity:.12!important}
+.orb,.ring,.track,.dot::after,.hud-bar::after,.scroll::after,.gold-glow,.gold-text,
+.royal::before,.royal::after,.rframe::before,.more-btn .arr,.item::before{
+  animation:none!important;
+}
+/* Preserve reveal direction but reduce distance, duration and simultaneous work. */
+.rv{transition:opacity 300ms ease-out,transform 300ms ease-out!important;will-change:auto!important}
+.rv.fx-l{transform:translate3d(-12px,0,0)!important}
+.rv.fx-r{transform:translate3d(12px,0,0)!important}
+.rv.fx-z{transform:translate3d(0,8px,0) scale(.997)!important}
+.rv.fx-d{transform:translate3d(0,-8px,0)!important}
+.rv.in,.rv.fx-l.in,.rv.fx-r.in,.rv.fx-z.in,.rv.fx-d.in{opacity:1!important;transform:none!important}
+.d1{transition-delay:25ms!important}.d2{transition-delay:50ms!important}.d3{transition-delay:75ms!important}
+/* Reduce hover movement and shadow churn while retaining clear interaction feedback. */
+@media(hover:hover){#grid .item:hover{transform:translateY(-2px)!important}}
+.extra-card,.timeline-item{transition:background-color .18s ease,border-color .18s ease,transform .18s ease!important}
+.extra-card.is-active{transform:translateY(-2px)!important;box-shadow:none!important}
+.timeline-item.is-active{box-shadow:inset 0 0 0 1px rgba(167,139,250,.18)!important}
+/* Small screens benefit most: no decorative motion or expensive compositing. */
+@media(hover:none),(pointer:coarse){
+  html{scroll-behavior:auto!important}
+  .rv{transition-duration:280ms!important}
+  .rv.fx-l{transform:translate3d(-10px,0,0)!important}
+  .rv.fx-r{transform:translate3d(10px,0,0)!important}
+  .rv.fx-z{transform:translate3d(0,7px,0) scale(.998)!important}
+  .tilt,.mag{transform:none!important;transition:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d{transition:none!important;transform:none!important;opacity:1!important}
+  .orb,.ring,.track,.dot::after,.hud-bar::after,.scroll::after,.gold-glow,.gold-text,
+  .royal::before,.royal::after,.rframe::before,.ha-orbit,.ha-orbit-a,.ha-orbit-b{animation:none!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -1614,7 +1673,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=398",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=399",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
