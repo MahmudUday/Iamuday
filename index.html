@@ -1049,15 +1049,15 @@ nav{background:rgba(8,14,30,.94)!important;box-shadow:0 5px 18px rgba(0,0,0,.12)
 </style>
 
 
-<style id="orion-v3100-instant-section-reveal">
+<style id="orion-v3110-balanced-section-slide">
 /* V3.10.0: reveal before the section reaches the viewport; no title underline wait. */
 .rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d{
-  transition:opacity 160ms ease-out,transform 160ms ease-out!important;
+  transition:opacity 380ms cubic-bezier(.22,.72,.22,1),transform 380ms cubic-bezier(.22,.72,.22,1)!important;
   transition-delay:0ms!important;will-change:auto!important;
 }
 .rv{opacity:0!important;transform:translate3d(0,5px,0)!important}
-.rv.fx-l{transform:translate3d(-7px,0,0)!important}
-.rv.fx-r{transform:translate3d(7px,0,0)!important}
+.rv.fx-l{transform:translate3d(-14px,0,0)!important}
+.rv.fx-r{transform:translate3d(14px,0,0)!important}
 .rv.fx-z{transform:translate3d(0,4px,0)!important}
 .rv.fx-d{transform:translate3d(0,-5px,0)!important}
 .rv.in,.rv.fx-l.in,.rv.fx-r.in,.rv.fx-z.in,.rv.fx-d.in{opacity:1!important;transform:translate3d(0,0,0)!important}
@@ -1072,9 +1072,9 @@ section h2 span,section h2 em{animation:none!important;filter:none!important;bac
 #home .tag,#home .hud-bar{box-shadow:inset 0 1px rgba(255,255,255,.10)!important}
 #prog{box-shadow:none!important}
 @media(hover:none),(pointer:coarse){
-  .rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d{transition-duration:130ms!important}
-  .rv.fx-l{transform:translate3d(-5px,0,0)!important}
-  .rv.fx-r{transform:translate3d(5px,0,0)!important}
+  .rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d{transition-duration:320ms!important}
+  .rv.fx-l{transform:translate3d(-10px,0,0)!important}
+  .rv.fx-r{transform:translate3d(10px,0,0)!important}
   .rv.fx-z{transform:translate3d(0,3px,0)!important}
   .rv.fx-d{transform:translate3d(0,-3px,0)!important}
   .ring,.orb,.track,.ha-orbit,.ha-orbit-a,.ha-orbit-b{animation:none!important}
@@ -1492,7 +1492,7 @@ const io=new IntersectionObserver(entries=>{
       for(const el of batch)el.classList.add("in");
     });
   }
-},{root:null,threshold:0,rootMargin:"100px 0px 280px 0px"});
+},{root:null,threshold:0,rootMargin:"80px 0px 140px 0px"});
 
 /* ---------- language / theme / menu ---------- */
 function applyLang(){
@@ -1707,7 +1707,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3100",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3110",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
