@@ -1430,6 +1430,222 @@ html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{sc
 }
 </style>
 
+
+<style id="orion-editorial-design-v3110">
+/* V3.11.0 — editorial design refinement. Visual-only overrides; interactions and motion systems remain intact. */
+:root{
+  --orion-ink:#101211;
+  --orion-panel:#171a18;
+  --orion-panel-raised:#1c201d;
+  --orion-line:rgba(210,198,174,.16);
+  --orion-bronze:#c2a77c;
+  --orion-bronze-soft:#dfc9a5;
+}
+[data-theme="light"]{
+  --orion-ink:#f4f2ed;
+  --orion-panel:#fffefa;
+  --orion-panel-raised:#f7f4ed;
+  --orion-line:rgba(76,65,48,.16);
+  --orion-bronze:#8b704a;
+  --orion-bronze-soft:#6e5739;
+}
+/* Keep the welcome experience untouched; give the actual portfolio a quieter, warmer identity. */
+body:not(.welcome-open) main>section:not(#home){
+  width:100%;
+  padding-block:clamp(76px,8.5vw,124px);
+}
+main>section:not(#home) h2{
+  max-width:900px;
+  margin-inline:auto;
+  font-size:clamp(2rem,3.7vw,3.35rem)!important;
+  font-weight:600!important;
+  letter-spacing:-.045em!important;
+  line-height:1.12!important;
+  text-wrap:balance;
+  text-shadow:none!important;
+}
+main>section:not(#home) h2 em{
+  color:var(--orion-bronze-soft)!important;
+  background:none!important;
+  -webkit-text-fill-color:currentColor!important;
+  font-style:normal;
+  text-shadow:none!important;
+}
+main>section:not(#home) .sub{
+  max-width:620px;
+  margin:15px auto 42px!important;
+  color:var(--muted);
+  font-size:clamp(.94rem,1.1vw,1.04rem)!important;
+  line-height:1.75;
+  letter-spacing:.005em;
+}
+/* Navigation: flatter, clearer and less like a floating glass widget. */
+nav#nav{
+  border:1px solid var(--orion-line)!important;
+  background:rgba(16,18,17,.94)!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.18)!important;
+  -webkit-backdrop-filter:blur(10px)!important;
+  backdrop-filter:blur(10px)!important;
+}
+[data-theme="light"] nav#nav{background:rgba(250,249,245,.96)!important;box-shadow:0 10px 30px rgba(35,31,24,.08)!important}
+nav#nav .brand,nav#nav .logo{letter-spacing:.055em}
+nav#nav .nav-links a{font-size:.84rem;font-weight:500;letter-spacing:.015em}
+nav#nav .nav-links a.active{color:var(--orion-bronze-soft)!important}
+nav#nav .nav-links a::after{background:var(--orion-bronze)!important;box-shadow:none!important}
+/* About: profile and biography become a deliberate editorial two-column spread. */
+#about .about-grid{width:min(100%,1080px);margin:0 auto;grid-template-columns:minmax(250px,.78fr) minmax(0,1.22fr);gap:clamp(28px,5vw,76px);align-items:center}
+#about .royal,#about .rframe{border-radius:8px!important;box-shadow:none!important}
+#about .rframe{padding:8px!important;border:1px solid var(--orion-line)!important;background:transparent!important}
+#about .avatar{border-radius:4px!important;background:var(--orion-panel)!important}
+#about .about-txt.glass{
+  padding:clamp(24px,3.4vw,42px)!important;
+  border:1px solid var(--orion-line)!important;
+  border-left:2px solid var(--orion-bronze)!important;
+  border-radius:5px!important;
+  background:var(--orion-panel)!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#about .about-txt p{max-width:66ch;font-size:1rem;line-height:1.9;color:var(--text)}
+#about .roles{gap:8px;margin-top:25px}
+#about .roles .role{border:1px solid var(--orion-line)!important;border-radius:3px!important;background:transparent!important;color:var(--orion-bronze-soft)!important;padding:7px 11px;font-size:.76rem;letter-spacing:.025em}
+/* Service cards: consistent grid, restrained surfaces, clearer type hierarchy. */
+#services .srv{width:min(100%,1120px);margin-inline:auto;gap:16px}
+#services .srv .card{
+  min-height:230px;padding:30px 28px!important;
+  border:1px solid var(--orion-line)!important;border-radius:6px!important;
+  background:var(--orion-panel)!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  text-align:left;
+}
+#services .srv .card::before,#services .srv .card::after{display:none!important}
+#services .si{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--orion-line);border-radius:4px;background:transparent!important;color:var(--orion-bronze-soft);margin-bottom:26px}
+#services .si svg{stroke:var(--orion-bronze-soft)!important}
+#services .srv h3{font-size:1.08rem;font-weight:600;letter-spacing:-.015em;margin-bottom:9px}
+#services .srv p{max-width:32ch;color:var(--muted);font-size:.9rem;line-height:1.75}
+/* Skills: avoid a wall of identical glossy tiles. */
+#skills .extra-grid{width:min(100%,1120px);margin-inline:auto;gap:12px}
+#skills .extra-card{
+  min-height:190px;padding:25px 24px!important;
+  border:1px solid var(--orion-line)!important;border-radius:5px!important;
+  background:var(--orion-panel)!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#skills .extra-card::before,#skills .extra-card::after{display:none!important}
+#skills .mini-icon{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--orion-line);border-radius:4px;background:transparent!important;color:var(--orion-bronze-soft);font-size:1.15rem}
+#skills .extra-card h3{font-size:1rem;font-weight:600;margin:17px 0 7px}
+#skills .extra-card p{color:var(--muted);font-size:.87rem;line-height:1.7}
+#skills .skill-cloud{justify-content:center;gap:8px;margin-top:26px}
+#skills .skill-chip{border:1px solid var(--orion-line)!important;border-radius:3px!important;background:transparent!important;color:var(--muted)!important;font-size:.76rem;letter-spacing:.02em;padding:7px 11px}
+/* Journey: structured editorial timeline, not glowing dashboard cards. */
+#journey .timeline-columns{width:min(100%,1120px);margin-inline:auto;gap:22px}
+#journey .timeline-group{padding:28px!important;border:1px solid var(--orion-line)!important;border-radius:5px!important;background:var(--orion-panel)!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+#journey .timeline-heading{font-size:1rem;font-weight:600;letter-spacing:.01em;margin-bottom:20px;color:var(--orion-bronze-soft)}
+#journey .timeline-heading-icon{color:var(--orion-bronze)!important}
+#journey .timeline-list:before{background:var(--orion-line)!important}
+#journey .timeline-item{border:1px solid transparent!important;border-bottom-color:var(--orion-line)!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:14px 8px 14px 15px!important}
+#journey .timeline-item:last-child{border-bottom:0!important}
+#journey .timeline-item::before{background:var(--orion-bronze)!important;box-shadow:none!important}
+#journey .timeline-year{border:0!important;border-radius:2px!important;background:rgba(194,167,124,.12)!important;color:var(--orion-bronze-soft)!important;font-weight:600}
+#journey .timeline-content h4{font-size:.96rem;font-weight:600}
+#journey .timeline-content p{font-size:.84rem}
+/* Project feature: make it read like a considered case feature, not a generic glass card. */
+#projects .project-card{width:min(100%,1120px);margin-inline:auto;border:1px solid var(--orion-line)!important;border-radius:6px!important;background:var(--orion-panel)!important;box-shadow:none!important;overflow:hidden}
+#projects .project-art{min-height:300px;background:linear-gradient(135deg,#25251f,#151816 62%,#26231d)!important}
+#projects .project-mark{color:#d8c5a4!important;letter-spacing:.16em;text-shadow:none!important}
+#projects .project-copy{padding:clamp(26px,4vw,48px)!important}
+#projects .project-copy h3{font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:600;letter-spacing:-.03em}
+#projects .project-copy p{max-width:52ch;color:var(--muted);line-height:1.8}
+#projects .project-tags{gap:8px;margin:20px 0 25px}
+#projects .project-tags span{border:1px solid var(--orion-line)!important;border-radius:3px!important;background:transparent!important;color:var(--muted)!important;padding:6px 10px;font-size:.72rem}
+/* Gallery: quiet controls and clean image rhythm; keep unlock slider and gallery behavior intact. */
+#gallery .filters{gap:8px;margin-bottom:22px}
+#gallery .filters button,#gallery .filter-btn{border-radius:3px!important;border:1px solid var(--orion-line)!important;background:transparent!important;box-shadow:none!important;font-size:.78rem}
+#gallery .filters button.active,#gallery .filter-btn.active{background:rgba(194,167,124,.13)!important;border-color:rgba(194,167,124,.42)!important;color:var(--orion-bronze-soft)!important}
+#gallery #grid{column-gap:15px}
+#gallery #grid .item{border-radius:4px!important;box-shadow:none!important;border:1px solid var(--orion-line)}
+#gallery #grid .item:hover{box-shadow:0 12px 28px rgba(0,0,0,.2)!important}
+#gallery .lock{border:1px solid var(--orion-line)!important;border-radius:6px!important;background:var(--orion-panel)!important;box-shadow:none!important}
+#gallery .lock-ic{color:var(--orion-bronze-soft)!important}
+#gallery .slider{border:1px solid var(--orion-line)!important;border-radius:4px!important;background:var(--orion-panel-raised)!important;box-shadow:none!important}
+#gallery .fill{background:rgba(194,167,124,.28)!important}
+#gallery .knob{background:var(--orion-bronze)!important;box-shadow:none!important}
+/* Social and contact: stronger information design, fewer floating pills. */
+#social .soc{width:min(100%,900px);margin-inline:auto;gap:12px}
+#social .soc a{border:1px solid var(--orion-line)!important;border-radius:4px!important;background:var(--orion-panel)!important;box-shadow:none!important}
+#social .soc a:hover{border-color:rgba(194,167,124,.48)!important;transform:translateY(-2px)}
+#contact .contact-shell{width:min(100%,1120px);margin-inline:auto;border:1px solid var(--orion-line)!important;border-radius:6px!important;background:var(--orion-panel)!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+#contact .contact-intro{padding:clamp(26px,4vw,48px)!important;background:transparent!important}
+#contact .contact-kicker{color:var(--orion-bronze-soft)!important;letter-spacing:.13em;font-size:.68rem}
+#contact .contact-kicker i{background:var(--orion-bronze)!important;box-shadow:none!important}
+#contact .contact-intro h3{font-size:clamp(1.5rem,2.6vw,2.15rem);font-weight:600;letter-spacing:-.035em;line-height:1.2}
+#contact .contact-intro>p{max-width:42ch;color:var(--muted);line-height:1.8}
+#contact .contact-direct-item{border-top:1px solid var(--orion-line)!important;border-radius:0!important;background:transparent!important;padding:15px 0!important}
+#contact .contact-direct-icon{border:1px solid var(--orion-line);border-radius:3px;background:transparent!important;color:var(--orion-bronze-soft)!important}
+#contact .contact-direct-item small,#contact .contact-form-heading{color:var(--orion-bronze-soft)!important;letter-spacing:.1em}
+#contact .contact-form-wrap{padding:clamp(24px,4vw,44px)!important;background:var(--orion-panel-raised)!important;border-left:1px solid var(--orion-line)}
+#contact input,#contact textarea{border:1px solid var(--orion-line)!important;border-radius:3px!important;background:transparent!important;box-shadow:none!important}
+#contact input:focus,#contact textarea:focus{border-color:var(--orion-bronze)!important;box-shadow:0 0 0 2px rgba(194,167,124,.10)!important}
+/* Buttons: one clear primary action, quiet secondary actions. */
+main .btn.pri,#contact .contact-submit{
+  border:1px solid var(--orion-bronze)!important;border-radius:3px!important;
+  background:var(--orion-bronze)!important;color:#171713!important;
+  box-shadow:none!important;font-weight:600;letter-spacing:.015em;
+}
+main .btn:not(.pri){border:1px solid var(--orion-line)!important;border-radius:3px!important;background:transparent!important;box-shadow:none!important}
+main .btn.pri:hover{background:var(--orion-bronze-soft)!important;box-shadow:none!important}
+/* Remove decorative glow from the portfolio surface while retaining the original reveal timing. */
+main>section:not(#home) .glass{box-shadow:none!important}
+main>section:not(#home) .glass::before,main>section:not(#home) .glass::after{box-shadow:none!important}
+footer{border-top:1px solid var(--orion-line)!important;background:var(--orion-ink)!important}
+.footer-brand span{background:none!important;color:var(--orion-bronze-soft)!important;-webkit-text-fill-color:currentColor!important}
+.footer-links a:hover,.footer-social a:hover,.footer-share:hover{color:var(--orion-bronze-soft)!important;background:transparent!important}
+/* Hero and headings: remove the last neon/AI-like flourishes without changing the welcome screen. */
+main>section:not(#home) h2 span{
+  background:none!important;color:var(--text)!important;-webkit-text-fill-color:currentColor!important;
+  animation:none!important;text-shadow:none!important;
+}
+main>section:not(#home) h2::before,main>section:not(#home) h2::after{display:none!important}
+#home .ring{opacity:.18!important;border-color:rgba(194,167,124,.18)!important;box-shadow:none!important}
+#home .hud-bar,#home .tag{
+  border:1px solid rgba(194,167,124,.2)!important;border-radius:3px!important;
+  background:rgba(14,17,16,.72)!important;box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+#home .hud-bar::after{display:none!important}
+#home .tag{color:#d6c4a3!important;letter-spacing:.09em!important;text-transform:uppercase;font-size:.72rem!important}
+#home .hero-title{font-weight:600!important;letter-spacing:-.06em!important;text-shadow:0 2px 18px rgba(0,0,0,.24)!important}
+#home .hero-title::after{height:2px!important;border-radius:0!important;background:var(--orion-bronze)!important;box-shadow:none!important;animation:none!important}
+#home .roleline b{color:var(--orion-bronze-soft)!important}
+#home .hero-p{max-width:620px;color:rgba(239,239,233,.78)!important;font-size:clamp(1rem,1.25vw,1.12rem)!important;line-height:1.85!important}
+[data-theme="light"] #home .hud-bar,[data-theme="light"] #home .tag{background:rgba(22,25,23,.78)!important}
+/* Responsive art direction. */
+@media(max-width:900px){
+ #about .about-grid{grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:24px}
+ #services .srv{gap:12px}
+ #services .srv .card{padding:23px 20px!important}
+ #contact .contact-form-wrap{border-left:0;border-top:1px solid var(--orion-line)}
+}
+@media(max-width:700px){
+ body:not(.welcome-open) main>section:not(#home){padding-block:68px}
+ main>section:not(#home) .sub{margin-bottom:30px!important}
+ #about .about-grid{grid-template-columns:minmax(0,1fr);max-width:520px;gap:22px}
+ #about .royal{width:min(76%,330px);margin-inline:auto}
+ #services .srv{grid-template-columns:minmax(0,1fr)}
+ #services .srv .card{min-height:0;padding:22px!important}
+ #services .si{margin-bottom:16px}
+ #skills .extra-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #skills .extra-card{min-height:165px;padding:18px 15px!important}
+ #journey .timeline-group{padding:21px 17px!important}
+ #projects .project-art{min-height:220px}
+ #contact .contact-form-wrap{padding:23px 18px!important}
+}
+@media(max-width:420px){#skills .extra-grid{grid-template-columns:minmax(0,1fr)}#skills .extra-card{min-height:0}}
+@media(prefers-reduced-motion:reduce){
+ #social .soc a:hover{transform:none}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -2184,7 +2400,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3110",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3111",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
