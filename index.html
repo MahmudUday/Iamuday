@@ -1158,6 +1158,59 @@ footer nav.footer-links{
 @media(prefers-reduced-motion:reduce){.pull-hint,.pull-hint-arrow,.cord-knob{animation:none!important}}
 </style>
 
+
+<style id="orion-v3-10-5-cinematic-welcome-enhancements">
+/* V3.10.5 — cinematic welcome polish; silent, lightweight and compositor-friendly. */
+.welcome-shell{z-index:1}
+.welcome-ambient{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.62;
+  background:radial-gradient(ellipse 34% 42% at var(--lamp-x) 15%,rgba(255,194,112,.19),transparent 76%),
+             radial-gradient(ellipse 70% 70% at 50% 100%,rgba(255,255,255,.035),transparent 75%);
+  transition:opacity .7s ease}
+#welcome.illuminating .welcome-ambient{opacity:1}
+/* A small number of drifting light flecks: transform and opacity only. */
+.welcome-dust{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;contain:strict}
+.welcome-dust i{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:var(--s);border-radius:50%;
+  background:rgba(255,224,177,.82);opacity:0;transform:translate3d(0,18px,0);animation:dustDrift var(--dur) ease-in-out var(--delay) infinite}
+@keyframes dustDrift{0%,100%{opacity:0;transform:translate3d(0,18px,0)}18%,78%{opacity:var(--alpha,.52)}50%{opacity:var(--alpha,.52);transform:translate3d(var(--dx,8px),-42px,0)}}
+/* Restrained metallic light sweep across the name. */
+.welcome-name{position:relative;display:inline-block;isolation:isolate}
+.welcome-name::after{content:"";position:absolute;z-index:1;top:-8%;bottom:-8%;left:-34%;width:25%;pointer-events:none;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:skewX(-18deg) translate3d(-190%,0,0);animation:welcomeNameSweep 8.5s ease-in-out 1.2s infinite}
+@keyframes welcomeNameSweep{0%,66%,100%{transform:skewX(-18deg) translate3d(-190%,0,0)}82%{transform:skewX(-18deg) translate3d(610%,0,0)}}
+/* Cord proximity and pull produce a small physical response from the lamp. */
+.welcome-lamp{transform-origin:50% 0;transition:transform .28s cubic-bezier(.2,.75,.25,1)}
+#welcome.cord-near .welcome-lamp{transform:rotate(1.5deg) translateY(1px)}
+#welcome.cord-active .welcome-lamp{transform:rotate(2.8deg) translateY(2px)}
+#welcome.cord-near .lamp-bulb{box-shadow:0 0 22px 10px rgba(255,198,113,.52)}
+#welcome.cord-active .lamp-bulb{box-shadow:0 0 25px 13px rgba(255,207,133,.68)}
+#welcome.cord-near .cord-knob{transform:translate(-50%,var(--pull-y)) scale(1.07)}
+#welcome.cord-active .cord-knob{transform:translate(-50%,var(--pull-y)) scale(1.1)}
+/* The light expands across the welcome screen before the existing fade-out. */
+.welcome-light-burst{z-index:6;transform:scale(.78);transition:opacity .72s ease,transform .72s cubic-bezier(.2,.75,.25,1)}
+#welcome.illuminating .welcome-light-burst{opacity:1;transform:scale(1.16)}
+#welcome.illuminating .welcome-shell{border-color:rgba(255,232,194,.62);box-shadow:0 28px 90px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.34),0 0 64px rgba(255,202,126,.16)}
+/* Only appears when initial loading is genuinely taking longer than usual. */
+.welcome-loader{display:none;align-items:center;justify-content:center;gap:9px;margin:12px auto 0;color:rgba(255,232,202,.72);font:500 10px/1.4 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;pointer-events:none}
+#welcome.loading .welcome-loader{display:flex}
+.welcome-loader-dots{display:inline-flex;gap:4px}
+.welcome-loader-dots i{width:4px;height:4px;border-radius:50%;background:#f4d5a5;opacity:.35;animation:loaderDot 1.05s ease-in-out infinite alternate}
+.welcome-loader-dots i:nth-child(2){animation-delay:.18s}.welcome-loader-dots i:nth-child(3){animation-delay:.36s}
+@keyframes loaderDot{to{opacity:1;transform:translateY(-3px)}}
+@media(max-width:760px){
+  .welcome-dust i:nth-child(n+6){display:none}
+  .welcome-name::after{animation-duration:11s}
+  .welcome-ambient{opacity:.52}
+  .welcome-loader{font-size:9px;letter-spacing:.08em}
+}
+@media(prefers-reduced-motion:reduce){
+  .welcome-dust i,.welcome-name::after,.welcome-loader-dots i{animation:none!important;opacity:.22}
+  .welcome-lamp,.welcome-light-burst,.welcome-ambient{transition:none!important}
+}
+html.lite .welcome-dust i:nth-child(n+5){display:none}
+html.lite .welcome-name::after{animation:none!important}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -1168,6 +1221,16 @@ footer nav.footer-links{
 <div id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-name" aria-describedby="welcome-copy">
   <button id="welcome-lang" type="button" aria-label="Change welcome language">বাংলা</button>
   <div class="welcome-glow" aria-hidden="true"></div>
+  <div class="welcome-ambient" aria-hidden="true"></div>
+  <div class="welcome-dust" aria-hidden="true">
+    <i style="--x:16%;--y:72%;--s:3px;--dur:8.4s;--delay:-2s;--dx:10px;--alpha:.42"></i>
+    <i style="--x:29%;--y:38%;--s:2px;--dur:9.8s;--delay:-5s;--dx:-8px;--alpha:.34"></i>
+    <i style="--x:48%;--y:82%;--s:3px;--dur:10.6s;--delay:-3.5s;--dx:7px;--alpha:.38"></i>
+    <i style="--x:63%;--y:28%;--s:2px;--dur:8.9s;--delay:-6s;--dx:-9px;--alpha:.3"></i>
+    <i style="--x:77%;--y:66%;--s:3px;--dur:11.2s;--delay:-1s;--dx:8px;--alpha:.44"></i>
+    <i style="--x:88%;--y:45%;--s:2px;--dur:9.4s;--delay:-4s;--dx:-7px;--alpha:.32"></i>
+    <i style="--x:39%;--y:20%;--s:2px;--dur:10.2s;--delay:-7s;--dx:6px;--alpha:.28"></i>
+  </div>
   <div class="welcome-shell">
     <div class="welcome-kicker"><span class="welcome-dot"></span><span id="welcome-kicker-text">A PERSONAL SPACE</span></div>
     <h1 class="welcome-name" id="welcome-name">MAHMUD UDAY</h1>
@@ -1175,6 +1238,10 @@ footer nav.footer-links{
     <p class="welcome-copy" id="welcome-copy">A little space where professional life meets creativity — explore my journey, interests, projects and the moments I capture through my lens.</p>
     <div class="welcome-meta" id="welcome-meta"><span>Chemist</span><span>Hobby Photographer</span><span>WordPress & Writing</span></div>
     <p class="welcome-foot" id="welcome-foot">BANGLADESH · ORION GRAPHY</p>
+    <div class="welcome-loader" id="welcome-loader" role="status" aria-live="polite" aria-hidden="true">
+      <span class="welcome-loader-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span id="welcome-loader-label">Preparing your experience</span>
+    </div>
   </div>
   <div class="welcome-lamp" aria-hidden="true">
     <span class="lamp-cable"></span>
@@ -1548,6 +1615,7 @@ function updateWelcome(){
   $("#pull-hint-label").textContent=lang==="bn"?"প্রবেশ করতে টান দাও":"PULL TO ENTER";
   $("#welcome-foot").textContent=d.foot;
   $("#welcome-lang").textContent=d.toggle;
+  $("#welcome-loader-label").textContent=lang==="bn"?"আপনার অভিজ্ঞতা প্রস্তুত হচ্ছে":"PREPARING YOUR EXPERIENCE";
 }
 function enterWebsite(){
   const screen=$("#welcome");
@@ -1566,13 +1634,32 @@ function enterWebsite(){
   setTimeout(()=>screen.remove(),680);
 }
 updateWelcome();
+(()=>{
+  const screen=$("#welcome"),loader=$("#welcome-loader");
+  if(!screen||!loader)return;
+  let hidden=false;
+  const hide=()=>{if(hidden)return;hidden=true;screen.classList.remove("loading");loader.setAttribute("aria-hidden","true")};
+  const show=()=>{if(hidden||document.readyState==="complete")return;screen.classList.add("loading");loader.setAttribute("aria-hidden","false")};
+  if(document.readyState==="complete")hide();
+  else{
+    const delayed=window.setTimeout(show,900);
+    window.addEventListener("load",()=>{window.clearTimeout(delayed);hide()},{once:true});
+    window.setTimeout(hide,6500);
+  }
+})();
 $("#welcome-lang").addEventListener("click",()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang();updateWelcome()});
 const pullControl=$("#welcome-pull");
+const welcomeScreen=$("#welcome");
 let pullStartY=0,pullDistance=0,pullDragging=false,pullPointerHandled=false,pullFinished=false;
+pullControl.addEventListener("pointerenter",()=>welcomeScreen.classList.add("cord-near"));
+pullControl.addEventListener("pointerleave",()=>{if(!pullDragging)welcomeScreen.classList.remove("cord-near")});
+pullControl.addEventListener("focus",()=>welcomeScreen.classList.add("cord-near"));
+pullControl.addEventListener("blur",()=>{if(!pullDragging)welcomeScreen.classList.remove("cord-near")});
 const pullLimit=190,pullThreshold=100;
 function resetPull(){
   pullDragging=false;pullDistance=0;
   pullControl.classList.remove("dragging");
+  welcomeScreen.classList.remove("cord-active");
   pullControl.style.setProperty("--pull-y","0px");
   pullControl.style.setProperty("--pull-progress","0");
 }
@@ -1580,6 +1667,8 @@ function finishPull(){
   if(pullFinished||document.body.classList.contains("entered"))return;
   pullFinished=true;pullControl.disabled=true;
   pullControl.classList.remove("dragging");
+  welcomeScreen.classList.remove("cord-active","cord-near");
+  welcomeScreen.classList.add("cord-active");
   pullControl.classList.add("pulled");
   pullControl.style.setProperty("--pull-y","138px");
   pullControl.style.setProperty("--pull-progress","1");
@@ -1597,6 +1686,7 @@ pullControl.addEventListener("pointerdown",e=>{
   if(pullFinished||e.button!==0)return;
   e.preventDefault();pullDragging=true;pullStartY=e.clientY;pullDistance=0;
   pullControl.classList.add("dragging");
+  welcomeScreen.classList.add("cord-active","cord-near");
   pullControl.setPointerCapture(e.pointerId);
 });
 pullControl.addEventListener("pointermove",e=>{
@@ -1609,6 +1699,7 @@ pullControl.addEventListener("pointerup",e=>{
   if(!pullDragging)return;
   e.preventDefault();pullDragging=false;pullPointerHandled=true;
   pullControl.classList.remove("dragging");
+  welcomeScreen.classList.remove("cord-active");
   if(pullDistance>=pullThreshold)finishPull();else resetPull();
   window.setTimeout(()=>{pullPointerHandled=false},0);
 });
@@ -1852,7 +1943,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3120",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3105",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
