@@ -934,6 +934,61 @@ body.scrolling .glass{box-shadow:inset 0 1px 0 rgba(255,255,255,.09)!important}
 @media(prefers-reduced-motion:reduce){.rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d,#welcome{transition:none!important;transform:none!important;opacity:1!important}}
 </style>
 
+
+<style id="orion-v398-performance">
+/* V3.9.8: reduce simultaneous work and keep motion on compositor-friendly properties. */
+html{scroll-behavior:auto!important}
+.rv{
+  opacity:0!important;
+  transform:translate3d(0,14px,0)!important;
+  transition:opacity 360ms cubic-bezier(.2,.7,.25,1),
+             transform 360ms cubic-bezier(.2,.7,.25,1)!important;
+  transition-delay:0ms!important;
+  will-change:auto!important;
+}
+.rv.fx-l{transform:translate3d(-18px,0,0)!important}
+.rv.fx-r{transform:translate3d(18px,0,0)!important}
+.rv.fx-z{transform:translate3d(0,10px,0)!important}
+.rv.fx-d{transform:translate3d(0,-12px,0)!important}
+.rv.in,.rv.fx-l.in,.rv.fx-r.in,.rv.fx-z.in,.rv.fx-d.in{
+  opacity:1!important;transform:translate3d(0,0,0)!important;
+}
+/* Do not animate every nested card in a large gallery simultaneously. */
+#grid .item.rv,.social-grid .rv,.footer-social .rv{transition-duration:280ms!important}
+#home .rv{transition-duration:300ms!important}
+#welcome{transition:opacity 420ms ease,visibility 420ms ease!important}
+#welcome-enter{transition:transform 180ms ease,background-color 180ms ease!important}
+@media(max-width:760px){
+  .rv{transition-duration:320ms!important}
+  .rv.fx-l{transform:translate3d(-12px,0,0)!important}
+  .rv.fx-r{transform:translate3d(12px,0,0)!important}
+  .rv.fx-z{transform:translate3d(0,8px,0)!important}
+  .rv.fx-d{transform:translate3d(0,-8px,0)!important}
+}
+/* Continuous decorative effects are the main source of avoidable frame work on phones. */
+@media(hover:none),(pointer:coarse){
+  .orb,.ring,.track,.dot::after,.hud-bar::after,.scroll::after,
+  .gold-glow,.gold-text,.royal::before,.royal::after,.rframe::before,
+  .more-btn .arr,.lock-ic,.slider .knob,.item::before,
+  .ha-orbit,.ha-orbit-a,.ha-orbit-b{
+    animation:none!important;
+  }
+  .tilt{transform:none!important;transition:none!important}
+  #glow{display:none!important}
+  #welcome-shell,.welcome-shell,#welcome-enter,
+  #home .night-glass-panel,#home .hud-bar,#home .tag,
+  nav,.glass,.timeline-group,.timeline-item,.skill-modal-backdrop{
+    -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d,#welcome{
+    transition:none!important;transform:none!important;opacity:1!important;
+  }
+  *,*::before,*::after{scroll-behavior:auto!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -1316,7 +1371,8 @@ function enterWebsite(){
   home.setAttribute("tabindex","-1");
   home.focus({preventScroll:true});
   requestAnimationFrame(()=>{
-    $$("#home .rv").forEach(el=>el.classList.add("in"));
+    const heroItems=$$("#home .rv");
+    heroItems.forEach(el=>el.classList.add("in"));
   });
   setTimeout(()=>screen.remove(),680);
 }
@@ -1328,13 +1384,22 @@ $("#welcome").addEventListener("keydown",e=>{if(e.key==="Escape")e.preventDefaul
 
 
 /* ---------- reveal observer ---------- */
+let revealQueue=[],revealFrame=0;
 const io=new IntersectionObserver(entries=>{
   for(const entry of entries){
     if(!entry.isIntersecting) continue;
-    entry.target.classList.add("in");
+    revealQueue.push(entry.target);
     io.unobserve(entry.target);
   }
-},{root:null,threshold:0,rootMargin:"0px 0px -8% 0px"});
+  if(!revealFrame&&revealQueue.length){
+    revealFrame=requestAnimationFrame(()=>{
+      const batch=revealQueue;
+      revealQueue=[];
+      revealFrame=0;
+      for(const el of batch)el.classList.add("in");
+    });
+  }
+},{root:null,threshold:0,rootMargin:"0px 0px -4% 0px"});
 
 /* ---------- language / theme / menu ---------- */
 function applyLang(){
@@ -1540,32 +1605,16 @@ function onScroll(){
 addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
 if(topBtn)topBtn.onclick=()=>scrollTo({top:0,behavior:"auto"});
 
-/* ---------- desktop-only pointer effects (cheap) ---------- */
-if(matchMedia("(hover:hover) and (pointer:fine)").matches){
-  const glow=$("#glow");let gx=0,gy=0,tx=0,ty=0,run=false;
-  const step=()=>{gx+=(tx-gx)*.14;gy+=(ty-gy)*.14;glow.style.transform=`translate3d(${gx}px,${gy}px,0)`;
-    if(Math.abs(tx-gx)+Math.abs(ty-gy)>.5)requestAnimationFrame(step);else run=false};
-  addEventListener("mousemove",e=>{tx=e.clientX;ty=e.clientY;glow.style.opacity=1;if(!run){run=true;requestAnimationFrame(step)}},{passive:true});
-  $$(".tilt").forEach(el=>{let raf=0;
-    el.addEventListener("mousemove",e=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;
-      const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
-      el.style.transform=`perspective(800px) rotateY(${px*10}deg) rotateX(${-py*10}deg) translateY(-4px)`})});
-    el.addEventListener("mouseleave",()=>{el.style.transform=""});
-  });
-  $$(".mag").forEach(b=>{
-    b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();
-      b.style.translate=`${(e.clientX-r.left-r.width/2)*.22}px ${(e.clientY-r.top-r.height/2)*.3}px`});
-    b.addEventListener("mouseleave",()=>{b.style.translate="0 0"});
-  });
-}
-
+/* ---------- pointer effects disabled in the performance build ----------
+   Mouse-follow glow and per-card tilt caused extra layout/paint work.
+   Static hover states remain available through CSS. */
 /* ---------- PWA: update-aware registration + install affordance ---------- */
 let deferredInstallPrompt=null;
 const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=397",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=398",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
@@ -1591,7 +1640,7 @@ addEventListener("keydown",e=>{if(e.key==="Escape"&&skillModal.classList.contain
   if((m&&m<=4)||(c&&c<=4)||matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("lite")})();
 
 /* ---------- rotating role word ---------- */
-setInterval(()=>{rw.classList.add("sw");setTimeout(()=>{ri=(ri+1)%4;rw.textContent=T[lang]["r"+(ri+1)];rw.classList.remove("sw")},350)},2600);
+/* Role ticker rotation disabled in performance build to reduce perpetual motion. */
 
 /* ---------- reliable visitor counter: primary first, backup only on failure ---------- */
 (()=>{
