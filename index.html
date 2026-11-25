@@ -1351,6 +1351,27 @@ html.lite .welcome-name::after{animation:none!important}
 }
 </style>
 
+
+<style id="orion-v3108-features">
+/* V3.10.8: practical dashboard, gallery utilities and preferences; static/lightweight by default. */
+.orion-dashboard{width:min(100%,600px);margin:-13px 0 24px;padding:14px 17px;border:1px solid var(--glass-b);border-radius:16px;background:var(--glass);color:var(--text)}
+.dash-topline,.dash-main,.dash-focus-row,.dash-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dash-kicker,.dash-label{font-size:.66rem;letter-spacing:.13em;color:var(--muted);font-weight:600}
+.dash-live{display:flex;align-items:center;gap:7px;font-size:.76rem;color:var(--muted)}.dash-live i{width:7px;height:7px;border-radius:50%;background:#27c987}
+.dash-main{align-items:flex-start;margin-top:9px}.dash-focus{min-width:0;flex:1}.dash-focus-row{justify-content:flex-start;margin-top:2px}.dash-focus-row span{font-size:.92rem;overflow-wrap:anywhere}.dash-focus-row button,.dash-weather,.dash-actions select{border:1px solid var(--glass-b);background:transparent;color:var(--text);border-radius:9px;padding:6px 9px;font:inherit;font-size:.76rem;cursor:pointer}
+#dash-focus-form{display:flex;gap:6px;margin-top:7px}#dash-focus-form input{min-width:0;width:100%;padding:7px 9px;font-size:.8rem}#dash-focus-form button{border:1px solid var(--glass-b);border-radius:8px;background:var(--glass);color:var(--text);padding:5px 9px}
+.dash-actions{flex-direction:column;align-items:flex-end;gap:5px}.dash-actions select{min-width:112px;padding:5px 8px}.dash-weather{white-space:nowrap}.dash-weather-result{font-size:.75rem;color:var(--muted);margin-top:7px;min-height:0}.dash-weather-result:empty{display:none}
+@media(max-width:560px){.orion-dashboard{padding:12px;margin-top:-8px;margin-bottom:20px}.dash-main{gap:8px}.dash-focus-row span{font-size:.82rem}.dash-actions select{min-width:98px}.dash-weather{font-size:.68rem;padding:5px 7px}}
+.orion-settings{position:fixed;inset:0;z-index:850;display:grid;place-items:center;padding:18px;opacity:0;visibility:hidden;transition:opacity .18s ease,visibility .18s ease}.orion-settings.open{opacity:1;visibility:visible}.orion-settings-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.72)}.orion-settings-panel{position:relative;width:min(100%,480px);max-height:min(86vh,720px);overflow:auto;padding:26px;border:1px solid var(--glass-b);border-radius:20px;outline:none}.orion-settings-panel h2{font-size:1.55rem;margin:5px 35px 20px 0}.orion-settings-panel h2::before,.orion-settings-panel h2::after{display:none}.orion-settings-close{position:absolute;right:15px;top:13px;border:0;background:transparent;color:var(--text);font-size:1.7rem;cursor:pointer}.pref-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.pref-grid>label:not(.pref-check){display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:.8rem}.pref-grid select{width:100%;padding:10px;border:1px solid var(--glass-b);border-radius:10px;background:var(--bg);color:var(--text);font:inherit}.pref-check{grid-column:1/-1;display:flex;align-items:center;gap:9px;color:var(--text);font-size:.86rem}.pref-check input{accent-color:var(--accent);width:17px;height:17px}.pref-note{margin:16px 0 10px;color:var(--muted);font-size:.75rem}.pref-reset{border:1px solid var(--glass-b);border-radius:10px;padding:9px 13px;background:transparent;color:var(--text);font:inherit;font-size:.8rem;cursor:pointer}
+html.motion-low *,html.motion-low *::before,html.motion-low *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.12s!important}
+html.motion-off *,html.motion-off *::before,html.motion-off *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+#lbExifPanel{position:absolute;left:50%;bottom:58px;transform:translateX(-50%);width:min(92vw,430px);max-height:28vh;overflow:auto;padding:12px 15px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(12,15,22,.94);color:#edf1f8;font-size:.78rem;line-height:1.65;text-align:left;z-index:2}
+#lbExifPanel[hidden]{display:none!important}#lbExifPanel .exif-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}#lbExifPanel b{color:#fff;font-weight:600}#lbFavorite.is-favorite{color:#f2c66d;border-color:#f2c66d}#lbSlideshow.is-playing{color:#86e2b4;border-color:#86e2b4}
+#favorites-filter{margin-left:4px}#favorites-filter.active{border-color:var(--accent2)}
+@media(max-width:700px){.orion-settings-panel{padding:22px 18px}.pref-grid{gap:11px}#lbExifPanel{bottom:112px;max-height:22vh}.lb-tools{gap:5px}.lb-tools .lbb{width:36px;height:36px;font-size:1rem}}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -1414,6 +1435,7 @@ html.lite .welcome-name::after{animation:none!important}
   <div class="tools">
     <button class="btn-i" id="lang" title="Language" aria-label="Change language">বাং</button>
     <button class="btn-i" id="theme" title="Theme" aria-label="Toggle dark and light mode">☀</button>
+    <button class="btn-i" id="preferences-open" title="Preferences" aria-label="Website preferences">⚙</button>
   </div>
 </nav>
 
@@ -1432,6 +1454,18 @@ html.lite .welcome-name::after{animation:none!important}
     <div class="cell"><span>📅</span><span id="bd-date">-- --- ----</span></div>
     <div class="cell"><span>📍</span><span data-i="loc">Bangladesh</span></div>
     <div class="cell"><span>🕒</span><span><span id="clock">--:--</span> <small>BDT</small></span></div>
+  </div>
+  <div class="orion-dashboard glass" id="orion-dashboard" aria-label="Personal dashboard">
+    <div class="dash-topline"><span class="dash-kicker" id="dash-kicker">PERSONAL DASHBOARD</span><span class="dash-live"><i></i><span id="dash-status-label">Available</span></span></div>
+    <div class="dash-main">
+      <div class="dash-focus"><span class="dash-label" id="dash-focus-label">TODAY'S FOCUS</span><div class="dash-focus-row"><span id="dash-focus-text">Make today count.</span><button type="button" id="dash-edit" aria-label="Edit daily focus" title="Edit focus">✎</button></div>
+        <form id="dash-focus-form" hidden><input id="dash-focus-input" maxlength="90" aria-label="Daily focus"/><button type="submit" id="dash-focus-save">Save</button><button type="button" id="dash-focus-cancel" aria-label="Cancel">×</button></form>
+      </div>
+      <div class="dash-actions"><label class="dash-label" for="dash-status" id="dash-status-caption">MY STATUS</label><select id="dash-status" aria-label="Personal status"><option value="available">Available</option><option value="busy">Busy</option><option value="away">Away</option></select>
+        <button type="button" class="dash-weather" id="dash-weather">☀ <span id="dash-weather-label">Check local weather</span></button>
+      </div>
+    </div>
+    <p class="dash-weather-result" id="dash-weather-result" aria-live="polite"></p>
   </div>
   <span class="tag glass rv" data-i="tag">📷 Photographer</span>
   <h1 class="hero-title">
@@ -1646,11 +1680,32 @@ html.lite .welcome-name::after{animation:none!important}
     <button class="lbb" id="lbZoomReset" aria-label="Reset zoom">↺</button>
     <button class="lbb" id="lbZoomIn" aria-label="Zoom in">+</button>
     <button class="lbb" id="lbDownload" aria-label="Download photo">↓</button>
+    <button class="lbb" id="lbFavorite" aria-label="Add to favorites" title="Add to favorites">☆</button>
+    <button class="lbb" id="lbExif" aria-label="Show photo details" title="Photo details">ⓘ</button>
+    <button class="lbb" id="lbSlideshow" aria-label="Start slideshow" title="Start slideshow">▶</button>
   </div>
   <div id="lbimg"></div>
+  <div id="lbExifPanel" hidden aria-live="polite"></div>
   <div id="lbc"></div>
 </div>
 
+
+<div class="orion-settings" id="orion-settings" aria-hidden="true">
+  <div class="orion-settings-backdrop" data-settings-close></div>
+  <section class="orion-settings-panel glass" role="dialog" aria-modal="true" aria-labelledby="orion-settings-title" tabindex="-1">
+    <button class="orion-settings-close" type="button" data-settings-close aria-label="Close preferences">×</button>
+    <p class="dash-kicker">ORION GRAPHY</p><h2 id="orion-settings-title">Website Preferences</h2>
+    <div class="pref-grid">
+      <label for="pref-language">Language<select id="pref-language"><option value="en">English</option><option value="bn">বাংলা</option></select></label>
+      <label for="pref-theme">Appearance<select id="pref-theme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+      <label for="pref-motion">Animation intensity<select id="pref-motion"><option value="normal">Normal</option><option value="low">Low</option><option value="off">Off</option></select></label>
+      <label class="pref-check"><input type="checkbox" id="pref-reduced-motion"> Reduce motion</label>
+      <label class="pref-check"><input type="checkbox" id="pref-autoplay"> Start slideshow automatically</label>
+    </div>
+    <p class="pref-note" id="pref-note">Preferences are saved on this device.</p>
+    <button type="button" class="pref-reset" id="pref-reset">Reset preferences</button>
+  </section>
+</div>
 
 <div class="skill-modal" id="skill-modal" aria-hidden="true">
   <div class="skill-modal-backdrop" data-skill-close></div>
@@ -2083,7 +2138,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3107",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3108",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
@@ -2169,6 +2224,97 @@ $$(".rv").filter(e=>!e.closest("#home")).forEach((e,i)=>{
   if(!e.classList.contains("fx-l")&&!e.classList.contains("fx-r")&&!e.classList.contains("fx-z")&&!e.classList.contains("fx-d"))e.classList.add(i%2===0?"fx-l":"fx-r");
   io.observe(e);
 });
+
+
+/* ---------- V3.10.8: Personal Dashboard ---------- */
+(()=>{
+ const focusText=$("#dash-focus-text"),focusForm=$("#dash-focus-form"),focusInput=$("#dash-focus-input"),status=$("#dash-status"),statusLabel=$("#dash-status-label");
+ const focusKey="orion_daily_focus_v1",statusKey="orion_personal_status_v1";
+ const savedFocus=store.get(focusKey);if(savedFocus)focusText.textContent=savedFocus;
+ const savedStatus=store.get(statusKey)||"available";status.value=savedStatus;
+ const paintStatus=()=>{const bn=lang==="bn";const names=bn?{available:"উপলভ্য",busy:"ব্যস্ত",away:"অনুপস্থিত"}:{available:"Available",busy:"Busy",away:"Away"};statusLabel.textContent=names[status.value]||names.available};
+ status.addEventListener("change",()=>{store.set(statusKey,status.value);paintStatus()});
+ $("#dash-edit").addEventListener("click",()=>{focusInput.value=focusText.textContent;focusForm.hidden=false;focusInput.focus()});
+ $("#dash-focus-cancel").addEventListener("click",()=>{focusForm.hidden=true});
+ focusForm.addEventListener("submit",e=>{e.preventDefault();const v=focusInput.value.trim();if(v){focusText.textContent=v;store.set(focusKey,v)}focusForm.hidden=true});
+ const weatherBtn=$("#dash-weather"),weatherLabel=$("#dash-weather-label"),weatherResult=$("#dash-weather-result");
+ const weatherCodes={0:"Clear sky",1:"Mainly clear",2:"Partly cloudy",3:"Overcast",45:"Fog",48:"Rime fog",51:"Light drizzle",53:"Drizzle",55:"Dense drizzle",61:"Light rain",63:"Rain",65:"Heavy rain",71:"Light snow",73:"Snow",75:"Heavy snow",80:"Rain showers",81:"Rain showers",82:"Heavy showers",95:"Thunderstorm",96:"Thunderstorm with hail",99:"Thunderstorm with hail"};
+ weatherBtn.addEventListener("click",()=>{
+   if(!navigator.geolocation){weatherResult.textContent=lang==="bn"?"এই ব্রাউজারে location support নেই।":"Location is not supported by this browser.";return}
+   weatherBtn.disabled=true;weatherLabel.textContent=lang==="bn"?"অবস্থান নেওয়া হচ্ছে…":"Getting location…";
+   navigator.geolocation.getCurrentPosition(async pos=>{
+     try{const {latitude,longitude}=pos.coords;const url=`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code&timezone=auto`;
+       const res=await fetch(url,{cache:"no-store"});if(!res.ok)throw new Error("Weather unavailable");const data=await res.json(),c=data.current;if(!c)throw new Error("No current weather");
+       const desc=weatherCodes[c.weather_code]||"Current conditions";weatherResult.textContent=`${Math.round(c.temperature_2m)}°C · ${desc} · Feels like ${Math.round(c.apparent_temperature)}°C · Humidity ${c.relative_humidity_2m}%`;weatherLabel.textContent=lang==="bn"?"আবহাওয়া আপডেট":"Weather updated";
+     }catch(e){weatherResult.textContent=lang==="bn"?"আবহাওয়ার তথ্য পাওয়া যায়নি। পরে চেষ্টা করো।":"Weather data is unavailable. Please try again.";weatherLabel.textContent=lang==="bn"?"আবার চেষ্টা":"Try again"}
+     finally{weatherBtn.disabled=false}
+   },err=>{weatherResult.textContent=lang==="bn"?"আবহাওয়ার জন্য location permission প্রয়োজন।":"Location permission is needed for local weather.";weatherLabel.textContent=lang==="bn"?"আবার চেষ্টা":"Try again";weatherBtn.disabled=false},{enableHighAccuracy:false,timeout:9000,maximumAge:600000});
+ });
+ const refreshLabels=()=>{const bn=lang==="bn";$("#dash-kicker").textContent=bn?"ব্যক্তিগত ড্যাশবোর্ড":"PERSONAL DASHBOARD";$("#dash-focus-label").textContent=bn?"আজকের লক্ষ্য":"TODAY'S FOCUS";$("#dash-status-caption").textContent=bn?"আমার অবস্থা":"MY STATUS";$("#dash-edit").title=bn?"লক্ষ্য সম্পাদনা":"Edit focus";$("#dash-weather-label").textContent=weatherResult.textContent?(bn?"আবহাওয়া আপডেট":"Weather updated"):(bn?"স্থানীয় আবহাওয়া দেখো":"Check local weather");paintStatus()};
+ const prevApplyLang=applyLang;applyLang=function(){prevApplyLang();refreshLabels()};refreshLabels();
+})();
+
+/* ---------- V3.10.8: persistent website preferences ---------- */
+(()=>{
+ const panel=$("#orion-settings"),open=$("#preferences-open"),langSel=$("#pref-language"),themeSel=$("#pref-theme"),motionSel=$("#pref-motion"),reduce=$("#pref-reduced-motion"),auto=$("#pref-autoplay");
+ const keys={motion:"orion_pref_motion_v1",reduce:"orion_pref_reduce_v1",autoplay:"orion_pref_autoplay_v1"};
+ const getBool=k=>store.get(k)==="1";
+ function applyMotion(){document.documentElement.classList.toggle("motion-low",motionSel.value==="low");document.documentElement.classList.toggle("motion-off",motionSel.value==="off");document.documentElement.classList.toggle("reduce-motion",reduce.checked||matchMedia("(prefers-reduced-motion: reduce)").matches);store.set(keys.motion,motionSel.value);store.set(keys.reduce,reduce.checked?"1":"0")}
+ motionSel.value=store.get(keys.motion)||"normal";reduce.checked=getBool(keys.reduce);auto.checked=getBool(keys.autoplay);applyMotion();
+ function sync(){langSel.value=lang;themeSel.value=theme}
+ function close(){panel.classList.remove("open");panel.setAttribute("aria-hidden","true");document.body.style.overflow="";open.focus()}
+ open.addEventListener("click",()=>{sync();panel.classList.add("open");panel.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";panel.querySelector(".orion-settings-panel").focus()});
+ panel.querySelectorAll("[data-settings-close]").forEach(el=>el.addEventListener("click",close));
+ langSel.addEventListener("change",()=>{lang=langSel.value;store.set("lang",lang);applyLang()});themeSel.addEventListener("change",()=>{theme=themeSel.value;store.set("theme",theme);applyTheme()});motionSel.addEventListener("change",applyMotion);reduce.addEventListener("change",applyMotion);auto.addEventListener("change",()=>store.set(keys.autoplay,auto.checked?"1":"0"));
+ $("#pref-reset").addEventListener("click",()=>{lang="en";theme="dark";motionSel.value="normal";reduce.checked=false;auto.checked=false;["lang","theme",keys.motion,keys.reduce,keys.autoplay].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});store.set("lang","en");store.set("theme","dark");applyLang();applyTheme();applyMotion();store.set(keys.autoplay,"0");sync()});
+ const oldLang=applyLang;applyLang=function(){oldLang();if(panel)langSel.value=lang};const oldTheme=applyTheme;applyTheme=function(){oldTheme();if(panel)themeSel.value=theme};
+ addEventListener("keydown",e=>{if(e.key==="Escape"&&panel.classList.contains("open"))close()});
+})();
+
+/* ---------- V3.10.8: Gallery favourites, EXIF reader and optional slideshow ---------- */
+(()=>{
+ const FAVKEY="orion_gallery_favorites_v1",favorites=new Set((()=>{try{return JSON.parse(store.get(FAVKEY)||"[]")}catch(e){return []}})());
+ const favBtn=$("#lbFavorite"),exifBtn=$("#lbExif"),exifPanel=$("#lbExifPanel"),slideBtn=$("#lbSlideshow");
+ let favFilter=$("#favorites-filter"),favCount=$("#favorites-count");
+ if(!favFilter){favFilter=document.createElement("button");favFilter.id="favorites-filter";favFilter.type="button";favFilter.className="fbtn";favCount=document.createElement("span");favCount.id="favorites-count";favFilter.append(favCount)}
+ let showFavorites=false,slideTimer=null,exifCache=new Map();
+ const persist=()=>store.set(FAVKEY,JSON.stringify([...favorites]));
+ const updateFavCount=()=>{favCount.textContent=String(favorites.size);favFilter.classList.toggle("active",showFavorites)};
+ const isFav=()=>{const p=CONFIG.photos[visible[idx]];return !!p&&favorites.has(p.src)};
+ const updateFavButton=()=>{const yes=isFav();favBtn.classList.toggle("is-favorite",yes);favBtn.textContent=yes?"★":"☆";favBtn.title=yes?(lang==="bn"?"পছন্দের তালিকা থেকে সরাও":"Remove from favorites"):(lang==="bn"?"পছন্দের তালিকায় যোগ করো":"Add to favorites");favBtn.setAttribute("aria-label",favBtn.title)};
+ const originalBuildFilters=buildFilters;buildFilters=function(){showFavorites=cur==="favorites";originalBuildFilters();if(favFilter){$("#filters").append(favFilter);favFilter.textContent=(lang==="bn"?"☆ পছন্দের ছবি ":"☆ Favorites ");favFilter.append(favCount);favFilter.onclick=()=>{showFavorites=!showFavorites;cur=showFavorites?"favorites":"all";buildFilters();filter(false);updateFavCount()};favFilter.classList.toggle("active",showFavorites)}};
+ const originalFilter=filter;filter=function(anim){if(cur==="favorites"){const items=$$(".item");visible=[];items.forEach(el=>{const i=+el.dataset.index,match=favorites.has(CONFIG.photos[i]?.src);el.classList.toggle("hide",!match);if(match)visible.push(i)});$("#moreWrap").classList.add("hide");return}originalFilter(anim)};
+ const originalShowLb=showLb;showLb=function(){originalShowLb();updateFavButton();exifPanel.hidden=true;exifPanel.innerHTML=""};
+ favBtn.addEventListener("click",()=>{const p=CONFIG.photos[visible[idx]];if(!p)return;if(favorites.has(p.src))favorites.delete(p.src);else favorites.add(p.src);persist();updateFavCount();updateFavButton();if(cur==="favorites"&&!favorites.has(p.src)){const current=visible[idx];filter(false);if(visible.length)idx=Math.min(idx,visible.length-1);if(visible.length)showLb();else closeLb()}});
+ favFilter.addEventListener("click",()=>{});updateFavCount();
+ function decodeRational(view,off){const n=view.getUint32(off,true),d=view.getUint32(off+4,true);return d?n/d:null}
+ function parseExif(buffer){
+   const v=new DataView(buffer);if(v.byteLength<4||v.getUint16(0)!==0xffd8)return null;let off=2,tags={};
+   while(off+4<v.byteLength){if(v.getUint8(off)!==0xff)break;const marker=v.getUint8(off+1),len=v.getUint16(off+2);if(len<2||off+2+len>v.byteLength)break;
+     if(marker===0xe1&&len>10&&v.getUint32(off+4)===0x45786966){const t=off+10,order=v.getUint16(t);const little=order===0x4949;if(!little&&order!==0x4d4d)return null;const u16=o=>v.getUint16(o,little),u32=o=>v.getUint32(o,little);if(u16(t+2)!==42)return null;const base=t+u32(t+4);const readIfd=(at)=>{const count=u16(at);for(let j=0;j<count;j++){const e=at+2+j*12,tag=u16(e),type=u16(e+2),n=u32(e+4),val=u32(e+8);let data=e+8;if(n>1||type===2)data=base+val;let value=null;if(type===2){let str="";for(let k=0;k<n&&data+k<v.byteLength;k++){const c=v.getUint8(data+k);if(!c)break;str+=String.fromCharCode(c)}value=str.trim()}else if(type===3)value=u16(data);else if(type===4)value=u32(data);else if(type===5)value=decodeRational(v,data);if(value!==null)tags[tag]=value;}}
+       readIfd(base);const exifPtr=tags[0x8769];if(exifPtr){const before={...tags};readIfd(base+exifPtr);tags._ifd0=before}return tags;}
+     off+=2+len;
+   }return null;
+ }
+ function fmtExposure(v){if(!v)return null;return v<1?`1/${Math.round(1/v)}s`:`${Number(v.toFixed(2))}s`}
+ async function loadExif(){const p=CONFIG.photos[visible[idx]];if(!p)return;exifPanel.hidden=false;exifPanel.textContent=lang==="bn"?"ছবির তথ্য দেখা হচ্ছে…":"Reading photo details…";
+   try{let d=exifCache.get(p.src);if(!d){const response=await fetch(p.src,{cache:"force-cache"});if(!response.ok)throw new Error("Image unavailable");const buf=await response.arrayBuffer();d=parseExif(buf);exifCache.set(p.src,d)}
+     if(!d){exifPanel.textContent=lang==="bn"?"এই ছবিতে EXIF তথ্য পাওয়া যায়নি।":"No readable EXIF data found in this image.";return}
+     const rows=[];const add=(label,value)=>{if(value!==undefined&&value!==null&&value!=="")rows.push(`<div><b>${label}</b> ${String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}</div>`)};
+     const i=d._ifd0||d;add("Camera",[i[0x010f],i[0x0110]].filter(Boolean).join(" "));add("Date",d[0x9003]||i[0x0132]);add("Exposure",fmtExposure(d[0x829a]));add("Aperture",d[0x829d]?`f/${Number(d[0x829d]).toFixed(1)}`:null);add("ISO",d[0x8827]);add("Focal length",d[0x920a]?`${Number(d[0x920a]).toFixed(1)} mm`:null);
+     exifPanel.innerHTML=rows.length?`<div class="exif-grid">${rows.join("")}</div>`:(lang==="bn"?"এই ছবিতে দেখানোর মতো EXIF তথ্য নেই।":"No useful EXIF fields are embedded in this photo.");
+   }catch(e){exifPanel.textContent=lang==="bn"?"এই ছবির তথ্য পড়া যাচ্ছে না (সম্ভবত ফাইলটি cross-origin)।":"Could not read this image's metadata (the file may be cross-origin)."}
+ }
+ exifBtn.addEventListener("click",()=>{if(exifPanel.hidden)loadExif();else exifPanel.hidden=true});
+ const stopSlide=()=>{if(slideTimer)clearInterval(slideTimer);slideTimer=null;slideBtn.classList.remove("is-playing");slideBtn.textContent="▶";slideBtn.title=lang==="bn"?"স্লাইডশো চালু করো":"Start slideshow"};
+ const startSlide=()=>{if(slideTimer)clearInterval(slideTimer);slideBtn.classList.add("is-playing");slideBtn.textContent="Ⅱ";slideBtn.title=lang==="bn"?"স্লাইডশো থামাও":"Pause slideshow";slideTimer=setInterval(()=>{if(!$("#lb").classList.contains("open")||visible.length<2){stopSlide();return}lbNav(1)},3500)};
+ slideBtn.addEventListener("click",()=>slideTimer?stopSlide():startSlide());
+ const oldOpenLb=openLb;openLb=function(i){oldOpenLb(i);if(store.get("orion_pref_autoplay_v1")==="1")startSlide();else stopSlide()};
+ const oldCloseLb=closeLb;closeLb=function(){stopSlide();exifPanel.hidden=true;oldCloseLb()};
+ $("#lbx").onclick=closeLb;
+ addEventListener("keydown",e=>{if(e.key==="Escape")stopSlide()});
+})();
+
 </script>
 </body>
 </html>
