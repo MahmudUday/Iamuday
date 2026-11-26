@@ -1646,6 +1646,83 @@ main>section:not(#home) h2::before,main>section:not(#home) h2::after{display:non
 }
 </style>
 
+<style id="orion-v312-modern-motion">
+/* V3.12.0 — refined modern editorial polish. Visual-only; existing features and interactions are untouched. */
+:root{
+  --accent:#b89462;--accent2:#d7c29c;--accent3:#8d806a;
+  --orion-ink:#0d100e;--orion-panel:#151916;--orion-panel-raised:#1b201b;
+  --orion-line:rgba(211,192,157,.18);--orion-bronze:#c5a574;--orion-bronze-soft:#e2cfaa;
+  --ease:cubic-bezier(.2,.75,.25,1);
+}
+[data-theme="light"]{
+  --accent:#8c7048;--accent2:#aa8d60;--accent3:#76664e;
+  --orion-ink:#f3f1eb;--orion-panel:#fffefa;--orion-panel-raised:#f8f6f0;
+  --orion-line:rgba(78,65,45,.17);--orion-bronze:#8c7048;--orion-bronze-soft:#705735;
+}
+body:not(.welcome-open){background:var(--orion-ink)}
+body:not(.welcome-open) .bg{background:var(--orion-ink)}
+body:not(.welcome-open) .bg::after{opacity:.34;background:radial-gradient(ellipse 70% 45% at 85% 5%,rgba(174,139,87,.10),transparent 72%),radial-gradient(ellipse 60% 40% at 8% 88%,rgba(123,111,87,.08),transparent 70%)}
+/* A more intentional typographic rhythm. */
+body{font-feature-settings:"ss01" on,"kern" on}
+main>section:not(#home) h2{font-size:clamp(2.15rem,4vw,3.6rem)!important;letter-spacing:-.055em!important;font-weight:560!important}
+main>section:not(#home) .sub{font-size:clamp(.96rem,1.15vw,1.08rem)!important;letter-spacing:.01em;max-width:650px}
+/* Give each section a subtle editorial marker, not a neon heading effect. */
+main>section:not(#home) h2::after{display:block!important;width:38px!important;height:2px!important;margin-top:17px!important;background:var(--orion-bronze)!important;opacity:.9}
+/* Hero: calm cinematic atmosphere and a clear typographic focal point. */
+#home .hero-title{font-size:clamp(3.4rem,9vw,7.8rem)!important;letter-spacing:-.075em!important;line-height:.98!important;max-width:900px;text-wrap:balance}
+#home .ln>span{background:linear-gradient(100deg,#f1eee7 0%,#e7d8bd 48%,#c5a574 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+#home .roleline{font-size:clamp(1.05rem,2vw,1.35rem);letter-spacing:.01em}
+#home #roleword{background:none!important;color:var(--orion-bronze-soft)!important;-webkit-text-fill-color:currentColor!important;border-bottom:1px solid rgba(197,165,116,.42);padding-bottom:2px}
+#home .ring{border-color:rgba(197,165,116,.15)!important;opacity:.32!important;animation-duration:68s!important}
+#home .ring::before{border-color:rgba(197,165,116,.13)!important}
+#home .ring::after{border-color:rgba(197,165,116,.17)!important}
+#home .ring i{background:var(--orion-bronze)!important;box-shadow:0 0 12px rgba(197,165,116,.35)!important}
+#home .cta .btn{min-height:50px;padding:13px 24px;transition:transform .35s var(--ease),background-color .35s,border-color .35s}
+#home .cta .btn:hover{transform:translateY(-3px)}
+/* Cards gain depth through crisp borders and restrained hover movement, not glow. */
+#services .srv .card,#skills .extra-card,#journey .timeline-group,#projects .project-card,#contact .contact-shell,#about .about-txt.glass{
+  transition:transform .42s var(--ease),border-color .35s,background-color .35s!important;
+}
+@media(hover:hover){
+ #services .srv .card:hover,#skills .extra-card:hover{transform:translateY(-5px)!important;border-color:rgba(197,165,116,.48)!important;background:var(--orion-panel-raised)!important}
+ #projects .project-card:hover{transform:translateY(-3px)!important;border-color:rgba(197,165,116,.42)!important}
+ #journey .timeline-item:hover{background:rgba(197,165,116,.055)!important}
+ #about .avatar img{transition:transform .9s var(--ease),filter .9s var(--ease)}
+ #about .avatar:hover img{transform:scale(1.035);filter:saturate(1.06)}
+}
+#services .si,#skills .mini-icon{transition:transform .35s var(--ease),border-color .35s,color .35s}
+@media(hover:hover){#services .card:hover .si,#skills .extra-card:hover .mini-icon{transform:translateY(-2px) rotate(-3deg);border-color:rgba(197,165,116,.55)!important}}
+/* Gallery imagery is the hero of the gallery: clean edges and a deliberate hover crop. */
+#gallery #grid .item{transition:transform .45s var(--ease),border-color .35s,opacity .45s var(--ease)!important}
+#gallery #grid .im{border:0!important;border-radius:3px!important}
+#gallery #grid .im img{transition:transform .85s var(--ease)!important}
+@media(hover:hover){#gallery #grid .item:hover .im img{transform:scale(1.045)!important}}
+#gallery #grid .cap{background:linear-gradient(transparent,rgba(8,10,8,.82))!important;letter-spacing:.01em}
+/* Navigation and controls: precise, compact and consistent. */
+nav#nav{border-color:rgba(197,165,116,.2)!important;background:rgba(14,17,15,.96)!important;box-shadow:0 14px 38px rgba(0,0,0,.24)!important}
+[data-theme="light"] nav#nav{background:rgba(250,249,245,.97)!important}
+nav#nav .links a{transition:color .25s,background-color .25s!important}
+nav#nav .links a:hover{background:rgba(197,165,116,.10)!important;color:var(--orion-bronze-soft)!important}
+.btn,button,.fbtn,.skill-modal-close{ -webkit-tap-highlight-color:transparent }
+main .btn.pri,#contact .contact-submit{background:linear-gradient(115deg,var(--orion-bronze),#d5bd91)!important;border-color:transparent!important;color:#171712!important}
+main .btn.pri:hover,#contact .contact-submit:hover{background:linear-gradient(115deg,#d3b889,#e5d4b1)!important}
+/* Social links and footer receive the same restrained visual language. */
+#social .soc a{transition:transform .32s var(--ease),border-color .32s,background-color .32s!important}
+#contact .contact-direct-item{transition:padding-left .3s var(--ease),border-color .3s!important}
+#contact .contact-direct-item:hover{padding-left:8px!important;border-color:rgba(197,165,116,.38)!important}
+footer{background:var(--orion-ink)!important}
+/* Keep the motion elegant and inexpensive; no blur or continuous JS animation added. */
+@media(prefers-reduced-motion:reduce){
+ #home .ring{animation:none!important}
+ #services .srv .card,#skills .extra-card,#projects .project-card,#gallery #grid .item,#gallery #grid .im img,#about .avatar img{transition:none!important}
+ #services .srv .card:hover,#skills .extra-card:hover,#projects .project-card:hover,#gallery #grid .item:hover{transform:none!important}
+}
+@media(max-width:700px){
+ #home .hero-title{font-size:clamp(3rem,13.2vw,5.2rem)!important;line-height:1.04!important}
+ main>section:not(#home) h2{font-size:clamp(2rem,8vw,2.8rem)!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -2400,7 +2477,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3111",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3120",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
