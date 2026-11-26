@@ -2067,6 +2067,107 @@ html[lang="bn"] .logo,html[lang="bn"] .footer-brand strong,html[lang="bn"] .proj
 @media(prefers-reduced-motion:reduce){body:not(.welcome-open) main .btn,body:not(.welcome-open) main .card,body:not(.welcome-open) main .extra-card{transition:none!important}}
 </style>
 
+
+<style id="orion-v3170-welcome-rich-motion">
+/* V3.17.0 — richer welcome identity with lightweight, transform/opacity-led motion. */
+#welcome{
+  background:
+    radial-gradient(ellipse 58% 52% at 50% 8%,rgba(57,105,214,.28),transparent 72%),
+    radial-gradient(ellipse 48% 48% at 8% 82%,rgba(20,190,178,.20),transparent 72%),
+    radial-gradient(ellipse 46% 52% at 94% 78%,rgba(139,75,230,.22),transparent 72%),
+    linear-gradient(145deg,#070d1a 0%,#10152a 48%,#090d1b 100%);
+}
+#welcome::before{
+  background:
+    radial-gradient(ellipse 58% 42% at 52% 14%,rgba(76,133,255,.25),transparent 74%),
+    radial-gradient(ellipse 40% 48% at 12% 92%,rgba(34,207,190,.16),transparent 72%),
+    radial-gradient(ellipse 42% 45% at 90% 86%,rgba(159,91,255,.18),transparent 72%);
+}
+#welcome::after{opacity:.28;background-size:54px 54px}
+.welcome-glow{
+  background:radial-gradient(circle,rgba(67,139,255,.27),rgba(37,199,190,.12) 36%,rgba(145,87,244,.08) 54%,transparent 72%);
+  filter:blur(18px);
+  animation:welcomeGlowBreathe 9s ease-in-out infinite alternate;
+}
+@keyframes welcomeGlowBreathe{0%{opacity:.68;transform:scale(.96)}100%{opacity:1;transform:scale(1.045)}}
+.welcome-shell{
+  border-color:rgba(133,190,224,.20)!important;
+  background:linear-gradient(145deg,rgba(20,36,61,.78),rgba(13,25,43,.72) 52%,rgba(29,24,57,.72))!important;
+  box-shadow:0 28px 90px rgba(0,0,0,.42),0 0 55px rgba(53,127,211,.10),inset 0 1px 0 rgba(225,244,255,.11)!important;
+  animation:welcomeShellArrive .95s cubic-bezier(.2,.72,.22,1) both;
+}
+@keyframes welcomeShellArrive{from{opacity:0;transform:translate3d(0,15px,0) scale(.985)}to{opacity:1;transform:translate3d(0,0,0) scale(1)}}
+.welcome-kicker{
+  border-color:rgba(102,194,211,.30)!important;
+  background:linear-gradient(100deg,rgba(38,135,164,.19),rgba(101,83,189,.17))!important;
+  color:#b9eff0!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 24px rgba(36,174,190,.08);
+}
+.welcome-dot{background:#6de4d6!important;box-shadow:0 0 8px #46cfc9,0 0 18px rgba(67,207,210,.62)!important}
+.welcome-name-frame{
+  position:relative;display:table;max-width:100%;margin:0 auto;
+  padding:0 clamp(34px,5.2vw,58px);
+  isolation:isolate;
+}
+.welcome-name{
+  position:relative;z-index:1;
+  background-image:linear-gradient(105deg,#f4fbff 0%,#91e5ed 23%,#73aaff 47%,#c0a0ff 70%,#78ead8 91%,#f4fbff 100%)!important;
+  background-size:240% 100%!important;background-position:0% 50%;
+  -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;
+  text-shadow:0 7px 26px rgba(78,164,239,.20),0 0 38px rgba(114,119,255,.13)!important;
+  animation:welcomeNameAurora 7.5s ease-in-out infinite alternate!important;
+}
+.welcome-name-orbit{
+  position:absolute;top:50%;z-index:2;width:25px;height:25px;border-radius:50%;
+  border:1px solid rgba(117,222,224,.62);
+  background:radial-gradient(circle at 50% 50%,rgba(117,231,220,.28) 0 2px,transparent 3px),radial-gradient(circle,rgba(49,160,195,.12),rgba(64,102,190,.035) 62%,transparent 72%);
+  box-shadow:0 0 15px rgba(64,195,207,.18),inset 0 0 10px rgba(112,184,255,.12);
+  transform:translateY(-50%);animation:welcomeOrbitTurn 8s linear infinite,welcomeOrbitFloat 3.4s ease-in-out infinite;
+  pointer-events:none;
+}
+.welcome-name-orbit::before,.welcome-name-orbit::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.welcome-name-orbit::before{inset:5px;border:1px dashed rgba(167,173,255,.62);animation:welcomeOrbitTurn 5.5s linear infinite reverse}
+.welcome-name-orbit::after{width:5px;height:5px;right:-2px;top:2px;background:#a9f4e8;box-shadow:0 0 10px 2px rgba(91,227,215,.75)}
+.welcome-name-orbit-left{left:0}
+.welcome-name-orbit-right{right:0;border-color:rgba(172,147,255,.68);animation-delay:-2s,-1.7s}
+.welcome-name-orbit-right::before{border-color:rgba(114,205,255,.7)}
+.welcome-name-orbit-right::after{right:auto;left:-2px;top:auto;bottom:2px;background:#c8b1ff;box-shadow:0 0 10px 2px rgba(163,126,255,.8)}
+@keyframes welcomeOrbitTurn{to{rotate:360deg}}
+@keyframes welcomeOrbitFloat{0%,100%{translate:0 -50%}50%{translate:0 calc(-50% - 5px)}}
+.welcome-greeting{color:#bce9f1!important;text-shadow:0 0 22px rgba(71,176,208,.12);animation:welcomeTextArrive .8s .16s both}
+.welcome-copy{color:rgba(228,240,252,.82)!important;animation:welcomeTextArrive .8s .25s both}
+.welcome-meta span{
+  border-color:rgba(115,184,210,.25)!important;
+  background:linear-gradient(120deg,rgba(38,119,151,.18),rgba(104,86,174,.14))!important;
+  color:rgba(226,244,250,.9)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055);
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.welcome-meta span:hover{transform:translateY(-3px);border-color:rgba(115,225,217,.55)!important;background:linear-gradient(120deg,rgba(39,158,166,.25),rgba(111,91,204,.22))!important}
+.welcome-foot{color:rgba(157,203,220,.65)!important;letter-spacing:.18em}
+#welcome-enter{
+  border-color:rgba(117,220,218,.58)!important;
+  background:linear-gradient(112deg,#176c83 0%,#326db5 48%,#6550a8 100%)!important;
+  box-shadow:0 12px 34px rgba(37,120,174,.34),0 0 28px rgba(91,122,224,.17),inset 0 1px 0 rgba(255,255,255,.28)!important;
+  animation:welcomeButtonBreathe 4.8s ease-in-out infinite;
+}
+#welcome-enter:hover{box-shadow:0 16px 42px rgba(45,155,190,.42),0 0 32px rgba(115,113,232,.22),inset 0 1px 0 rgba(255,255,255,.32)!important}
+@keyframes welcomeButtonBreathe{0%,100%{box-shadow:0 12px 34px rgba(37,120,174,.30),0 0 20px rgba(91,122,224,.12),inset 0 1px 0 rgba(255,255,255,.24)}50%{box-shadow:0 14px 38px rgba(37,150,180,.39),0 0 30px rgba(113,103,226,.20),inset 0 1px 0 rgba(255,255,255,.28)}}
+#welcome-lang{border-color:rgba(115,194,219,.32)!important;background:linear-gradient(120deg,rgba(24,65,91,.78),rgba(55,46,99,.72))!important;color:#dffaff!important}
+.welcome-ambient{opacity:.82}
+.welcome-dust i{background:#9cebe7!important;box-shadow:0 0 9px rgba(100,222,220,.72)!important}
+@keyframes welcomeTextArrive{from{opacity:0;transform:translate3d(0,9px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@media(max-width:520px){
+  .welcome-name-frame{padding-inline:29px}
+  .welcome-name-orbit{width:19px;height:19px}
+  .welcome-name-orbit::before{inset:4px}
+  .welcome-name{font-size:clamp(2.25rem,10.8vw,3.5rem)!important;letter-spacing:-.045em!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .welcome-glow,.welcome-shell,.welcome-name,.welcome-name-orbit,.welcome-name-orbit::before,#welcome-enter,.welcome-greeting,.welcome-copy{animation:none!important;transition:none!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home" data-i="skip_content">Skip to content</a>
@@ -2089,7 +2190,11 @@ html[lang="bn"] .logo,html[lang="bn"] .footer-brand strong,html[lang="bn"] .proj
   </div>
   <div class="welcome-shell">
     <div class="welcome-kicker"><span class="welcome-dot"></span><span id="welcome-kicker-text">A PERSONAL SPACE</span></div>
-    <h1 class="welcome-name" id="welcome-name">MAHMUD UDAY</h1>
+    <div class="welcome-name-frame" aria-label="Mahmud Uday">
+      <span class="welcome-name-orbit welcome-name-orbit-left" aria-hidden="true"></span>
+      <h1 class="welcome-name" id="welcome-name">MAHMUD UDAY</h1>
+      <span class="welcome-name-orbit welcome-name-orbit-right" aria-hidden="true"></span>
+    </div>
     <p class="welcome-greeting" id="welcome-greeting">Welcome — glad you're here.</p>
     <p class="welcome-copy" id="welcome-copy">A little space where professional life meets creativity — explore my journey, interests, projects and the moments I capture through my lens.</p>
     <div class="welcome-meta" id="welcome-meta"><span>Chemist</span><span>Hobby Photographer</span><span>WordPress & Writing</span></div>
@@ -2839,7 +2944,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3160",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3170",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
