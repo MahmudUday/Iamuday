@@ -1725,7 +1725,7 @@ footer{background:var(--orion-ink)!important}
 
 
 <style id="orion-v313-scroll-typography-contact">
-/* V3.13.0 — clear greeting glyphs, perceptible scroll reveals, aligned contact actions. */
+/* V3.14.0 — clear greeting glyphs, perceptible scroll reveals, aligned contact actions. */
 /* Keep the animated greeting inside a generous line box so ascenders/descenders never clip. */
 #home .hero-title{line-height:1.16!important;overflow:visible!important;padding-block:.025em .045em}
 #home .ln{overflow:visible!important;line-height:1.16!important;padding:.10em .045em .17em!important}
@@ -1753,6 +1753,117 @@ section>.sub.rv{transition-delay:.075s!important}
 @media(prefers-reduced-motion:reduce){
  .rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d{opacity:1!important;transform:none!important;transition:none!important}
  #contact .contact-direct-item,#contact .contact-direct-icon,#services .card,#skills .extra-card,#projects .project-card{transition:none!important}
+}
+</style>
+
+
+<style id="orion-v314-cool-palette-desktop">
+/* V3.14.0 — cool mineral palette + desktop layout refinement.
+   The original welcome/boot screen remains visually untouched. */
+body:not(.welcome-open){
+  --accent:#79b8b0;--accent2:#a8cbd1;--accent3:#a69ac8;
+  --orion-ink:#0d131b;--orion-panel:#151e29;--orion-panel-raised:#1b2835;
+  --orion-line:rgba(169,199,207,.17);
+  --orion-bronze:#79b8b0;--orion-bronze-soft:#b4d4d6;
+  --text:#edf3f5;--muted:#9aaab6;
+}
+html[data-theme="light"] body:not(.welcome-open){
+  --accent:#397f7c;--accent2:#6b9fa9;--accent3:#8178a8;
+  --orion-ink:#f2f5f5;--orion-panel:#ffffff;--orion-panel-raised:#eaf0f2;
+  --orion-line:rgba(53,91,101,.17);
+  --orion-bronze:#397f7c;--orion-bronze-soft:#326f72;
+  --text:#17252d;--muted:#647680;
+}
+body:not(.welcome-open){background:var(--orion-ink);color:var(--text)}
+body:not(.welcome-open) .bg{background:var(--orion-ink)}
+body:not(.welcome-open) .bg::after{
+  opacity:.34;
+  background:radial-gradient(ellipse 72% 46% at 88% 4%,rgba(105,171,178,.105),transparent 72%),
+             radial-gradient(ellipse 58% 42% at 7% 88%,rgba(137,128,177,.075),transparent 70%);
+}
+/* Replace the previous champagne/gold accents consistently across every portfolio section. */
+main>section:not(#home) h2 em,
+nav#nav .nav-links a.active,
+#about .roles .role,#services .si,#services .si svg,#skills .mini-icon,
+#journey .timeline-heading,#journey .timeline-heading-icon,
+#contact .contact-kicker,#contact .contact-direct-icon,
+#contact .contact-direct-item small,#contact .contact-form-heading,
+.footer-brand span,.footer-links a:hover,.footer-social a:hover,.footer-share:hover{
+  color:var(--orion-bronze-soft)!important;
+}
+#about .about-txt.glass{border-left-color:var(--orion-bronze)!important}
+#journey .timeline-item::before{background:var(--orion-bronze)!important}
+#journey .timeline-year{background:rgba(121,184,176,.12)!important;color:var(--orion-bronze-soft)!important}
+#gallery .filters button.active,#gallery .filter-btn.active{background:rgba(121,184,176,.14)!important;border-color:rgba(121,184,176,.42)!important;color:var(--orion-bronze-soft)!important}
+#gallery .knob{background:var(--orion-bronze)!important}
+#gallery .fill{background:rgba(121,184,176,.30)!important}
+#social .soc a:hover,#contact .contact-direct-item:hover{border-color:rgba(121,184,176,.42)!important}
+#contact input:focus,#contact textarea:focus{border-color:var(--orion-bronze)!important;box-shadow:0 0 0 2px rgba(121,184,176,.12)!important}
+main .btn.pri,#contact .contact-submit{background:linear-gradient(115deg,#6fa9a5,#a5c8cd)!important;border-color:transparent!important;color:#102027!important}
+main .btn.pri:hover,#contact .contact-submit:hover{background:linear-gradient(115deg,#83bcb6,#bdd9dc)!important}
+#home .ln>span{background:linear-gradient(100deg,#f2f6f7 0%,#c6dfe1 48%,#83b9b5 100%)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
+#home #roleword,#home .roleline b{color:#b5d7d7!important;-webkit-text-fill-color:currentColor!important;border-bottom-color:rgba(121,184,176,.42)!important}
+#home .tag{color:#b9d7d8!important;border-color:rgba(143,193,194,.24)!important;background:rgba(13,23,29,.72)!important}
+#home .hud-bar{border-color:rgba(143,193,194,.22)!important;background:rgba(13,23,29,.72)!important}
+#home .ring,#home .ring::before,#home .ring::after{border-color:rgba(121,184,176,.16)!important}
+#home .ring i{background:var(--orion-bronze)!important;box-shadow:0 0 10px rgba(121,184,176,.28)!important}
+#home .hero-title::after{background:var(--orion-bronze)!important}
+#home .night-image::after{background:linear-gradient(180deg,rgba(5,14,22,.28),rgba(5,14,22,.12) 45%,rgba(5,14,22,.62)),radial-gradient(ellipse at 72% 32%,rgba(105,171,178,.12),transparent 58%)}
+#home .night-glass-panel{border-color:rgba(169,205,208,.18)!important;background:linear-gradient(125deg,rgba(255,255,255,.10),rgba(255,255,255,.025) 42%,rgba(69,125,139,.08))!important}
+#projects .project-art{background:linear-gradient(135deg,#202b36,#141d27 62%,#26343d)!important}
+#projects .project-mark{color:#b5d2d5!important}
+[data-theme="light"] body:not(.welcome-open) nav#nav{background:rgba(247,250,250,.97)!important}
+[data-theme="light"] body:not(.welcome-open) #home .hero-p{color:rgba(238,245,246,.84)!important}
+/* Desktop: full-bleed hero atmosphere with a restrained, readable content measure. */
+@media(min-width:761px){
+  #home{width:100%!important;max-width:none!important;margin-inline:0!important;padding-inline:clamp(42px,7vw,132px)!important}
+  #home .hero-title{max-width:min(980px,76vw)!important}
+  #home .hero-p{max-width:min(650px,58vw)!important}
+  #home .ring{right:clamp(34px,7vw,120px)!important;width:min(34vw,470px)!important}
+  main>section:not(#home){max-width:1640px!important;padding-inline:clamp(40px,6vw,112px)!important}
+  #about .about-grid,#services .srv,#skills .extra-grid,#journey .timeline-columns,#projects .project-card,#contact .contact-shell{width:min(100%,1240px)!important}
+  #services .srv{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(14px,1.6vw,22px)!important}
+  #services .srv>.card{min-width:0;min-height:244px}
+  #skills .extra-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px!important}
+  #journey .timeline-columns{grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch}
+  #journey .timeline-group{min-width:0}
+  #projects .project-card{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr)!important}
+  #contact .contact-shell{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)!important}
+  #contact .contact-form-wrap{border-left:1px solid var(--orion-line)!important;border-top:0!important}
+  #social .soc{justify-content:center}
+  #gallery #grid{column-gap:clamp(16px,1.5vw,24px)!important}
+}
+/* Narrow desktop / landscape tablet: avoid cramped two-column layouts. */
+@media(min-width:761px) and (max-width:900px){
+  #home{padding-inline:34px!important;padding-top:174px!important}
+  #home .hero-title{max-width:100%!important;font-size:clamp(3.4rem,8vw,5.4rem)!important}
+  #home .ring{width:34vw!important;right:20px!important;opacity:.14!important}
+  main>section:not(#home){padding-inline:34px!important}
+  #about .about-grid{grid-template-columns:minmax(0,1fr)!important;max-width:700px!important;gap:22px!important}
+  #about .royal{width:min(48%,300px);margin-inline:auto}
+  #projects .project-card{grid-template-columns:minmax(0,1fr)!important}
+  #projects .project-art{min-height:210px}
+  #contact .contact-shell{grid-template-columns:minmax(0,1fr)!important}
+  #contact .contact-form-wrap{border-left:0!important;border-top:1px solid var(--orion-line)!important}
+  #services .srv{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #skills .extra-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(min-width:901px) and (max-width:1100px){
+  #home{padding-inline:48px!important}
+  main>section:not(#home){padding-inline:44px!important}
+  #about .about-grid{grid-template-columns:minmax(220px,.78fr) minmax(0,1.22fr)!important;gap:28px!important}
+  #services .srv{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  #services .srv .card{padding:24px 20px!important}
+  #skills .extra-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(min-width:1800px){
+  main>section:not(#home){max-width:1720px!important}
+  #about .about-grid,#services .srv,#skills .extra-grid,#journey .timeline-columns,#projects .project-card,#contact .contact-shell{max-width:1320px!important}
+  #home .hero-title{max-width:1080px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #home .ring{animation:none!important}
+  #services .srv .card,#skills .extra-card,#projects .project-card,#gallery #grid .item,#gallery #grid .im img{transition:none!important}
 }
 </style>
 
@@ -2510,7 +2621,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3130",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3140",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
