@@ -1869,7 +1869,7 @@ main .btn.pri:hover,#contact .contact-submit:hover{background:linear-gradient(11
 
 
 
-<style id="orion-v3150-rounded-gallery-welcome">
+<style id="orion-v3160-rounded-gallery-welcome">
 /* V3.15.0 — softer geometry, a lighter gallery unlock path and a bespoke welcome composition. */
 :root{
   --orion-radius-card:14px;
@@ -2036,15 +2036,46 @@ main .btn,main button.btn,#contact .contact-submit,
 html.lite .welcome-dust i:nth-child(n+4){display:none}
 </style>
 
+
+<style id="orion-v316-gradient-language">
+/* V3.16.0 — one cohesive, restrained gradient language; CSS-only for low paint cost. */
+:root{--og-grad-a:#172c3b;--og-grad-b:#1d3947;--og-grad-c:#315b67;--og-grad-edge:rgba(139,190,198,.30);--og-grad-soft:rgba(106,164,177,.10)}
+html[data-theme="light"]{--og-grad-a:#e7f0f2;--og-grad-b:#d8e7ea;--og-grad-c:#c6dce0;--og-grad-edge:rgba(61,112,124,.22);--og-grad-soft:rgba(91,145,156,.08)}
+body:not(.welcome-open) main>section:not(#home){background:linear-gradient(138deg,rgba(94,151,164,.035),transparent 42%,rgba(125,137,181,.035))!important;border-radius:22px}
+body:not(.welcome-open) nav#nav,body:not(.welcome-open) .hud-bar,body:not(.welcome-open) footer .ft,body:not(.welcome-open) .visits{background:linear-gradient(125deg,var(--og-grad-a),var(--og-grad-b) 58%,rgba(42,73,87,.94))!important;border-color:var(--og-grad-edge)!important}
+html[data-theme="light"] body:not(.welcome-open) nav#nav,html[data-theme="light"] body:not(.welcome-open) .hud-bar,html[data-theme="light"] body:not(.welcome-open) footer .ft,html[data-theme="light"] body:not(.welcome-open) .visits{background:linear-gradient(125deg,#f5fafb,#e5eff1 58%,#dcebed)!important}
+body:not(.welcome-open) main .glass,body:not(.welcome-open) main .card,body:not(.welcome-open) main .extra-card,body:not(.welcome-open) main .timeline-group,body:not(.welcome-open) main .project-card,body:not(.welcome-open) main .contact-shell,body:not(.welcome-open) main .s-card,body:not(.welcome-open) main .contact-direct-item,body:not(.welcome-open) .orion-settings-panel,body:not(.welcome-open) .skill-modal-panel{background:linear-gradient(142deg,rgba(30,55,69,.92),rgba(20,35,48,.94) 55%,rgba(35,57,70,.90))!important;border-color:var(--og-grad-edge)!important}
+html[data-theme="light"] body:not(.welcome-open) main .glass,html[data-theme="light"] body:not(.welcome-open) main .card,html[data-theme="light"] body:not(.welcome-open) main .extra-card,html[data-theme="light"] body:not(.welcome-open) main .timeline-group,html[data-theme="light"] body:not(.welcome-open) main .project-card,html[data-theme="light"] body:not(.welcome-open) main .contact-shell,html[data-theme="light"] body:not(.welcome-open) main .s-card,html[data-theme="light"] body:not(.welcome-open) main .contact-direct-item,html[data-theme="light"] body:not(.welcome-open) .orion-settings-panel,html[data-theme="light"] body:not(.welcome-open) .skill-modal-panel{background:linear-gradient(142deg,#f8fbfc,#e9f2f4 58%,#e0ecef)!important}
+body:not(.welcome-open) main .btn,body:not(.welcome-open) main button.btn,body:not(.welcome-open) #gallery .filters button,body:not(.welcome-open) #gallery .filter-btn,body:not(.welcome-open) #contact .contact-submit,body:not(.welcome-open) .pref-reset,body:not(.welcome-open) .footer-share{background:linear-gradient(115deg,#376b7b,#4e8d96 55%,#6ba7a9)!important;border:1px solid rgba(167,218,220,.28)!important;color:#f5fbfc!important}
+body:not(.welcome-open) main .btn.pri,body:not(.welcome-open) #contact .contact-submit{background:linear-gradient(115deg,#4b8792,#73b0b0 55%,#9ac8c7)!important;color:#10232a!important}
+body:not(.welcome-open) main .btn:hover,body:not(.welcome-open) #gallery .filters button:hover,body:not(.welcome-open) #gallery .filter-btn:hover,body:not(.welcome-open) .pref-reset:hover{filter:brightness(1.08)}
+body:not(.welcome-open) main input,body:not(.welcome-open) main textarea,body:not(.welcome-open) .pref-grid select{background:linear-gradient(135deg,rgba(24,45,57,.92),rgba(31,55,66,.92))!important;border-color:var(--og-grad-edge)!important}
+html[data-theme="light"] body:not(.welcome-open) main input,html[data-theme="light"] body:not(.welcome-open) main textarea,html[data-theme="light"] body:not(.welcome-open) .pref-grid select{background:linear-gradient(135deg,#f8fbfc,#e9f2f4)!important}
+body:not(.welcome-open) .skill-chip,body:not(.welcome-open) .project-tags span,body:not(.welcome-open) .roles .role,body:not(.welcome-open) .timeline-year{background:linear-gradient(125deg,rgba(77,131,145,.18),rgba(109,151,169,.10))!important;border:1px solid var(--og-grad-edge)!important}
+body:not(.welcome-open) #gallery .knob{background:linear-gradient(135deg,#4b8792,#8cc2c0)!important}
+body:not(.welcome-open) #gallery .fill{background:linear-gradient(90deg,#477e8e,#91c8c5)!important}
+body:not(.welcome-open) .btn-i,body:not(.welcome-open) .lbb,body:not(.welcome-open) .orion-settings-close,body:not(.welcome-open) .skill-modal-close,body:not(.welcome-open) #top{background:linear-gradient(135deg,#294b5b,#396b78 60%,#4b8790)!important;border:1px solid var(--og-grad-edge)!important;color:#eef8fa!important}
+body:not(.welcome-open) #gallery .lock,body:not(.welcome-open) #gallery .slider,body:not(.welcome-open) .timeline-item,body:not(.welcome-open) .contact-form-wrap{background:linear-gradient(140deg,rgba(31,57,70,.86),rgba(20,37,49,.90) 60%,rgba(44,72,84,.82))!important;border-color:var(--og-grad-edge)!important}
+html[data-theme="light"] body:not(.welcome-open) #gallery .lock,html[data-theme="light"] body:not(.welcome-open) #gallery .slider,html[data-theme="light"] body:not(.welcome-open) .timeline-item,html[data-theme="light"] body:not(.welcome-open) .contact-form-wrap{background:linear-gradient(140deg,#f7fbfc,#e7f0f2 60%,#dcebed)!important}
+#welcome{background:linear-gradient(132deg,#0b131d 0%,#132936 52%,#101a28 100%)!important}
+#welcome .welcome-shell{background:linear-gradient(145deg,rgba(30,54,68,.30),rgba(13,23,33,.12) 62%,rgba(68,112,126,.12))!important;border-color:rgba(139,190,198,.18)!important}
+#welcome-lang{background:linear-gradient(120deg,rgba(49,89,105,.9),rgba(65,120,132,.8))!important;border-color:rgba(139,190,198,.32)!important}
+body:not(.welcome-open) .footer-brand{background:linear-gradient(125deg,rgba(42,76,91,.34),rgba(49,84,98,.10));border-radius:16px}
+body:not(.welcome-open) :focus-visible{outline-color:#83c4c5!important}
+html[lang="bn"] body{font-family:"Noto Sans Bengali","Hind Siliguri",system-ui,sans-serif}
+html[lang="bn"] .logo,html[lang="bn"] .footer-brand strong,html[lang="bn"] .project-mark{letter-spacing:0!important}
+@media(prefers-reduced-motion:reduce){body:not(.welcome-open) main .btn,body:not(.welcome-open) main .card,body:not(.welcome-open) main .extra-card{transition:none!important}}
+</style>
+
 </head>
 <body>
-<a class="skip-link" href="#home">Skip to content</a>
+<a class="skip-link" href="#home" data-i="skip_content">Skip to content</a>
 
 <div id="prog"></div>
 <div id="glow"></div>
 
 <div id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-name" aria-describedby="welcome-copy">
-  <button id="welcome-lang" type="button" aria-label="Change welcome language">বাংলা</button>
+  <button id="welcome-lang" type="button" aria-label="Change welcome language" data-aria="change_welcome_language">বাংলা</button>
   <div class="welcome-glow" aria-hidden="true"></div>
   <div class="welcome-ambient" aria-hidden="true"></div>
   <div class="welcome-dust" aria-hidden="true">
@@ -2095,11 +2126,11 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vbadge" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="#1D9BF0"/><rect x="3" y="3" width="18" height="18" rx="5" fill="#1D9BF0" transform="rotate(45 12 12)"/><path d="M8 12.4l2.7 2.7L16.3 9.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 
 <nav class="glass" id="nav">
-  <a href="#home" class="logo">Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg></a>
+  <a href="#home" class="logo"><span data-i="full_name">Mahmud Uday</span><svg class="vb" aria-label="Verified" data-aria="verified"><use href="#vbadge"/></svg></a>
   <div class="tools">
-    <button class="btn-i" id="lang" title="Language" aria-label="Change language">বাং</button>
-    <button class="btn-i" id="theme" title="Theme" aria-label="Toggle dark and light mode">☀</button>
-    <button class="btn-i" id="preferences-open" title="Preferences" aria-label="Website preferences">⚙</button>
+    <button class="btn-i" id="lang" title="Language" data-title="language_title" aria-label="Change language" data-aria="change_language">বাং</button>
+    <button class="btn-i" id="theme" title="Theme" data-title="theme_title" aria-label="Toggle dark and light mode" data-aria="toggle_theme">☀</button>
+    <button class="btn-i" id="preferences-open" title="Preferences" data-title="preferences_title" aria-label="Website preferences" data-aria="website_preferences">⚙</button>
   </div>
 </nav>
 
@@ -2114,10 +2145,10 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
     <div class="ha-stars"></div>
   </div>
   <div class="ring"><i></i></div>
-  <div class="hud-bar glass rv" aria-label="Bangladesh local date and time">
+  <div class="hud-bar glass rv" aria-label="Bangladesh local date and time" data-aria="local_datetime">
     <div class="cell"><span>📅</span><span id="bd-date">-- --- ----</span></div>
     <div class="cell"><span>📍</span><span data-i="loc">Bangladesh</span></div>
-    <div class="cell"><span>🕒</span><span><span id="clock">--:--</span> <small>BDT</small></span></div>
+    <div class="cell"><span>🕒</span><span><span id="clock">--:--</span> <small data-i="currency">BDT</small></span></div>
   </div>
   <span class="tag glass rv" data-i="tag">📷 Photographer</span>
   <h1 class="hero-title">
@@ -2132,13 +2163,13 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
   <div class="scroll"></div>
 </section>
 
-<div class="identity-ribbon" aria-label="Mahmud Uday — Orion Graphy">
+<div class="identity-ribbon" aria-label="Mahmud Uday — Orion Graphy" data-aria="identity_ribbon">
   <div class="identity-inner">
-    <span class="identity-kicker">A PERSONAL CREATIVE SPACE</span>
-    <span class="identity-name">MAHMUD <b>UDAY</b></span>
+    <span class="identity-kicker" data-i="creative_space">A PERSONAL CREATIVE SPACE</span>
+    <span class="identity-name"><span data-i="mahmud">MAHMUD</span> <b data-i="uday">UDAY</b></span>
     <span class="identity-divider" aria-hidden="true">✦</span>
-    <span class="identity-brand">ORION <b>GRAPHY</b></span>
-    <span class="identity-location">BANGLADESH</span>
+    <span class="identity-brand"><span data-i="orion">ORION</span> <b data-i="graphy">GRAPHY</b></span>
+    <span class="identity-location" data-i="bangladesh_caps">BANGLADESH</span>
   </div>
 </div>
 
@@ -2146,7 +2177,7 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
   <h2 class="rv"><span data-i="about_t">Who am</span> <em data-i="about_e">I</em></h2>
   <p class="sub rv d1" data-i="about_s">Chemist by profession, creator by passion.</p>
   <div class="about-grid">
-    <div class="rv"><div class="royal tilt"><div class="rframe"><div class="avatar"><div class="ph">📷</div><img src="images/profile.jpg" alt="Mahmud Uday" decoding="async" onerror="this.style.display='none'"></div></div></div></div>
+    <div class="rv"><div class="royal tilt"><div class="rframe"><div class="avatar"><div class="ph">📷</div><img src="images/profile.jpg" alt="Mahmud Uday" data-alt="profile_alt" decoding="async" onerror="this.style.display='none'"></div></div></div></div>
     <div class="about-txt glass rv d2">
       <p data-i="about_p1">Hi, I'm Mahmud Uday. I work as a chemist at a multinational company, where precision and curiosity drive everything I do.</p>
       <p data-i="about_p2">Beyond the lab, I'm a WordPress web developer and content writer who loves turning ideas into clean websites and words that connect.</p>
@@ -2184,12 +2215,12 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
   <h2 class="rv"><span data-i="skills_t">Skills &</span> <em data-i="skills_e">Interests</em></h2>
   <p class="sub rv d1" data-i="skills_s">A balanced mix of professional knowledge and creative work.</p>
   <div class="extra-grid">
-    <article class="extra-card glass rv fx-z" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Chemistry details"><div class="mini-icon">⚗</div><h3 data-i="skill_chem">Chemistry</h3><p data-i="skill_chem_p">Professional work and analytical thinking.</p></article>
-    <article class="extra-card glass rv fx-z d1" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Photography details"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Capturing light, details and meaningful moments.</p></article>
-    <article class="extra-card glass rv fx-z d2" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open WordPress and Web details"><div class="mini-icon">⌘</div><h3 data-i="skill_web">WordPress & Web</h3><p data-i="skill_web_p">Building and exploring responsive web experiences.</p></article>
-    <article class="extra-card glass rv fx-z d3" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Content Writing details"><div class="mini-icon">✍</div><h3 data-i="skill_write">Content Writing</h3><p data-i="skill_write_p">Clear writing and creative communication.</p></article>
+    <article class="extra-card glass rv fx-z" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Chemistry details" data-aria="open_chemistry"><div class="mini-icon">⚗</div><h3 data-i="skill_chem">Chemistry</h3><p data-i="skill_chem_p">Professional work and analytical thinking.</p></article>
+    <article class="extra-card glass rv fx-z d1" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Photography details" data-aria="open_photography"><div class="mini-icon">📷</div><h3 data-i="skill_photo">Photography</h3><p data-i="skill_photo_p">Capturing light, details and meaningful moments.</p></article>
+    <article class="extra-card glass rv fx-z d2" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open WordPress and Web details" data-aria="open_web"><div class="mini-icon">⌘</div><h3 data-i="skill_web">WordPress & Web</h3><p data-i="skill_web_p">Building and exploring responsive web experiences.</p></article>
+    <article class="extra-card glass rv fx-z d3" tabindex="0" role="button" aria-pressed="false" aria-haspopup="dialog" aria-label="Open Content Writing details" data-aria="open_writing"><div class="mini-icon">✍</div><h3 data-i="skill_write">Content Writing</h3><p data-i="skill_write_p">Clear writing and creative communication.</p></article>
   </div>
-  <div class="skill-cloud rv" aria-label="Areas of interest"><span class="skill-chip">Creative Projects</span><span class="skill-chip">Digital Experiences</span><span class="skill-chip">Visual Storytelling</span><span class="skill-chip">Technology</span></div>
+  <div class="skill-cloud rv" aria-label="Areas of interest" data-aria="interest_areas"><span class="skill-chip" data-i="creative_projects">Creative Projects</span><span class="skill-chip" data-i="digital_experiences">Digital Experiences</span><span class="skill-chip" data-i="visual_storytelling">Visual Storytelling</span><span class="skill-chip" data-i="technology">Technology</span></div>
 </section>
 
 <section id="journey">
@@ -2201,17 +2232,17 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
       <div class="timeline-list">
         <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_msc">Master of Science (M.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p></div></article>
         <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_bsc">Bachelor of Science (B.Sc.)</h4><p data-i="edu_nu">National University of Bangladesh</p></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_hsc">Higher Secondary Certificate (HSC)</h4><p>Sonar Bangla University College</p></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p>Sonaimuri Govt. Model High School</p></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_hsc">Higher Secondary Certificate (HSC)</h4><p data-i="sonar_college">Sonar Bangla University College</p></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><div class="timeline-content"><h4 data-i="edu_ssc">Secondary School Certificate (SSC)</h4><p data-i="sonaimuri_school">Sonaimuri Govt. Model High School</p></div></article>
       </div>
     </div>
     <div class="timeline-group rv fx-r d1">
       <h3 class="timeline-heading"><span class="timeline-heading-icon">✦</span><span data-i="career_heading">Career Experience</span></h3>
       <div class="timeline-list">
-        <article class="timeline-item current" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="present">Present</span><div class="timeline-content"><h4 data-i="job_chemist">Technical Chemist</h4><p>Weixing Industrial (BD) Co., Ltd. — SAB</p><small data-i="job_current_note">Current position</small></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_bkash">Customer Service Officer</h4><p>bKash Limited</p><small data-i="former_role">Previous experience</small></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_writer">Content Writer</h4><p>Nexton Digital</p><small data-i="former_role">Previous experience</small></div></article>
-        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_qc">Quality Control Officer</h4><p>Herbs &amp; Health Laboratories (AYU)</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item current" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="present">Present</span><div class="timeline-content"><h4 data-i="job_chemist">Technical Chemist</h4><p data-i="weixing_company">Weixing Industrial (BD) Co., Ltd. — SAB</p><small data-i="job_current_note">Current position</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_bkash">Customer Service Officer</h4><p data-i="bkash_company">bKash Limited</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_writer">Content Writer</h4><p data-i="nexton_company">Nexton Digital</p><small data-i="former_role">Previous experience</small></div></article>
+        <article class="timeline-item" tabindex="0" role="button" aria-pressed="false"><span class="timeline-year" data-i="former">Former</span><div class="timeline-content"><h4 data-i="job_qc">Quality Control Officer</h4><p data-i="ayu_company">Herbs &amp; Health Laboratories (AYU)</p><small data-i="former_role">Previous experience</small></div></article>
       </div>
     </div>
   </div>
@@ -2222,8 +2253,8 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
   <h2 class="rv"><span data-i="projects_t">Featured</span> <em data-i="projects_e">Project</em></h2>
   <p class="sub rv d1" data-i="projects_s">A look at a personal digital project.</p>
   <article class="project-card glass rv">
-    <div class="project-art" aria-label="Orion Graphy project artwork"><div class="project-mark">ORION<br>GRAPHY</div></div>
-    <div class="project-copy"><h3>Orion Graphy</h3><p data-i="project_desc">A personal portfolio bringing together photography, professional identity and creative work.</p><div class="project-tags"><span>Personal Portfolio</span><span>Photography</span><span>Web Design</span></div><a class="btn pri" href="https://itsuday.vercel.app/" target="_blank" rel="noopener" data-i="project_live">View Live Website ↗</a></div>
+    <div class="project-art" aria-label="Orion Graphy project artwork" data-aria="project_artwork"><div class="project-mark" data-i="orion_graphy">ORION<br>GRAPHY</div></div>
+    <div class="project-copy"><h3 data-i="orion_graphy">Orion Graphy</h3><p data-i="project_desc">A personal portfolio bringing together photography, professional identity and creative work.</p><div class="project-tags"><span data-i="personal_portfolio">Personal Portfolio</span><span data-i="photography">Photography</span><span data-i="web_design">Web Design</span></div><a class="btn pri" href="https://itsuday.vercel.app/" target="_blank" rel="noopener" data-i="project_live">View Live Website ↗</a></div>
   </article>
 </section>
 
@@ -2245,7 +2276,7 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
       <div class="slider glass" id="slider">
         <div class="fill" id="fill"></div>
         <div class="label" data-i="sl">Slide to open</div>
-        <button class="knob" id="knob" aria-label="Open gallery"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l6 6-6 6"/><path d="M12 6l6 6-6 6" opacity=".6"/></svg></button>
+        <button class="knob" id="knob" aria-label="Open gallery" data-aria="open_gallery"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l6 6-6 6"/><path d="M12 6l6 6-6 6" opacity=".6"/></svg></button>
       </div>
     </div>
   </div>
@@ -2284,7 +2315,7 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
         <input id="fe" type="email" required autocomplete="email" data-ph="ph_email" placeholder="Your email">
         <label class="sr-only" for="fm" data-i="ph_msg">Your message</label>
         <textarea id="fm" required data-ph="ph_msg" placeholder="Your message"></textarea>
-        <button class="btn pri mag contact-submit" type="submit" data-i="send">Send Message <span aria-hidden="true">↗</span></button>
+        <button class="btn pri mag contact-submit" type="submit"><span data-i="send">Send Message</span> <span aria-hidden="true">↗</span></button>
         <p class="form-note" data-i="mail_note">This opens your email app to send the message.</p>
       </form>
       <div class="contact-actions">
@@ -2298,24 +2329,24 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">MAHMUD <span>UDAY</span><small>Founder of ORION GRAPHY</small></div>
-    <nav class="footer-links" aria-label="Footer navigation">
-      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    <div class="footer-brand"><span data-i="mahmud">MAHMUD</span> <span data-i="uday">UDAY</span><small data-i="founder">Founder of ORION GRAPHY</small></div>
+    <nav class="footer-links" aria-label="Footer navigation" data-aria="footer_navigation">
+      <a href="#home" data-i="nav_home">Home</a><a href="#about" data-i="nav_about">About</a><a href="#skills" data-i="nav_skills">Skills</a><a href="#journey" data-i="nav_journey">Journey</a><a href="#gallery" data-i="nav_gallery">Gallery</a><a href="#contact" data-i="nav_contact">Contact</a>
     </nav>
-    <div class="footer-social" aria-label="Social links">
-      <a href="https://instagram.com/mahmududay.info" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
-      <a href="https://facebook.com/mahmududay.info" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
-      <a href="https://wa.me/8801680856340" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
-      <button type="button" id="installApp" class="footer-share" hidden>Install app</button>
+    <div class="footer-social" aria-label="Social links" data-aria="social_links">
+      <a href="https://instagram.com/mahmududay.info" target="_blank" rel="noopener" aria-label="Instagram" data-i="instagram">Instagram</a>
+      <a href="https://facebook.com/mahmududay.info" target="_blank" rel="noopener" aria-label="Facebook" data-i="facebook">Facebook</a>
+      <a href="https://wa.me/8801680856340" target="_blank" rel="noopener" aria-label="WhatsApp" data-i="whatsapp">WhatsApp</a>
+      <button type="button" id="installApp" class="footer-share" data-i="install_app" hidden>Install app</button>
     </div>
-    <div class="ft glass">© <span id="yr"></span>&nbsp;Mahmud Uday<svg class="vb" aria-label="Verified"><use href="#vbadge"/></svg>&nbsp;· Orion Graphy.&nbsp;<span data-i="rights">All rights reserved.</span></div>
+    <div class="ft glass">© <span id="yr"></span>&nbsp;<span data-i="full_name">Mahmud Uday</span><svg class="vb" aria-label="Verified" data-aria="verified"><use href="#vbadge"/></svg>&nbsp;· <span data-i="orion_graphy">Orion Graphy</span>.&nbsp;<span data-i="rights">All rights reserved.</span></div>
   </div>
-  <div class="visits glass" id="visits" title="Total visitors">
+  <div class="visits glass" id="visits" title="Total visitors" data-title="total_visitors">
     <i></i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg><b id="vcount">···</b>
   </div>
 </footer>
 
-<button id="top" class="glass gl" aria-label="Back to top" title="Top">
+<button id="top" class="glass gl" aria-label="Back to top" data-aria="back_top" title="Top">
   <svg class="pr" viewBox="0 0 52 52"><defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6bff"/><stop offset="1" stop-color="#00c2ff"/></linearGradient></defs><circle class="tr" cx="26" cy="26" r="23"/><circle class="pg" id="pg" cx="26" cy="26" r="23"/></svg>
   <span class="ar">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 11l7-7 7 7"/></svg>
@@ -2323,18 +2354,18 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
   </span>
 </button>
 
-<div id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
-  <button class="lbb" id="lbx" aria-label="Close photo viewer">✕</button>
-  <button class="lbb" id="lbp" aria-label="Previous photo">‹</button>
-  <button class="lbb" id="lbn" aria-label="Next photo">›</button>
-  <div class="lb-tools" aria-label="Photo controls">
-    <button class="lbb" id="lbZoomOut" aria-label="Zoom out">−</button>
-    <button class="lbb" id="lbZoomReset" aria-label="Reset zoom">↺</button>
-    <button class="lbb" id="lbZoomIn" aria-label="Zoom in">+</button>
-    <button class="lbb" id="lbDownload" aria-label="Download photo">↓</button>
-    <button class="lbb" id="lbFavorite" aria-label="Add to favorites" title="Add to favorites">☆</button>
-    <button class="lbb" id="lbExif" aria-label="Show photo details" title="Photo details">ⓘ</button>
-    <button class="lbb" id="lbSlideshow" aria-label="Start slideshow" title="Start slideshow">▶</button>
+<div id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" data-aria="photo_viewer" aria-hidden="true">
+  <button class="lbb" id="lbx" aria-label="Close photo viewer" data-aria="close_viewer">✕</button>
+  <button class="lbb" id="lbp" aria-label="Previous photo" data-aria="previous_photo">‹</button>
+  <button class="lbb" id="lbn" aria-label="Next photo" data-aria="next_photo">›</button>
+  <div class="lb-tools" aria-label="Photo controls" data-aria="photo_controls">
+    <button class="lbb" id="lbZoomOut" aria-label="Zoom out" data-aria="zoom_out">−</button>
+    <button class="lbb" id="lbZoomReset" aria-label="Reset zoom" data-aria="zoom_reset">↺</button>
+    <button class="lbb" id="lbZoomIn" aria-label="Zoom in" data-aria="zoom_in">+</button>
+    <button class="lbb" id="lbDownload" aria-label="Download photo" data-aria="download_photo">↓</button>
+    <button class="lbb" id="lbFavorite" aria-label="Add to favorites" data-aria="add_favorite" title="Add to favorites" data-title="add_favorite">☆</button>
+    <button class="lbb" id="lbExif" aria-label="Show photo details" data-aria="photo_details" title="Photo details" data-title="photo_details">ⓘ</button>
+    <button class="lbb" id="lbSlideshow" aria-label="Start slideshow" data-aria="start_slideshow" title="Start slideshow" data-title="start_slideshow">▶</button>
   </div>
   <div id="lbimg"></div>
   <div id="lbExifPanel" hidden aria-live="polite"></div>
@@ -2345,27 +2376,27 @@ html.lite .welcome-dust i:nth-child(n+4){display:none}
 <div class="orion-settings" id="orion-settings" aria-hidden="true">
   <div class="orion-settings-backdrop" data-settings-close></div>
   <section class="orion-settings-panel glass" role="dialog" aria-modal="true" aria-labelledby="orion-settings-title" tabindex="-1">
-    <button class="orion-settings-close" type="button" data-settings-close aria-label="Close preferences">×</button>
-    <p class="dash-kicker">ORION GRAPHY</p><h2 id="orion-settings-title">Website Preferences</h2>
+    <button class="orion-settings-close" type="button" data-settings-close aria-label="Close preferences" data-aria="close_preferences">×</button>
+    <p class="dash-kicker" data-i="orion_graphy">ORION GRAPHY</p><h2 id="orion-settings-title" data-i="preferences_title">Website Preferences</h2>
     <div class="pref-grid">
-      <label for="pref-language">Language<select id="pref-language"><option value="en">English</option><option value="bn">বাংলা</option></select></label>
-      <label for="pref-theme">Appearance<select id="pref-theme"><option value="dark">Dark</option><option value="light">Light</option></select></label>
-      <label for="pref-motion">Animation intensity<select id="pref-motion"><option value="normal">Normal</option><option value="low">Low</option><option value="off">Off</option></select></label>
-      <label class="pref-check"><input type="checkbox" id="pref-reduced-motion"> Reduce motion</label>
-      <label class="pref-check"><input type="checkbox" id="pref-autoplay"> Start slideshow automatically</label>
+      <label for="pref-language"><span data-i="pref_language">Language</span><select id="pref-language"><option value="en" data-i="english">English</option><option value="bn">বাংলা</option></select></label>
+      <label for="pref-theme"><span data-i="pref_appearance">Appearance</span><select id="pref-theme"><option value="dark" data-i="dark">Dark</option><option value="light" data-i="light">Light</option></select></label>
+      <label for="pref-motion"><span data-i="pref_motion">Animation intensity</span><select id="pref-motion"><option value="normal" data-i="normal">Normal</option><option value="low" data-i="low">Low</option><option value="off" data-i="off">Off</option></select></label>
+      <label class="pref-check"><input type="checkbox" id="pref-reduced-motion"><span data-i="reduce_motion">Reduce motion</span></label>
+      <label class="pref-check"><input type="checkbox" id="pref-autoplay"><span data-i="autoplay">Start slideshow automatically</span></label>
     </div>
-    <p class="pref-note" id="pref-note">Preferences are saved on this device.</p>
-    <button type="button" class="pref-reset" id="pref-reset">Reset preferences</button>
+    <p class="pref-note" id="pref-note" data-i="pref_note">Preferences are saved on this device.</p>
+    <button type="button" class="pref-reset" id="pref-reset" data-i="pref_reset">Reset preferences</button>
   </section>
 </div>
 
 <div class="skill-modal" id="skill-modal" aria-hidden="true">
   <div class="skill-modal-backdrop" data-skill-close></div>
   <section class="skill-modal-panel glass" role="dialog" aria-modal="true" aria-labelledby="skill-modal-title" tabindex="-1">
-    <button class="skill-modal-close" type="button" aria-label="Close details" data-skill-close>×</button>
+    <button class="skill-modal-close" type="button" aria-label="Close details" data-aria="close_details" data-skill-close>×</button>
     <div class="skill-modal-icon" id="skill-modal-icon">✦</div>
-    <p class="skill-modal-kicker">SKILLS & INTERESTS</p>
-    <h2 id="skill-modal-title">Details</h2>
+    <p class="skill-modal-kicker" data-i="skill_modal_kicker">SKILLS & INTERESTS</p>
+    <h2 id="skill-modal-title" data-i="details">Details</h2>
     <div class="skill-modal-copy" id="skill-modal-copy"></div>
     <div class="skill-modal-tags" id="skill-modal-tags"></div>
   </section>
@@ -2391,11 +2422,11 @@ const CONFIG = {
 /* ======================================== */
 
 const T = {
- en:{nav_home:"Home",nav_about:"About",nav_skills:"Skills",nav_journey:"Journey",nav_projects:"Projects",nav_gallery:"Orion Graphy",nav_social:"Social",nav_contact:"Contact",
+ en:{nav_home:"Home",nav_about:"About",nav_skills:"Skills",nav_journey:"Journey",nav_projects:"Projects",nav_gallery:"অরিয়ন গ্রাফি",nav_social:"Social",nav_contact:"Contact",
   loc:"Bangladesh",
   tag:"📷 Hobby Photographer",
   hero_p:"Welcome to my world. I freeze light, emotion and stories into frames that last forever...",
-  view:"See ORION GRAPHY",hire:"Contact Me",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
+  view:"অরিয়ন গ্রাফি দেখুন",hire:"যোগাযোগ করুন",about_t:"Who am",about_e:"I",about_s:"Chemist by profession, creator by passion.",
   about_p1:"I’m Mahmud Uday, a chemist working in an industrial environment where precision, analytical thinking and consistency matter every day. My role continues to strengthen my approach to problem-solving, quality-focused work and continuous learning.",
   about_p2:"Beyond my professional responsibilities, I explore digital creativity through WordPress development and content writing. I enjoy turning ideas into clear, accessible web experiences and purposeful content, with a focus on usability, detail and thoughtful presentation.",
   about_p3:"Photography is one of the ways I express my creativity. As a hobby photographer, I’m drawn to natural light, everyday details and genuine moments — always learning, experimenting and developing my own visual perspective.",
@@ -2404,7 +2435,7 @@ const T = {
   sv1_t:"Photography",sv1_p:"Light, emotion and honest moments, framed with care.",
   sv2_t:"WordPress Development",sv2_p:"Clean, fast and responsive websites that work everywhere.",
   sv3_t:"Content Writing",sv3_p:"Words that connect with people and explain things clearly.",
-  gal_t:"Orion",gal_e:"Graphy",gal_s:"A selection of my favourite frames. Tap any photo to view it large.",
+  gal_t:"অরিয়ন",gal_e:"গ্রাফি",gal_s:"A selection of my favourite frames. Tap any photo to view it large.",
   soc_t:"Find me on",soc_e:"Social",soc_s:"Follow my journey and daily shots.",
   con_t:"Let's",con_e:"Talk",con_s:"Want a shoot or collaboration? Send me a message.",con_kicker:"OPEN FOR CONVERSATIONS",con_card_title:"Have an idea in mind?",con_card_copy:"Whether it’s a creative collaboration, a photography conversation or a simple hello — I’d be glad to hear from you.",con_email_label:"EMAIL ME",con_whatsapp_label:"WHATSAPP",con_whatsapp_value:"Let’s chat directly",con_location:"Bangladesh",con_form_kicker:"SEND A MESSAGE",
   showall:"Show all photos",lk_t:"Orion Graphy Collection",lk_s:"Slide or tap to unlock",sl:"Slide to open",
@@ -2413,30 +2444,30 @@ const T = {
   skills_t:"Skills &",skills_e:"Interests",skills_s:"A balanced mix of professional knowledge and creative work.",
   skill_chem:"Chemistry",skill_chem_p:"Professional work and analytical thinking.",skill_photo:"Photography",skill_photo_p:"Capturing light, details and meaningful moments.",skill_web:"WordPress & Web",skill_web_p:"Building and exploring responsive web experiences.",skill_write:"Content Writing",skill_write_p:"Clear writing and creative communication.",
   journey_t:"My",journey_e:"Journey",journey_s:"Professional and creative interests that shape my work.",journey_chem:"Professional Life",journey_chem_p:"Working as a chemist in an industrial environment, with a focus on precision and problem-solving.",journey_creative:"Creative Life",journey_creative_p:"Photography, WordPress development and content writing are part of my creative journey.",journey_note:"A journey shaped by learning, professional experience and continuous growth.",
-  edu_heading:"Education",career_heading:"Career Experience",edu_msc:"Master of Science (M.Sc.)",edu_bsc:"Bachelor of Science (B.Sc.)",edu_hsc:"Higher Secondary Certificate (HSC)",edu_ssc:"Secondary School Certificate (SSC)",edu_nu:"National University of Bangladesh",passed_2022:"Passed · 2022",passed_2020:"Passed · 2020",passed_2014:"Passed · 2014",passed_2012:"Passed · 2012",present:"Present",former:"Former",job_chemist:"Technical Chemist",job_current_note:"Current position",job_bkash:"Customer Service Officer",job_writer:"Content Writer",job_qc:"Quality Control Officer",former_role:"Previous experience",projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV"},
- bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_skills:"দক্ষতা",nav_journey:"যাত্রা",nav_projects:"প্রজেক্ট",nav_gallery:"Orion Graphy",nav_social:"সোশ্যাল",nav_contact:"যোগাযোগ",
+  edu_heading:"Education",career_heading:"Career Experience",edu_msc:"Master of Science (M.Sc.)",edu_bsc:"Bachelor of Science (B.Sc.)",edu_hsc:"Higher Secondary Certificate (HSC)",edu_ssc:"Secondary School Certificate (SSC)",edu_nu:"National University of Bangladesh",passed_2022:"Passed · 2022",passed_2020:"Passed · 2020",passed_2014:"Passed · 2014",passed_2012:"Passed · 2012",present:"Present",former:"Former",job_chemist:"Technical Chemist",job_current_note:"Current position",job_bkash:"Customer Service Officer",job_writer:"Content Writer",job_qc:"Quality Control Officer",former_role:"Previous experience",projects_t:"Featured",projects_e:"Project",projects_s:"A look at a personal digital project.",project_desc:"A personal portfolio bringing together photography, professional identity and creative work.",project_live:"View Live Website ↗",mail_note:"This opens your email app to send the message.",whatsapp_btn:"WhatsApp Me",copy_email:"Copy Email",cv_request:"Request CV",skip_content:"Skip to content",creative_space:"A PERSONAL CREATIVE SPACE",bangladesh_caps:"BANGLADESH",creative_projects:"Creative Projects",digital_experiences:"Digital Experiences",visual_storytelling:"Visual Storytelling",technology:"Technology",sonar_college:"Sonar Bangla University College",sonaimuri_school:"Sonaimuri Govt. Model High School",weixing_company:"Weixing Industrial (BD) Co., Ltd. — SAB",bkash_company:"bKash Limited",nexton_company:"Nexton Digital",ayu_company:"Herbs & Health Laboratories (AYU)",personal_portfolio:"Personal Portfolio",photography:"Photography",web_design:"Web Design",founder:"Founder of ORION GRAPHY",install_app:"Install app",preferences_title:"Website Preferences",pref_language:"Language",english:"English",pref_appearance:"Appearance",dark:"Dark",light:"Light",pref_motion:"Animation intensity",normal:"Normal",low:"Low",off:"Off",reduce_motion:"Reduce motion",autoplay:"Start slideshow automatically",pref_note:"Preferences are saved on this device.",pref_reset:"Reset preferences",skill_modal_kicker:"SKILLS & INTERESTS",details:"Details",skip_content:"Skip to content",photo_viewer:"Photo viewer",close_viewer:"Close photo viewer",previous_photo:"Previous photo",next_photo:"Next photo",photo_controls:"Photo controls",zoom_out:"Zoom out",zoom_reset:"Reset zoom",zoom_in:"Zoom in",download_photo:"Download photo",add_favorite:"Add to favorites",photo_details:"Photo details",start_slideshow:"Start slideshow",back_top:"Back to top",total_visitors:"Total visitors",close_preferences:"Close preferences",close_details:"Close details",open_chemistry:"Open Chemistry details",open_photography:"Open Photography details",open_web:"Open WordPress and Web details",open_writing:"Open Content Writing details",interest_areas:"Areas of interest",footer_navigation:"Footer navigation",social_links:"Social links",change_language:"Change language",toggle_theme:"Toggle dark and light mode",website_preferences:"Website preferences",full_name:"Mahmud Uday",language_title:"Language",theme_title:"Theme",local_datetime:"Bangladesh local date and time",open_gallery:"Open gallery",identity_ribbon:"Mahmud Uday — Orion Graphy",project_artwork:"Orion Graphy project artwork",verified:"Verified",profile_alt:"Mahmud Uday profile photo",currency:"BDT",mahmud:"MAHMUD",uday:"UDAY",orion:"ORION",graphy:"GRAPHY",orion_graphy:"Orion Graphy",instagram:"Instagram",facebook:"Facebook",whatsapp:"WhatsApp",change_welcome_language:"Change welcome language",wedding:"Wedding",travel:"Travel",event:"Event"},
+ bn:{nav_home:"হোম",nav_about:"পরিচিতি",nav_skills:"দক্ষতা",nav_journey:"যাত্রা",nav_projects:"কাজের নমুনা",nav_gallery:"অরিয়ন গ্রাফি",nav_social:"সামাজিক যোগাযোগ",nav_contact:"যোগাযোগ",
   loc:"বাংলাদেশ",
-  tag:"📷 শখের ফটোগ্রাফার",
+  tag:"📷 শখের আলোকচিত্রী",
   hero_p:"আমার জগতে স্বাগতম। আমি আলো, অনুভূতি আর গল্পকে ফ্রেমে বন্দী করি, যা চিরকাল থেকে যায়...",
-  view:"See ORION GRAPHY",hire:"Contact Me",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
+  view:"অরিয়ন গ্রাফি দেখুন",hire:"যোগাযোগ করুন",about_t:"আমি",about_e:"কে?",about_s:"পেশায় কেমিস্ট, নেশায় স্রষ্টা।",
   about_p1:"আমি মাহমুদ উদয়। শিল্পপ্রতিষ্ঠানের পরিবেশে কেমিস্ট হিসেবে কাজ করি, যেখানে নির্ভুলতা, বিশ্লেষণধর্মী চিন্তা ও ধারাবাহিকভাবে শেখার মানসিকতা অত্যন্ত গুরুত্বপূর্ণ। এই অভিজ্ঞতা আমার সমস্যা সমাধানের দক্ষতা, কাজের মান বজায় রাখা এবং প্রতিটি বিষয়ে মনোযোগী হওয়ার অভ্যাসকে আরও সমৃদ্ধ করছে।",
-  about_p2:"পেশাগত দায়িত্বের পাশাপাশি ওয়ার্ডপ্রেস ওয়েব ডেভেলপমেন্ট ও কনটেন্ট রাইটিং নিয়ে কাজ করতে এবং নতুন কিছু শিখতে ভালোবাসি। একটি ভাবনাকে সহজ, ব্যবহারবান্ধব ওয়েব অভিজ্ঞতা কিংবা উদ্দেশ্যপূর্ণ লেখায় রূপ দেওয়াই আমার আগ্রহের জায়গা।",
-  about_p3:"ফটোগ্রাফি আমার সৃজনশীলতার একটি প্রিয় মাধ্যম। শখের ফটোগ্রাফার হিসেবে প্রাকৃতিক আলো, দৈনন্দিন জীবনের ছোট ছোট দৃশ্য এবং স্বতঃস্ফূর্ত মুহূর্ত নিজের দৃষ্টিভঙ্গিতে ক্যামেরাবন্দি করতে ভালোবাসি। প্রতিটি ছবির মাধ্যমে নতুনভাবে দেখা ও শেখার চেষ্টা করি।",
-  r1:"শখের ফটোগ্রাফার",r2:"কেমিস্ট",r3:"ওয়ার্ডপ্রেস ডেভেলপার",r4:"কনটেন্ট রাইটার",iam:"আমি একজন",
+  about_p2:"পেশাগত দায়িত্বের পাশাপাশি ওয়ার্ডপ্রেসে ওয়েবসাইট তৈরি ও লেখালেখি নিয়ে কাজ করতে এবং নতুন কিছু শিখতে ভালোবাসি। একটি ভাবনাকে সহজ, ব্যবহারবান্ধব ওয়েব অভিজ্ঞতা কিংবা উদ্দেশ্যপূর্ণ লেখায় রূপ দেওয়াই আমার আগ্রহের জায়গা।",
+  about_p3:"আলোকচিত্র আমার সৃজনশীলতার একটি প্রিয় মাধ্যম। শখের আলোকচিত্রী হিসেবে প্রাকৃতিক আলো, দৈনন্দিন জীবনের ছোট ছোট দৃশ্য এবং স্বতঃস্ফূর্ত মুহূর্ত নিজের দৃষ্টিভঙ্গিতে ক্যামেরাবন্দি করতে ভালোবাসি। প্রতিটি ছবির মাধ্যমে নতুনভাবে দেখা ও শেখার চেষ্টা করি।",
+  r1:"শখের আলোকচিত্রী",r2:"রসায়নবিদ",r3:"ওয়ার্ডপ্রেস ওয়েব নির্মাতা",r4:"লেখক",iam:"আমি একজন",
   sv_t:"আমি যা",sv_e:"করি",sv_s:"প্রতিটি প্রজেক্টে আমার দক্ষতার ছোঁয়া।",
   sv1_t:"ফটোগ্রাফি",sv1_p:"আলো, অনুভূতি আর সত্যিকারের মুহূর্ত, যত্ন করে ফ্রেমে বন্দী।",
-  sv2_t:"ওয়ার্ডপ্রেস ডেভেলপমেন্ট",sv2_p:"পরিচ্ছন্ন, দ্রুত ও রেসপন্সিভ ওয়েবসাইট, সব ডিভাইসে নিখুঁত।",
-  sv3_t:"কনটেন্ট রাইটিং",sv3_p:"এমন লেখা যা মানুষের সাথে সংযোগ গড়ে এবং সহজে বোঝায়।",
-  gal_t:"Orion",gal_e:"Graphy",gal_s:"আমার প্রিয় কিছু ফ্রেম। যেকোনো ছবিতে ট্যাপ করে বড় করে দেখুন।",
+  sv2_t:"ওয়ার্ডপ্রেস ওয়েবসাইট তৈরি",sv2_p:"পরিচ্ছন্ন, দ্রুত ও সব পর্দায় মানানসই ওয়েবসাইট।",
+  sv3_t:"লেখালেখি",sv3_p:"এমন লেখা, যা মানুষের সঙ্গে সংযোগ গড়ে এবং সহজে বিষয় বোঝায়।",
+  gal_t:"অরিয়ন",gal_e:"গ্রাফি",gal_s:"আমার প্রিয় কিছু ফ্রেম। যেকোনো ছবিতে ট্যাপ করে বড় করে দেখুন।",
   soc_t:"আমাকে পাবেন",soc_e:"সোশ্যালে",soc_s:"আমার যাত্রা ও প্রতিদিনের ছবি ফলো করুন।",
-  con_t:"চলুন",con_e:"কথা বলি",con_s:"শুট বা কাজের জন্য মেসেজ দিন।",con_kicker:"কথা বলার জন্য প্রস্তুত",con_card_title:"তোমার কি কোনো ভাবনা আছে?",con_card_copy:"সৃজনশীল কাজ, ফটোগ্রাফি নিয়ে আলোচনা কিংবা শুধু hello — তোমার বার্তা পেলে ভালো লাগবে।",con_email_label:"ইমেইল করুন",con_whatsapp_label:"হোয়াটসঅ্যাপ",con_whatsapp_value:"সরাসরি কথা বলুন",con_location:"বাংলাদেশ",con_form_kicker:"একটি বার্তা পাঠান",
-  showall:"সব ছবি দেখুন",lk_t:"Orion Graphy কালেকশন",lk_s:"খুলতে স্লাইড করুন বা ট্যাপ করুন",sl:"স্লাইড করুন",
+  con_t:"চলুন",con_e:"কথা বলি",con_s:"শুট বা কাজের জন্য মেসেজ দিন।",con_kicker:"কথা বলার জন্য প্রস্তুত",con_card_title:"তোমার কি কোনো ভাবনা আছে?",con_card_copy:"সৃজনশীল কাজ, আলোকচিত্র নিয়ে আলোচনা কিংবা শুধু শুভেচ্ছা জানাতে—তোমার বার্তা পেলে ভালো লাগবে।",con_email_label:"ইমেইল পাঠান",con_whatsapp_label:"হোয়াটসঅ্যাপ",con_whatsapp_value:"সরাসরি কথা বলুন",con_location:"বাংলাদেশ",con_form_kicker:"একটি বার্তা পাঠান",
+  showall:"সব ছবি দেখুন",lk_t:"অরিয়ন গ্রাফির আলোকচিত্র সংগ্রহ",lk_s:"খুলতে টেনে নিন অথবা স্পর্শ করুন",sl:"টেনে খুলুন",
   send:"মেসেজ পাঠান",rights:"সর্বস্বত্ব সংরক্ষিত।",all:"সব",portrait:"পোর্ট্রেট",nature:"প্রকৃতি",street:"স্ট্রিট",
   ph_name:"আপনার নাম",ph_email:"আপনার ইমেইল",ph_msg:"আপনার মেসেজ",
   skills_t:"দক্ষতা ও",skills_e:"আগ্রহ",skills_s:"পেশাগত জ্ঞান ও সৃজনশীল কাজের সমন্বয়।",
-  skill_chem:"কেমিস্ট্রি",skill_chem_p:"পেশাগত কাজ ও বিশ্লেষণধর্মী চিন্তাভাবনা।",skill_photo:"ফটোগ্রাফি",skill_photo_p:"আলো, বিস্তারিত ও অর্থবহ মুহূর্ত ধারণ।",skill_web:"ওয়ার্ডপ্রেস ও ওয়েব",skill_web_p:"রেসপন্সিভ ওয়েব অভিজ্ঞতা তৈরি ও শেখা।",skill_write:"কনটেন্ট রাইটিং",skill_write_p:"সহজ, পরিষ্কার লেখা ও সৃজনশীল যোগাযোগ।",
-  journey_t:"আমার",journey_e:"যাত্রা",journey_s:"আমার কাজকে গড়ে তোলা পেশাগত ও সৃজনশীল আগ্রহ।",journey_chem:"পেশাগত জীবন",journey_chem_p:"শিল্প-পরিবেশে কেমিস্ট হিসেবে কাজ, যেখানে নির্ভুলতা ও সমস্যা সমাধানে গুরুত্ব দিই।",journey_creative:"সৃজনশীল জীবন",journey_creative_p:"ফটোগ্রাফি, ওয়ার্ডপ্রেস ডেভেলপমেন্ট ও কনটেন্ট রাইটিং আমার সৃজনশীল যাত্রার অংশ।",journey_note:"শেখা, পেশাগত অভিজ্ঞতা ও ধারাবাহিক উন্নতির মধ্য দিয়ে গড়ে ওঠা এক যাত্রা।",
-  edu_heading:"শিক্ষাগত যোগ্যতা",career_heading:"কর্মজীবনের অভিজ্ঞতা",edu_msc:"মাস্টার অব সায়েন্স (এম.এসসি.)",edu_bsc:"ব্যাচেলর অব সায়েন্স (বি.এসসি.)",edu_hsc:"উচ্চ মাধ্যমিক সার্টিফিকেট (এইচএসসি)",edu_ssc:"মাধ্যমিক স্কুল সার্টিফিকেট (এসএসসি)",edu_nu:"জাতীয় বিশ্ববিদ্যালয়, বাংলাদেশ",passed_2022:"পাসের বছর · ২০২২",passed_2020:"পাসের বছর · ২০২০",passed_2014:"পাসের বছর · ২০১৪",passed_2012:"পাসের বছর · ২০১২",present:"বর্তমান",former:"সাবেক",job_chemist:"টেকনিক্যাল কেমিস্ট",job_current_note:"বর্তমানে কর্মরত",job_bkash:"কাস্টমার সার্ভিস অফিসার",job_writer:"কনটেন্ট রাইটার",job_qc:"কোয়ালিটি কন্ট্রোল অফিসার",former_role:"পূর্ববর্তী কর্ম-অভিজ্ঞতা",projects_t:"নির্বাচিত",projects_e:"প্রজেক্ট",projects_s:"আমার একটি ব্যক্তিগত ডিজিটাল প্রজেক্ট।",project_desc:"ফটোগ্রাফি, পেশাগত পরিচয় ও সৃজনশীল কাজকে একত্র করা ব্যক্তিগত পোর্টফোলিও।",project_live:"লাইভ ওয়েবসাইট দেখুন ↗",mail_note:"মেসেজ পাঠানোর জন্য আপনার ইমেইল অ্যাপ খুলবে।",whatsapp_btn:"WhatsApp-এ যোগাযোগ",copy_email:"ইমেইল কপি করুন",cv_request:"CV চাইতে ইমেইল করুন"}
+  skill_chem:"রসায়ন",skill_chem_p:"পেশাগত কাজ ও বিশ্লেষণধর্মী চিন্তাভাবনা।",skill_photo:"ফটোগ্রাফি",skill_photo_p:"আলো, বিস্তারিত ও অর্থবহ মুহূর্ত ধারণ।",skill_web:"ওয়ার্ডপ্রেস ও ওয়েবসাইট",skill_web_p:"রেসপন্সিভ ওয়েব অভিজ্ঞতা তৈরি ও শেখা।",skill_write:"লেখালেখি",skill_write_p:"সহজ, পরিষ্কার লেখা ও সৃজনশীল যোগাযোগ।",
+  journey_t:"আমার",journey_e:"যাত্রা",journey_s:"আমার কাজকে গড়ে তোলা পেশাগত ও সৃজনশীল আগ্রহ।",journey_chem:"কর্মজীবন",journey_chem_p:"শিল্প-পরিবেশে কেমিস্ট হিসেবে কাজ, যেখানে নির্ভুলতা ও সমস্যা সমাধানে গুরুত্ব দিই।",journey_creative:"সৃজনশীল জীবন",journey_creative_p:"আলোকচিত্র, ওয়ার্ডপ্রেসে ওয়েবসাইট তৈরি ও লেখালেখি আমার সৃজনশীল যাত্রার অংশ।",journey_note:"শেখা, পেশাগত অভিজ্ঞতা ও ধারাবাহিক উন্নতির মধ্য দিয়ে গড়ে ওঠা এক যাত্রা।",
+  edu_heading:"শিক্ষাগত যোগ্যতা",career_heading:"কর্মজীবনের অভিজ্ঞতা",edu_msc:"বিজ্ঞান বিষয়ে স্নাতকোত্তর ডিগ্রি",edu_bsc:"বিজ্ঞান বিষয়ে স্নাতক ডিগ্রি",edu_hsc:"উচ্চ মাধ্যমিক সনদ",edu_ssc:"মাধ্যমিক স্কুল সনদ",edu_nu:"জাতীয় বিশ্ববিদ্যালয়, বাংলাদেশ",passed_2022:"উত্তীর্ণ · ২০২২",passed_2020:"উত্তীর্ণ · ২০২০",passed_2014:"উত্তীর্ণ · ২০১৪",passed_2012:"উত্তীর্ণ · ২০১২",present:"বর্তমান",former:"সাবেক",job_chemist:"কারিগরি রসায়নবিদ",job_current_note:"বর্তমানে কর্মরত",job_bkash:"গ্রাহকসেবা কর্মকর্তা",job_writer:"লেখক",job_qc:"মান নিয়ন্ত্রণ কর্মকর্তা",former_role:"পূর্ববর্তী কর্ম-অভিজ্ঞতা",projects_t:"নির্বাচিত",projects_e:"কাজ",projects_s:"আমার একটি ব্যক্তিগত ডিজিটাল উদ্যোগ।",project_desc:"আলোকচিত্র, পেশাগত পরিচয় ও সৃজনশীল কাজকে একত্র করা ব্যক্তিগত পরিচিতিমূলক ওয়েবসাইট।",project_live:"ওয়েবসাইটটি দেখুন ↗",mail_note:"মেসেজ পাঠানোর জন্য আপনার ইমেইল অ্যাপ খুলবে।",whatsapp_btn:"হোয়াটসঅ্যাপে বার্তা পাঠান",copy_email:"ইমেইল ঠিকানা কপি করুন",cv_request:"জীবনবৃত্তান্ত চাইতে ইমেইল পাঠান",skip_content:"মূল কনটেন্টে যান",creative_space:"আমার সৃজনশীল পরিসর",bangladesh_caps:"বাংলাদেশ",creative_projects:"সৃজনশীল কাজ",digital_experiences:"ডিজিটাল অভিজ্ঞতা",visual_storytelling:"ছবিতে গল্প বলা",technology:"প্রযুক্তি",sonar_college:"সোনার বাংলা ইউনিভার্সিটি কলেজ",sonaimuri_school:"সোনাইমুড়ী সরকারি মডেল উচ্চ বিদ্যালয়",weixing_company:"ওয়েইশিং ইন্ডাস্ট্রিয়াল (বিডি) কোম্পানি লিমিটেড — এসএবি",bkash_company:"বিকাশ লিমিটেড",nexton_company:"নেক্সটন ডিজিটাল",ayu_company:"হার্বস অ্যান্ড হেলথ ল্যাবরেটরিজ (আয়ু)",personal_portfolio:"ব্যক্তিগত পরিচিতিমূলক ওয়েবসাইট",photography:"আলোকচিত্র",web_design:"ওয়েবসাইট নকশা",founder:"অরিয়ন গ্রাফির প্রতিষ্ঠাতা",install_app:"অ্যাপটি স্থাপন করুন",preferences_title:"ওয়েবসাইটের পছন্দসমূহ",pref_language:"ভাষা",english:"ইংরেজি",pref_appearance:"দেখার ধরন",dark:"গাঢ়",light:"হালকা",pref_motion:"অ্যানিমেশনের মাত্রা",normal:"স্বাভাবিক",low:"কম",off:"বন্ধ",reduce_motion:"চলাচলের প্রভাব কমান",autoplay:"স্বয়ংক্রিয়ভাবে স্লাইডশো চালু করুন",pref_note:"আপনার পছন্দগুলো এই ডিভাইসে সংরক্ষিত থাকবে।",pref_reset:"পছন্দগুলো নতুন করে নির্ধারণ করুন",skill_modal_kicker:"দক্ষতা ও আগ্রহ",details:"বিস্তারিত",photo_viewer:"ছবি দেখার পর্দা",close_viewer:"ছবি দেখার পর্দা বন্ধ করুন",previous_photo:"আগের ছবি",next_photo:"পরের ছবি",photo_controls:"ছবির নিয়ন্ত্রণ",zoom_out:"ছোট করে দেখুন",zoom_reset:"স্বাভাবিক আকারে দেখুন",zoom_in:"বড় করে দেখুন",download_photo:"ছবি সংরক্ষণ করুন",add_favorite:"পছন্দের তালিকায় যোগ করুন",photo_details:"ছবির বিস্তারিত",start_slideshow:"ছবির প্রদর্শনী চালু করুন",back_top:"ওপরে ফিরে যান",total_visitors:"মোট দর্শক",close_preferences:"পছন্দের সেটিংস বন্ধ করুন",close_details:"বিস্তারিত বন্ধ করুন",open_chemistry:"রসায়নের বিস্তারিত খুলুন",open_photography:"আলোকচিত্রের বিস্তারিত খুলুন",open_web:"ওয়েবসাইট তৈরির বিস্তারিত খুলুন",open_writing:"লেখালেখির বিস্তারিত খুলুন",interest_areas:"আগ্রহের বিষয়সমূহ",footer_navigation:"নিচের অংশের নেভিগেশন",social_links:"সামাজিক যোগাযোগের মাধ্যম",change_language:"ভাষা পরিবর্তন করুন",toggle_theme:"গাঢ় ও হালকা রূপ বদলান",website_preferences:"ওয়েবসাইটের পছন্দসমূহ",full_name:"মাহমুদ উদয়",language_title:"ভাষা",theme_title:"দেখার রূপ",local_datetime:"বাংলাদেশের স্থানীয় তারিখ ও সময়",open_gallery:"আলোকচিত্রের সংগ্রহ খুলুন",identity_ribbon:"মাহমুদ উদয় — অরিয়ন গ্রাফি",project_artwork:"অরিয়ন গ্রাফির কাজের চিত্র",verified:"যাচাইকৃত",profile_alt:"মাহমুদ উদয়ের ছবি",currency:"টাকা",mahmud:"মাহমুদ",uday:"উদয়",orion:"অরিয়ন",graphy:"গ্রাফি",orion_graphy:"অরিয়ন গ্রাফি",instagram:"ইনস্টাগ্রাম",facebook:"ফেসবুক",whatsapp:"হোয়াটসঅ্যাপ",change_welcome_language:"স্বাগতম পর্দার ভাষা পরিবর্তন করুন",wedding:"বিয়ে",travel:"ভ্রমণ",event:"অনুষ্ঠান"}
 };
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -2450,11 +2481,12 @@ let ri=0;const rw=$("#roleword");
 /* ---------- welcome screen language + enter ---------- */
 const welcomeCopy={
  en:{kicker:"A PERSONAL SPACE",greeting:"Welcome — glad you're here.",copy:"A little space where professional life meets creativity. Explore my journey, interests, projects and the moments I capture through my lens.",meta:["Chemist","Hobby Photographer","WordPress & Writing"],enter:"Enter Website",foot:"BANGLADESH · ORION GRAPHY",toggle:"বাংলা"},
- bn:{kicker:"আমার ব্যক্তিগত পরিসরে স্বাগতম",greeting:"স্বাগতম — তোমাকে পেয়ে ভালো লাগছে।",copy:"এটি এমন একটি ছোট্ট পরিসর, যেখানে পেশাগত অভিজ্ঞতার সঙ্গে সৃজনশীলতার মেলবন্ধন ঘটেছে। এখানে আমার পথচলা, আগ্রহ, প্রজেক্ট এবং ক্যামেরায় ধরে রাখা মুহূর্তগুলো ঘুরে দেখতে পারো।",meta:["কেমিস্ট","শখের ফটোগ্রাফার","ওয়ার্ডপ্রেস ও লেখালেখি"],enter:"ওয়েবসাইটে প্রবেশ করুন",foot:"বাংলাদেশ · ORION GRAPHY",toggle:"EN"}
+ bn:{kicker:"আমার ব্যক্তিগত পরিসরে স্বাগতম",greeting:"স্বাগতম — তোমাকে পেয়ে ভালো লাগছে।",copy:"এটি এমন একটি ছোট্ট পরিসর, যেখানে পেশাগত অভিজ্ঞতার সঙ্গে সৃজনশীলতার মেলবন্ধন ঘটেছে। এখানে আমার পথচলা, আগ্রহ, প্রজেক্ট এবং ক্যামেরায় ধরে রাখা মুহূর্তগুলো ঘুরে দেখতে পারো।",meta:["রসায়নবিদ","শখের আলোকচিত্রী","ওয়ার্ডপ্রেস ও লেখালেখি"],enter:"ওয়েবসাইটে প্রবেশ করুন",foot:"বাংলাদেশ · অরিয়ন গ্রাফি",toggle:"ইংরেজি"}
 };
 function updateWelcome(){
   const d=welcomeCopy[lang]||welcomeCopy.en;
   $("#welcome-kicker-text").textContent=d.kicker;
+  $("#welcome-name").textContent=lang==="bn"?"মাহমুদ উদয়":"MAHMUD UDAY";
   $("#welcome-greeting").textContent=d.greeting;
   $("#welcome-copy").textContent=d.copy;
   $("#welcome-meta").innerHTML=d.meta.map(x=>`<span>${x}</span>`).join("");
@@ -2582,19 +2614,31 @@ function applyLang(){
   const d=T[lang];
   document.documentElement.lang=lang;document.body.classList.toggle("bn",lang==="bn");
   $$("[data-i]").forEach(e=>{if(d[e.dataset.i])e.textContent=d[e.dataset.i]});
-  $$("[data-ph]").forEach(e=>e.placeholder=d[e.dataset.ph]);
-  $("#lang").textContent=lang==="en"?"বাং":"EN";
+  $$('[data-ph]').forEach(e=>e.placeholder=d[e.dataset.ph]);
+  $$('[data-aria]').forEach(e=>{if(d[e.dataset.aria])e.setAttribute('aria-label',d[e.dataset.aria])});
+  $$('[data-title]').forEach(e=>{if(d[e.dataset.title])e.title=d[e.dataset.title]});
+  $$('[data-alt]').forEach(e=>{if(d[e.dataset.alt])e.alt=d[e.dataset.alt]});
+  document.title=lang==="bn"?"মাহমুদ উদয় | অরিয়ন গ্রাফি":"Mahmud Uday | Orion Graphy";
+  const wl=$("#welcome-lang");if(wl)wl.setAttribute("aria-label",lang==="bn"?"স্বাগতম পর্দার ভাষা পরিবর্তন করুন":"Change welcome language");
+  $("#lang").textContent=lang==="en"?"বাং":"ইং";
+  const yearNode=$("#yr");if(yearNode)yearNode.textContent=new Date().getFullYear().toLocaleString(lang==="bn"?"bn-BD":"en-US");
+  const cachedVisits=store.get("orion_vcount"),visitNode=$("#vcount");if(visitNode&&cachedVisits!==null&&/^\d+$/.test(cachedVisits))visitNode.textContent=Number(cachedVisits).toLocaleString(lang==="bn"?"bn-BD":"en-US");
+  $$("#soc .s-card").forEach((el,i)=>{const name=CONFIG.socials[i]?.name||"";const local=lang==="bn"?({Instagram:"ইনস্টাগ্রাম",Facebook:"ফেসবুক",WhatsApp:"হোয়াটসঅ্যাপ",Email:"ইমেইল"}[name]||name):name;el.title=local;el.setAttribute("aria-label",local)});
   rw.textContent=d["r"+(ri+1)];
   if(typeof tickClock==="function")tickClock();
   else if(typeof updateHeroGreeting==="function")updateHeroGreeting();
-  buildFilters();
+  if(CONFIG.photos.length){
+    const catBn={portrait:"প্রতিকৃতি",nature:"প্রকৃতি",street:"পথঘাট",wedding:"বিয়ে",travel:"ভ্রমণ",event:"অনুষ্ঠান",other:"ছবি"};
+    CONFIG.photos.forEach((p,i)=>{const n=lang==="bn"?(i+1).toLocaleString("bn-BD"):i+1;p.title=(lang==="bn"?(catBn[p.cat]||"ছবি"):(p.cat==="other"?"Photo":cap(p.cat)))+" "+n});
+    buildGrid();
+  } else buildFilters();
 }
 $("#lang").onclick=()=>{lang=lang==="en"?"bn":"en";store.set("lang",lang);applyLang()};
 function applyTheme(){document.documentElement.dataset.theme=theme;$("#theme").textContent=theme==="dark"?"☀":"🌙"}
 $("#theme").onclick=()=>{theme=theme==="dark"?"light":"dark";store.set("theme",theme);applyTheme()};
 
 /* Bangladesh clock + time-aware hero greeting */
-const bdTimeFmt=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
+const bdTimeFmt=()=>new Intl.DateTimeFormat(lang==="bn"?"bn-BD":"en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Dhaka"});
 const bdHourFmt=new Intl.DateTimeFormat("en-GB",{hour:"2-digit",hourCycle:"h23",timeZone:"Asia/Dhaka"});
 function updateHeroGreeting(now=new Date()){
   const hour=Number(bdHourFmt.format(now));
@@ -2612,7 +2656,7 @@ function updateHeroGreeting(now=new Date()){
 const bdDateFmt=()=>new Intl.DateTimeFormat(lang==="bn"?"bn-BD":"en-GB",{day:"2-digit",month:"short",year:"numeric",timeZone:"Asia/Dhaka"});
 const tickClock=()=>{
   const now=new Date();
-  $("#clock").textContent=bdTimeFmt.format(now);
+  $("#clock").textContent=bdTimeFmt().format(now);
   $("#bd-date").textContent=bdDateFmt().format(now);
   updateHeroGreeting(now);
 };
@@ -2626,7 +2670,8 @@ const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
 async function scan(cat){
   const names=n=>cat==="other"?[`photo${n}`,`photo-${n}`]:[`${cat}-${n}`];
   const find=async n=>{for(const b of names(n)){const s=`images/${b}.jpg`;if(await exists(s))return s}return null};
-  const mk=(src,n)=>({src,cat,title:(cat==="other"?"Photo":cap(cat))+" "+n});
+  const catBn={portrait:"প্রতিকৃতি",nature:"প্রকৃতি",street:"পথঘাট",wedding:"বিয়ে",travel:"ভ্রমণ",event:"অনুষ্ঠান",other:"ছবি"};
+  const mk=(src,n)=>({src,cat,title:(lang==="bn"?(catBn[cat]||"ছবি"):(cat==="other"?"Photo":cap(cat)))+" "+(lang==="bn"?n.toLocaleString("bn-BD"):n)});
   const first=await find(1);if(!first)return[];
   const out=[mk(first,1)];let n=2;
   while(n<=CONFIG.max){
@@ -2642,7 +2687,7 @@ async function loadPhotos(){
   CONFIG.photos=groups.flat();
   if(!CONFIG.photos.length){
     CONFIG.photos=["portrait","nature","street","portrait","nature","street","nature","portrait","street"]
-      .map((c,i)=>({src:`images/demo${i}.jpg`,cat:c,title:cap(c)+" "+(i+1)}));
+      .map((c,i)=>({src:`images/demo${i}.jpg`,cat:c,title:(lang==="bn"?({portrait:"প্রতিকৃতি",nature:"প্রকৃতি",street:"পথঘাট"}[c]||"ছবি"):cap(c))+" "+(lang==="bn"?(i+1).toLocaleString("bn-BD"):i+1)}));
   }
 }
 function buildFilters(){
@@ -2676,7 +2721,7 @@ function filter(anim){
     });
     const rest=total-LIMIT;
     $("#moreWrap").classList.toggle("hide",expanded||rest<=0);
-    $("#moreN").textContent=rest>0?`(+${rest})`:"";
+    $("#moreN").textContent=rest>0?`(+${lang==="bn"?rest.toLocaleString("bn-BD"):rest})`:"";
   };
   if(!anim){apply();return}
   items.forEach(el=>el.classList.add("out"));
@@ -2697,7 +2742,8 @@ function resetLbZoom(){lbScale=1;applyLbZoom()}
 function showLb(){
   const p=CONFIG.photos[visible[idx]],g=grads[visible[idx]%grads.length];lbScale=1;
   $("#lbimg").innerHTML=`<img id="lbPhoto" src="${p.src}" alt="${p.title}" decoding="async" draggable="false" onerror="this.outerHTML='<div class=fb style=background:linear-gradient(135deg,${g})>${p.title}</div>'">`;
-  $("#lbc").textContent=`${p.title}  •  ${idx+1}/${visible.length}`;
+  const currentNo=lang==="bn"?(idx+1).toLocaleString("bn-BD"):idx+1,totalNo=lang==="bn"?visible.length.toLocaleString("bn-BD"):visible.length;
+  $("#lbc").textContent=`${p.title}  •  ${currentNo}/${totalNo}`;
   const im=$("#lbPhoto");if(im){im.style.animation="none";im.style.opacity="1";im.addEventListener("dblclick",()=>{lbScale=lbScale>1.05?1:2;applyLbZoom()});im.addEventListener("wheel",e=>{e.preventDefault();lbScale=Math.max(1,Math.min(4,lbScale+(e.deltaY<0?.2:-.2)));applyLbZoom()},{passive:false});
     im.addEventListener("touchstart",e=>{if(e.touches.length===2){lbStartDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);lbStartScale=lbScale}},{passive:true});
     im.addEventListener("touchmove",e=>{if(e.touches.length===2&&lbStartDist>0){e.preventDefault();const dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);lbScale=Math.max(1,Math.min(4,lbStartScale*dist/lbStartDist));applyLbZoom()}},{passive:false});
@@ -2754,12 +2800,12 @@ const ICONS={
  email:`<svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="3" fill="#fff"/><path d="M1 7.2l11 7.6 11-7.6" fill="none" stroke="#EA4335" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/><path d="M1 7v10a3 3 0 003 3h1.5V9.4z" fill="#4285F4"/><path d="M23 7v10a3 3 0 01-3 3h-1.5V9.4z" fill="#34A853"/><path d="M5.5 9.4L12 14l6.5-4.6V6.2L12 10.8 5.5 6.2z" fill="#EA4335"/></svg>`
 };
 $("#soc").innerHTML=CONFIG.socials.map((s,i)=>`
-  <div class="rv fx-z" style="transition-delay:${i*90}ms"><a class="s-card glass gl tilt" href="${s.url}" target="_blank" rel="noopener" title="${s.name}" aria-label="${s.name}"><span class="ic">${ICONS[s.icon]}</span></a></div>`).join("");
+  <div class="rv fx-z" style="transition-delay:${i*90}ms"><a class="s-card glass gl tilt" href="${s.url}" target="_blank" rel="noopener" title="${lang==="bn"?({Instagram:"ইনস্টাগ্রাম",Facebook:"ফেসবুক",WhatsApp:"হোয়াটসঅ্যাপ",Email:"ইমেইল"}[s.name]||s.name):s.name}" aria-label="${lang==="bn"?({Instagram:"ইনস্টাগ্রাম",Facebook:"ফেসবুক",WhatsApp:"হোয়াটসঅ্যাপ",Email:"ইমেইল"}[s.name]||s.name):s.name}"><span class="ic">${ICONS[s.icon]}</span></a></div>`).join("");
 
 /* contact (opens email app) */
 $("#form").onsubmit=e=>{e.preventDefault();
-  const b=encodeURIComponent(`${$("#fm").value}\n\nFrom: ${$("#fn").value} (${$("#fe").value})`);
-  location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent("Portfolio message from "+$("#fn").value)}&body=${b}`;
+  const b=encodeURIComponent(`${$("#fm").value}\n\n${lang==="bn"?"প্রেরক: ":"From: "}${$("#fn").value} (${$("#fe").value})`);
+  location.href=`mailto:${CONFIG.email}?subject=${encodeURIComponent((lang==="bn"?"ওয়েবসাইটের বার্তা — ":"Portfolio message from ")+$("#fn").value)}&body=${b}`;
 };
 $("#copyEmail").onclick=async()=>{try{await navigator.clipboard.writeText(CONFIG.email);$("#copyEmail").textContent=lang==="bn"?"কপি হয়েছে ✓":"Copied ✓"}catch(e){location.href=`mailto:${CONFIG.email}`}};
 
@@ -2793,7 +2839,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3150",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3160",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
@@ -2802,10 +2848,10 @@ journeyCards.forEach(el=>{el.addEventListener("click",()=>activateCard(el,journe
 
 const skillModal=$("#skill-modal"),skillModalTitle=$("#skill-modal-title"),skillModalIcon=$("#skill-modal-icon"),skillModalCopy=$("#skill-modal-copy"),skillModalTags=$("#skill-modal-tags");
 const skillDetails={
- chemistry:{icon:"⚗",title:{en:"Chemistry",bn:"কেমিস্ট্রি"},body:{en:["I work as a Technical Chemist at Weixing Industrial (BD) Co., Ltd. (SAB), Cumilla EPZ.","My professional work is connected with industrial electroplating processes, routine bath analysis, monitoring chemical parameters and supporting consistent production quality.","I value careful measurement, documentation, safe laboratory practice and practical problem-solving."],bn:["আমি কুমিল্লা ইপিজেডে Weixing Industrial (BD) Co., Ltd. (SAB)-এ Technical Chemist হিসেবে কাজ করি।","আমার পেশাগত কাজের সঙ্গে ইন্ডাস্ট্রিয়াল ইলেক্ট্রোপ্লেটিং প্রক্রিয়া, নিয়মিত বাথ অ্যানালাইসিস, কেমিক্যাল প্যারামিটার পর্যবেক্ষণ এবং উৎপাদনের মান বজায় রাখতে সহায়তা করা জড়িত।","সঠিক পরিমাপ, ডকুমেন্টেশন, নিরাপদ ল্যাবরেটরি অনুশীলন ও বাস্তবভিত্তিক সমস্যা সমাধানকে গুরুত্ব দিই।"]},tags:{en:["Technical Chemist","Electroplating","Bath Analysis","Quality Focus"],bn:["টেকনিক্যাল কেমিস্ট","ইলেক্ট্রোপ্লেটিং","বাথ অ্যানালাইসিস","কোয়ালিটি"]}},
- photography:{icon:"📷",title:{en:"Photography",bn:"ফটোগ্রাফি"},body:{en:["Photography is a personal hobby and a creative outlet for me — not a professional photography service.","I enjoy noticing natural light, colours, textures and everyday moments, then experimenting with framing and composition to tell a simple visual story.","I keep learning through practice and exploring different scenes with my camera."],bn:["ফটোগ্রাফি আমার ব্যক্তিগত শখ এবং সৃজনশীলতার একটি মাধ্যম—এটি আমার পেশাদার ফটোগ্রাফি সার্ভিস নয়।","প্রাকৃতিক আলো, রং, টেক্সচার ও দৈনন্দিন জীবনের ছোট ছোট মুহূর্ত খেয়াল করতে ভালোবাসি। ফ্রেমিং ও কম্পোজিশনের মাধ্যমে সহজ একটি দৃশ্যকে গল্পের মতো তুলে ধরার চেষ্টা করি।","নিয়মিত অনুশীলন ও বিভিন্ন দৃশ্য ক্যামেরাবন্দি করার মাধ্যমে শিখে যাচ্ছি।"]},tags:{en:["Hobby Photography","Natural Light","Composition","Visual Storytelling"],bn:["শখের ফটোগ্রাফি","প্রাকৃতিক আলো","কম্পোজিশন","ভিজ্যুয়াল স্টোরিটেলিং"]}},
- web:{icon:"⌘",title:{en:"WordPress & the Web",bn:"ওয়ার্ডপ্রেস ও ওয়েব"},body:{en:["I am interested in WordPress and modern web experiences, especially clean layouts, responsive behaviour and practical features.","I enjoy learning by building and improving personal web projects, exploring how design, usability and performance work together.","ORION GRAPHY is my personal space to experiment with these ideas."],bn:["ওয়ার্ডপ্রেস ও আধুনিক ওয়েব অভিজ্ঞতা নিয়ে আমার আগ্রহ রয়েছে—বিশেষ করে পরিচ্ছন্ন লেআউট, রেসপন্সিভ ডিজাইন ও ব্যবহারিক ফিচার।","নিজের ওয়েব প্রজেক্ট তৈরি ও উন্নত করার মাধ্যমে শেখতে ভালোবাসি; ডিজাইন, ব্যবহারযোগ্যতা ও পারফরম্যান্স কীভাবে একসঙ্গে কাজ করে তা অন্বেষণ করি।","ORION GRAPHY এই বিষয়গুলো নিয়ে পরীক্ষা-নিরীক্ষা করার আমার ব্যক্তিগত জায়গা।"]},tags:{en:["WordPress","Responsive Design","Web UI","Personal Projects"],bn:["ওয়ার্ডপ্রেস","রেসপন্সিভ ডিজাইন","ওয়েব UI","ব্যক্তিগত প্রজেক্ট"]}},
- writing:{icon:"✍",title:{en:"Content Writing",bn:"কনটেন্ট রাইটিং"},body:{en:["I have previous experience as a Content Writer at Nexton Digital.","I enjoy presenting information in a clear, structured and reader-friendly way, adapting the tone to the purpose and audience.","I am interested in useful digital content, thoughtful communication and continuously improving my writing."],bn:["আমি আগে Nexton Digital-এ Content Writer হিসেবে কাজ করেছি।","তথ্যকে সহজ, গোছানো ও পাঠকবান্ধবভাবে উপস্থাপন করতে ভালোবাসি। বিষয় ও পাঠকের প্রয়োজন অনুযায়ী লেখার ধরন মানিয়ে নেওয়ার চেষ্টা করি।","উপকারী ডিজিটাল কনটেন্ট, অর্থবহ যোগাযোগ এবং লেখার মান ধারাবাহিকভাবে উন্নত করার বিষয়ে আগ্রহী।"]},tags:{en:["Content Writing","Clear Communication","Digital Content","Editing"],bn:["কনটেন্ট রাইটিং","স্পষ্ট যোগাযোগ","ডিজিটাল কনটেন্ট","সম্পাদনা"]}}
+ chemistry:{icon:"⚗",title:{en:"Chemistry",bn:"কেমিস্ট্রি"},body:{en:["I work as a Technical Chemist at Weixing Industrial (BD) Co., Ltd. (SAB), Cumilla EPZ.","My professional work is connected with industrial electroplating processes, routine bath analysis, monitoring chemical parameters and supporting consistent production quality.","I value careful measurement, documentation, safe laboratory practice and practical problem-solving."],bn:["আমি কুমিল্লা রপ্তানি প্রক্রিয়াকরণ অঞ্চলে ওয়েইশিং ইন্ডাস্ট্রিয়াল (বিডি) কোম্পানি লিমিটেডে কারিগরি রসায়নবিদ হিসেবে কাজ করি।","আমার পেশাগত কাজের সঙ্গে শিল্পকারখানার ধাতব প্রলেপ প্রক্রিয়া, নিয়মিত দ্রবণ বিশ্লেষণ, রাসায়নিক উপাদানের মাত্রা পর্যবেক্ষণ এবং উৎপাদনের মান বজায় রাখতে সহায়তা করা জড়িত।","সঠিক পরিমাপ, ডকুমেন্টেশন, নিরাপদ ল্যাবরেটরি অনুশীলন ও বাস্তবভিত্তিক সমস্যা সমাধানকে গুরুত্ব দিই।"]},tags:{en:["Technical Chemist","Electroplating","Bath Analysis","Quality Focus"],bn:["কারিগরি রসায়নবিদ","ধাতব প্রলেপ","দ্রবণ বিশ্লেষণ","মান নিয়ন্ত্রণ"]}},
+ photography:{icon:"📷",title:{en:"Photography",bn:"ফটোগ্রাফি"},body:{en:["Photography is a personal hobby and a creative outlet for me — not a professional photography service.","I enjoy noticing natural light, colours, textures and everyday moments, then experimenting with framing and composition to tell a simple visual story.","I keep learning through practice and exploring different scenes with my camera."],bn:["আলোকচিত্র আমার ব্যক্তিগত শখ এবং সৃজনশীলতার একটি মাধ্যম—এটি আমার পেশাদার আলোকচিত্র সেবা নয়।","প্রাকৃতিক আলো, রং, বুনট ও দৈনন্দিন জীবনের ছোট ছোট মুহূর্ত খেয়াল করতে ভালোবাসি। ছবির বিন্যাসের মাধ্যমে সহজ একটি দৃশ্যকে গল্পের মতো তুলে ধরার চেষ্টা করি।","নিয়মিত অনুশীলন ও বিভিন্ন দৃশ্য ক্যামেরাবন্দি করার মাধ্যমে শিখে যাচ্ছি।"]},tags:{en:["Hobby Photography","Natural Light","Composition","Visual Storytelling"],bn:["শখের আলোকচিত্র","প্রাকৃতিক আলো","ছবির বিন্যাস","ছবিতে গল্প বলা"]}},
+ web:{icon:"⌘",title:{en:"WordPress & the Web",bn:"ওয়ার্ডপ্রেস ও ওয়েব"},body:{en:["I am interested in WordPress and modern web experiences, especially clean layouts, responsive behaviour and practical features.","I enjoy learning by building and improving personal web projects, exploring how design, usability and performance work together.","ORION GRAPHY is my personal space to experiment with these ideas."],bn:["ওয়ার্ডপ্রেস ও আধুনিক ওয়েব অভিজ্ঞতা নিয়ে আমার আগ্রহ রয়েছে—বিশেষ করে পরিচ্ছন্ন বিন্যাস, সব পর্দায় মানানসই নকশা ও ব্যবহারিক সুবিধা।","নিজের ওয়েবসাইট তৈরি ও উন্নত করার মাধ্যমে শিখতে ভালোবাসি; নকশা, ব্যবহারযোগ্যতা ও গতি কীভাবে একসঙ্গে কাজ করে তা অন্বেষণ করি।","অরিয়ন গ্রাফি এই বিষয়গুলো নিয়ে পরীক্ষা-নিরীক্ষা করার আমার ব্যক্তিগত জায়গা।"]},tags:{en:["WordPress","Responsive Design","Web UI","Personal Projects"],bn:["ওয়ার্ডপ্রেস","সব পর্দায় মানানসই নকশা","ওয়েবসাইটের দৃশ্যরূপ","ব্যক্তিগত কাজ"]}},
+ writing:{icon:"✍",title:{en:"Content Writing",bn:"কনটেন্ট রাইটিং"},body:{en:["I have previous experience as a Content Writer at Nexton Digital.","I enjoy presenting information in a clear, structured and reader-friendly way, adapting the tone to the purpose and audience.","I am interested in useful digital content, thoughtful communication and continuously improving my writing."],bn:["আমি আগে নেক্সটন ডিজিটালে লেখক হিসেবে কাজ করেছি।","তথ্যকে সহজ, গোছানো ও পাঠকবান্ধবভাবে উপস্থাপন করতে ভালোবাসি। বিষয় ও পাঠকের প্রয়োজন অনুযায়ী লেখার ধরন মানিয়ে নেওয়ার চেষ্টা করি।","উপকারী ডিজিটাল কনটেন্ট, অর্থবহ যোগাযোগ এবং লেখার মান ধারাবাহিকভাবে উন্নত করার বিষয়ে আগ্রহী।"]},tags:{en:["Content Writing","Clear Communication","Digital Content","Editing"],bn:["লেখালেখি","স্পষ্ট যোগাযোগ","ডিজিটাল লেখা","সম্পাদনা"]}}
 };
 let lastSkillTrigger=null;
 function closeSkillModal(){skillModal.classList.remove("open");skillModal.setAttribute("aria-hidden","true");document.body.style.overflow="";skillCards.forEach(x=>x.setAttribute("aria-pressed","false"));if(lastSkillTrigger)lastSkillTrigger.focus()}
@@ -2838,12 +2884,12 @@ addEventListener("keydown",e=>{if(e.key==="Escape"&&skillModal.classList.contain
     }finally{clearTimeout(timer)}
   };
   const show=value=>{
-    num.textContent=value.toLocaleString("en-US");
+    num.textContent=value.toLocaleString(lang==="bn"?"bn-BD":"en-US");
     num.removeAttribute("aria-busy");
     store.set(CACHE,String(value));
   };
   const cached=Number(store.get(CACHE));
-  if(Number.isSafeInteger(cached)&&cached>0){num.textContent=cached.toLocaleString("en-US");num.title="Last recorded total; refreshing…"}
+  if(Number.isSafeInteger(cached)&&cached>0){num.textContent=cached.toLocaleString(lang==="bn"?"bn-BD":"en-US");num.title=lang==="bn"?"সর্বশেষ সংরক্ষিত মোট সংখ্যা; হালনাগাদ হচ্ছে…":"Last recorded total; refreshing…"}
   num.setAttribute("aria-busy","true");
   (async()=>{
     const now=Date.now(),last=Number(store.get(LAST));
@@ -2853,11 +2899,11 @@ addEventListener("keydown",e=>{if(e.key==="Escape"&&skillModal.classList.contain
       const value=await request(action);
       if(isNewSession)store.set(LAST,String(now));
       show(value);
-      num.title="Total recorded visitor sessions (one count per browser every 30 minutes)";
+      num.title=lang==="bn"?"মোট দর্শক সেশন (প্রতি ব্রাউজারে ৩০ মিনিটে একবার গণনা)":"Total recorded visitor sessions (one count per browser every 30 minutes)";
     }catch(error){
       num.removeAttribute("aria-busy");
       if(!(Number.isSafeInteger(cached)&&cached>0))num.textContent="—";
-      num.title="Live visitor count is temporarily unavailable";
+      num.title=lang==="bn"?"এই মুহূর্তে দর্শকসংখ্যা পাওয়া যাচ্ছে না":"Live visitor count is temporarily unavailable";
     }
   })();
 })();
@@ -2928,11 +2974,11 @@ $$(".rv").filter(e=>!e.closest("#home")).forEach((e,i)=>{
  function fmtExposure(v){if(!v)return null;return v<1?`1/${Math.round(1/v)}s`:`${Number(v.toFixed(2))}s`}
  async function loadExif(){const p=CONFIG.photos[visible[idx]];if(!p)return;exifPanel.hidden=false;exifPanel.textContent=lang==="bn"?"ছবির তথ্য দেখা হচ্ছে…":"Reading photo details…";
    try{let d=exifCache.get(p.src);if(!d){const response=await fetch(p.src,{cache:"force-cache"});if(!response.ok)throw new Error("Image unavailable");const buf=await response.arrayBuffer();d=parseExif(buf);exifCache.set(p.src,d)}
-     if(!d){exifPanel.textContent=lang==="bn"?"এই ছবিতে EXIF তথ্য পাওয়া যায়নি।":"No readable EXIF data found in this image.";return}
+     if(!d){exifPanel.textContent=lang==="bn"?"এই ছবিতে সংরক্ষিত তথ্য পাওয়া যায়নি।":"No readable EXIF data found in this image.";return}
      const rows=[];const add=(label,value)=>{if(value!==undefined&&value!==null&&value!=="")rows.push(`<div><b>${label}</b> ${String(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}</div>`)};
-     const i=d._ifd0||d;add("Camera",[i[0x010f],i[0x0110]].filter(Boolean).join(" "));add("Date",d[0x9003]||i[0x0132]);add("Exposure",fmtExposure(d[0x829a]));add("Aperture",d[0x829d]?`f/${Number(d[0x829d]).toFixed(1)}`:null);add("ISO",d[0x8827]);add("Focal length",d[0x920a]?`${Number(d[0x920a]).toFixed(1)} mm`:null);
-     exifPanel.innerHTML=rows.length?`<div class="exif-grid">${rows.join("")}</div>`:(lang==="bn"?"এই ছবিতে দেখানোর মতো EXIF তথ্য নেই।":"No useful EXIF fields are embedded in this photo.");
-   }catch(e){exifPanel.textContent=lang==="bn"?"এই ছবির তথ্য পড়া যাচ্ছে না (সম্ভবত ফাইলটি cross-origin)।":"Could not read this image's metadata (the file may be cross-origin)."}
+     const i=d._ifd0||d,labels=lang==="bn"?{Camera:"ক্যামেরা",Date:"তারিখ",Exposure:"এক্সপোজার",Aperture:"অ্যাপারচার",ISO:"আইএসও","Focal length":"ফোকাল দৈর্ঘ্য"}:{Camera:"Camera",Date:"Date",Exposure:"Exposure",Aperture:"Aperture",ISO:"ISO","Focal length":"Focal length"};add(labels.Camera,[i[0x010f],i[0x0110]].filter(Boolean).join(" "));add(labels.Date,d[0x9003]||i[0x0132]);add(labels.Exposure,fmtExposure(d[0x829a]));add(labels.Aperture,d[0x829d]?`${lang==="bn"?"এফ/":"f/"}${Number(d[0x829d]).toFixed(1)}`:null);add(labels.ISO,d[0x8827]);add(labels["Focal length"],d[0x920a]?`${Number(d[0x920a]).toFixed(1)} ${lang==="bn"?"মিমি":"mm"}`:null);
+     exifPanel.innerHTML=rows.length?`<div class="exif-grid">${rows.join("")}</div>`:(lang==="bn"?"এই ছবিতে দেখানোর মতো কোনো অতিরিক্ত তথ্য নেই।":"No useful EXIF fields are embedded in this photo.");
+   }catch(e){exifPanel.textContent=lang==="bn"?"এই ছবির তথ্য পড়া যাচ্ছে না (সম্ভবত ছবিটি অন্য উৎস থেকে এসেছে)।":"Could not read this image's metadata (the file may be cross-origin)."}
  }
  exifBtn.addEventListener("click",()=>{if(exifPanel.hidden)loadExif();else exifPanel.hidden=true});
  const stopSlide=()=>{if(slideTimer)clearInterval(slideTimer);slideTimer=null;slideBtn.classList.remove("is-playing");slideBtn.textContent="▶";slideBtn.title=lang==="bn"?"স্লাইডশো চালু করো":"Start slideshow"};
