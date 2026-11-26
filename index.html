@@ -1867,6 +1867,175 @@ main .btn.pri:hover,#contact .contact-submit:hover{background:linear-gradient(11
 }
 </style>
 
+
+
+<style id="orion-v3150-rounded-gallery-welcome">
+/* V3.15.0 — softer geometry, a lighter gallery unlock path and a bespoke welcome composition. */
+:root{
+  --orion-radius-card:14px;
+  --orion-radius-control:10px;
+  --orion-radius-small:8px;
+  --orion-radius-pill:999px;
+}
+/* Replace the overly sharp editorial corners with one consistent, quiet radius system. */
+main .glass,main .card,main .extra-card,main .timeline-group,main .project-card,
+main .contact-shell,main .about-txt.glass,main .srv .card,main .skill-cloud,
+main .timeline-item,main .s-card,main .contact-direct-item,
+#about .rframe,#about .avatar,#projects .project-art,
+#gallery #grid .item,#gallery #grid .im,#gallery .lock,
+#contact .contact-form-wrap,footer .footer-inner{
+  border-radius:var(--orion-radius-card)!important;
+}
+main .si,main .mini-icon,main .contact-direct-icon,
+#gallery .filters button,#gallery .filter-btn,
+#contact input,#contact textarea,.project-tags span,.roles .role,
+.skill-chip,.timeline-year{
+  border-radius:var(--orion-radius-small)!important;
+}
+main .btn,main button.btn,#contact .contact-submit,
+#gallery .more-btn,#gallery .slider,#gallery .knob,
+#contact .contact-form-wrap button{
+  border-radius:var(--orion-radius-pill)!important;
+}
+#gallery #grid .im{overflow:hidden}
+#gallery #grid .item{overflow:hidden}
+#gallery #grid .im img{border-radius:inherit}
+#about .about-txt.glass{border-left-width:2px!important}
+#contact .contact-direct-item{border-radius:var(--orion-radius-control)!important}
+/* Gallery unlock: the old 18px blur plus a 1.2s max-height layout animation forced
+   repeated large-area rasterization/reflow while the visitor was scrolling. */
+#vault{transition:none!important;overflow-anchor:none;scroll-margin-top:24px}
+#vault .inner{filter:none!important;opacity:1;transform:none;transition:opacity .22s ease!important}
+#vault.locked .inner{filter:none!important;opacity:.24;pointer-events:none;user-select:none;-webkit-user-select:none}
+#vault.locked .item::before{animation:none!important}
+#vault .lock{transition:opacity .28s ease,visibility .28s ease!important;transform:none!important}
+#vault.open .lock{transform:none!important}
+#vault .lock-ic{animation:none!important}
+#vault .slider .knob{animation:none!important}
+#vault .slider .fill{transition:width .18s ease!important}
+/* Bespoke welcome: deep blue-charcoal, mineral teal and one warm practical bulb. */
+#welcome{
+  --lamp-x:82%;
+  color:#e9f0f3;
+  background:
+    radial-gradient(ellipse 42% 54% at 82% 16%,rgba(104,177,174,.13),transparent 74%),
+    radial-gradient(ellipse 52% 60% at 8% 100%,rgba(76,112,145,.12),transparent 76%),
+    linear-gradient(132deg,#09121b 0%,#101c27 52%,#0a141e 100%);
+}
+#welcome::before{
+  background:
+    radial-gradient(ellipse 36% 48% at 82% 16%,rgba(124,194,188,.12),transparent 76%),
+    radial-gradient(ellipse 66% 68% at 48% 100%,rgba(104,139,163,.055),transparent 78%),
+    linear-gradient(115deg,rgba(255,255,255,.018),transparent 42%,rgba(0,0,0,.18));
+}
+#welcome::after{
+  opacity:.12;
+  background-image:radial-gradient(rgba(218,235,239,.28) .55px,transparent .7px);
+  background-size:5px 5px;
+  mask-image:radial-gradient(ellipse at 50% 48%,#000 10%,transparent 86%);
+}
+.welcome-glow{background:radial-gradient(circle,rgba(113,184,181,.12),rgba(95,145,164,.035) 42%,transparent 72%);filter:none!important}
+.welcome-ambient{
+  opacity:.8;
+  background:
+    radial-gradient(ellipse 28% 38% at var(--lamp-x) 14%,rgba(255,205,137,.13),transparent 76%),
+    radial-gradient(ellipse 72% 72% at 42% 100%,rgba(136,175,194,.045),transparent 76%);
+}
+.welcome-shell{
+  width:min(100%,740px);
+  margin-right:clamp(0px,10vw,170px);
+  padding:clamp(34px,5vw,62px) clamp(26px,5vw,58px);
+  text-align:left;
+  border:1px solid rgba(160,194,204,.19);
+  border-radius:26px;
+  background:linear-gradient(145deg,rgba(24,39,51,.96),rgba(17,30,41,.94) 58%,rgba(14,26,37,.96));
+  box-shadow:0 30px 90px rgba(0,0,0,.38),inset 0 1px 0 rgba(226,241,245,.075),0 0 70px rgba(75,142,150,.055);
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+.welcome-shell::before{
+  border-radius:25px;
+  background:linear-gradient(125deg,rgba(222,242,244,.07),transparent 30%,transparent 72%,rgba(117,183,179,.045));
+}
+.welcome-kicker{
+  border-color:rgba(131,190,188,.25);background:rgba(110,177,174,.085);color:#a9d4d0;
+  font-size:.68rem;letter-spacing:.2em;padding:9px 14px;
+}
+.welcome-dot{background:#91c9c3;box-shadow:0 0 10px rgba(137,207,198,.45)}
+.welcome-name{
+  display:inline-block;margin:25px 0 12px;padding:.06em .035em .12em;
+  font-size:clamp(2.8rem,7.4vw,5.6rem);line-height:1.16;letter-spacing:-.052em;
+  background:linear-gradient(108deg,#f2f7f8 8%,#c5d7dc 52%,#e9f2f2 92%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 8px 34px rgba(162,201,208,.07);
+}
+.welcome-name::after{background:linear-gradient(105deg,transparent,rgba(210,241,239,.17),transparent);animation-duration:12s}
+.welcome-greeting{color:#b6d9d7;font-size:clamp(1.08rem,2.5vw,1.42rem);font-weight:560;letter-spacing:-.012em}
+.welcome-copy{max-width:540px;margin:0;color:rgba(226,237,240,.76);font-size:clamp(.95rem,1.45vw,1.06rem);line-height:1.82}
+.welcome-meta{justify-content:flex-start;gap:8px;margin:24px 0 26px}
+.welcome-meta span{padding:8px 12px;border-radius:999px;border-color:rgba(153,194,198,.19);background:rgba(151,197,199,.055);color:rgba(224,239,241,.82);font-size:.76rem}
+.welcome-foot{margin:24px 0 0;color:rgba(177,204,209,.52);font-size:.68rem;letter-spacing:.16em}
+#welcome-lang{
+  border-color:rgba(146,194,194,.22);background:rgba(20,39,50,.82);color:#d4e7e8;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+}
+/* The lamp remains in its established upper-right position; finish it like satin graphite. */
+.welcome-lamp::after{background:radial-gradient(circle,rgba(255,201,132,.16),rgba(255,188,119,.045) 38%,transparent 72%);opacity:.72}
+.lamp-cable{background:linear-gradient(#52616b,#82949a)}
+.lamp-shade{filter:drop-shadow(0 8px 13px rgba(0,0,0,.48))}
+.lamp-shade defs stop:first-child{stop-color:#d2dfe0}
+.lamp-shade defs stop:nth-child(2){stop-color:#62747b}
+.lamp-shade defs stop:last-child{stop-color:#26343c}
+.lamp-shade path:nth-of-type(1){fill:#75868a}
+.lamp-shade path:nth-of-type(2){stroke:#9fb6b8}
+.lamp-shade path:nth-of-type(3){fill:#34444a}
+.lamp-shade path:nth-of-type(4){fill:#f4d5a2;opacity:.16}
+.lamp-bulb{background:#ffe2b0;box-shadow:0 0 16px 7px rgba(255,205,137,.32)}
+.cord-line{background:linear-gradient(90deg,#596b73,#b1c3c2 48%,#53646b);box-shadow:0 0 3px rgba(187,216,214,.22)}
+.cord-knob{background:linear-gradient(90deg,#52636b,#b4c4c2 48%,#53646b);box-shadow:0 4px 12px rgba(0,0,0,.42),inset 0 1px 2px rgba(255,255,255,.35)}
+.cord-knob span{background:#f5e3c3}
+.pull-cord::after{background:radial-gradient(circle,rgba(255,206,143,.12),transparent 68%)}
+.pull-cord:focus-visible .cord-knob{outline-color:#b5dedb}
+.pull-hint{color:rgba(184,220,218,.9);text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.pull-hint-arrow{filter:none}
+.pull-hint-arrow path{stroke:#a8d2ce}
+.welcome-light-burst{
+  background:radial-gradient(ellipse 48% 68% at var(--lamp-x) 1%,rgba(255,226,180,.92) 0%,rgba(255,205,146,.38) 23%,rgba(192,223,218,.10) 48%,transparent 76%);
+}
+#welcome.illuminating .welcome-shell{
+  border-color:rgba(172,220,215,.38);
+  box-shadow:0 30px 90px rgba(0,0,0,.34),inset 0 1px 0 rgba(226,241,245,.09),0 0 58px rgba(104,185,177,.10);
+}
+.welcome-loader{color:rgba(181,216,215,.76)}
+.welcome-loader-dots i{background:#9ed2cc}
+@media(min-width:761px){
+  .welcome-shell{transform:translateX(-2.5vw)}
+  .welcome-meta span{transition:background .2s ease,border-color .2s ease,transform .2s ease}
+  .welcome-meta span:hover{transform:translateY(-2px);border-color:rgba(160,214,208,.38);background:rgba(117,184,178,.10)}
+}
+@media(max-width:760px){
+  #welcome{padding:22px 18px}
+  .welcome-shell{width:min(100%,620px);margin:clamp(54px,9vh,82px) 0 0;transform:none;text-align:center;padding:34px 22px 30px;border-radius:22px}
+  .welcome-shell::before{border-radius:21px}
+  .welcome-name{font-size:clamp(2.45rem,11vw,4rem);letter-spacing:-.048em;margin-top:21px}
+  .welcome-copy{margin-inline:auto;line-height:1.72}
+  .welcome-meta{justify-content:center;gap:7px;margin:20px 0 22px}
+  .welcome-meta span{font-size:.7rem;padding:7px 10px}
+  .welcome-foot{margin-top:19px;font-size:.62rem}
+  .pull-hint{color:rgba(184,220,218,.9)}
+}
+@media(max-width:380px){
+  .welcome-shell{padding:30px 16px 26px}
+  .welcome-name{font-size:clamp(2.2rem,10.8vw,2.7rem)}
+  .welcome-meta span{font-size:.66rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .welcome-name::after,.welcome-dust i,.pull-hint,.pull-hint-arrow,.cord-line,.cord-knob,.welcome-lamp::after{animation:none!important}
+  .welcome-shell,.welcome-light-burst,.welcome-ambient{transition:none!important}
+  #vault .inner,#vault .lock{transition:none!important}
+}
+html.lite .welcome-dust i:nth-child(n+4){display:none}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -2555,10 +2724,13 @@ let dragging=false,downX=0,offX=0,moved=0,x=0,max=0;
 const setX=v=>{x=Math.max(0,Math.min(max,v));knob.style.transform=`translateX(${x}px)`;fill.style.width=(x+64)+"px";sl.style.setProperty("--p",max?x/max:0)};
 function unlock(){
   if(vault.classList.contains("open"))return;
-  max=sl.clientWidth-64;setX(max);
-  vault.style.maxHeight=vault.scrollHeight+"px";
+  max=Math.max(0,sl.clientWidth-64);setX(max);
+  /* Expand once; avoid animating max-height across a large masonry image grid. */
+  vault.style.transition="none";
+  vault.style.maxHeight="none";
+  vault.style.overflow="visible";
   vault.classList.remove("locked");vault.classList.add("open");
-  setTimeout(()=>{vault.style.maxHeight="none";vault.style.overflow="visible"},1300);
+  requestAnimationFrame(()=>{vault.style.removeProperty("transition")});
 }
 knob.addEventListener("pointerdown",e=>{
   dragging=true;moved=0;downX=e.clientX;max=sl.clientWidth-64;offX=e.clientX-x;
@@ -2621,7 +2793,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3140",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3150",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
