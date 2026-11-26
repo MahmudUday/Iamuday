@@ -1723,6 +1723,39 @@ footer{background:var(--orion-ink)!important}
 }
 </style>
 
+
+<style id="orion-v313-scroll-typography-contact">
+/* V3.13.0 — clear greeting glyphs, perceptible scroll reveals, aligned contact actions. */
+/* Keep the animated greeting inside a generous line box so ascenders/descenders never clip. */
+#home .hero-title{line-height:1.16!important;overflow:visible!important;padding-block:.025em .045em}
+#home .ln{overflow:visible!important;line-height:1.16!important;padding:.10em .045em .17em!important}
+#home .ln>span{display:inline-block;max-width:100%;padding:.015em .025em .035em;line-height:1.16!important;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+#home #hero-greeting{letter-spacing:-.035em;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+/* Reveal close to the viewport: visible motion, short travel, opacity/transform only. */
+.rv{opacity:0;transform:translate3d(0,20px,0)!important;transition:opacity .48s cubic-bezier(.2,.75,.25,1),transform .48s cubic-bezier(.2,.75,.25,1)!important;transition-delay:0s!important}
+.rv.fx-l,.rv.fx-r,.rv.fx-d{transform:translate3d(0,20px,0)!important}
+.rv.fx-z{transform:translate3d(0,16px,0) scale(.99)!important}
+.rv.in,.rv.fx-l.in,.rv.fx-r.in,.rv.fx-z.in,.rv.fx-d.in{opacity:1!important;transform:translate3d(0,0,0) scale(1)!important;will-change:auto}
+/* Small, intentional stagger for section headings and their supporting copy. */
+section>h2.rv{transition-delay:.025s!important}
+section>.sub.rv{transition-delay:.075s!important}
+/* Keep contact icon, copy and external arrow in three stable columns. */
+#contact .contact-direct-item{display:grid!important;grid-template-columns:40px minmax(0,1fr) 20px!important;align-items:center!important;justify-content:initial!important;gap:13px!important;padding:13px 14px!important;text-align:left!important}
+#contact .contact-direct-item>.contact-direct-icon{grid-column:1;grid-row:1;width:40px;height:40px;margin:0!important;justify-self:start;align-self:center}
+#contact .contact-direct-item>span:nth-child(2){grid-column:2;grid-row:1;min-width:0;width:100%;justify-self:stretch;text-align:left!important}
+#contact .contact-direct-item>.contact-arrow{grid-column:3;grid-row:1;justify-self:center;align-self:center;margin:0!important;position:static!important;transform:none!important}
+#contact .contact-direct-item:hover>.contact-arrow{transform:translate(2px,-2px)!important}
+/* Restrained micro-interactions; no animated filters, shadows or layout-heavy effects. */
+#contact .contact-direct-icon{transition:transform .28s cubic-bezier(.2,.75,.25,1),border-color .28s ease!important}
+@media(hover:hover){#contact .contact-direct-item:hover .contact-direct-icon{transform:translateY(-2px)!important}}
+#services .card,#skills .extra-card,#projects .project-card,#journey .timeline-group{transition:transform .32s cubic-bezier(.2,.75,.25,1),border-color .32s ease!important}
+@media(hover:hover){#services .card:hover,#skills .extra-card:hover,#projects .project-card:hover{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){
+ .rv,.rv.in,.rv.fx-l,.rv.fx-r,.rv.fx-z,.rv.fx-d{opacity:1!important;transform:none!important;transition:none!important}
+ #contact .contact-direct-item,#contact .contact-direct-icon,#services .card,#skills .extra-card,#projects .project-card{transition:none!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#home">Skip to content</a>
@@ -2262,7 +2295,7 @@ const io=new IntersectionObserver(entries=>{
       for(const el of batch)el.classList.add("in");
     });
   }
-},{root:null,threshold:0,rootMargin:"80px 0px 140px 0px"});
+},{root:null,threshold:0.08,rootMargin:"0px 0px -8% 0px"});
 
 /* ---------- language / theme / menu ---------- */
 function applyLang(){
@@ -2477,7 +2510,7 @@ const installBtn=$("#installApp");
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;if(installBtn)installBtn.hidden=false});
 if(installBtn)installBtn.onclick=async()=>{if(!deferredInstallPrompt)return;deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;installBtn.hidden=true};
 addEventListener("appinstalled",()=>{if(installBtn)installBtn.hidden=true});
-if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3120",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
+if("serviceWorker" in navigator)addEventListener("load",()=>navigator.serviceWorker.register("./sw.js?v=3130",{updateViaCache:"none"}).then(reg=>reg.update()).catch(()=>{}));
 
 /* ---------- Interactive journey and skills ---------- */
 function activateCard(el,group){const active=!el.classList.contains("is-active");group.forEach(x=>{x.classList.remove("is-active");x.setAttribute(group[0].classList.contains("timeline-item")?"aria-expanded":"aria-pressed","false")});if(active){el.classList.add("is-active");el.setAttribute("aria-pressed","true")}}
